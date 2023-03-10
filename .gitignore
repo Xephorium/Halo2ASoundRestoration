@@ -4,8 +4,8 @@
 *.iml
 
 # Input Files
-input/
+Source/input/
 
 # Build Files
-build/
-out/
+Source/build/
+Source/out/
