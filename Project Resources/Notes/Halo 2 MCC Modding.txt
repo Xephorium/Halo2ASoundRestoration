@@ -76,6 +76,10 @@ Tool Documentation: https://c20.reclaimers.net/h2/tools/h2-ek/h2-tool/
                          seem to be an additional bass layer that plays alongside standard sounds
                          to give them more punch. Can be safely deleted.
 
+   Required Fixes (remaster | classic)
+    sword_ready.sound | energy_sword_ready.sound
+
+
 2. Manual Fixes (Is Guerrilla scripting possible?)
 
     Weapons

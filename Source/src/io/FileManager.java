@@ -81,7 +81,7 @@ public class FileManager {
         }
     }
 
-    public static boolean deleteFileOrDirectory(File targetFile) {
+    public static boolean deleteDirectory(File targetFile) {
         try {
             FileUtils.deleteDirectory(targetFile);
             return true;
@@ -90,9 +90,28 @@ public class FileManager {
         }
     }
 
-    public static boolean copyFileOrDirectory(File sourceFile, File destinationFile) {
+    public static boolean deleteFile(File targetFile) {
+        try {
+            FileUtils.deleteQuietly(targetFile);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            return false;
+        }
+    }
+
+    public static boolean copyDirectory(File sourceFile, File destinationFile) {
         try {
             FileUtils.copyDirectory(sourceFile, destinationFile);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static boolean copyFile(File sourceFile, File destinationFile) {
+        try {
+            FileUtils.copyFile(sourceFile, destinationFile);
             return true;
         } catch (Exception e) {
             return false;
@@ -102,8 +121,20 @@ public class FileManager {
 
     /*--- Utility Methods ---*/
 
+    public static boolean exists(File file) {
+        return file.exists();
+    }
+
+    public static boolean isValidFile(File file) {
+        return file.isFile();
+    }
+
     public static boolean isValidDirectory(File file) {
         return file.isDirectory();
+    }
+
+    public static File createSubdirectoryFile(File file, String additionalPath) {
+        return new File(file.getPath() + additionalPath);
     }
 
     public static String getFileOrDirectoryName(File file) {

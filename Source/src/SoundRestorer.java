@@ -1,5 +1,11 @@
 
-import io.DirectoryRepository;
+import io.FileManager;
+
+import java.io.File;
+import java.util.Arrays;
+import java.util.List;
+
+import static javafx.application.Platform.exit;
 
 /* Halo 2A Sound Restoration                         Chris Cruzen
  * SoundRestorer                                       03.10.2023
@@ -28,14 +34,172 @@ public class SoundRestorer {
 
     /*--- Constants ---*/
 
+    private final String CONFIG_FILE_PATH = "input\\/Config.txt";
+    private final String CONFIG_DIR_PREFIX = "TAGS_DIRECTORY=";
+    private final String CONFIG_DELIMITER = "=";
+
+    private final String WEAPONS_SUBDIR_PATH = "\\/sound_remastered\\/weapons";
+    private final String[] WEAPON_DELETE_SUBSTRINGS = {"lod", "swtnr", "lfe"};
+    private final String[] WEAPON_IGNORE_SUBSTRINGS = {"sound_looping"};
+
 
     /*--- Variables ---*/
 
+    private File rootTagDirectory = null;
 
-    /*--- Methods ---*/
+
+    /*--- Public Methods ---*/
+
+    public SoundRestorer() {
+        initializeRootTagDirectory();
+    }
 
     public void restoreSound() {
-        DirectoryRepository directoryRepository = new DirectoryRepository();
+        restoreWeaponAudio();
+    }
+
+
+    /*--- Config Initialization Method ---*/
+
+    private void initializeRootTagDirectory() {
+        List<String> dirFileContents = FileManager.readFileContents(new File(CONFIG_FILE_PATH));
+
+        if (dirFileContents != null) {
+            for (String line : dirFileContents)
+                if (line.contains(CONFIG_DIR_PREFIX)) {
+                    rootTagDirectory = new File(line.split(CONFIG_DELIMITER)[1].trim());
+
+                    if (!FileManager.isValidDirectory(rootTagDirectory)) {
+                        System.out.printf(
+                                "CONFIG ERROR: Tag directory '%s' does not exist.%n",
+                                rootTagDirectory.getPath()
+                        );
+                        exit();
+                    }
+                }
+        } else {
+            System.out.println("CONFIG ERROR: Configuration file missing.");
+            exit();
+        }
+
+        if (rootTagDirectory == null) {
+            System.out.println("CONFIG ERROR: Problem with Configuration file format.");
+            exit();
+        }
+    }
+
+
+    /*--- Weapon Audio Restoration Methods ---*/
+
+    private void restoreWeaponAudio() {
+        File remasteredWeaponDir = FileManager.createSubdirectoryFile(rootTagDirectory, WEAPONS_SUBDIR_PATH);
+        if (FileManager.isValidDirectory(remasteredWeaponDir)) {
+
+            walkWeaponDirectory(remasteredWeaponDir);
+
+            //checkDirectoryForClassicTags(remasteredWeaponDir, 0);
+        }
+    }
+
+    /* Recursively walks the remastered weapon tag directory, replacing each with their classic
+     * counterpart and deleting those that aren't needed.
+     */
+    private void walkWeaponDirectory(File remasteredFile) {
+
+        if (FileManager.isValidFile(remasteredFile)) {
+            RestoreClassicWeaponTag(remasteredFile);
+
+        } else if(FileManager.isValidDirectory(remasteredFile)) {
+
+            // Recourse Through Subdirectories
+            List<File> subDirs = FileManager.getSubdirectories(remasteredFile);
+            for (File dir: subDirs) walkWeaponDirectory(dir);
+
+            // Recourse Through Tags
+            List<File> files = FileManager.getDirectoryFiles(remasteredFile);
+            for (File file: files) walkWeaponDirectory(file);
+        }
+    }
+
+    private void RestoreClassicWeaponTag(File remasteredTag) {
+        File classicTag = getClassicFile(remasteredTag);
+        String remasteredTagName = FileManager.getFileOrDirectoryName(remasteredTag);
+        if (FileManager.exists(classicTag)) {
+
+            // Check Whether to Ignore Tag
+            assert remasteredTagName != null;
+            if (Arrays.stream(WEAPON_IGNORE_SUBSTRINGS).noneMatch(remasteredTagName::contains)) {
+
+                // Replace w/ Classic Tag
+                if (FileManager.deleteFile(remasteredTag)) {
+                    FileManager.copyFile(classicTag, remasteredTag);
+                }
+            }
+
+        } else {
+
+            // Delete Unnecessary Tag
+            assert remasteredTagName != null;
+            if (Arrays.stream(WEAPON_DELETE_SUBSTRINGS).anyMatch(remasteredTagName::contains)) {
+                FileManager.deleteFile(remasteredTag);
+            }
+        }
+    }
+
+
+    /*--- Utility Methods ---*/
+
+    /* Recursively walks directory, printing whether a corresponding classic tag exists for each remastered tag.
+     * KEY: [x] = Tag Exists, [ ] = Tag Absent
+     */
+    private void checkDirectoryForClassicTags(File remasteredFile, int depth) {
+
+        if (FileManager.isValidFile(remasteredFile)) {
+
+            // Print Tag Status
+            File classicSoundTag = getClassicFile(remasteredFile);
+            if (FileManager.exists(classicSoundTag)) {
+                System.out.println(
+                        getRecursiveIndentation(depth) + "[x] " + FileManager.getFileOrDirectoryName(remasteredFile)
+                );
+            } else {
+                System.out.println(
+                        getRecursiveIndentation(depth) + "[ ] " + FileManager.getFileOrDirectoryName(remasteredFile)
+                );
+            }
+
+        } else if(FileManager.isValidDirectory(remasteredFile)) {
+
+            // Print Directory Name
+            System.out.println(
+                    getRecursiveIndentation(depth) + FileManager.getFileOrDirectoryName(remasteredFile)
+            );
+
+            // Recourse Through Subdirectories
+            List<File> subDirs = FileManager.getSubdirectories(remasteredFile);
+            for (File dir: subDirs) {
+                checkDirectoryForClassicTags(dir, depth + 1);
+            }
+
+            // Recourse Through Files
+            List<File> files = FileManager.getDirectoryFiles(remasteredFile);
+            for (File file: files) {
+                checkDirectoryForClassicTags(file, depth + 1);
+            }
+        }
+
+    }
+
+    private String getRecursiveIndentation(int depth) {
+        StringBuilder indentation = new StringBuilder();
+        for (int x = 0; x < depth; x++) {
+            indentation.append("\t");;
+        }
+        return indentation.toString();
+    }
+
+    private File getClassicFile(File file) {
+        return new File(file.getPath().replace("sound_remastered", "sound"));
     }
 
 }

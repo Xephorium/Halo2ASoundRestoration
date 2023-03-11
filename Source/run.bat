@@ -12,4 +12,4 @@ echo Project compiled.
 echo Project running.
 
 :: Run Project (Binaries Read from "build" Directory)
-java -cp build Main
+java -cp build;src\dependencies\apacheio.jar Main
