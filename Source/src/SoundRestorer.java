@@ -39,8 +39,11 @@ public class SoundRestorer {
     private final String CONFIG_DELIMITER = "=";
 
     private final String WEAPONS_SUBDIR_PATH = "\\/sound_remastered\\/weapons";
-    private final String[] WEAPON_DELETE_SUBSTRINGS = {"lod", "swtnr", "lfe"};
+    private final String[] WEAPON_DELETE_SUBSTRINGS = {"lod", "swtnr", "lfe", "bottom"};
     private final String[] WEAPON_IGNORE_SUBSTRINGS = {"sound_looping"};
+
+    private final String SWORD_READY_PATH_CLASSIC = "\\/sound\\/weapons\\/energy_sword\\/sword_ready.sound";
+    private final String SWORD_READY_PATH_REMASTER = "\\/sound_remastered\\/weapons\\/energy_sword\\/energy_sword_ready.sound";
 
 
     /*--- Variables ---*/
@@ -94,8 +97,8 @@ public class SoundRestorer {
     private void restoreWeaponAudio() {
         File remasteredWeaponDir = FileManager.createSubdirectoryFile(rootTagDirectory, WEAPONS_SUBDIR_PATH);
         if (FileManager.isValidDirectory(remasteredWeaponDir)) {
-
             walkWeaponDirectory(remasteredWeaponDir);
+            performManualWeaponTagFixes();
 
             //checkDirectoryForClassicTags(remasteredWeaponDir, 0);
         }
@@ -142,6 +145,21 @@ public class SoundRestorer {
             assert remasteredTagName != null;
             if (Arrays.stream(WEAPON_DELETE_SUBSTRINGS).anyMatch(remasteredTagName::contains)) {
                 FileManager.deleteFile(remasteredTag);
+            }
+        }
+    }
+
+    /* Handles one-off cases where weapon tag files are inconsistently
+     * named or otherwise need special attention.
+     */
+    private void performManualWeaponTagFixes() {
+
+        // Energy Sword Ready
+        File swordReadyClassicTag = FileManager.createSubdirectoryFile(rootTagDirectory, SWORD_READY_PATH_CLASSIC);
+        File swordReadyRemasterTag = FileManager.createSubdirectoryFile(rootTagDirectory, SWORD_READY_PATH_REMASTER);
+        if (FileManager.isValidFile(swordReadyClassicTag) && FileManager.isValidFile(swordReadyRemasterTag)) {
+            if (FileManager.deleteFile(swordReadyRemasterTag)) {
+                FileManager.copyFile(swordReadyClassicTag, swordReadyRemasterTag);
             }
         }
     }

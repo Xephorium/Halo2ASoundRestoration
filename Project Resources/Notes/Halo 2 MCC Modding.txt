@@ -53,9 +53,9 @@ Tool Documentation: https://c20.reclaimers.net/h2/tools/h2-ek/h2-tool/
 
 
 
-///////////////////////////
-// H2A Audio Replacement //
-///////////////////////////
+//////////////////////////////////
+// H2A Weapon Audio Replacement //
+//////////////////////////////////
 
 1. Start by just replacing the tags in the "sound_remaster" folder with their corresponding
    tags in the "sound" folder. This works for *most* sounds. The exceptions:
@@ -76,14 +76,18 @@ Tool Documentation: https://c20.reclaimers.net/h2/tools/h2-ek/h2-tool/
                          seem to be an additional bass layer that plays alongside standard sounds
                          to give them more punch. Can be safely deleted.
 
-   Required Fixes (remaster | classic)
-    sword_ready.sound | energy_sword_ready.sound
+   "*_bottom.sound" Files - A single remaster addition for the plasma rifle. Adds a fire sound
+                            specifically from the bottom of the gun (???). Can be safely deleted.
+
 
 
 2. Manual Fixes (Is Guerrilla scripting possible?)
 
     Weapons
         Plasma Pistol - Max Audio Distance = 120
+        Plasma Rifle - "***_bottom.sound" file needs to be deleted
+        Energy Sword - sword_ready.sound (classic) --> energy_sword_ready.sound (remaster)
+        Sentinel Beam - Weapon audio stored in Character folder! Needs to be updated there.
 
 
 
