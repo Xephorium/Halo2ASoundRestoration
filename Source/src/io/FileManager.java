@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
  *
  * Note: This class relies on the apache.commons.io library.
  *       To compile, the package must be included as a
- *       project dependency.
+ *       classpath of the project's build script.
  */
 
 public class FileManager {
@@ -64,12 +64,10 @@ public class FileManager {
     public static List<String> readFileContents(File file) {
         List<String> fileContents = new ArrayList<>();
         try {
-            fileContents = Files.readAllLines(Paths.get(file.toString()), StandardCharsets.UTF_8);
+            return Files.readAllLines(Paths.get(file.toString()), StandardCharsets.UTF_8);
         } catch (Exception e) {
-            // Do Nothing
+            return null;
         }
-
-        return fileContents;
     }
 
 

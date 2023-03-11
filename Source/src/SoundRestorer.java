@@ -1,4 +1,5 @@
 
+import io.DirectoryRepository;
 
 /* Halo 2A Sound Restoration                         Chris Cruzen
  * SoundRestorer                                       03.10.2023
@@ -19,12 +20,22 @@
  *      package the updated tags into .map files that can finally
  *      be played in the Master Chief Collection.
  *
- * For more info, see 
+ * For more info: `Project Resources/Notes/Halo 2 MCC Modding.txt`.
  */
 
 public class SoundRestorer {
 
+
+    /*--- Constants ---*/
+
+
+    /*--- Variables ---*/
+
+
+    /*--- Methods ---*/
+
     public void restoreSound() {
-        System.out.println("Test");
+        DirectoryRepository directoryRepository = new DirectoryRepository();
     }
+
 }
