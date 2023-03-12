@@ -39,20 +39,51 @@ public class SoundRestorer {
     private final String CONFIG_DELIMITER = "=";
 
     private final String WEAPONS_SUBDIR_PATH = "\\/sound_remastered\\/weapons";
-    private final String[] WEAPON_DELETE_SUBSTRINGS = {"lod", "swtnr", "lfe", "bottom"};
+    private final String[] WEAPON_DELETE_SUBSTRINGS = {"swtnr", "lfe", "bottom"};
     private final String[] WEAPON_IGNORE_SUBSTRINGS = {"sound_looping"};
+    private final String[] WEAPON_REPLACE_PATHS = {
 
-    private final String BEAM_ZOOM_IN_PATH_CLASSIC = "\\/sound\\/weapons\\/beam_rifle\\/beam_rifle_zoom_in.sound";
-    private final String BEAM_ZOOM_IN_PATH_REMASTER = "\\/sound_remastered\\/weapons\\/beam_rifle\\/beamrifle_zoom\\/in.sound";
-    private final String BEAM_ZOOM_OUT_PATH_CLASSIC = "\\/sound\\/weapons\\/beam_rifle\\/beam_rifle_zoom_out.sound";
-    private final String BEAM_ZOOM_OUT_PATH_REMASTER = "\\/sound_remastered\\/weapons\\/beam_rifle\\/beamrifle_zoom\\/out.sound";
-    private final String WARTHOG_TURRET_SPIN_PATH_REMASTER = "\\/sound_remastered\\/weapons\\/chain_gun\\/chaingun_spin.sound";
-    private final String ROCKET_EXPL_PATH_CLASSIC = "\\/sound\\/weapons\\/rocket_launcher\\/rocket_expl.sound";
-    private final String ROCKET_EXPL_PATH_REMASTER = "\\/sound_remastered\\/weapons\\/rocket_launcher\\/projectile_exp\\/close.sound";
-    private final String SWORD_READY_PATH_CLASSIC = "\\/sound\\/weapons\\/energy_sword\\/sword_ready.sound";
-    private final String SWORD_READY_PATH_REMASTER = "\\/sound_remastered\\/weapons\\/energy_sword\\/energy_sword_ready.sound";
+            // Beam Rifle Zoom In/Out
+            "\\/sound\\/weapons\\/beam_rifle\\/beam_rifle_zoom_in.sound",
+            "\\/sound_remastered\\/weapons\\/beam_rifle\\/beamrifle_zoom\\/in.sound",
+            "\\/sound\\/weapons\\/beam_rifle\\/beam_rifle_zoom_out.sound",
+            "\\/sound_remastered\\/weapons\\/beam_rifle\\/beamrifle_zoom\\/out.sound",
+
+            // Rocket Explosion
+            "\\/sound\\/weapons\\/rocket_launcher\\/rocket_expl.sound",
+            "\\/sound_remastered\\/weapons\\/rocket_launcher\\/projectile_exp\\/close.sound",
+
+            // Sentinel Beam Fire
+            "\\/sound\\/characters\\/sentinel\\/sentinel_gun\\/sent_gun\\/in.sound",
+            "\\/sound_remastered\\/characters\\/sentinel\\/sentinel_gun_lod\\/sent_gun\\/in.sound",
+            "\\/sound\\/characters\\/sentinel\\/sentinel_gun\\/sent_gun\\/loop.sound",
+            "\\/sound_remastered\\/characters\\/sentinel\\/sentinel_gun_lod\\/sent_gun\\/loop.sound",
+            "\\/sound\\/characters\\/sentinel\\/sentinel_gun\\/sent_gun\\/out.sound",
+            "\\/sound_remastered\\/characters\\/sentinel\\/sentinel_gun_lod\\/sent_gun\\/out.sound",
+
+            // Sword Ready
+            "\\/sound\\/weapons\\/energy_sword\\/sword_ready.sound",
+            "\\/sound_remastered\\/weapons\\/energy_sword\\/energy_sword_ready.sound"
+    };
+    private final String[] WEAPON_DELETE_PATHS = {
+
+            // Warthog Turret Spin
+            "\\/sound_remastered\\/weapons\\/chain_gun\\/chaingun_spin.sound"
+    };
 
     private final String SENTINEL_SOUND_PATH = "\\/sound_remastered\\/characters\\/sentinel";
+    private final String[] CHARACTER_REPLACE_PATHS = {
+
+            // Sentinel Enforcer Needles
+            "\\/sound\\/characters\\/sentinel\\/needler_fire_sentinel_enforcer.sound",
+            "\\/sound_remastered\\/characters\\/sentinel\\/sentinel_enforcer_laser.sound"
+
+    };
+    private final String[] CHARACTER_DELETE_PATHS = {
+
+            // Sentinel Enforcer Rocket
+            "\\/sound_remastered\\/characters\\/sentinel\\/sentinel_rocket_launcher\\/sentinel_rocket\\/in.sound"
+    };
 
 
     /*--- Variables ---*/
@@ -68,6 +99,7 @@ public class SoundRestorer {
 
     public void restoreSound() {
         restoreWeaponAudio();
+        restoreCharacterAudio();
     }
 
 
@@ -163,20 +195,46 @@ public class SoundRestorer {
      */
     private void performManualWeaponTagFixes() {
 
-        // Beam Rifle Zoom In
-        replaceTag(BEAM_ZOOM_IN_PATH_REMASTER, BEAM_ZOOM_IN_PATH_CLASSIC);
+        // Replace Necessary Weapon Tags
+        for (int x = 1; x < WEAPON_REPLACE_PATHS.length; x += 2) {
+            replaceTag(WEAPON_REPLACE_PATHS[x], WEAPON_REPLACE_PATHS[x-1]);
+        }
 
-        // Warthog Turret
-        deleteTag(WARTHOG_TURRET_SPIN_PATH_REMASTER);
+        // Delete Necessary Weapon Tags
+        for (String weaponDeletePath : WEAPON_DELETE_PATHS) {
+            deleteTag(weaponDeletePath);
+        }
 
-        // Beam Rifle Zoom Out
-        replaceTag(BEAM_ZOOM_OUT_PATH_REMASTER, BEAM_ZOOM_OUT_PATH_CLASSIC);
+        /* NOTE: Sentinel Beam weapon sounds are stored in the character directory
+         *       and handled in the performManualCharacterTagFixes() method.
+         */
+    }
 
-        // Rocket Launcher Explosion
-        replaceTag(ROCKET_EXPL_PATH_REMASTER, ROCKET_EXPL_PATH_CLASSIC);
 
-        // Energy Sword Ready
-        replaceTag(SWORD_READY_PATH_REMASTER, SWORD_READY_PATH_CLASSIC);
+    /*--- Character Audio Restoration Methods ---*/
+
+    private void restoreCharacterAudio() {
+        performManualCharacterTagFixes();
+    }
+
+    /* Handles one-off cases where character tag files are inconsistently
+     * named or otherwise need special attention.
+     */
+    private void performManualCharacterTagFixes() {
+
+        // Update Sentinel Sounds
+        File sentinelTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, SENTINEL_SOUND_PATH);
+        if (FileManager.isValidDirectory(sentinelTagDir)) walkWeaponDirectory(sentinelTagDir);
+
+        // Replace Necessary Character Tags
+        for (int x = 1; x < CHARACTER_REPLACE_PATHS.length; x += 2) {
+            replaceTag(CHARACTER_REPLACE_PATHS[x], CHARACTER_REPLACE_PATHS[x-1]);
+        }
+
+        // Delete Necessary Character Tags
+        for (String characterDeletePath : CHARACTER_DELETE_PATHS) {
+            deleteTag(characterDeletePath);
+        }
     }
 
 
