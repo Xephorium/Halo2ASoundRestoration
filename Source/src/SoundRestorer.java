@@ -164,50 +164,19 @@ public class SoundRestorer {
     private void performManualWeaponTagFixes() {
 
         // Beam Rifle Zoom In
-        File beamZoomInClassicTag = FileManager.createSubdirectoryFile(rootTagDirectory, BEAM_ZOOM_IN_PATH_CLASSIC);
-        File beamZoomInRemasterTag = FileManager.createSubdirectoryFile(rootTagDirectory, BEAM_ZOOM_IN_PATH_REMASTER);
-        if (FileManager.isValidFile(beamZoomInClassicTag) && FileManager.isValidFile(beamZoomInRemasterTag)) {
-            if (FileManager.deleteFile(beamZoomInRemasterTag)) {
-                FileManager.copyFile(beamZoomInClassicTag, beamZoomInRemasterTag);
-            }
-        }
+        replaceTag(BEAM_ZOOM_IN_PATH_REMASTER, BEAM_ZOOM_IN_PATH_CLASSIC);
 
         // Warthog Turret
-        File warthogTurretSpinTag = FileManager.createSubdirectoryFile(rootTagDirectory, WARTHOG_TURRET_SPIN_PATH_REMASTER);
-        if (FileManager.isValidFile(warthogTurretSpinTag)) FileManager.deleteFile(warthogTurretSpinTag);
+        deleteTag(WARTHOG_TURRET_SPIN_PATH_REMASTER);
 
         // Beam Rifle Zoom Out
-        File beamZoomOutClassicTag = FileManager.createSubdirectoryFile(rootTagDirectory, BEAM_ZOOM_OUT_PATH_CLASSIC);
-        File beamZoomOutRemasterTag = FileManager.createSubdirectoryFile(rootTagDirectory, BEAM_ZOOM_OUT_PATH_REMASTER);
-        if (FileManager.isValidFile(beamZoomOutClassicTag) && FileManager.isValidFile(beamZoomOutRemasterTag)) {
-            if (FileManager.deleteFile(beamZoomOutRemasterTag)) {
-                FileManager.copyFile(beamZoomOutClassicTag, beamZoomOutRemasterTag);
-            }
-        }
+        replaceTag(BEAM_ZOOM_OUT_PATH_REMASTER, BEAM_ZOOM_OUT_PATH_CLASSIC);
 
         // Rocket Launcher Explosion
-        File rocketExplClassicTag = FileManager.createSubdirectoryFile(rootTagDirectory, ROCKET_EXPL_PATH_CLASSIC);
-        File rocketExplRemasterTag = FileManager.createSubdirectoryFile(rootTagDirectory, ROCKET_EXPL_PATH_REMASTER);
-        if (FileManager.isValidFile(rocketExplClassicTag) && FileManager.isValidFile(rocketExplRemasterTag)) {
-            if (FileManager.deleteFile(rocketExplRemasterTag)) {
-                FileManager.copyFile(rocketExplClassicTag, rocketExplRemasterTag);
-            }
-        }
+        replaceTag(ROCKET_EXPL_PATH_REMASTER, ROCKET_EXPL_PATH_CLASSIC);
 
         // Energy Sword Ready
-        File swordReadyClassicTag = FileManager.createSubdirectoryFile(rootTagDirectory, SWORD_READY_PATH_CLASSIC);
-        File swordReadyRemasterTag = FileManager.createSubdirectoryFile(rootTagDirectory, SWORD_READY_PATH_REMASTER);
-        if (FileManager.isValidFile(swordReadyClassicTag) && FileManager.isValidFile(swordReadyRemasterTag)) {
-            if (FileManager.deleteFile(swordReadyRemasterTag)) {
-                FileManager.copyFile(swordReadyClassicTag, swordReadyRemasterTag);
-            }
-        }
-
-        // Sentinel Beam
-//        File sentinelTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, SENTINEL_SOUND_PATH);
-//        if (FileManager.isValidDirectory(sentinelTagDir)) {
-//            walkWeaponDirectory(sentinelTagDir);
-//        }
+        replaceTag(SWORD_READY_PATH_REMASTER, SWORD_READY_PATH_CLASSIC);
     }
 
 
@@ -260,6 +229,21 @@ public class SoundRestorer {
             indentation.append("\t");;
         }
         return indentation.toString();
+    }
+
+    private void replaceTag(String sourcePath, String replacementPath) {
+        File sourceTag = FileManager.createSubdirectoryFile(rootTagDirectory, sourcePath);
+        File replacementTag = FileManager.createSubdirectoryFile(rootTagDirectory, replacementPath);
+        if (FileManager.isValidFile(replacementTag) && FileManager.isValidFile(sourceTag)) {
+            if (FileManager.deleteFile(sourceTag)) {
+                FileManager.copyFile(replacementTag, sourceTag);
+            }
+        }
+    }
+
+    private void deleteTag(String tagPath) {
+        File tag = FileManager.createSubdirectoryFile(rootTagDirectory, tagPath);
+        if (FileManager.isValidFile(tag)) FileManager.deleteFile(tag);
     }
 
     private File getClassicFile(File file) {
