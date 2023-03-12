@@ -41,8 +41,6 @@ NOTE: Supports compile flags! :)
 
 2. Run the Following
 
-	tool build-cache-file scenarios\solo\01b_spacestation\01b_spacestation remastered_support
-
 	tool build-cache-file scenarios\solo\01b_spacestation\01b_spacestation dx11_64 remastered_support
 
 
@@ -84,12 +82,17 @@ Tool Documentation: https://c20.reclaimers.net/h2/tools/h2-ek/h2-tool/
 2. Manual Fixes (Is Guerrilla scripting possible?)
 
     Weapons
-        Plasma Pistol - Max Audio Distance = 120
-        Plasma Rifle - "***_bottom.sound" file needs to be deleted
-        Energy Sword - sword_ready.sound (classic) --> energy_sword_ready.sound (remaster)
-        Sentinel Beam - Weapon audio stored in Character folder! Needs to be updated there.
-
-
+        x Plasma Pistol - max fire = 120
+        x Plasma Rifle - "***_bottom.sound" file needs to be deleted
+        x Energy Sword - sword_ready.sound (classic) --> energy_sword_ready.sound (remaster)
+        o Sentinel Beam - Weapon audio stored in Character folder! Needs to be updated there.
+        x Sniper Rifle - Zoom in/out
+        x Magnum
+        x Beam Rifle - beam_rifle_zoom_in.sound (classic) -> beamrifle_zoom/in.sound (remaster), max fire = 300
+        x Rocket - rocket_expl.sound (classic) -> projectile_exp/close.sound (remaster)
+                 zoom in/out (same as sniper?)
+        x Chain Gun - Remastered warthog turret has annoying whirring noise. Can remove by deleting
+                      "weapons/chain_gun/chaingun_spin.sound" in "sound_remaster".
 
 
 

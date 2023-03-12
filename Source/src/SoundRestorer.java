@@ -42,8 +42,17 @@ public class SoundRestorer {
     private final String[] WEAPON_DELETE_SUBSTRINGS = {"lod", "swtnr", "lfe", "bottom"};
     private final String[] WEAPON_IGNORE_SUBSTRINGS = {"sound_looping"};
 
+    private final String BEAM_ZOOM_IN_PATH_CLASSIC = "\\/sound\\/weapons\\/beam_rifle\\/beam_rifle_zoom_in.sound";
+    private final String BEAM_ZOOM_IN_PATH_REMASTER = "\\/sound_remastered\\/weapons\\/beam_rifle\\/beamrifle_zoom\\/in.sound";
+    private final String BEAM_ZOOM_OUT_PATH_CLASSIC = "\\/sound\\/weapons\\/beam_rifle\\/beam_rifle_zoom_out.sound";
+    private final String BEAM_ZOOM_OUT_PATH_REMASTER = "\\/sound_remastered\\/weapons\\/beam_rifle\\/beamrifle_zoom\\/out.sound";
+    private final String WARTHOG_TURRET_SPIN_PATH_REMASTER = "\\/sound_remastered\\/weapons\\/chain_gun\\/chaingun_spin.sound";
+    private final String ROCKET_EXPL_PATH_CLASSIC = "\\/sound\\/weapons\\/rocket_launcher\\/rocket_expl.sound";
+    private final String ROCKET_EXPL_PATH_REMASTER = "\\/sound_remastered\\/weapons\\/rocket_launcher\\/projectile_exp\\/close.sound";
     private final String SWORD_READY_PATH_CLASSIC = "\\/sound\\/weapons\\/energy_sword\\/sword_ready.sound";
     private final String SWORD_READY_PATH_REMASTER = "\\/sound_remastered\\/weapons\\/energy_sword\\/energy_sword_ready.sound";
+
+    private final String SENTINEL_SOUND_PATH = "\\/sound_remastered\\/characters\\/sentinel";
 
 
     /*--- Variables ---*/
@@ -154,6 +163,37 @@ public class SoundRestorer {
      */
     private void performManualWeaponTagFixes() {
 
+        // Beam Rifle Zoom In
+        File beamZoomInClassicTag = FileManager.createSubdirectoryFile(rootTagDirectory, BEAM_ZOOM_IN_PATH_CLASSIC);
+        File beamZoomInRemasterTag = FileManager.createSubdirectoryFile(rootTagDirectory, BEAM_ZOOM_IN_PATH_REMASTER);
+        if (FileManager.isValidFile(beamZoomInClassicTag) && FileManager.isValidFile(beamZoomInRemasterTag)) {
+            if (FileManager.deleteFile(beamZoomInRemasterTag)) {
+                FileManager.copyFile(beamZoomInClassicTag, beamZoomInRemasterTag);
+            }
+        }
+
+        // Warthog Turret
+        File warthogTurretSpinTag = FileManager.createSubdirectoryFile(rootTagDirectory, WARTHOG_TURRET_SPIN_PATH_REMASTER);
+        if (FileManager.isValidFile(warthogTurretSpinTag)) FileManager.deleteFile(warthogTurretSpinTag);
+
+        // Beam Rifle Zoom Out
+        File beamZoomOutClassicTag = FileManager.createSubdirectoryFile(rootTagDirectory, BEAM_ZOOM_OUT_PATH_CLASSIC);
+        File beamZoomOutRemasterTag = FileManager.createSubdirectoryFile(rootTagDirectory, BEAM_ZOOM_OUT_PATH_REMASTER);
+        if (FileManager.isValidFile(beamZoomOutClassicTag) && FileManager.isValidFile(beamZoomOutRemasterTag)) {
+            if (FileManager.deleteFile(beamZoomOutRemasterTag)) {
+                FileManager.copyFile(beamZoomOutClassicTag, beamZoomOutRemasterTag);
+            }
+        }
+
+        // Rocket Launcher Explosion
+        File rocketExplClassicTag = FileManager.createSubdirectoryFile(rootTagDirectory, ROCKET_EXPL_PATH_CLASSIC);
+        File rocketExplRemasterTag = FileManager.createSubdirectoryFile(rootTagDirectory, ROCKET_EXPL_PATH_REMASTER);
+        if (FileManager.isValidFile(rocketExplClassicTag) && FileManager.isValidFile(rocketExplRemasterTag)) {
+            if (FileManager.deleteFile(rocketExplRemasterTag)) {
+                FileManager.copyFile(rocketExplClassicTag, rocketExplRemasterTag);
+            }
+        }
+
         // Energy Sword Ready
         File swordReadyClassicTag = FileManager.createSubdirectoryFile(rootTagDirectory, SWORD_READY_PATH_CLASSIC);
         File swordReadyRemasterTag = FileManager.createSubdirectoryFile(rootTagDirectory, SWORD_READY_PATH_REMASTER);
@@ -162,6 +202,12 @@ public class SoundRestorer {
                 FileManager.copyFile(swordReadyClassicTag, swordReadyRemasterTag);
             }
         }
+
+        // Sentinel Beam
+//        File sentinelTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, SENTINEL_SOUND_PATH);
+//        if (FileManager.isValidDirectory(sentinelTagDir)) {
+//            walkWeaponDirectory(sentinelTagDir);
+//        }
     }
 
 
