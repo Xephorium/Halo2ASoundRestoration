@@ -123,6 +123,9 @@ public class SoundRestorer {
     /*--- Variables ---*/
 
     private File rootTagDirectory = null;
+    private int totalTagsModified = 0;
+    private int totalTagsReplaced = 0;
+    private int totalTagsDeleted = 0;
 
 
 
@@ -133,11 +136,17 @@ public class SoundRestorer {
     }
 
     public void restoreSound() {
+
+        // Restore Classic Audio
         restoreWeaponAudio();
         restoreCharacterAudio();
         restoreUIAudio();
         restoreMusic();
+
+        // Print Statistics
+        printStatistics();
     }
+
 
 
     /*--- Config Initialization Method ---*/
@@ -168,6 +177,7 @@ public class SoundRestorer {
             exit();
         }
     }
+
 
 
     /*--- Weapon Audio Restoration Methods ---*/
@@ -214,6 +224,8 @@ public class SoundRestorer {
                 // Replace w/ Classic Tag
                 if (FileManager.deleteFile(remasteredTag)) {
                     FileManager.copyFile(classicTag, remasteredTag);
+                    totalTagsModified++;
+                    totalTagsReplaced++;
                 }
             }
 
@@ -223,6 +235,8 @@ public class SoundRestorer {
             assert remasteredTagName != null;
             if (Arrays.stream(WEAPON_DELETE_SUBSTRINGS).anyMatch(remasteredTagName::contains)) {
                 FileManager.deleteFile(remasteredTag);
+                totalTagsModified++;
+                totalTagsDeleted++;
             }
         }
     }
@@ -246,6 +260,7 @@ public class SoundRestorer {
          *       and handled in the performManualCharacterTagFixes() method.
          */
     }
+
 
 
     /*--- Character Audio Restoration Methods ---*/
@@ -275,6 +290,7 @@ public class SoundRestorer {
     }
 
 
+
     /*--- UI Audio Restoration Methods ---*/
 
     private void restoreUIAudio() {
@@ -289,6 +305,8 @@ public class SoundRestorer {
         }
     }
 
+
+
     /*--- Music Restoration Methods ---*/
 
     private void restoreMusic() {
@@ -297,6 +315,7 @@ public class SoundRestorer {
         File musicTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, MUSIC_SOUND_PATH);
         if (FileManager.isValidDirectory(musicTagDir)) walkWeaponDirectory(musicTagDir);
     }
+
 
 
     /*--- Utility Methods ---*/
@@ -356,17 +375,35 @@ public class SoundRestorer {
         if (FileManager.isValidFile(replacementTag) && FileManager.isValidFile(sourceTag)) {
             if (FileManager.deleteFile(sourceTag)) {
                 FileManager.copyFile(replacementTag, sourceTag);
+                totalTagsModified++;
+                totalTagsReplaced++;
             }
         }
     }
 
     private void deleteTag(String tagPath) {
         File tag = FileManager.createSubdirectoryFile(rootTagDirectory, tagPath);
-        if (FileManager.isValidFile(tag)) FileManager.deleteFile(tag);
+        if (FileManager.isValidFile(tag)) {
+            FileManager.deleteFile(tag);
+            totalTagsModified++;
+            totalTagsDeleted++;
+        }
     }
 
     private File getClassicFile(File file) {
         return new File(file.getPath().replace("sound_remastered", "sound"));
     }
 
+
+
+    /*--- Statistic Methods ---*/
+
+    private void printStatistics() {
+        System.out.println("\nClassic Audio Restored");
+        System.out.println("----------------------");
+        System.out.printf("Updated            %d\n", totalTagsModified);
+        System.out.printf("Replaced           %d\n", totalTagsReplaced);
+        System.out.printf("Deleted            %d\n", totalTagsDeleted);
+        System.out.println("----------------------");
+    }
 }
