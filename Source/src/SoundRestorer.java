@@ -39,7 +39,7 @@ public class SoundRestorer {
     private final String CONFIG_DELIMITER = "=";
 
     private final String WEAPONS_SUBDIR_PATH = "\\/sound_remastered\\/weapons";
-    private final String[] WEAPON_DELETE_SUBSTRINGS = {"swtnr", "lfe", "bottom"};
+    private final String[] WEAPON_DELETE_SUBSTRINGS = {"swtnr", "lfe"};
     private final String[] WEAPON_IGNORE_SUBSTRINGS = {"sound_looping"};
     private final String[] WEAPON_REPLACE_PATHS = {
 
@@ -66,6 +66,9 @@ public class SoundRestorer {
             "\\/sound_remastered\\/weapons\\/energy_sword\\/energy_sword_ready.sound"
     };
     private final String[] WEAPON_DELETE_PATHS = {
+
+            // Plasma Rifle Bottom Fire
+            "\\/sound_remastered\\/weapons\\/plasma_rifle\\/plas_rifle_fire_bottom.sound",
 
             // Warthog Turret Spin
             "\\/sound_remastered\\/weapons\\/chain_gun\\/chaingun_spin.sound"

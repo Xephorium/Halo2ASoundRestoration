@@ -26,3 +26,5 @@ robocopy "D:\Games\Installed - Steam\steamapps\common\H2EK\h2_maps_win64_dx11" "
 echo /////////////////////
 echo // MCC Map Updated //
 echo /////////////////////
+
+cd "E:\Programming\Halo 2A Sound Restoration"
