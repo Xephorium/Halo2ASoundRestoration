@@ -27,4 +27,9 @@ echo /////////////////////
 echo // MCC Map Updated //
 echo /////////////////////
 
+:: Change back to Project Directory
+E:
 cd "E:\Programming\Halo 2A Sound Restoration"
+
+:: Play Boop-Beep
+powershell -c (New-Object Media.SoundPlayer 'E:\Programming\Halo 2A Sound Restoration\Source\utility\BuildComplete.wav').PlaySync();

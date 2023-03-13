@@ -32,16 +32,23 @@ import static javafx.application.Platform.exit;
 public class SoundRestorer {
 
 
-    /*--- Constants ---*/
+    /*--- Config Constants ---*/
 
     private final String CONFIG_FILE_PATH = "input\\/Config.txt";
-    private final String CONFIG_DIR_PREFIX = "TAGS_DIRECTORY=";
+    private final String CONFIG_DIR_PREFIX = "TAGS_DIRECTORY";
     private final String CONFIG_DELIMITER = "=";
 
+
+    /*--- Weapon Constants ---*/
+
     private final String WEAPONS_SUBDIR_PATH = "\\/sound_remastered\\/weapons";
-    private final String[] WEAPON_DELETE_SUBSTRINGS = {"swtnr", "lfe"};
+    private final String[] WEAPON_DELETE_SUBSTRINGS = {"swtnr", "lfe", "lod"};
     private final String[] WEAPON_IGNORE_SUBSTRINGS = {"sound_looping"};
     private final String[] WEAPON_REPLACE_PATHS = {
+
+            // Beam Rifle NPC Fire
+            "\\/sound_remastered\\/weapons\\/beam_rifle\\/beam_rifle_fire.sound",
+            "\\/sound_remastered\\/weapons\\/beam_rifle\\/beam_rifle_fire_noplayer.sound",
 
             // Beam Rifle Zoom In/Out
             "\\/sound\\/weapons\\/beam_rifle\\/beam_rifle_zoom_in.sound",
@@ -74,6 +81,9 @@ public class SoundRestorer {
             "\\/sound_remastered\\/weapons\\/chain_gun\\/chaingun_spin.sound"
     };
 
+
+    /*--- Character Constants ---*/
+
     private final String SENTINEL_SOUND_PATH = "\\/sound_remastered\\/characters\\/sentinel";
     private final String[] CHARACTER_REPLACE_PATHS = {
 
@@ -86,6 +96,16 @@ public class SoundRestorer {
 
             // Sentinel Enforcer Rocket
             "\\/sound_remastered\\/characters\\/sentinel\\/sentinel_rocket_launcher\\/sentinel_rocket\\/in.sound"
+    };
+
+
+    /*--- UI Constants ---*/
+
+    private final String UI_SOUND_PATH = "\\/sound_remastered\\/ui";
+    private final String[] UI_DELETE_PATHS = {
+
+            // Shield Pop
+            "\\/sound_remastered\\/ui\\/shield_pop.sound"
     };
 
 
@@ -103,6 +123,7 @@ public class SoundRestorer {
     public void restoreSound() {
         restoreWeaponAudio();
         restoreCharacterAudio();
+        restoreUIAudio();
     }
 
 
@@ -237,6 +258,21 @@ public class SoundRestorer {
         // Delete Necessary Character Tags
         for (String characterDeletePath : CHARACTER_DELETE_PATHS) {
             deleteTag(characterDeletePath);
+        }
+    }
+
+
+    /*--- UI Audio Restoration Methods ---*/
+
+    private void restoreUIAudio() {
+
+        // Update UI Sounds
+        File uiTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, UI_SOUND_PATH);
+        if (FileManager.isValidDirectory(uiTagDir)) walkWeaponDirectory(uiTagDir);
+
+        // Delete Necessary UI Tags
+        for (String uiDeletePath : UI_DELETE_PATHS) {
+            deleteTag(uiDeletePath);
         }
     }
 

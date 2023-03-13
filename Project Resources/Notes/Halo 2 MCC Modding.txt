@@ -118,13 +118,16 @@ guerilla -tags_dir "D:\Games\Installed - Steam\steamapps\common\H2EK\tags"
 
     Weapon Adjustments
       Sentinel Beam
-        characters\sentinel\sentinel_gun\sent_gun\* - max dist 120
+        sound_remastered\characters\sentinel\sentinel_gun\sent_gun\* - max dist 120
       Plasma Pistol 
-        ??? - max dist 120
+        sound_remastered\weapons\plasma_pistol\fire.sound - max dist 120
       Beam Rifle
-        ??? - max dist 300
+        sound_remastered\weapons\beam_rifle\beam_rifle_fire.sound - max dist 300
+      Covenant Carbine
+        sound_remastered\weapons\covenant_carbine\fire.sound - max dist 120 (Doesn't work?)
       Needler
-        ??? - max dist 120
+        sound_remastered\weapons\needler\fire.sound - max dist 120
+      Plasma Rifle
 
     Character Adjustments
       Sentinel Enforcer
