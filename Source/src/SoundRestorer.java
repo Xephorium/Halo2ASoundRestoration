@@ -135,6 +135,10 @@ public class SoundRestorer {
             "\\/sound_remastered\\/vehicles\\/ghost\\/ghost_boost_left\\/track2\\/loop.sound",
             "\\/sound_remastered\\/vehicles\\/ghost\\/ghost_boost_right\\/track2\\/loop.sound",
 
+            // Spectre Extra Boost
+            "\\/sound_remastered\\/vehicles\\/spectre\\/spectre_boost_l\\/track2\\/loop.sound",
+            "\\/sound_remastered\\/vehicles\\/spectre\\/spectre_boost_r\\/track2\\/loop.sound",
+
     };
 
 

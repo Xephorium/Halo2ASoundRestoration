@@ -119,6 +119,8 @@ guerilla -tags_dir "D:\Games\Installed - Steam\steamapps\common\H2EK\tags"
       Wraith
         renamed tag for main fire
         renamed tag for mortar explosion
+      Spectre
+        deleted tag for extra boost
 
 
 
