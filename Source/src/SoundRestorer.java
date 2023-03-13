@@ -41,11 +41,16 @@ public class SoundRestorer {
 
 
 
+    /*--- General Constants ---*/
+
+    private final String[] TAG_DELETE_SUBSTRINGS = {"swtnr", "lfe", "lod.", "_lod"};
+    private final String[] TAG_IGNORE_SUBSTRINGS = {"sound_looping"};
+
+
+
     /*--- Weapon Constants ---*/
 
     private final String WEAPONS_SUBDIR_PATH = "\\/sound_remastered\\/weapons";
-    private final String[] WEAPON_DELETE_SUBSTRINGS = {"swtnr", "lfe", "lod"};
-    private final String[] WEAPON_IGNORE_SUBSTRINGS = {"sound_looping"};
     private final String[] WEAPON_REPLACE_PATHS = {
 
             // Beam Rifle NPC Fire
@@ -81,6 +86,55 @@ public class SoundRestorer {
 
             // Warthog Turret Spin
             "\\/sound_remastered\\/weapons\\/chain_gun\\/chaingun_spin.sound"
+    };
+
+
+
+    /*--- Vehicle Constants ---*/
+
+    private final String VEHICLE_SOUND_PATH = "\\/sound_remastered\\/vehicles";
+    private final String[] VEHICLE_REPLACE_PATHS = {
+
+            // Warthog Crash
+            "\\/sound\\/vehicles\\/warthog\\/jeep_crash_hard.sound",
+            "\\/sound_remastered\\/vehicles\\/warthog\\/warthog_suspension.sound",
+
+            // Scorpion Fire
+            "\\/sound\\/vehicles\\/scorpion\\/scorpion_explosion_up.sound",
+            "\\/sound_remastered\\/vehicles\\/scorpion\\/projectile_exp\\/close.sound",
+
+            // Scorpion Crash
+            "\\/sound\\/vehicles\\/scorpion\\/scorpion_crash.sound",
+            "\\/sound_remastered\\/vehicles\\/scorpion\\/scorpion_suspension.sound",
+
+            // Ghost Fire
+            "\\/sound\\/vehicles\\/ghost\\/ghost_fire.sound",
+            "\\/sound_remastered\\/vehicles\\/ghost\\/ghost_fire\\/fire.sound",
+
+            // Wraith Fire
+            "\\/sound\\/vehicles\\/wraith\\/wraith_fire_mortar.sound",
+            "\\/sound_remastered\\/vehicles\\/wraith\\/wraith_fire_mortar\\/fire.sound",
+
+            // Wraith Explode
+            "\\/sound\\/vehicles\\/wraith\\/wraith_plasma_expl.sound",
+            "\\/sound_remastered\\/vehicles\\/wraith\\/wraith_mortar_explode\\/explode.sound",
+
+    };
+    private final String[] VEHICLE_DELETE_PATHS = {
+
+            // Scorpion Reload
+            "\\/sound_remastered\\/vehicles\\/scorpion\\/scorpion_reload.sound",
+
+            // Scorpion Turret Move
+            "\\/sound_remastered\\/vehicles\\/scorpion\\/scorp_turret_move.sound_looping",
+            "\\/sound_remastered\\/vehicles\\/scorpion\\/turret_move\\/in.sound",
+            "\\/sound_remastered\\/vehicles\\/scorpion\\/turret_move\\/loop.sound",
+            "\\/sound_remastered\\/vehicles\\/scorpion\\/turret_move\\/out.sound",
+
+            // Ghost Extra Boost
+            "\\/sound_remastered\\/vehicles\\/ghost\\/ghost_boost_left\\/track2\\/loop.sound",
+            "\\/sound_remastered\\/vehicles\\/ghost\\/ghost_boost_right\\/track2\\/loop.sound",
+
     };
 
 
@@ -139,12 +193,16 @@ public class SoundRestorer {
 
         // Restore Classic Audio
         restoreWeaponAudio();
+        restoreVehicleAudio();
         restoreCharacterAudio();
         restoreUIAudio();
         restoreMusic();
 
         // Print Statistics
         printStatistics();
+
+        // Check Entire 'sound_remastered' Directory for Naming Edge Cases
+        //checkDirectoryForNameEdgeCases(FileManager.createSubdirectoryFile(rootTagDirectory, "\\/sound_remastered"));
     }
 
 
@@ -180,46 +238,39 @@ public class SoundRestorer {
 
 
 
-    /*--- Weapon Audio Restoration Methods ---*/
+    /*--- Recursive Tag Cleanup Methods ---*/
 
-    private void restoreWeaponAudio() {
-        File remasteredWeaponDir = FileManager.createSubdirectoryFile(rootTagDirectory, WEAPONS_SUBDIR_PATH);
-        if (FileManager.isValidDirectory(remasteredWeaponDir)) {
-            walkWeaponDirectory(remasteredWeaponDir);
-            performManualWeaponTagFixes();
-
-            //checkDirectoryForClassicTags(remasteredWeaponDir, 0);
-        }
-    }
-
-    /* Recursively walks the remastered weapon tag directory, replacing each with their classic
+    /* Recursively walks the remastered tag directory, replacing each with their classic
      * counterpart and deleting those that aren't needed.
      */
-    private void walkWeaponDirectory(File remasteredFile) {
+    private void walkTagDirectory(File remasteredFile) {
 
         if (FileManager.isValidFile(remasteredFile)) {
-            RestoreClassicWeaponTag(remasteredFile);
+            ProcessTag(remasteredFile);
 
         } else if(FileManager.isValidDirectory(remasteredFile)) {
 
             // Recourse Through Subdirectories
             List<File> subDirs = FileManager.getSubdirectories(remasteredFile);
-            for (File dir: subDirs) walkWeaponDirectory(dir);
+            for (File dir: subDirs) walkTagDirectory(dir);
 
             // Recourse Through Tags
             List<File> files = FileManager.getDirectoryFiles(remasteredFile);
-            for (File file: files) walkWeaponDirectory(file);
+            for (File file: files) walkTagDirectory(file);
         }
     }
 
-    private void RestoreClassicWeaponTag(File remasteredTag) {
+    /* Ignores, replaces, or deletes a single tag based on whether its
+     * name matches any of the TAG_SUBSTRING constants above.
+     */
+    private void ProcessTag(File remasteredTag) {
         File classicTag = getClassicFile(remasteredTag);
         String remasteredTagName = FileManager.getFileOrDirectoryName(remasteredTag);
         if (FileManager.exists(classicTag)) {
 
             // Check Whether to Ignore Tag
             assert remasteredTagName != null;
-            if (Arrays.stream(WEAPON_IGNORE_SUBSTRINGS).noneMatch(remasteredTagName::contains)) {
+            if (Arrays.stream(TAG_IGNORE_SUBSTRINGS).noneMatch(remasteredTagName::contains)) {
 
                 // Replace w/ Classic Tag
                 if (FileManager.deleteFile(remasteredTag)) {
@@ -233,11 +284,23 @@ public class SoundRestorer {
 
             // Delete Unnecessary Tag
             assert remasteredTagName != null;
-            if (Arrays.stream(WEAPON_DELETE_SUBSTRINGS).anyMatch(remasteredTagName::contains)) {
+            if (Arrays.stream(TAG_DELETE_SUBSTRINGS).anyMatch(remasteredTagName::contains)) {
                 FileManager.deleteFile(remasteredTag);
                 totalTagsModified++;
                 totalTagsDeleted++;
             }
+        }
+    }
+
+
+
+    /*--- Weapon Audio Restoration Methods ---*/
+
+    private void restoreWeaponAudio() {
+        File remasteredWeaponDir = FileManager.createSubdirectoryFile(rootTagDirectory, WEAPONS_SUBDIR_PATH);
+        if (FileManager.isValidDirectory(remasteredWeaponDir)) {
+            walkTagDirectory(remasteredWeaponDir);
+            performManualWeaponTagFixes();
         }
     }
 
@@ -263,6 +326,34 @@ public class SoundRestorer {
 
 
 
+    /*--- Vehicle Audio Restoration Methods ---*/
+
+    private void restoreVehicleAudio() {
+        File vehicleTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, VEHICLE_SOUND_PATH);
+        if (FileManager.isValidDirectory(vehicleTagDir)) {
+            walkTagDirectory(vehicleTagDir);
+            performManualVehicleTagFixes();
+        }
+    }
+
+    /* Handles one-off cases where vehicle tag files are inconsistently
+     * named or otherwise need special attention.
+     */
+    private void performManualVehicleTagFixes() {
+
+        // Replace Necessary Vehicle Tags
+        for (int x = 1; x < VEHICLE_REPLACE_PATHS.length; x += 2) {
+            replaceTag(VEHICLE_REPLACE_PATHS[x], VEHICLE_REPLACE_PATHS[x-1]);
+        }
+
+        // Delete Necessary Vehicle Tags
+        for (String vehicleDeletePath : VEHICLE_DELETE_PATHS) {
+            deleteTag(vehicleDeletePath);
+        }
+    }
+
+
+
     /*--- Character Audio Restoration Methods ---*/
 
     private void restoreCharacterAudio() {
@@ -276,7 +367,7 @@ public class SoundRestorer {
 
         // Update Sentinel Sounds
         File sentinelTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, SENTINEL_SOUND_PATH);
-        if (FileManager.isValidDirectory(sentinelTagDir)) walkWeaponDirectory(sentinelTagDir);
+        if (FileManager.isValidDirectory(sentinelTagDir)) walkTagDirectory(sentinelTagDir);
 
         // Replace Necessary Character Tags
         for (int x = 1; x < CHARACTER_REPLACE_PATHS.length; x += 2) {
@@ -297,7 +388,7 @@ public class SoundRestorer {
 
         // Update UI Sounds
         File uiTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, UI_SOUND_PATH);
-        if (FileManager.isValidDirectory(uiTagDir)) walkWeaponDirectory(uiTagDir);
+        if (FileManager.isValidDirectory(uiTagDir)) walkTagDirectory(uiTagDir);
 
         // Delete Necessary UI Tags
         for (String uiDeletePath : UI_DELETE_PATHS) {
@@ -313,7 +404,7 @@ public class SoundRestorer {
 
         // Update Music
         File musicTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, MUSIC_SOUND_PATH);
-        if (FileManager.isValidDirectory(musicTagDir)) walkWeaponDirectory(musicTagDir);
+        if (FileManager.isValidDirectory(musicTagDir)) walkTagDirectory(musicTagDir);
     }
 
 
@@ -361,6 +452,36 @@ public class SoundRestorer {
 
     }
 
+    /* Recursively walks directory, printing whether tag name matches string query.
+     */
+    private void checkDirectoryForNameEdgeCases(File file) {
+
+        if (FileManager.isValidFile(file)) {
+
+            // Print Tag Status
+            String name = FileManager.getFileOrDirectoryName(file);
+            assert name != null;
+            if (name.contains("lod") && !name.contains("lod.") && !name.contains("_lod")) {
+                System.out.println(file.toString());
+            }
+
+        } else if(FileManager.isValidDirectory(file)) {
+
+            // Recourse Through Subdirectories
+            List<File> subDirs = FileManager.getSubdirectories(file);
+            for (File dir: subDirs) {
+                checkDirectoryForNameEdgeCases(dir);
+            }
+
+            // Recourse Through Files
+            List<File> files = FileManager.getDirectoryFiles(file);
+            for (File f: files) {
+                checkDirectoryForNameEdgeCases(f);
+            }
+        }
+
+    }
+
     private String getRecursiveIndentation(int depth) {
         StringBuilder indentation = new StringBuilder();
         for (int x = 0; x < depth; x++) {
@@ -372,12 +493,11 @@ public class SoundRestorer {
     private void replaceTag(String sourcePath, String replacementPath) {
         File sourceTag = FileManager.createSubdirectoryFile(rootTagDirectory, sourcePath);
         File replacementTag = FileManager.createSubdirectoryFile(rootTagDirectory, replacementPath);
-        if (FileManager.isValidFile(replacementTag) && FileManager.isValidFile(sourceTag)) {
-            if (FileManager.deleteFile(sourceTag)) {
-                FileManager.copyFile(replacementTag, sourceTag);
-                totalTagsModified++;
-                totalTagsReplaced++;
-            }
+        if (FileManager.isValidFile(sourceTag)) FileManager.deleteFile(sourceTag);
+        if (FileManager.isValidFile(replacementTag)) {
+            FileManager.copyFile(replacementTag, sourceTag);
+            totalTagsModified++;
+            totalTagsReplaced++;
         }
     }
 
