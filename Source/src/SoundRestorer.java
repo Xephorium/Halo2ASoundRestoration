@@ -32,11 +32,13 @@ import static javafx.application.Platform.exit;
 public class SoundRestorer {
 
 
+
     /*--- Config Constants ---*/
 
     private final String CONFIG_FILE_PATH = "input\\/Config.txt";
     private final String CONFIG_DIR_PREFIX = "TAGS_DIRECTORY";
     private final String CONFIG_DELIMITER = "=";
+
 
 
     /*--- Weapon Constants ---*/
@@ -82,6 +84,7 @@ public class SoundRestorer {
     };
 
 
+
     /*--- Character Constants ---*/
 
     private final String SENTINEL_SOUND_PATH = "\\/sound_remastered\\/characters\\/sentinel";
@@ -99,6 +102,7 @@ public class SoundRestorer {
     };
 
 
+
     /*--- UI Constants ---*/
 
     private final String UI_SOUND_PATH = "\\/sound_remastered\\/ui";
@@ -109,9 +113,17 @@ public class SoundRestorer {
     };
 
 
+
+    /*--- Music Constants ---*/
+
+    private final String MUSIC_SOUND_PATH = "\\/sound_remastered\\/music";
+
+
+
     /*--- Variables ---*/
 
     private File rootTagDirectory = null;
+
 
 
     /*--- Public Methods ---*/
@@ -124,6 +136,7 @@ public class SoundRestorer {
         restoreWeaponAudio();
         restoreCharacterAudio();
         restoreUIAudio();
+        restoreMusic();
     }
 
 
@@ -274,6 +287,15 @@ public class SoundRestorer {
         for (String uiDeletePath : UI_DELETE_PATHS) {
             deleteTag(uiDeletePath);
         }
+    }
+
+    /*--- Music Restoration Methods ---*/
+
+    private void restoreMusic() {
+
+        // Update Music
+        File musicTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, MUSIC_SOUND_PATH);
+        if (FileManager.isValidDirectory(musicTagDir)) walkWeaponDirectory(musicTagDir);
     }
 
 
