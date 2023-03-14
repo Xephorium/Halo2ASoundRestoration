@@ -116,7 +116,7 @@ guerilla -tags_dir "D:\Games\Installed - Steam\steamapps\common\H2EK\tags"
         preserved new tag for Delta Halo dropoff
       Pelican
         preserved new tag for landing gear retraction
-        preserved new tag for jet thruster popping
+        preserved new tag for jet thruster popping (???)
       Ghost
         renamed tag for main fire
         deleted tag for extra boost
@@ -133,6 +133,8 @@ guerilla -tags_dir "D:\Games\Installed - Steam\steamapps\common\H2EK\tags"
       Phantom
         deleted tags for turret animation sounds
         copied and renamed fire tag to replace secondary fire tag
+      Damage Effects
+        preserved new tag for hitting bipeds
 
     Characters
       Sentinel Enforcer
