@@ -158,7 +158,7 @@ guerilla -tags_dir "D:\Games\Installed - Steam\steamapps\common\H2EK\tags"
       Beam Rifle
         sound_remastered\weapons\beam_rifle\beam_rifle_fire.sound - max dist 300
       Covenant Carbine
-        sound_remastered\weapons\covenant_carbine\fire.sound - max dist 120 (Still quiet - might need to restore lod)
+        sound_remastered\weapons\covenant_carbine\fire.sound - max dist 120 (Still quiet - restoring lod didn't work)
       Needler
         sound_remastered\weapons\needler\fire.sound - max dist 120
       Plasma Rifle
@@ -167,8 +167,7 @@ guerilla -tags_dir "D:\Games\Installed - Steam\steamapps\common\H2EK\tags"
 
     Characters
       Sentinel Enforcer
-        characters\sentinel\sentinel_enforcer_laser.sound - "play only in legacy mode" = unticked
-        characters\sentinel\sentinel_enforcer_laser.sound - min dist = 5, max dist = 75
+        characters\sentinel\sentinel_enforcer_laser.sound - min dist = 5, max dist = 75, "play only in legacy mode" = unticked
 
 
 
