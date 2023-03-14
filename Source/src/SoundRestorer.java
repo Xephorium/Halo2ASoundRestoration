@@ -228,9 +228,9 @@ public class SoundRestorer {
     public void restoreSound() {
 
         // Restore Classic Audio
-        restoreWeaponAudio();
+        //restoreWeaponAudio();
         restoreVehicleAudio();
-        restoreCharacterAudio();
+        //restoreCharacterAudio();
         restoreUIAudio();
         restoreMusic();
 

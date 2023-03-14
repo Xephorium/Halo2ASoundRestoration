@@ -105,6 +105,7 @@ guerilla -tags_dir "D:\Games\Installed - Steam\steamapps\common\H2EK\tags"
       Fuel Rod Gun - Explosion sounds too punchy? Tag files look good. Blegh, gonna just leave it.
       Sentinel Beam - Weapon audio stored in character folder. Needs to be updated there.
                       "sent_gun\" (classic) -> "sent_gun\" (remaster), "sent_gun_lod" (remaster)
+      Brute Shot - preserved new tag for mechanical click when firing
       Hunter Cannon - renamed fire and loop tags for prophet variant to match remaster
 
     Vehicles
@@ -156,17 +157,25 @@ guerilla -tags_dir "D:\Games\Installed - Steam\steamapps\common\H2EK\tags"
 
     Weapons
       Sentinel Beam
-        sound_remastered\characters\sentinel\sentinel_gun\sent_gun\* - min dist 3, max dist 45
+        sound_remastered\characters\sentinel\sentinel_gun\sent_gun\* - min dist 5, max dist 100
       Plasma Pistol
-        sound_remastered\weapons\plasma_pistol\fire.sound - min dist 2, max dist 15
-      Beam Rifle
-        sound_remastered\weapons\beam_rifle\beam_rifle_fire.sound - min dist 10, max dist 300 (GOOD)
-      Covenant Carbine
-        sound_remastered\weapons\covenant_carbine\fire.sound - min dist 4, max dist 150
-      Needler
-        sound_remastered\weapons\needler\fire.sound - min dist 2, max dist 15 (Inaudible)
+        sound_remastered\weapons\plasma_pistol\fire.sound - min dist 3, max dist 75
+        sound_remastered\weapons\plasma_pistol\chargefire.sound - min dist 3, max dist 75
+        sound_remastered\weapons\plasma_pistol\startcharge.sound - min dist 3, max dist 75
       Plasma Rifle
-        sound_remastered\weapons\plasma_rifle\plasma_rifle_fire.sound - min dist 3, max dist 45 (Quiet)
+        sound_remastered\weapons\plasma_rifle\plasma_rifle_fire.sound - min dist 3, max dist 75
+      Needler
+        sound_remastered\weapons\needler\fire.sound - min dist 3, max dist 75
+      Covenant Carbine
+        sound_remastered\weapons\covenant_carbine\fire.sound - min dist 4, max dist 100
+      Beam Rifle
+        sound_remastered\weapons\beam_rifle\fire_burst.sound - min dist 2, max dist 75
+      Magnum
+        sound_remastered\weapons\battle_rifle\magnum_fire.sound - min dist 2, max dist 75
+      Magnum
+        sound_remastered\weapons\magnum\magnum_fire.sound - min dist 2, max dist 75
+      Plasma Turret
+        sound_remastered\weapons\plasma_turret\fire.sound - base gain -16
 
     Vehicles
 
