@@ -99,8 +99,11 @@ public class SoundRestorer {
             // Plasma Rifle Bottom Fire
             "\\/sound_remastered\\/weapons\\/plasma_rifle\\/plas_rifle_fire_bottom.sound",
 
+            // Covenant Carbine Impact Sound
+            "\\/sound_remastered\\/weapons\\/impacts_riccs\\/cov_carbine_imp.sound",
+
             // Warthog Turret Spin
-            "\\/sound_remastered\\/weapons\\/chain_gun\\/chaingun_spin.sound"
+            "\\/sound_remastered\\/weapons\\/chain_gun\\/chaingun_spin.sound",
     };
 
 
