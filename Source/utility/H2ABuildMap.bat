@@ -13,6 +13,12 @@ set mapName=%1
 D:
 cd "D:\Games\Installed - Steam\steamapps\common\H2EK"
 
+:: Temporarily Restore Manually Updated Tags
+rmdir /q /s "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\weapons"
+robocopy "D:\Games\Installed - Steam\steamapps\common\H2EK\restored_bak\weapons" "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\weapons" /E /NFL /NDL /NJH /NJS /nc /ns /np > NUL
+rmdir /q /s "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\characters\sentinel"
+robocopy "D:\Games\Installed - Steam\steamapps\common\H2EK\restored_bak\sentinel" "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\characters\sentinel" /E /NFL /NDL /NJH /NJS /nc /ns /np > NUL
+
 @echo on
 
 :: Build Map

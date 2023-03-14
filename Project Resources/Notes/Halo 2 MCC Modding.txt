@@ -181,7 +181,7 @@ guerilla -tags_dir "D:\Games\Installed - Steam\steamapps\common\H2EK\tags"
 
     Characters
       Sentinel Enforcer
-        characters\sentinel\sentinel_enforcer_laser.sound - min dist = 5, max dist = 75, "play only in legacy mode" = unticked
+        characters\sentinel\sentinel_enforcer_laser.sound - min dist = 25, max dist = 75, "play only in legacy mode" = unticked
 
 
 
