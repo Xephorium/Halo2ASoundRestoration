@@ -148,6 +148,10 @@ guerilla -tags_dir "D:\Games\Installed - Steam\steamapps\common\H2EK\tags"
         Gondala launch sound is very wrong
         Water hall ambient noise is annoying bell toll
 
+    Visual Effects
+      preserved new tag for InAmberClad flyby, faithful & sick as hell
+      renamed tag for InAmberClad slipspace rupture, less faithful & less cool
+
 
 3. Manual Fixes (Manual)
 

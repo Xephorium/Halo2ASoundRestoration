@@ -26,6 +26,11 @@ echo Reverting UI...
 rmdir /q /s "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\ui"
 robocopy "D:\Games\Installed - Steam\steamapps\common\H2EK\tags_bak\sound_remastered\ui" "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\ui" /E /NFL /NDL /NJH /NJS /nc /ns /np > NUL
 
+:: Effects Tags
+echo Reverting Effects...
+rmdir /q /s "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\visual_effects"
+robocopy "D:\Games\Installed - Steam\steamapps\common\H2EK\tags_bak\sound_remastered\visual_effects" "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\visual_effects" /E /NFL /NDL /NJH /NJS /nc /ns /np > NUL
+
 :: Music Tags
 echo Reverting Music...
 rmdir /q /s "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\music"

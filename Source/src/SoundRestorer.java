@@ -45,6 +45,7 @@ public class SoundRestorer {
 
     private final String[] TAG_DELETE_SUBSTRINGS = {"swtnr", "lfe", "lod.", "_lod"};
     private final String[] TAG_IGNORE_SUBSTRINGS = {"sound_looping"};
+    private final String[] EMPTY = {};
 
 
 
@@ -204,6 +205,43 @@ public class SoundRestorer {
 
 
 
+    /*--- Effects Constants ---*/
+
+    private final String EFFECTS_SOUND_PATH = "\\/sound_remastered\\/visual_effects";
+    private final String[] EFFECTS_PRESERVE_PATHS = {
+
+            // Cairo Welder
+            "welder\\in.sound",
+            "welder\\loop.sound",
+
+            // Malta Explosion
+            "malta_explode.sound",
+
+            // Cable Cutting
+            "alphacable_swtnr",
+
+            // Airlock
+            "airlock.sound",
+            "airlock_repressurize.sound",
+            "ss_airlock_explode.sound",
+
+            // Steam
+            "scenery_steam\\loop.sound",
+
+            // Sentinel Factory Explosion
+            "factory_explode.sound"
+    };
+    private final String[] EFFECTS_REPLACE_PATHS = {
+
+            // In Amber Clad Slipspace Rupture
+            "\\/sound\\/visual_effects\\/inamberclad_flyby\\/slipspace.sound",
+            "\\/sound\\/visual_effects\\/inamberclad_flyby\\/slipspace\\/highcharity_slipspace.sound",
+
+    };
+    private final String[] EFFECTS_DELETE_PATHS = {};
+
+
+
     /*--- Music Constants ---*/
 
     private final String MUSIC_SOUND_PATH = "\\/sound_remastered\\/music";
@@ -216,6 +254,7 @@ public class SoundRestorer {
     private int totalTagsModified = 0;
     private int totalTagsReplaced = 0;
     private int totalTagsDeleted = 0;
+    private int totalTagsPreserved = 0;
 
 
 
@@ -232,13 +271,13 @@ public class SoundRestorer {
         restoreVehicleAudio();
         restoreCharacterAudio();
         restoreUIAudio();
+        restoreEffectsAudio();
         restoreMusic();
 
         // Print Statistics
         printStatistics();
 
-        // Check Entire 'sound_remastered' Directory for Naming Edge Cases
-        //checkDirectoryForNameEdgeCases(FileManager.createSubdirectoryFile(rootTagDirectory, "\\/sound_remastered"));
+        //checkDirectoryForClassicTags(FileManager.createSubdirectoryFile(rootTagDirectory, EFFECTS_SOUND_PATH), 0);
     }
 
 
@@ -279,46 +318,55 @@ public class SoundRestorer {
     /* Recursively walks the remastered tag directory, replacing each with their classic
      * counterpart and deleting those that aren't needed.
      */
-    private void walkTagDirectory(File remasteredFile) {
+    private void walkTagDirectory(File remasteredFile, String[] ignorePaths) {
 
         if (FileManager.isValidFile(remasteredFile)) {
-            ProcessTag(remasteredFile);
+            ProcessTag(remasteredFile, ignorePaths);
 
         } else if(FileManager.isValidDirectory(remasteredFile)) {
 
             // Recourse Through Subdirectories
             List<File> subDirs = FileManager.getSubdirectories(remasteredFile);
-            for (File dir: subDirs) walkTagDirectory(dir);
+            for (File dir: subDirs) walkTagDirectory(dir, ignorePaths);
 
             // Recourse Through Tags
             List<File> files = FileManager.getDirectoryFiles(remasteredFile);
-            for (File file: files) walkTagDirectory(file);
+            for (File file: files) walkTagDirectory(file, ignorePaths);
         }
     }
 
     /* Ignores, replaces, or deletes a single tag based on whether its
      * name matches any of the TAG_SUBSTRING constants above.
      */
-    private void ProcessTag(File remasteredTag) {
+    private void ProcessTag(File remasteredTag, String[] ignorePaths) {
         File classicTag = getClassicFile(remasteredTag);
         String remasteredTagName = FileManager.getFileOrDirectoryName(remasteredTag);
         if (FileManager.exists(classicTag)) {
 
             // Check Whether to Ignore Tag
             assert remasteredTagName != null;
-            if (Arrays.stream(TAG_IGNORE_SUBSTRINGS).noneMatch(remasteredTagName::contains)) {
+            if (Arrays.stream(TAG_IGNORE_SUBSTRINGS).noneMatch(remasteredTagName::contains) &&
+                    Arrays.stream(ignorePaths).noneMatch(remasteredTag.toString()::contains)) {
 
-                // Replace w/ Classic Tag
+                // Replace Tag / Classic
                 if (FileManager.deleteFile(remasteredTag)) {
                     FileManager.copyFile(classicTag, remasteredTag);
                     totalTagsModified++;
                     totalTagsReplaced++;
                 }
+            } else {
+                
+                System.out.println("Ignored: " + remasteredTag.toString());
             }
+
+        } else if (Arrays.stream(ignorePaths).anyMatch(remasteredTag.toString()::contains)) {
+
+            // Preserve Tag
+            totalTagsPreserved++;
 
         } else {
 
-            // Delete Unnecessary Tag
+            // Delete Tag
             assert remasteredTagName != null;
             if (Arrays.stream(TAG_DELETE_SUBSTRINGS).anyMatch(remasteredTagName::contains)) {
                 FileManager.deleteFile(remasteredTag);
@@ -335,7 +383,7 @@ public class SoundRestorer {
     private void restoreWeaponAudio() {
         File remasteredWeaponDir = FileManager.createSubdirectoryFile(rootTagDirectory, WEAPONS_SUBDIR_PATH);
         if (FileManager.isValidDirectory(remasteredWeaponDir)) {
-            walkTagDirectory(remasteredWeaponDir);
+            walkTagDirectory(remasteredWeaponDir, EMPTY);
             performManualWeaponTagFixes();
         }
     }
@@ -367,7 +415,7 @@ public class SoundRestorer {
     private void restoreVehicleAudio() {
         File vehicleTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, VEHICLE_SOUND_PATH);
         if (FileManager.isValidDirectory(vehicleTagDir)) {
-            walkTagDirectory(vehicleTagDir);
+            walkTagDirectory(vehicleTagDir, EMPTY);
             performManualVehicleTagFixes();
         }
     }
@@ -403,7 +451,7 @@ public class SoundRestorer {
 
         // Update Sentinel Sounds
         File sentinelTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, SENTINEL_SOUND_PATH);
-        if (FileManager.isValidDirectory(sentinelTagDir)) walkTagDirectory(sentinelTagDir);
+        if (FileManager.isValidDirectory(sentinelTagDir)) walkTagDirectory(sentinelTagDir, EMPTY);
 
         // Replace Necessary Character Tags
         for (int x = 1; x < CHARACTER_REPLACE_PATHS.length; x += 2) {
@@ -424,11 +472,40 @@ public class SoundRestorer {
 
         // Update UI Sounds
         File uiTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, UI_SOUND_PATH);
-        if (FileManager.isValidDirectory(uiTagDir)) walkTagDirectory(uiTagDir);
+        if (FileManager.isValidDirectory(uiTagDir)) walkTagDirectory(uiTagDir, EMPTY);
 
         // Delete Necessary UI Tags
         for (String uiDeletePath : UI_DELETE_PATHS) {
             deleteTag(uiDeletePath);
+        }
+    }
+
+
+
+    /*--- Effects Restoration Methods ---*/
+
+    private void restoreEffectsAudio() {
+
+        // Update Effects
+        File effectsTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, EFFECTS_SOUND_PATH);
+        if (FileManager.isValidDirectory(effectsTagDir)) walkTagDirectory(effectsTagDir, EFFECTS_PRESERVE_PATHS);
+
+        performManualEffectsTagFixes();
+    }
+
+    /* Handles one-off cases where effect tag files are inconsistently
+     * named or otherwise need special attention.
+     */
+    private void performManualEffectsTagFixes() {
+
+        // Replace Necessary Effects Tags
+        for (int x = 1; x < EFFECTS_REPLACE_PATHS.length; x += 2) {
+            replaceTag(EFFECTS_REPLACE_PATHS[x], EFFECTS_REPLACE_PATHS[x-1]);
+        }
+
+        // Delete Necessary Effects Tags
+        for (String path : EFFECTS_DELETE_PATHS) {
+            deleteTag(path);
         }
     }
 
@@ -440,7 +517,7 @@ public class SoundRestorer {
 
         // Update Music
         File musicTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, MUSIC_SOUND_PATH);
-        if (FileManager.isValidDirectory(musicTagDir)) walkTagDirectory(musicTagDir);
+        if (FileManager.isValidDirectory(musicTagDir)) walkTagDirectory(musicTagDir, EMPTY);
     }
 
 
@@ -489,6 +566,10 @@ public class SoundRestorer {
     }
 
     /* Recursively walks directory, printing whether tag name matches string query.
+     * Invocation:
+     *   checkDirectoryForNameEdgeCases(
+     *     FileManager.createSubdirectoryFile(rootTagDirectory, "\\/sound_remastered")
+     *   );
      */
     private void checkDirectoryForNameEdgeCases(File file) {
 
