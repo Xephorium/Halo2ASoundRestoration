@@ -105,6 +105,7 @@ guerilla -tags_dir "D:\Games\Installed - Steam\steamapps\common\H2EK\tags"
       Fuel Rod Gun - Explosion sounds too punchy? Tag files look good. Blegh, gonna just leave it.
       Sentinel Beam - Weapon audio stored in character folder. Needs to be updated there.
                       "sent_gun\" (classic) -> "sent_gun\" (remaster), "sent_gun_lod" (remaster)
+      Hunter Cannon - renamed fire and loop tags for prophet variant to match remaster
 
     Vehicles
       Warthog
@@ -113,6 +114,9 @@ guerilla -tags_dir "D:\Games\Installed - Steam\steamapps\common\H2EK\tags"
         deleted new tags for turret spin
         deleted new tag for reload
         preserved new tag for Delta Halo dropoff
+      Pelican
+        preserved new tag for landing gear retraction
+        preserved new tag for jet thruster popping
       Ghost
         renamed tag for main fire
         deleted tag for extra boost
@@ -121,8 +125,14 @@ guerilla -tags_dir "D:\Games\Installed - Steam\steamapps\common\H2EK\tags"
         renamed tag for mortar explosion
       Spectre
         deleted tag for extra boost
-
-
+      Banshee
+        renamed tag for main fire
+      Gravity Throne (Regret Chair - NEEDS TESTING)
+        deleted tag for teleport reflection
+        replaced tags for extra fire in/out sounds
+      Phantom
+        deleted tags for turret animation sounds
+        copied and renamed fire tag to replace secondary fire tag
 
     Characters
       Sentinel Enforcer
@@ -130,18 +140,23 @@ guerilla -tags_dir "D:\Games\Installed - Steam\steamapps\common\H2EK\tags"
         Note: The remastered primary fire actually sounds pretty good as a Enforcer rocket fire
               and helps broadcast the incoming salvo... Might make it optional later.
 
+    Levels
+      Regret
+        Gondala launch sound is very wrong
+        Water hall ambient noise is annoying bell toll
+
 
 3. Manual Fixes (Manual)
 
     Weapons
       Sentinel Beam
         sound_remastered\characters\sentinel\sentinel_gun\sent_gun\* - max dist 120
-      Plasma Pistol 
+      Plasma Pistol
         sound_remastered\weapons\plasma_pistol\fire.sound - max dist 120
       Beam Rifle
         sound_remastered\weapons\beam_rifle\beam_rifle_fire.sound - max dist 300
       Covenant Carbine
-        sound_remastered\weapons\covenant_carbine\fire.sound - max dist 120 (Doesn't work?)
+        sound_remastered\weapons\covenant_carbine\fire.sound - max dist 120 (Still quiet - might need to restore lod)
       Needler
         sound_remastered\weapons\needler\fire.sound - max dist 120
       Plasma Rifle

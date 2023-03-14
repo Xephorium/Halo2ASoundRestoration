@@ -77,7 +77,22 @@ public class SoundRestorer {
 
             // Sword Ready
             "\\/sound\\/weapons\\/energy_sword\\/sword_ready.sound",
-            "\\/sound_remastered\\/weapons\\/energy_sword\\/energy_sword_ready.sound"
+            "\\/sound_remastered\\/weapons\\/energy_sword\\/energy_sword_ready.sound",
+
+            // Regret Throne Cannon (Yes, the directories are right here - 343i is an anthill.)
+            "\\/sound\\/weapons\\/hunter_cannon\\/hunter_cannon_loop\\/hunter_cannon_gravitythrone\\/in.sound",
+            "\\/sound_remastered\\/vehicles\\/gravity_throne\\/weapon_fire\\/in.sound",
+            "\\/sound\\/weapons\\/hunter_cannon\\/hunter_cannon_loop\\/hunter_cannon_gravitythrone\\/loop.sound",
+            "\\/sound_remastered\\/weapons\\/hunter_cannon\\/hunter_cannon_loop\\/hunter_cannon_prophet\\/loop.sound",
+            "\\/sound\\/weapons\\/hunter_cannon\\/hunter_cannon_loop\\/hunter_cannon_gravitythrone\\/out.sound",
+            "\\/sound_remastered\\/vehicles\\/gravity_throne\\/weapon_fire\\/out.sound",
+
+            // Regret Throne Cannon Safety Fix (Just in case 343i audits their tiny ant tunnels.)
+            "\\/sound\\/weapons\\/hunter_cannon\\/hunter_cannon_loop\\/hunter_cannon_gravitythrone\\/in.sound",
+            "\\/sound_remastered\\/weapons\\/hunter_cannon\\/hunter_cannon_loop\\/hunter_cannon_prophet\\/in.sound",
+            "\\/sound\\/weapons\\/hunter_cannon\\/hunter_cannon_loop\\/hunter_cannon_gravitythrone\\/out.sound",
+            "\\/sound_remastered\\/weapons\\/hunter_cannon\\/hunter_cannon_loop\\/hunter_cannon_prophet\\/out.sound",
+
     };
     private final String[] WEAPON_DELETE_PATHS = {
 
@@ -119,6 +134,14 @@ public class SoundRestorer {
             "\\/sound\\/vehicles\\/wraith\\/wraith_plasma_expl.sound",
             "\\/sound_remastered\\/vehicles\\/wraith\\/wraith_mortar_explode\\/explode.sound",
 
+            // Banshee Fire
+            "\\/sound\\/vehicles\\/banshee\\/banshee_fire.sound",
+            "\\/sound_remastered\\/vehicles\\/banshee\\/banshee_fire\\/fire.sound",
+
+            // Phantom Extra Fire
+            "\\/sound_remastered\\/vehicles\\/phantom\\/phantom_turret_fire.sound",
+            "\\/sound_remastered\\/vehicles\\/phantom\\/phantom_turret_fire_turret.sound"
+
     };
     private final String[] VEHICLE_DELETE_PATHS = {
 
@@ -139,6 +162,12 @@ public class SoundRestorer {
             "\\/sound_remastered\\/vehicles\\/spectre\\/spectre_boost_l\\/track2\\/loop.sound",
             "\\/sound_remastered\\/vehicles\\/spectre\\/spectre_boost_r\\/track2\\/loop.sound",
 
+            // Phantom Turret Animation
+            "\\/sound_remastered\\/vehicles\\/phantom\\/phantom_turret_anims\\/lower.sound",
+            "\\/sound_remastered\\/vehicles\\/phantom\\/phantom_turret_anims\\/raise.sound",
+
+            // Regret Extra Sounds
+            "\\/sound_remastered\\/vehicles\\/gravity_throne\\/regret_teleport_reflection.sound",
     };
 
 
