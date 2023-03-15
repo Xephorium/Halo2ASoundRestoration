@@ -37,8 +37,8 @@ public class SoundRestorer {
 
     private final String CONFIG_FILE_PATH = "input\\/Config.txt";
     private final String CONFIG_DIR_PREFIX = "TAGS_DIRECTORY";
+    private final String CONFIG_PRES_PREFIX = "DISCRETIONARY_PRESERVATION";
     private final String CONFIG_DELIMITER = "=";
-    private final boolean FULL_RESTORATION = true;
 
 
 
@@ -265,6 +265,8 @@ public class SoundRestorer {
     /*--- Variables ---*/
 
     private File rootTagDirectory = null;
+    private boolean discretionaryPreservation = false;
+
     private int totalTagsModified = 0;
     private int totalTagsReplaced = 0;
     private int totalTagsDeleted = 0;
@@ -275,7 +277,9 @@ public class SoundRestorer {
     /*--- Public Methods ---*/
 
     public SoundRestorer() {
+        checkForConfigFile();
         initializeRootTagDirectory();
+        initializePreservationPreference();
     }
 
     public void restoreSound() {
@@ -286,7 +290,7 @@ public class SoundRestorer {
         restoreCharacterAudio();
         restoreUIAudio();
         restoreEffectsAudio();
-        restoreAmbienceAudio();
+        //restoreAmbienceAudio();
         restoreMusic();
 
         // Print Statistics
@@ -297,33 +301,47 @@ public class SoundRestorer {
 
 
 
-    /*--- Config Initialization Method ---*/
+    /*--- Config Initialization Methods ---*/
+
+    private void checkForConfigFile() {
+        if (FileManager.readFileContents(new File(CONFIG_FILE_PATH)) == null) {
+            System.out.println("CONFIG ERROR: Configuration file missing.");
+            System.exit(1);
+        }
+    }
 
     private void initializeRootTagDirectory() {
+        rootTagDirectory = new File(readValueFromConfig(CONFIG_DIR_PREFIX));
+        if (!FileManager.isValidDirectory(rootTagDirectory)) {
+            System.out.printf(
+                    "CONFIG ERROR: Tag directory '%s' does not exist.%n",
+                    rootTagDirectory.getPath()
+            );
+            System.exit(1);
+        }
+    }
+
+    private void initializePreservationPreference() {
+        String preservationValue = readValueFromConfig(CONFIG_PRES_PREFIX).toLowerCase();
+        discretionaryPreservation = preservationValue.equals("true");
+    }
+
+    private String readValueFromConfig(String key) {
         List<String> dirFileContents = FileManager.readFileContents(new File(CONFIG_FILE_PATH));
 
         if (dirFileContents != null) {
             for (String line : dirFileContents)
-                if (line.contains(CONFIG_DIR_PREFIX)) {
-                    rootTagDirectory = new File(line.split(CONFIG_DELIMITER)[1].trim());
-
-                    if (!FileManager.isValidDirectory(rootTagDirectory)) {
-                        System.out.printf(
-                                "CONFIG ERROR: Tag directory '%s' does not exist.%n",
-                                rootTagDirectory.getPath()
-                        );
-                        exit();
-                    }
+                if (line.contains(key)) {
+                    return line.split(CONFIG_DELIMITER)[1].trim();
                 }
         } else {
-            System.out.println("CONFIG ERROR: Configuration file missing.");
-            exit();
+            System.out.println("CONFIG ERROR: Configuration file disappeared suddenly. O.O");
+            System.exit(1);
         }
 
-        if (rootTagDirectory == null) {
-            System.out.println("CONFIG ERROR: Problem with Configuration file format.");
-            exit();
-        }
+        System.out.printf("CONFIG ERROR: variable '%s' not found in config file.%n", key);
+        System.exit(1);
+        return "";
     }
 
 
@@ -333,62 +351,62 @@ public class SoundRestorer {
     /* Recursively walks the remastered tag directory, replacing each with their classic
      * counterpart and deleting those that aren't needed.
      */
-    private void walkTagDirectory(File remasteredFile, String[] ignorePaths) {
+    private void walkTagDirectory(File remasteredFile, String[] preservePaths) {
 
         if (FileManager.isValidFile(remasteredFile)) {
-            ProcessTag(remasteredFile, ignorePaths);
+            ProcessTag(remasteredFile, preservePaths);
 
         } else if(FileManager.isValidDirectory(remasteredFile)) {
 
             // Recourse Through Subdirectories
             List<File> subDirs = FileManager.getSubdirectories(remasteredFile);
-            for (File dir: subDirs) walkTagDirectory(dir, ignorePaths);
+            for (File dir: subDirs) walkTagDirectory(dir, preservePaths);
 
             // Recourse Through Tags
             List<File> files = FileManager.getDirectoryFiles(remasteredFile);
-            for (File file: files) walkTagDirectory(file, ignorePaths);
+            for (File file: files) walkTagDirectory(file, preservePaths);
         }
     }
 
-    /* Ignores, replaces, or deletes a single tag based on whether its
-     * name matches any of the TAG_SUBSTRING constants above.
+    /* Replaces, deletes, or preserves a single tag based on substring checks
+     * and whether discretionary preservation is enabled in the project.
      */
-    private void ProcessTag(File remasteredTag, String[] ignorePaths) {
+    private void ProcessTag(File remasteredTag, String[] preservePaths) {
         File classicTag = getClassicFile(remasteredTag);
         String remasteredTagName = FileManager.getFileOrDirectoryName(remasteredTag);
-        if (FileManager.exists(classicTag)) {
+        assert remasteredTagName != null;
 
-            // Check Whether to Ignore Tag
-            assert remasteredTagName != null;
-            if (Arrays.stream(TAG_IGNORE_SUBSTRINGS).noneMatch(remasteredTagName::contains) &&
-                    Arrays.stream(ignorePaths).noneMatch(remasteredTag.toString()::contains)) {
+        boolean shouldBeIgnored = Arrays.stream(TAG_IGNORE_SUBSTRINGS).anyMatch(remasteredTagName::contains);
+        boolean shouldBePreserved = Arrays.stream(preservePaths).anyMatch(remasteredTag.toString()::contains);
+        boolean shouldBeDeleted = Arrays.stream(TAG_DELETE_SUBSTRINGS).anyMatch(remasteredTagName::contains);
 
-                // Replace Tag / Classic
-                if (FileManager.deleteFile(remasteredTag)) {
-                    FileManager.copyFile(classicTag, remasteredTag);
-                    totalTagsModified++;
-                    totalTagsReplaced++;
-                }
+        if (!shouldBeIgnored && !(discretionaryPreservation && shouldBePreserved)) {
+            if (FileManager.exists(classicTag)) {
+
+                // Replace Tag w/ Classic
+                FileManager.deleteFile(remasteredTag);
+                FileManager.copyFile(classicTag, remasteredTag);
+                totalTagsModified++;
+                totalTagsReplaced++;
+
             } else {
+                if (discretionaryPreservation && !shouldBeDeleted) {
 
-                // Preserve Tag
-                totalTagsPreserved++;
+                    // Preserve Tag
+                    totalTagsPreserved++;
+
+                } else {
+
+                    // Delete Tag
+                    FileManager.deleteFile(remasteredTag);
+                    totalTagsModified++;
+                    totalTagsDeleted++;
+                }
             }
-
-        } else if (Arrays.stream(ignorePaths).anyMatch(remasteredTag.toString()::contains)) {
+        } else {
 
             // Preserve Tag
             totalTagsPreserved++;
-
-        } else {
-
-            // Delete Tag
-            assert remasteredTagName != null;
-            if (Arrays.stream(TAG_DELETE_SUBSTRINGS).anyMatch(remasteredTagName::contains)) {
-                FileManager.deleteFile(remasteredTag);
-                totalTagsModified++;
-                totalTagsDeleted++;
-            }
         }
     }
 

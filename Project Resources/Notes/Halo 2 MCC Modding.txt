@@ -198,3 +198,37 @@ guerilla -tags_dir "D:\Games\Installed - Steam\steamapps\common\H2EK\tags"
 3. Open Map in New Tab > Tags tab
 
 4. Find & Edit the appropriate tag. Then compress map again and play the game.
+
+
+
+/*--- Recursive Walk Refactor Stats ---*/
+
+Before
+
+    Classic Audio Restored
+    ----------------------
+    Updated            640
+    Replaced           571
+    Deleted            69
+    Preserved          84
+    ----------------------
+
+After (Discretionary Preservation on)
+
+    Classic Audio Restored
+    ----------------------
+    Updated            640
+    Replaced           571
+    Deleted            69
+    Preserved          183
+    ----------------------
+
+After (Discretionary Preservation off)
+
+    Classic Audio Restored
+    ----------------------
+    Updated            734
+    Replaced           578
+    Deleted            156
+    Preserved          73
+    ----------------------
