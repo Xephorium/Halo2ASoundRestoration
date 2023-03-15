@@ -76,6 +76,10 @@ public class SoundRestorer {
             "\\/sound\\/characters\\/sentinel\\/sentinel_gun\\/sent_gun\\/out.sound",
             "\\/sound_remastered\\/characters\\/sentinel\\/sentinel_gun_lod\\/sent_gun\\/out.sound",
 
+            // Turret NPC Fire
+            "\\/sound_remastered\\/weapons\\/chain_gun\\/turret_fire.sound",
+            "\\/sound_remastered\\/weapons\\/chain_gun\\/turret_fire_mono.sound",
+
             // Sword Ready
             "\\/sound\\/weapons\\/energy_sword\\/sword_ready.sound",
             "\\/sound_remastered\\/weapons\\/energy_sword\\/energy_sword_ready.sound",
