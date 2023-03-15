@@ -235,7 +235,7 @@ public class SoundRestorer {
 
             // In Amber Clad Slipspace Rupture
             "\\/sound\\/visual_effects\\/inamberclad_flyby\\/slipspace.sound",
-            "\\/sound\\/visual_effects\\/inamberclad_flyby\\/slipspace\\/highcharity_slipspace.sound",
+            "\\/sound_remastered\\/visual_effects\\/inamberclad_flyby\\/slipspace\\/highcharity_slipspace.sound",
 
     };
     private final String[] EFFECTS_DELETE_PATHS = {};
@@ -355,8 +355,9 @@ public class SoundRestorer {
                     totalTagsReplaced++;
                 }
             } else {
-                
-                System.out.println("Ignored: " + remasteredTag.toString());
+
+                // Preserve Tag
+                totalTagsPreserved++;
             }
 
         } else if (Arrays.stream(ignorePaths).anyMatch(remasteredTag.toString()::contains)) {
@@ -641,6 +642,7 @@ public class SoundRestorer {
         System.out.printf("Updated            %d\n", totalTagsModified);
         System.out.printf("Replaced           %d\n", totalTagsReplaced);
         System.out.printf("Deleted            %d\n", totalTagsDeleted);
+        System.out.printf("Preserved          %d\n", totalTagsPreserved);
         System.out.println("----------------------");
     }
 }
