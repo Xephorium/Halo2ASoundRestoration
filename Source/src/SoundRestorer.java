@@ -38,6 +38,7 @@ public class SoundRestorer {
     private final String CONFIG_FILE_PATH = "input\\/Config.txt";
     private final String CONFIG_DIR_PREFIX = "TAGS_DIRECTORY";
     private final String CONFIG_DELIMITER = "=";
+    private final boolean FULL_RESTORATION = true;
 
 
 
@@ -246,6 +247,15 @@ public class SoundRestorer {
 
 
 
+    /*--- Ambience Constants ---*/
+
+    private final String AMBIENCE_SOUND_PATH = "\\/sound_remastered\\/ambience\\/spacestation";
+    private final String[] AMBIENCE_PRESERVE_PATHS = {};
+    private final String[] AMBIENCE_REPLACE_PATHS = {};
+    private final String[] AMBIENCE_DELETE_PATHS = {};
+
+
+
     /*--- Music Constants ---*/
 
     private final String MUSIC_SOUND_PATH = "\\/sound_remastered\\/music";
@@ -276,6 +286,7 @@ public class SoundRestorer {
         restoreCharacterAudio();
         restoreUIAudio();
         restoreEffectsAudio();
+        restoreAmbienceAudio();
         restoreMusic();
 
         // Print Statistics
@@ -510,6 +521,35 @@ public class SoundRestorer {
 
         // Delete Necessary Effects Tags
         for (String path : EFFECTS_DELETE_PATHS) {
+            deleteTag(path);
+        }
+    }
+
+
+
+    /*--- Ambience Restoration Methods ---*/
+
+    private void restoreAmbienceAudio() {
+
+        // Update Ambience
+        File ambienceTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, AMBIENCE_SOUND_PATH);
+        if (FileManager.isValidDirectory(ambienceTagDir)) walkTagDirectory(ambienceTagDir, AMBIENCE_PRESERVE_PATHS);
+
+        performManualEffectsTagFixes();
+    }
+
+    /* Handles one-off cases where ambience tag files are inconsistently
+     * named or otherwise need special attention.
+     */
+    private void performManualAmbienceTagFixes() {
+
+        // Replace Necessary Ambience Tags
+        for (int x = 1; x < AMBIENCE_REPLACE_PATHS.length; x += 2) {
+            replaceTag(AMBIENCE_REPLACE_PATHS[x], AMBIENCE_REPLACE_PATHS[x-1]);
+        }
+
+        // Delete Necessary Ambience Tags
+        for (String path : AMBIENCE_DELETE_PATHS) {
             deleteTag(path);
         }
     }
