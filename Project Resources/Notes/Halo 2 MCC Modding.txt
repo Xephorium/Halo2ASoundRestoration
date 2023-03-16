@@ -258,7 +258,27 @@
         ----------------------
 
 
+/*--- Path Refactor Stats ---*/
 
+    Before
+
+        Classic Audio Restored
+        ----------------------
+        Updated            846
+        Replaced           775
+        Deleted            71
+        Preserved          278
+        ----------------------
+
+    After
+
+        Classic Audio Restored
+        ----------------------
+        Updated            846
+        Replaced           775
+        Deleted            71
+        Preserved          278
+        ----------------------
 
 
     [01b_spacestation_mission line 649] this is not a reference to a sound tag.: sound_remastered\ambience\spacestation\docking_clangs\dockingcov_incoming none 1)

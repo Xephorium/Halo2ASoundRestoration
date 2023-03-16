@@ -5,8 +5,6 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
-import static javafx.application.Platform.exit;
-
 /* Halo 2A Sound Restoration                         Chris Cruzen
  * SoundRestorer                                       03.10.2023
  *
@@ -52,167 +50,167 @@ public class SoundRestorer {
 
     /*--- Weapon Constants ---*/
 
-    private final String WEAPONS_SUBDIR_PATH = "\\/sound_remastered\\/weapons";
+    private final String WEAPONS_SUBDIR_PATH = "/sound_remastered/weapons";
     private final String[] WEAPON_REPLACE_PATHS = {
 
             // Beam Rifle NPC Fire
-            "\\/sound_remastered\\/weapons\\/beam_rifle\\/beam_rifle_fire.sound",
-            "\\/sound_remastered\\/weapons\\/beam_rifle\\/beam_rifle_fire_noplayer.sound",
+            "/sound_remastered/weapons/beam_rifle/beam_rifle_fire.sound",
+            "/sound_remastered/weapons/beam_rifle/beam_rifle_fire_noplayer.sound",
 
             // Beam Rifle Zoom In/Out
-            "\\/sound\\/weapons\\/beam_rifle\\/beam_rifle_zoom_in.sound",
-            "\\/sound_remastered\\/weapons\\/beam_rifle\\/beamrifle_zoom\\/in.sound",
-            "\\/sound\\/weapons\\/beam_rifle\\/beam_rifle_zoom_out.sound",
-            "\\/sound_remastered\\/weapons\\/beam_rifle\\/beamrifle_zoom\\/out.sound",
+            "/sound/weapons/beam_rifle/beam_rifle_zoom_in.sound",
+            "/sound_remastered/weapons/beam_rifle/beamrifle_zoom/in.sound",
+            "/sound/weapons/beam_rifle/beam_rifle_zoom_out.sound",
+            "/sound_remastered/weapons/beam_rifle/beamrifle_zoom/out.sound",
 
             // Rocket Explosion
-            "\\/sound\\/weapons\\/rocket_launcher\\/rocket_expl.sound",
-            "\\/sound_remastered\\/weapons\\/rocket_launcher\\/projectile_exp\\/close.sound",
+            "/sound/weapons/rocket_launcher/rocket_expl.sound",
+            "/sound_remastered/weapons/rocket_launcher/projectile_exp/close.sound",
 
             // Sentinel Beam Fire
-            "\\/sound\\/characters\\/sentinel\\/sentinel_gun\\/sent_gun\\/in.sound",
-            "\\/sound_remastered\\/characters\\/sentinel\\/sentinel_gun_lod\\/sent_gun\\/in.sound",
-            "\\/sound\\/characters\\/sentinel\\/sentinel_gun\\/sent_gun\\/loop.sound",
-            "\\/sound_remastered\\/characters\\/sentinel\\/sentinel_gun_lod\\/sent_gun\\/loop.sound",
-            "\\/sound\\/characters\\/sentinel\\/sentinel_gun\\/sent_gun\\/out.sound",
-            "\\/sound_remastered\\/characters\\/sentinel\\/sentinel_gun_lod\\/sent_gun\\/out.sound",
+            "/sound/characters/sentinel/sentinel_gun/sent_gun/in.sound",
+            "/sound_remastered/characters/sentinel/sentinel_gun_lod/sent_gun/in.sound",
+            "/sound/characters/sentinel/sentinel_gun/sent_gun/loop.sound",
+            "/sound_remastered/characters/sentinel/sentinel_gun_lod/sent_gun/loop.sound",
+            "/sound/characters/sentinel/sentinel_gun/sent_gun/out.sound",
+            "/sound_remastered/characters/sentinel/sentinel_gun_lod/sent_gun/out.sound",
 
             // Turret NPC Fire
-            "\\/sound_remastered\\/weapons\\/chain_gun\\/turret_fire.sound",
-            "\\/sound_remastered\\/weapons\\/chain_gun\\/turret_fire_mono.sound",
+            "/sound_remastered/weapons/chain_gun/turret_fire.sound",
+            "/sound_remastered/weapons/chain_gun/turret_fire_mono.sound",
 
             // Sword Ready
-            "\\/sound\\/weapons\\/energy_sword\\/sword_ready.sound",
-            "\\/sound_remastered\\/weapons\\/energy_sword\\/energy_sword_ready.sound",
+            "/sound/weapons/energy_sword/sword_ready.sound",
+            "/sound_remastered/weapons/energy_sword/energy_sword_ready.sound",
 
             // Regret Throne Cannon (Yes, the directories are right here - 343i is an anthill.)
-            "\\/sound\\/weapons\\/hunter_cannon\\/hunter_cannon_loop\\/hunter_cannon_gravitythrone\\/in.sound",
-            "\\/sound_remastered\\/vehicles\\/gravity_throne\\/weapon_fire\\/in.sound",
-            "\\/sound\\/weapons\\/hunter_cannon\\/hunter_cannon_loop\\/hunter_cannon_gravitythrone\\/loop.sound",
-            "\\/sound_remastered\\/weapons\\/hunter_cannon\\/hunter_cannon_loop\\/hunter_cannon_prophet\\/loop.sound",
-            "\\/sound\\/weapons\\/hunter_cannon\\/hunter_cannon_loop\\/hunter_cannon_gravitythrone\\/out.sound",
-            "\\/sound_remastered\\/vehicles\\/gravity_throne\\/weapon_fire\\/out.sound",
+            "/sound/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_gravitythrone/in.sound",
+            "/sound_remastered/vehicles/gravity_throne/weapon_fire/in.sound",
+            "/sound/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_gravitythrone/loop.sound",
+            "/sound_remastered/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_prophet/loop.sound",
+            "/sound/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_gravitythrone/out.sound",
+            "/sound_remastered/vehicles/gravity_throne/weapon_fire/out.sound",
 
             // Regret Throne Cannon Safety Fix (Just in case 343i audits their tiny ant tunnels.)
-            "\\/sound\\/weapons\\/hunter_cannon\\/hunter_cannon_loop\\/hunter_cannon_gravitythrone\\/in.sound",
-            "\\/sound_remastered\\/weapons\\/hunter_cannon\\/hunter_cannon_loop\\/hunter_cannon_prophet\\/in.sound",
-            "\\/sound\\/weapons\\/hunter_cannon\\/hunter_cannon_loop\\/hunter_cannon_gravitythrone\\/out.sound",
-            "\\/sound_remastered\\/weapons\\/hunter_cannon\\/hunter_cannon_loop\\/hunter_cannon_prophet\\/out.sound",
+            "/sound/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_gravitythrone/in.sound",
+            "/sound_remastered/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_prophet/in.sound",
+            "/sound/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_gravitythrone/out.sound",
+            "/sound_remastered/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_prophet/out.sound",
 
     };
     private final String[] WEAPON_DELETE_PATHS = {
 
             // Plasma Rifle Bottom Fire
-            "\\/sound_remastered\\/weapons\\/plasma_rifle\\/plas_rifle_fire_bottom.sound",
+            "/sound_remastered/weapons/plasma_rifle/plas_rifle_fire_bottom.sound",
 
             // Covenant Carbine Impact Sound
-            "\\/sound_remastered\\/weapons\\/impacts_riccs\\/cov_carbine_imp.sound",
+            "/sound_remastered/weapons/impacts_riccs/cov_carbine_imp.sound",
 
             // Warthog Turret Spin
-            "\\/sound_remastered\\/weapons\\/chain_gun\\/chaingun_spin.sound",
+            "/sound_remastered/weapons/chain_gun/chaingun_spin.sound",
     };
 
 
 
     /*--- Vehicle Constants ---*/
 
-    private final String VEHICLE_SOUND_PATH = "\\/sound_remastered\\/vehicles";
+    private final String VEHICLE_SOUND_PATH = "/sound_remastered/vehicles";
     private final String[] VEHICLE_REPLACE_PATHS = {
 
             // Warthog Crash
-            "\\/sound\\/vehicles\\/warthog\\/jeep_crash_hard.sound",
-            "\\/sound_remastered\\/vehicles\\/warthog\\/warthog_suspension.sound",
+            "/sound/vehicles/warthog/jeep_crash_hard.sound",
+            "/sound_remastered/vehicles/warthog/warthog_suspension.sound",
 
             // Scorpion Fire
-            "\\/sound\\/vehicles\\/scorpion\\/scorpion_explosion_up.sound",
-            "\\/sound_remastered\\/vehicles\\/scorpion\\/projectile_exp\\/close.sound",
+            "/sound/vehicles/scorpion/scorpion_explosion_up.sound",
+            "/sound_remastered/vehicles/scorpion/projectile_exp/close.sound",
 
             // Scorpion Crash
-            "\\/sound\\/vehicles\\/scorpion\\/scorpion_crash.sound",
-            "\\/sound_remastered\\/vehicles\\/scorpion\\/scorpion_suspension.sound",
+            "/sound/vehicles/scorpion/scorpion_crash.sound",
+            "/sound_remastered/vehicles/scorpion/scorpion_suspension.sound",
 
             // Ghost Fire
-            "\\/sound\\/vehicles\\/ghost\\/ghost_fire.sound",
-            "\\/sound_remastered\\/vehicles\\/ghost\\/ghost_fire\\/fire.sound",
+            "/sound/vehicles/ghost/ghost_fire.sound",
+            "/sound_remastered/vehicles/ghost/ghost_fire/fire.sound",
 
             // Wraith Fire
-            "\\/sound\\/vehicles\\/wraith\\/wraith_fire_mortar.sound",
-            "\\/sound_remastered\\/vehicles\\/wraith\\/wraith_fire_mortar\\/fire.sound",
+            "/sound/vehicles/wraith/wraith_fire_mortar.sound",
+            "/sound_remastered/vehicles/wraith/wraith_fire_mortar/fire.sound",
 
             // Wraith Explode
-            "\\/sound\\/vehicles\\/wraith\\/wraith_plasma_expl.sound",
-            "\\/sound_remastered\\/vehicles\\/wraith\\/wraith_mortar_explode\\/explode.sound",
+            "/sound/vehicles/wraith/wraith_plasma_expl.sound",
+            "/sound_remastered/vehicles/wraith/wraith_mortar_explode/explode.sound",
 
             // Banshee Fire
-            "\\/sound\\/vehicles\\/banshee\\/banshee_fire.sound",
-            "\\/sound_remastered\\/vehicles\\/banshee\\/banshee_fire\\/fire.sound",
+            "/sound/vehicles/banshee/banshee_fire.sound",
+            "/sound_remastered/vehicles/banshee/banshee_fire/fire.sound",
 
             // Phantom Extra Fire
-            "\\/sound_remastered\\/vehicles\\/phantom\\/phantom_turret_fire.sound",
-            "\\/sound_remastered\\/vehicles\\/phantom\\/phantom_turret_fire_turret.sound"
+            "/sound_remastered/vehicles/phantom/phantom_turret_fire.sound",
+            "/sound_remastered/vehicles/phantom/phantom_turret_fire_turret.sound"
 
     };
     private final String[] VEHICLE_DELETE_PATHS = {
 
             // Scorpion Reload
-            "\\/sound_remastered\\/vehicles\\/scorpion\\/scorpion_reload.sound",
+            "/sound_remastered/vehicles/scorpion/scorpion_reload.sound",
 
             // Scorpion Turret Move
-            "\\/sound_remastered\\/vehicles\\/scorpion\\/scorp_turret_move.sound_looping",
-            "\\/sound_remastered\\/vehicles\\/scorpion\\/turret_move\\/in.sound",
-            "\\/sound_remastered\\/vehicles\\/scorpion\\/turret_move\\/loop.sound",
-            "\\/sound_remastered\\/vehicles\\/scorpion\\/turret_move\\/out.sound",
+            "/sound_remastered/vehicles/scorpion/scorp_turret_move.sound_looping",
+            "/sound_remastered/vehicles/scorpion/turret_move/in.sound",
+            "/sound_remastered/vehicles/scorpion/turret_move/loop.sound",
+            "/sound_remastered/vehicles/scorpion/turret_move/out.sound",
 
             // Ghost Extra Boost
-            "\\/sound_remastered\\/vehicles\\/ghost\\/ghost_boost_left\\/track2\\/loop.sound",
-            "\\/sound_remastered\\/vehicles\\/ghost\\/ghost_boost_right\\/track2\\/loop.sound",
+            "/sound_remastered/vehicles/ghost/ghost_boost_left/track2/loop.sound",
+            "/sound_remastered/vehicles/ghost/ghost_boost_right/track2/loop.sound",
 
             // Spectre Extra Boost
-            "\\/sound_remastered\\/vehicles\\/spectre\\/spectre_boost_l\\/track2\\/loop.sound",
-            "\\/sound_remastered\\/vehicles\\/spectre\\/spectre_boost_r\\/track2\\/loop.sound",
+            "/sound_remastered/vehicles/spectre/spectre_boost_l/track2/loop.sound",
+            "/sound_remastered/vehicles/spectre/spectre_boost_r/track2/loop.sound",
 
             // Phantom Turret Animation
-            "\\/sound_remastered\\/vehicles\\/phantom\\/phantom_turret_anims\\/lower.sound",
-            "\\/sound_remastered\\/vehicles\\/phantom\\/phantom_turret_anims\\/raise.sound",
+            "/sound_remastered/vehicles/phantom/phantom_turret_anims/lower.sound",
+            "/sound_remastered/vehicles/phantom/phantom_turret_anims/raise.sound",
 
             // Regret Extra Sounds
-            "\\/sound_remastered\\/vehicles\\/gravity_throne\\/regret_teleport_reflection.sound",
+            "/sound_remastered/vehicles/gravity_throne/regret_teleport_reflection.sound",
     };
 
 
 
     /*--- Character Constants ---*/
 
-    private final String SENTINEL_SOUND_PATH = "\\/sound_remastered\\/characters\\/sentinel";
+    private final String SENTINEL_SOUND_PATH = "/sound_remastered/characters/sentinel";
     private final String[] CHARACTER_REPLACE_PATHS = {
 
             // Sentinel Enforcer Needles
-            "\\/sound\\/characters\\/sentinel\\/needler_fire_sentinel_enforcer.sound",
-            "\\/sound_remastered\\/characters\\/sentinel\\/sentinel_enforcer_laser.sound"
+            "/sound/characters/sentinel/needler_fire_sentinel_enforcer.sound",
+            "/sound_remastered/characters/sentinel/sentinel_enforcer_laser.sound"
 
     };
     private final String[] CHARACTER_DELETE_PATHS = {
 
             // Sentinel Enforcer Rocket
-            "\\/sound_remastered\\/characters\\/sentinel\\/sentinel_rocket_launcher\\/sentinel_rocket\\/in.sound"
+            "/sound_remastered/characters/sentinel/sentinel_rocket_launcher/sentinel_rocket/in.sound"
     };
 
 
 
     /*--- UI Constants ---*/
 
-    private final String UI_SOUND_PATH = "\\/sound_remastered\\/ui";
+    private final String UI_SOUND_PATH = "/sound_remastered/ui";
     private final String[] UI_DELETE_PATHS = {
 
             // Shield Pop
-            "\\/sound_remastered\\/ui\\/shield_pop.sound"
+            "/sound_remastered/ui/shield_pop.sound"
     };
 
 
 
     /*--- Effects Constants ---*/
 
-    private final String EFFECTS_SOUND_PATH = "\\/sound_remastered\\/visual_effects";
+    private final String EFFECTS_SOUND_PATH = "/sound_remastered/visual_effects";
     private final String[] EFFECTS_PRESERVE_PATHS = {
 
             // Cairo Welder
@@ -240,14 +238,14 @@ public class SoundRestorer {
     private final String[] EFFECTS_REPLACE_PATHS = {
 
             // In Amber Clad Slipspace Rupture
-            "\\/sound\\/visual_effects\\/inamberclad_flyby\\/slipspace.sound",
-            "\\/sound_remastered\\/visual_effects\\/inamberclad_flyby\\/slipspace\\/highcharity_slipspace.sound",
+            "/sound/visual_effects/inamberclad_flyby/slipspace.sound",
+            "/sound_remastered/visual_effects/inamberclad_flyby/slipspace/highcharity_slipspace.sound",
 
             // Perplexingly, removing these sounds will brick the build? Replacing
             // them with the quietest sound I can find in the classic tags.
             // TODO: Add silent tag to project.
-            "\\/sound\\/materials\\/soft\\/cloth_hits\\/cloth_hits.sound",
-            "\\/sound_remastered\\/visual_effects\\/ss_smalldoor_explode.sound",
+            "/sound/materials/soft/cloth_hits/cloth_hits.sound",
+            "/sound_remastered/visual_effects/ss_smalldoor_explode.sound",
 
 };
     private final String[] EFFECTS_DELETE_PATHS = {};
@@ -259,10 +257,10 @@ public class SoundRestorer {
     private final String[] AMBIENCE_SOUND_PATHS = {
 
             // General
-            "\\/sound_remastered\\/ambience\\/device_machines",
+            "/sound_remastered/ambience/device_machines",
 
             // Cairo Station
-            "\\/sound_remastered\\/ambience\\/spacestation",
+            "/sound_remastered/ambience/spacestation",
 
 
     };
@@ -277,18 +275,18 @@ public class SoundRestorer {
             // Perplexingly, removing this sound will brick the build? Replacing
             // it with the quietest sound I can find in the classic tags.
             // TODO: Add silent tag to project.
-            "\\/sound\\/materials\\/soft\\/cloth_hits\\/cloth_hits.sound",
-            "\\/sound_remastered\\/ambience\\/spacestation\\/docking_clangs\\/dockingcov_incoming.sound",
+            "/sound/materials/soft/cloth_hits/cloth_hits.sound",
+            "/sound_remastered/ambience/spacestation/docking_clangs/dockingcov_incoming.sound",
 
             // Cairo Station Muffled Boarding Action
-            "\\/sound\\/ambience\\/spacestation\\/ss_behind_bulkhead\\/behind_bulkhead\\/loop.sound",
-            "\\/sound_remastered\\/ambience\\/spacestation\\/behind_bulkhead\\/loop.sound",
+            "/sound/ambience/spacestation/ss_behind_bulkhead/behind_bulkhead/loop.sound",
+            "/sound_remastered/ambience/spacestation/behind_bulkhead/loop.sound",
 
             // High Charity Lift Doors
-            "\\/sound\\/ambience\\/device_machines\\/high_lift_doors_open_close\\/lift_doors_close.sound",
-            "\\/sound_remastered\\/ambience\\/device_machines\\/high_lift_doors_open_close\\/close\\/highcharity_liftdoor_close.sound",
-            "\\/sound\\/ambience\\/device_machines\\/high_lift_doors_open_close\\/lift_doors_open.sound",
-            "\\/sound_remastered\\/ambience\\/device_machines\\/high_lift_doors_open_close\\/open\\/highcharity_liftdoor_open.sound"
+            "/sound/ambience/device_machines/high_lift_doors_open_close/lift_doors_close.sound",
+            "/sound_remastered/ambience/device_machines/high_lift_doors_open_close/close/highcharity_liftdoor_close.sound",
+            "/sound/ambience/device_machines/high_lift_doors_open_close/lift_doors_open.sound",
+            "/sound_remastered/ambience/device_machines/high_lift_doors_open_close/open/highcharity_liftdoor_open.sound"
 
     };
     private final String[] AMBIENCE_DELETE_PATHS = {};
@@ -297,7 +295,7 @@ public class SoundRestorer {
 
     /*--- Music Constants ---*/
 
-    private final String MUSIC_SOUND_PATH = "\\/sound_remastered\\/music";
+    private final String MUSIC_SOUND_PATH = "/sound_remastered/music";
 
 
 
@@ -335,7 +333,10 @@ public class SoundRestorer {
         // Print Statistics
         printStatistics();
 
-        //checkDirectoryForClassicTags(FileManager.createSubdirectoryFile(rootTagDirectory, "\\/sound_remastered\\/ambience\\/device_machines"), 0);
+//        System.out.println(createTagSubdir( "/test"));
+//        System.out.println(createTagSubdir( escapeSlashes("/test")));
+
+        //checkDirectoryForClassicTags(createTagSubdir( "/sound_remastered/ambience/device_machines"), 0);
     }
 
 
@@ -454,7 +455,7 @@ public class SoundRestorer {
     /*--- Weapon Audio Restoration Methods ---*/
 
     private void restoreWeaponAudio() {
-        File remasteredWeaponDir = FileManager.createSubdirectoryFile(rootTagDirectory, WEAPONS_SUBDIR_PATH);
+        File remasteredWeaponDir = createTagSubdir( WEAPONS_SUBDIR_PATH);
         if (FileManager.isValidDirectory(remasteredWeaponDir)) {
             walkTagDirectory(remasteredWeaponDir, EMPTY);
             performManualWeaponTagFixes();
@@ -486,7 +487,7 @@ public class SoundRestorer {
     /*--- Vehicle Audio Restoration Methods ---*/
 
     private void restoreVehicleAudio() {
-        File vehicleTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, VEHICLE_SOUND_PATH);
+        File vehicleTagDir = createTagSubdir( VEHICLE_SOUND_PATH);
         if (FileManager.isValidDirectory(vehicleTagDir)) {
             walkTagDirectory(vehicleTagDir, EMPTY);
             performManualVehicleTagFixes();
@@ -523,7 +524,7 @@ public class SoundRestorer {
     private void performManualCharacterTagFixes() {
 
         // Update Sentinel Sounds
-        File sentinelTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, SENTINEL_SOUND_PATH);
+        File sentinelTagDir = createTagSubdir( SENTINEL_SOUND_PATH);
         if (FileManager.isValidDirectory(sentinelTagDir)) walkTagDirectory(sentinelTagDir, EMPTY);
 
         // Replace Necessary Character Tags
@@ -544,7 +545,7 @@ public class SoundRestorer {
     private void restoreUIAudio() {
 
         // Update UI Sounds
-        File uiTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, UI_SOUND_PATH);
+        File uiTagDir = createTagSubdir( UI_SOUND_PATH);
         if (FileManager.isValidDirectory(uiTagDir)) walkTagDirectory(uiTagDir, EMPTY);
 
         // Delete Necessary UI Tags
@@ -560,7 +561,7 @@ public class SoundRestorer {
     private void restoreEffectsAudio() {
 
         // Update Effects
-        File effectsTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, EFFECTS_SOUND_PATH);
+        File effectsTagDir = createTagSubdir( EFFECTS_SOUND_PATH);
         if (FileManager.isValidDirectory(effectsTagDir)) walkTagDirectory(effectsTagDir, EFFECTS_PRESERVE_PATHS);
 
         performManualEffectsTagFixes();
@@ -590,7 +591,7 @@ public class SoundRestorer {
 
         // Update Each Ambience Directory
         for (String subdir: AMBIENCE_SOUND_PATHS) {
-            File ambienceTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, subdir);
+            File ambienceTagDir = createTagSubdir( subdir);
             if (FileManager.isValidDirectory(ambienceTagDir)) walkTagDirectory(ambienceTagDir, AMBIENCE_PRESERVE_PATHS);
         }
 
@@ -620,7 +621,7 @@ public class SoundRestorer {
     private void restoreMusic() {
 
         // Update Music
-        File musicTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, MUSIC_SOUND_PATH);
+        File musicTagDir = createTagSubdir( MUSIC_SOUND_PATH);
         if (FileManager.isValidDirectory(musicTagDir)) walkTagDirectory(musicTagDir, EMPTY);
     }
 
@@ -672,7 +673,7 @@ public class SoundRestorer {
     /* Recursively walks directory, printing whether tag name matches string query.
      * Invocation:
      *   checkDirectoryForNameEdgeCases(
-     *     FileManager.createSubdirectoryFile(rootTagDirectory, "\\/sound_remastered")
+     *     createTagSubdir( "/sound_remastered")
      *   );
      */
     private void checkDirectoryForNameEdgeCases(File file) {
@@ -712,8 +713,8 @@ public class SoundRestorer {
     }
 
     private void replaceTag(String sourcePath, String replacementPath) {
-        File sourceTag = FileManager.createSubdirectoryFile(rootTagDirectory, sourcePath);
-        File replacementTag = FileManager.createSubdirectoryFile(rootTagDirectory, replacementPath);
+        File sourceTag = createTagSubdir( sourcePath);
+        File replacementTag = createTagSubdir( replacementPath);
         if (FileManager.isValidFile(sourceTag)) FileManager.deleteFile(sourceTag);
         if (FileManager.isValidFile(replacementTag)) {
             FileManager.copyFile(replacementTag, sourceTag);
@@ -723,7 +724,7 @@ public class SoundRestorer {
     }
 
     private void deleteTag(String tagPath) {
-        File tag = FileManager.createSubdirectoryFile(rootTagDirectory, tagPath);
+        File tag = createTagSubdir( tagPath);
         if (FileManager.isValidFile(tag)) {
             FileManager.deleteFile(tag);
             totalTagsModified++;
@@ -733,6 +734,14 @@ public class SoundRestorer {
 
     private File getClassicFile(File file) {
         return new File(file.getPath().replace("sound_remastered", "sound"));
+    }
+
+    private File createTagSubdir(String path) {
+        return FileManager.createSubdirectoryFile(rootTagDirectory, escapeForwardSlashes(path));
+    }
+
+    private String escapeForwardSlashes(String path) {
+        return path.replaceAll("/", "\\/");
     }
 
 
