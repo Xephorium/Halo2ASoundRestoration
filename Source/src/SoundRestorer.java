@@ -2,6 +2,7 @@
 import io.FileManager;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import tags.*;
@@ -43,6 +44,8 @@ public class SoundRestorer {
 
     /*--- General Constants ---*/
 
+    private final String REMASTERED_SOUND_PATH = "/sound_remastered";
+
     private final String[] TAG_DELETE_SUBSTRINGS = {"swtnr", "lfe", "lod.", "_lod"};
     private final String[] TAG_IGNORE_SUBSTRINGS = {"sound_looping"};
     private final TagGroup[] TAG_GROUPS = {
@@ -62,6 +65,8 @@ public class SoundRestorer {
     private File rootTagDirectory = null;
     private boolean discretionaryPreservation = true;
 
+    private List<File> allSoundFiles;
+
     private int totalTagsModified = 0;
     private int totalTagsReplaced = 0;
     private int totalTagsDeleted = 0;
@@ -76,6 +81,8 @@ public class SoundRestorer {
 
         initializeRootTagDirectory();
         initializePreservationPreference();
+
+        initializeSoundFileList();
     }
 
     public void restoreSound() {
@@ -96,7 +103,7 @@ public class SoundRestorer {
 
 
 
-    /*--- Config Initialization Methods ---*/
+    /*--- Initialization Methods ---*/
 
     private void checkForConfigFile() {
         if (FileManager.readFileContents(new File(CONFIG_FILE_PATH)) == null) {
@@ -137,6 +144,11 @@ public class SoundRestorer {
         System.out.printf("CONFIG ERROR: variable '%s' not found in config file.%n", key);
         System.exit(1);
         return "";
+    }
+
+    private void initializeSoundFileList() {
+        allSoundFiles = new ArrayList<>();
+        buildSoundFileList(createTagSubdir(REMASTERED_SOUND_PATH));
     }
 
 
@@ -205,12 +217,14 @@ public class SoundRestorer {
                 FileManager.copyFile(classicTag, remasteredTag);
                 totalTagsModified++;
                 totalTagsReplaced++;
+                allSoundFiles.remove(remasteredTag);
 
             } else {
                 if (discretionaryPreservation && !shouldBeDeleted) {
 
                     // Preserve Tag
                     totalTagsPreserved++;
+                    allSoundFiles.remove(remasteredTag);
 
                 } else {
 
@@ -218,12 +232,14 @@ public class SoundRestorer {
                     FileManager.deleteFile(remasteredTag);
                     totalTagsModified++;
                     totalTagsDeleted++;
+                    allSoundFiles.remove(remasteredTag);
                 }
             }
         } else {
 
             // Preserve Tag
             totalTagsPreserved++;
+            allSoundFiles.remove(remasteredTag);
         }
     }
 
@@ -303,7 +319,32 @@ public class SoundRestorer {
                 checkDirectoryForNameEdgeCases(f);
             }
         }
+    }
 
+    /* Recursively walks `sound_remastered` directory, building a list of
+     * all sound tags to be referenced later when generating statistics.
+     */
+    private void buildSoundFileList(File file) {
+
+        if (FileManager.isValidFile(file)) {
+
+            // Print Tag Status
+            allSoundFiles.add(file);
+
+        } else if(FileManager.isValidDirectory(file)) {
+
+            // Recourse Through Subdirectories
+            List<File> subDirs = FileManager.getSubdirectories(file);
+            for (File dir: subDirs) {
+                buildSoundFileList(dir);
+            }
+
+            // Recourse Through Files
+            List<File> files = FileManager.getDirectoryFiles(file);
+            for (File f: files) {
+                buildSoundFileList(f);
+            }
+        }
     }
 
     private String getRecursiveIndentation(int depth) {
@@ -351,12 +392,24 @@ public class SoundRestorer {
     /*--- Statistic Methods ---*/
 
     private void printStatistics() {
+        totalTagsPreserved += allSoundFiles.size();
+
         System.out.println("\nClassic Audio Restored");
         System.out.println("----------------------");
-        System.out.printf("Updated            %d\n", totalTagsModified);
-        System.out.printf("Replaced           %d\n", totalTagsReplaced);
-        System.out.printf("Deleted            %d\n", totalTagsDeleted);
-        System.out.printf("Preserved          %d\n", totalTagsPreserved);
+        System.out.printf("Updated%s%d\n", getPadding(15, totalTagsModified), totalTagsModified);
+        System.out.printf("Replaced%s%d\n", getPadding(14, totalTagsReplaced), totalTagsReplaced);
+        System.out.printf("Deleted%s%d\n", getPadding(15, totalTagsDeleted), totalTagsDeleted);
+        System.out.printf("Preserved%s%d\n", getPadding(13, totalTagsPreserved), totalTagsPreserved);
         System.out.println("----------------------");
+    }
+
+    private String getPadding(int fullLine, int number) {
+        int numSpaces = fullLine - String.valueOf(number).length();
+        StringBuilder padding = new StringBuilder();
+        for (int x = 0; x < numSpaces; x++) {
+            padding.append(" ");
+        }
+
+        return padding.toString();
     }
 }
