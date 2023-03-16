@@ -174,6 +174,15 @@
             characters\sentinel\sentinel_enforcer_laser.sound - min dist = 25, max dist = 75, "play only in legacy mode" = unticked
 
         Levels
+          The Armory (preserved all ambient except following)
+            restored shield charging station track 2 (mechanical layer)
+            restored computer sounds
+          Cairo Station (preserved all ambient except following)
+            restored welder sound
+            restored muffled fighting beyond bulkhead
+            deleted boarding craft approach sound
+            restored distant explosion & impact sounds
+            restored mac cannon fire & reload sounds
           Delta Halo
             preserved new tags for bridge extension
 
@@ -190,14 +199,14 @@
 
     Internal Level Identifiers
 
-        -------------------------------------------------------------------
-        Map Name            | Other Internal Names     | Level Name
-        --------------------|--------------------------|-------------------
-        00a_introduction    |                          | The Heretic
-        01a_tutorial        |                          | The Armory
-        01b_spacestation    | ss                       | Cairo Station
-        03a_oldmombasa      |                          | Outskirts
-        03b_newmombasa      | earthcity                | Metropolis
+        ---------------------------------------------------------------------------.
+        Map Name            | Other Internal Names     | Level Name        | State |
+        --------------------|--------------------------|-------------------|-------|
+        00a_introduction    |                          | The Heretic       | Done  |
+        01a_tutorial        |                          | The Armory        | Done  |
+        01b_spacestation    | ss                       | Cairo Station     | Done  |
+        03a_oldmombasa      |                          | Outskirts         |       |
+        03b_newmombasa      | earthcity                | Metropolis        |       |
         04a_gasgiant        | alphagasgiant            | The Arbiter
         04b_floodlab        |
         05a_deltaapproach
