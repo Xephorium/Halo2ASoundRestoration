@@ -8,46 +8,15 @@ public class AmbienceTags extends TagGroup {
 
                 // General
                 "/sound_remastered/ambience/device_machines",
-
-                // Cairo Station
-                "/sound_remastered/ambience/spacestation",
-                "/sound_remastered/ambience/sound_scenery/computer1",
-                "/sound_remastered/ambience/sound_scenery/computer2",
-                "/sound_remastered/ambience/sound_scenery/computer3",
-                "/sound_remastered/ambience/sound_scenery/computer4",
-                "/sound_remastered/ambience/sound_scenery/computer5",
-                "/sound_remastered/ambience/sound_scenery/computer6",
         };
 
         preservePaths = new String[] {
-
-                // Cairo Station Background Loops
-                "spacestation\\loop.sound",
-                "smallroom\\loop.sound",
 
                 // Cairo Station Tech
                 "ss_"
         };
 
         replacePaths = new String[] {
-
-                // Perplexingly, removing this sound will brick the build? Replacing
-                // it with the quietest sound I can find in the classic tags.
-                // TODO: Add silent tag to project.
-                "/sound/materials/soft/cloth_hits/cloth_hits.sound",
-                "/sound_remastered/ambience/spacestation/docking_clangs/dockingcov_incoming.sound",
-
-                // Cairo Station Muffled Boarding Action
-                "/sound/ambience/spacestation/ss_behind_bulkhead/behind_bulkhead/loop.sound",
-                "/sound_remastered/ambience/spacestation/behind_bulkhead/loop.sound",
-
-                // Cairo Station Shield Charger
-                "/sound/ambience/device_machines/ss_armory_shield_charger/track2/in.sound",
-                "/sound_remastered/ambience/device_machines/ss_armory_shield_charger/track2/in.sound",
-                "/sound/ambience/device_machines/ss_armory_shield_charger/track2/loop.sound",
-                "/sound_remastered/ambience/device_machines/ss_armory_shield_charger/track2/loop.sound",
-                "/sound/ambience/device_machines/ss_armory_shield_charger/track2/out.sound",
-                "/sound_remastered/ambience/device_machines/ss_armory_shield_charger/track2/out.sound",
 
                 // High Charity Doors
                 "/sound/ambience/device_machines/high_door_delay/a50_door_delay.sound",

@@ -49,13 +49,19 @@ public class SoundRestorer {
     private final String[] TAG_DELETE_SUBSTRINGS = {"swtnr", "lfe", "lod.", "_lod"};
     private final String[] TAG_IGNORE_SUBSTRINGS = {"sound_looping"};
     private final TagGroup[] TAG_GROUPS = {
-            new WeaponTags(),
-            new VehicleTags(),
+
+            // Universal Campaign Sounds
+            //new AmbienceTags(),
             new CharacterTags(),
+            //new EffectsTags(),
             new InterfaceTags(),
-            new EffectsTags(),
-            new AmbienceTags(),
-            new MusicTags()
+            new MusicTags(),
+            new VehicleTags(),
+            new WeaponTags(),
+
+            // Specific Levels
+            new TheArmoryTags(),
+            new CairoStationTags()
     };
 
 

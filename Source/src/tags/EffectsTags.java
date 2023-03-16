@@ -43,8 +43,8 @@ public class EffectsTags extends TagGroup {
                 // Perplexingly, removing these sounds will brick the build? Replacing
                 // them with the quietest sound I can find in the classic tags.
                 // TODO: Add silent tag to project.
-                "/sound/materials/soft/cloth_hits/cloth_hits.sound",
-                "/sound_remastered/visual_effects/ss_smalldoor_explode.sound",
+//                "/sound/materials/soft/cloth_hits/cloth_hits.sound",
+//                "/sound_remastered/visual_effects/ss_smalldoor_explode.sound",
         };
     }
 }

@@ -204,7 +204,7 @@
         --------------------|--------------------------|-------------------|-------|
         00a_introduction    |                          | The Heretic       | Done  |
         01a_tutorial        |                          | The Armory        | Done  |
-        01b_spacestation    | ss                       | Cairo Station     | Done  |
+        01b_spacestation    | ss                       | Cairo Station     | ?     |
         03a_oldmombasa      |                          | Outskirts         |       |
         03b_newmombasa      | earthcity                | Metropolis        |       |
         04a_gasgiant        | alphagasgiant            | The Arbiter
