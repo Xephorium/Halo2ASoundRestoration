@@ -5,7 +5,7 @@
 call clean.bat
 
 :: Compile Project (Targets Sent to "build" Directory)
-javac -d build -cp src\dependencies\apacheio.jar src\*.java src\io\*.java src\io\utility\*.java
+javac -d build -cp src\dependencies\apacheio.jar src\*.java src\io\*.java src\io\utility\*.java src\tags\*.java
 
 :: Print Update
 echo Project compiled.
