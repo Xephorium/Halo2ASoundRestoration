@@ -216,6 +216,7 @@
         To find a campaign sound file, check the following directories in order of likelihood:
             tags/sound_remastered/visual_effects
             tags/sound_remastered/ambience/<map name>
+            tags/sound_remastered/ambience/device_machines
             tags/sound_remastered/sound_scenery
 
 
