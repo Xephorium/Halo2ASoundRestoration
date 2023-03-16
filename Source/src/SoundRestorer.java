@@ -256,7 +256,16 @@ public class SoundRestorer {
 
     /*--- Ambience Constants ---*/
 
-    private final String AMBIENCE_SOUND_PATH = "\\/sound_remastered\\/ambience\\/spacestation";
+    private final String[] AMBIENCE_SOUND_PATHS = {
+
+            // General
+            "\\/sound_remastered\\/ambience\\/device_machines",
+
+            // Cairo Station
+            "\\/sound_remastered\\/ambience\\/spacestation",
+
+
+    };
     private final String[] AMBIENCE_PRESERVE_PATHS = {
 
             // Cairo Station Background Loops
@@ -274,6 +283,13 @@ public class SoundRestorer {
             // Cairo Station Muffled Boarding Action
             "\\/sound\\/ambience\\/spacestation\\/ss_behind_bulkhead\\/behind_bulkhead\\/loop.sound",
             "\\/sound_remastered\\/ambience\\/spacestation\\/behind_bulkhead\\/loop.sound",
+
+            // High Charity Lift Doors
+            "\\/sound\\/ambience\\/device_machines\\/high_lift_doors_open_close\\/lift_doors_close.sound",
+            "\\/sound_remastered\\/ambience\\/device_machines\\/high_lift_doors_open_close\\/close\\/highcharity_liftdoor_close.sound",
+            "\\/sound\\/ambience\\/device_machines\\/high_lift_doors_open_close\\/lift_doors_open.sound",
+            "\\/sound_remastered\\/ambience\\/device_machines\\/high_lift_doors_open_close\\/open\\/highcharity_liftdoor_open.sound"
+
     };
     private final String[] AMBIENCE_DELETE_PATHS = {};
 
@@ -319,7 +335,7 @@ public class SoundRestorer {
         // Print Statistics
         printStatistics();
 
-        //checkDirectoryForClassicTags(FileManager.createSubdirectoryFile(rootTagDirectory, EFFECTS_SOUND_PATH), 0);
+        //checkDirectoryForClassicTags(FileManager.createSubdirectoryFile(rootTagDirectory, "\\/sound_remastered\\/ambience\\/device_machines"), 0);
     }
 
 
@@ -572,9 +588,11 @@ public class SoundRestorer {
 
     private void restoreAmbienceAudio() {
 
-        // Update Ambience
-        File ambienceTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, AMBIENCE_SOUND_PATH);
-        if (FileManager.isValidDirectory(ambienceTagDir)) walkTagDirectory(ambienceTagDir, AMBIENCE_PRESERVE_PATHS);
+        // Update Each Ambience Directory
+        for (String subdir: AMBIENCE_SOUND_PATHS) {
+            File ambienceTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, subdir);
+            if (FileManager.isValidDirectory(ambienceTagDir)) walkTagDirectory(ambienceTagDir, AMBIENCE_PRESERVE_PATHS);
+        }
 
         performManualAmbienceTagFixes();
     }

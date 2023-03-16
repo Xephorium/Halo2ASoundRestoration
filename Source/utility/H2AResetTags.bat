@@ -35,6 +35,8 @@ robocopy "D:\Games\Installed - Steam\steamapps\common\H2EK\tags_bak\sound_remast
 echo Reverting Ambience...
 rmdir /q /s "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\ambience\spacestation"
 robocopy "D:\Games\Installed - Steam\steamapps\common\H2EK\tags_bak\sound_remastered\ambience\spacestation" "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\ambience\spacestation" /E /NFL /NDL /NJH /NJS /nc /ns /np > NUL
+rmdir /q /s "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\ambience\device_machines"
+robocopy "D:\Games\Installed - Steam\steamapps\common\H2EK\tags_bak\sound_remastered\ambience\device_machines" "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\ambience\device_machines" /E /NFL /NDL /NJH /NJS /nc /ns /np > NUL
 
 
 :: Music Tags

@@ -173,6 +173,10 @@
           Sentinel Enforcer
             characters\sentinel\sentinel_enforcer_laser.sound - min dist = 25, max dist = 75, "play only in legacy mode" = unticked
 
+        Levels
+          Delta Halo
+            preserved new tags for bridge extension
+
 
 /*--- Hard Earned Knowledge ---*/
 
@@ -200,7 +204,7 @@
         05b_deltatowers
         06a_sentinelwalls   | shq
         06b_floodzone
-        07a_highcharity
+        07a_highcharity     | high
         07b_forerunnership
         08a_deltacliffs
         08b_deltacontrol
