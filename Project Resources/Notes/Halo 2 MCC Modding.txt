@@ -51,16 +51,18 @@ Tool Documentation: https://c20.reclaimers.net/h2/tools/h2-ek/h2-tool/
 
 guerilla -tags_dir "D:\Games\Installed - Steam\steamapps\common\H2EK\tags"
 
-00a_introduction
-01a_tutorial
-01b_spacestation
-03a_oldmombasa
-03b_newmombasa
-04a_gasgiant
-04b_floodlab
+Map Name            | Other Internal Names     | Level Name
+--------------------|--------------------------|-------------------
+00a_introduction    |                          | The Heretic
+01a_tutorial        |                          | The Armory
+01b_spacestation    | ss                       | Cairo Station
+03a_oldmombasa      |                          | Outskirts
+03b_newmombasa      | earthcity                | Metropolis
+04a_gasgiant        | alphagasgiant            | The Arbiter
+04b_floodlab        |
 05a_deltaapproach
 05b_deltatowers
-06a_sentinelwalls
+06a_sentinelwalls   | shq
 06b_floodzone
 07a_highcharity
 07b_forerunnership
@@ -232,3 +234,9 @@ After (Discretionary Preservation off)
     Deleted            156
     Preserved          73
     ----------------------
+
+
+
+
+
+    [01b_spacestation_mission line 649] this is not a reference to a sound tag.: sound_remastered\ambience\spacestation\docking_clangs\dockingcov_incoming none 1)

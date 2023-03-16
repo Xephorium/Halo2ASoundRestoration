@@ -216,11 +216,12 @@ public class SoundRestorer {
     private final String[] EFFECTS_PRESERVE_PATHS = {
 
             // Cairo Welder
-            "welder\\in.sound",
-            "welder\\loop.sound",
+            "ss_arc_welder\\welder\\in.sound",
+            "ss_arc_welder\\welder\\loop.sound",
 
-            // Malta Explosion
+            // Orbital Platform Explosions
             "malta_explode.sound",
+            "ss_distship_explode.sound",
 
             // Cable Cutting
             "alphacable_swtnr",
@@ -242,7 +243,13 @@ public class SoundRestorer {
             "\\/sound\\/visual_effects\\/inamberclad_flyby\\/slipspace.sound",
             "\\/sound_remastered\\/visual_effects\\/inamberclad_flyby\\/slipspace\\/highcharity_slipspace.sound",
 
-    };
+            // Perplexingly, removing these sounds will brick the build? Replacing
+            // them with the quietest sound I can find in the classic tags.
+            // TODO: Add silent tag to project.
+            "\\/sound\\/materials\\/soft\\/cloth_hits\\/cloth_hits.sound",
+            "\\/sound_remastered\\/visual_effects\\/ss_smalldoor_explode.sound",
+
+};
     private final String[] EFFECTS_DELETE_PATHS = {};
 
 
@@ -250,8 +257,24 @@ public class SoundRestorer {
     /*--- Ambience Constants ---*/
 
     private final String AMBIENCE_SOUND_PATH = "\\/sound_remastered\\/ambience\\/spacestation";
-    private final String[] AMBIENCE_PRESERVE_PATHS = {};
-    private final String[] AMBIENCE_REPLACE_PATHS = {};
+    private final String[] AMBIENCE_PRESERVE_PATHS = {
+
+            // Cairo Station Background Loops
+            "spacestation\\loop.sound",
+            "smallroom\\loop.sound",
+    };
+    private final String[] AMBIENCE_REPLACE_PATHS = {
+
+            // Perplexingly, removing this sound will brick the build? Replacing
+            // it with the quietest sound I can find in the classic tags.
+            // TODO: Add silent tag to project.
+            "\\/sound\\/materials\\/soft\\/cloth_hits\\/cloth_hits.sound",
+            "\\/sound_remastered\\/ambience\\/spacestation\\/docking_clangs\\/dockingcov_incoming.sound",
+
+            // Cairo Station Muffled Boarding Action
+            "\\/sound\\/ambience\\/spacestation\\/ss_behind_bulkhead\\/behind_bulkhead\\/loop.sound",
+            "\\/sound_remastered\\/ambience\\/spacestation\\/behind_bulkhead\\/loop.sound",
+    };
     private final String[] AMBIENCE_DELETE_PATHS = {};
 
 
@@ -265,7 +288,7 @@ public class SoundRestorer {
     /*--- Variables ---*/
 
     private File rootTagDirectory = null;
-    private boolean discretionaryPreservation = false;
+    private boolean discretionaryPreservation = true;
 
     private int totalTagsModified = 0;
     private int totalTagsReplaced = 0;
@@ -290,7 +313,7 @@ public class SoundRestorer {
         restoreCharacterAudio();
         restoreUIAudio();
         restoreEffectsAudio();
-        //restoreAmbienceAudio();
+        restoreAmbienceAudio();
         restoreMusic();
 
         // Print Statistics
@@ -553,7 +576,7 @@ public class SoundRestorer {
         File ambienceTagDir = FileManager.createSubdirectoryFile(rootTagDirectory, AMBIENCE_SOUND_PATH);
         if (FileManager.isValidDirectory(ambienceTagDir)) walkTagDirectory(ambienceTagDir, AMBIENCE_PRESERVE_PATHS);
 
-        performManualEffectsTagFixes();
+        performManualAmbienceTagFixes();
     }
 
     /* Handles one-off cases where ambience tag files are inconsistently
