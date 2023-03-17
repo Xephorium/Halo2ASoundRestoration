@@ -8,7 +8,15 @@ public class WeaponTags extends TagGroup {
 
         recursePaths = new String[] {
 
-                "/sound_remastered/weapons"
+                // General Weapon Sounds
+                "/sound_remastered/weapons",
+
+                // Scarab Gun in Ambience Directory
+                "/sound_remastered/ambience/device_machines/scarab/scarab_fire"
+
+                /* NOTE: Sentinel Beam weapon sounds are stored in the character
+                 *       directory and handled by the CharacterTags class.
+                 */
         };
 
         replacePaths = new String[] {
@@ -56,10 +64,6 @@ public class WeaponTags extends TagGroup {
                 "/sound_remastered/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_prophet/in.sound",
                 "/sound/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_gravitythrone/out.sound",
                 "/sound_remastered/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_prophet/out.sound",
-
-                /* NOTE: Sentinel Beam weapon sounds are stored in the character
-                 *       directory and handled by the CharacterTags class.
-                 */
         };
 
         deletePaths = new String[] {
@@ -72,6 +76,9 @@ public class WeaponTags extends TagGroup {
 
                 // Warthog Turret Spin
                 "/sound_remastered/weapons/chain_gun/chaingun_spin.sound",
+
+                // Scarab Gun Extra Fire
+                "sound_remastered/ambience/device_machines/scarab/scarab_fire_swtnr/out.sound"
         };
     }
 }

@@ -8,6 +8,7 @@ import java.util.List;
 import tags.*;
 import tags.general.*;
 import tags.levels.CairoStationTags;
+import tags.levels.MetropolisTags;
 import tags.levels.TheArmoryTags;
 
 /* Halo 2A Sound Restoration                         Chris Cruzen
@@ -62,7 +63,9 @@ public class SoundRestorer {
 
             // Specific Levels
             new TheArmoryTags(),
-            new CairoStationTags()
+            new CairoStationTags(),
+            // Outskirts Fine
+            new MetropolisTags()
     };
 
 

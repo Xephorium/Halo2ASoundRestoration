@@ -161,29 +161,33 @@
           Beam Rifle
             sound_remastered\weapons\beam_rifle\fire_burst.sound - min dist 2, max dist 75
           Magnum
-            sound_remastered\weapons\battle_rifle\magnum_fire.sound - min dist 2, max dist 75
-          Magnum
             sound_remastered\weapons\magnum\magnum_fire.sound - min dist 2, max dist 75
+          SMG
+            sound_remastered\weapons\smg\fire.sound - min dist 2, max dist 75
           Plasma Turret
             sound_remastered\weapons\plasma_turret\fire.sound - base gain -16
 
         Vehicles
+          Scarab
+
 
         Characters
           Sentinel Enforcer
             characters\sentinel\sentinel_enforcer_laser.sound - min dist = 25, max dist = 75, "play only in legacy mode" = unticked
 
-        Levels
-          The Armory (preserved all ambient except following)
+        Levels (preserved all new ambient except following)
+          The Armory
             restored shield charging station track 2 (mechanical layer)
             restored computer sounds
-          Cairo Station (preserved all ambient except following)
+          Cairo Station
             restored muffled fighting beyond bulkhead
             deleted boarding craft approach sound
             restored docking sounds
             restored distant explosion & docking sounds
             restored mac cannon fire & reload sounds
-            restored warning alarm (???)
+            // restored warning alarm
+          Metropolis
+            restored scarab tags except new walk and piston stop tags
           Delta Halo
             preserved new tags for bridge extension
 

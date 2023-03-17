@@ -13,7 +13,10 @@ public class CairoStationTags extends TagGroup {
 
                 // Mac Gun
                 "/sound_remastered/ambience/macgun",
-                "/sound_remastered/ambience/device_machines/ss_gun_loader2"
+                "/sound_remastered/ambience/device_machines/ss_gun_loader2",
+
+                // Warning Alarm
+                //"/sound_remastered/ambience/sound_scenery/klaxon"
         };
 
         preservePaths = new String[] {
