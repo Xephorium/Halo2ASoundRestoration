@@ -66,7 +66,7 @@ public class SoundRestorer {
             new OutskirtsTags(),
             new MetropolisTags(),
             new TheArbiterTags(),
-            // The Oracle - Untested
+            // TODO - The Oracle
             new DeltaHaloTags(),
             new RegretTags()
     };
