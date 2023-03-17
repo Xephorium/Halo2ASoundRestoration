@@ -7,9 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import tags.*;
 import tags.general.*;
-import tags.levels.CairoStationTags;
-import tags.levels.MetropolisTags;
-import tags.levels.TheArmoryTags;
+import tags.levels.*;
 
 /* Halo 2A Sound Restoration                         Chris Cruzen
  * SoundRestorer                                       03.10.2023
@@ -55,6 +53,7 @@ public class SoundRestorer {
     private final TagGroup[] TAG_GROUPS = {
 
             // Universal Campaign Sounds
+            new AmbienceTags(),
             new CharacterTags(),
             new InterfaceTags(),
             new MusicTags(),
@@ -64,8 +63,12 @@ public class SoundRestorer {
             // Specific Levels
             new TheArmoryTags(),
             new CairoStationTags(),
-            // Outskirts Fine
-            new MetropolisTags()
+            new OutskirtsTags(),
+            new MetropolisTags(),
+            new TheArbiterTags(),
+            // The Oracle - Untested
+            new DeltaHaloTags(),
+            new RegretTags()
     };
 
 

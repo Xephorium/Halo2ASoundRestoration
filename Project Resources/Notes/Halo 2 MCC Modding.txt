@@ -159,7 +159,9 @@
           Covenant Carbine
             sound_remastered\weapons\covenant_carbine\fire.sound - min dist 4, max dist 100
           Beam Rifle
-            sound_remastered\weapons\beam_rifle\fire_burst.sound - min dist 2, max dist 75
+            sound_remastered\weapons\beam_rifle\fire_burst.sound - min dist 5, max dist 300
+          Fuel Rod Gun
+            sound_remastered\weapons\flak_cannon\flak_fire.sound - min dist 4, max dist 100
           Magnum
             sound_remastered\weapons\magnum\magnum_fire.sound - min dist 2, max dist 75
           SMG
@@ -211,10 +213,10 @@
         | 01a_tutorial        |                          | The Armory        | Done  |
         | 01b_spacestation    | ss                       | Cairo Station     | Done  |
         | 03a_oldmombasa      |                          | Outskirts         | Done  |
-        | 03b_newmombasa      | earthcity                | Metropolis        | Done  |
-        | 04a_gasgiant        | alphagasgiant            | The Arbiter       |       |
+        | 03b_newmombasa      | earthcity, nm            | Metropolis        | Done  |
+        | 04a_gasgiant        | alphagasgiant            | The Arbiter       | Done  |
         | 04b_floodlab        |                          | The Oracle        |       |
-        | 05a_deltaapproach   | delta                    | Delta Halo        |       |
+        | 05a_deltaapproach   | delta                    | Delta Halo        | Done  |
         | 05b_deltatowers     |                          | Regret            |       |
         | 06a_sentinelwalls   | shq                      | Sacred Icon       |       |
         | 06b_floodzone       |                          | Quarantine Zone   |       |
@@ -236,6 +238,9 @@
             tags/sound_remastered/ambience/<map name>
             tags/sound_remastered/ambience/device_machines
             tags/sound_remastered/sound_scenery
+
+        Other Noteworthy
+            tags/sound/ambience/device_machines/insertion_pods/resupply_pod_impact.sound
 
 
 
