@@ -14,9 +14,13 @@ public class MetropolisTags extends TagGroup {
 
         preservePaths = new String[] {
 
-                // Scarab
+                // Scarab Sounds to Definitely Preserve
                 "scarab\\piston_stop.sound",
-                "scarab\\scarab_steps.sound"
+                "scarab\\scarab_steps.sound",
+
+                // Scarab Maybe Preserve (Classic steps sound a bit weak w/o, gotta test)
+                "scarab\\scarab_steps_lfe.sound",
+                "scarab\\scarab_steps_swtnr.sound",
 
         };
 

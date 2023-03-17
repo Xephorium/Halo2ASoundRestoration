@@ -204,25 +204,25 @@
 
     Internal Level Identifiers
 
-        ---------------------------------------------------------------------------.
-        Map Name            | Other Internal Names     | Level Name        | State |
-        --------------------|--------------------------|-------------------|-------|
-        00a_introduction    |                          | The Heretic       | Done  |
-        01a_tutorial        |                          | The Armory        | Done  |
-        01b_spacestation    | ss                       | Cairo Station     | Done  |
-        03a_oldmombasa      |                          | Outskirts         | Done  |
-        03b_newmombasa      | earthcity                | Metropolis        |       |
-        04a_gasgiant        | alphagasgiant            | The Arbiter
-        04b_floodlab        |
-        05a_deltaapproach
-        05b_deltatowers
-        06a_sentinelwalls   | shq
-        06b_floodzone
-        07a_highcharity     | high
-        07b_forerunnership
-        08a_deltacliffs
-        08b_deltacontrol
-        -------------------------------------------------------------------
+        .----------------------------------------------------------------------------.
+        | Map Name            | Other Internal Names     | Level Name        | State |
+        |---------------------|--------------------------|-------------------|-------|
+        | 00a_introduction    |                          | The Heretic       | Done  |
+        | 01a_tutorial        |                          | The Armory        | Done  |
+        | 01b_spacestation    | ss                       | Cairo Station     | Done  |
+        | 03a_oldmombasa      |                          | Outskirts         | Done  |
+        | 03b_newmombasa      | earthcity                | Metropolis        | Done  |
+        | 04a_gasgiant        | alphagasgiant            | The Arbiter       |       |
+        | 04b_floodlab        |                          | The Oracle        |       |
+        | 05a_deltaapproach   | delta                    | Delta Halo        |       |
+        | 05b_deltatowers     |                          | Regret            |       |
+        | 06a_sentinelwalls   | shq                      | Sacred Icon       |       |
+        | 06b_floodzone       |                          | Quarantine Zone   |       |
+        | 07a_highcharity     | high                     | Gravemind         |       |
+        | 07b_forerunnership  |                          | Uprising          |       |
+        | 08a_deltacliffs     |                          | High Charity      |       |
+        | 08b_deltacontrol    |                          | The Great Journey |       |
+        '----------------------------------------------------------------------------'
 
     Noteworthy 'Tool' Errors
 
