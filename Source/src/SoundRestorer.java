@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import tags.*;
+import tags.general.*;
+import tags.levels.CairoStationTags;
+import tags.levels.TheArmoryTags;
 
 /* Halo 2A Sound Restoration                         Chris Cruzen
  * SoundRestorer                                       03.10.2023
@@ -51,9 +54,7 @@ public class SoundRestorer {
     private final TagGroup[] TAG_GROUPS = {
 
             // Universal Campaign Sounds
-            //new AmbienceTags(),
             new CharacterTags(),
-            //new EffectsTags(),
             new InterfaceTags(),
             new MusicTags(),
             new VehicleTags(),
@@ -253,6 +254,40 @@ public class SoundRestorer {
 
     /*--- Utility Methods ---*/
 
+    /* Recursively walks `sound_remastered` directory, building a list of
+     * all sound tags to be referenced later when generating statistics.
+     */
+    private void buildSoundFileList(File file) {
+
+        if (FileManager.isValidFile(file)) {
+
+            // Print Tag Status
+            allSoundFiles.add(file);
+
+        } else if(FileManager.isValidDirectory(file)) {
+
+            // Recourse Through Subdirectories
+            List<File> subDirs = FileManager.getSubdirectories(file);
+            for (File dir: subDirs) {
+                buildSoundFileList(dir);
+            }
+
+            // Recourse Through Files
+            List<File> files = FileManager.getDirectoryFiles(file);
+            for (File f: files) {
+                buildSoundFileList(f);
+            }
+        }
+    }
+
+    private String getRecursiveIndentation(int depth) {
+        StringBuilder indentation = new StringBuilder();
+        for (int x = 0; x < depth; x++) {
+            indentation.append("\t");;
+        }
+        return indentation.toString();
+    }
+
     /* Recursively walks directory, printing whether a corresponding classic tag exists for each remastered tag.
      * KEY: [x] = Tag Exists, [ ] = Tag Absent
      */
@@ -292,73 +327,6 @@ public class SoundRestorer {
             }
         }
 
-    }
-
-    /* Recursively walks directory, printing whether tag name matches string query.
-     * Invocation:
-     *   checkDirectoryForNameEdgeCases(
-     *     createTagSubdir( "/sound_remastered")
-     *   );
-     */
-    private void checkDirectoryForNameEdgeCases(File file) {
-
-        if (FileManager.isValidFile(file)) {
-
-            // Print Tag Status
-            String name = FileManager.getFileOrDirectoryName(file);
-            assert name != null;
-            if (name.contains("lod") && !name.contains("lod.") && !name.contains("_lod")) {
-                System.out.println(file.toString());
-            }
-
-        } else if(FileManager.isValidDirectory(file)) {
-
-            // Recourse Through Subdirectories
-            List<File> subDirs = FileManager.getSubdirectories(file);
-            for (File dir: subDirs) {
-                checkDirectoryForNameEdgeCases(dir);
-            }
-
-            // Recourse Through Files
-            List<File> files = FileManager.getDirectoryFiles(file);
-            for (File f: files) {
-                checkDirectoryForNameEdgeCases(f);
-            }
-        }
-    }
-
-    /* Recursively walks `sound_remastered` directory, building a list of
-     * all sound tags to be referenced later when generating statistics.
-     */
-    private void buildSoundFileList(File file) {
-
-        if (FileManager.isValidFile(file)) {
-
-            // Print Tag Status
-            allSoundFiles.add(file);
-
-        } else if(FileManager.isValidDirectory(file)) {
-
-            // Recourse Through Subdirectories
-            List<File> subDirs = FileManager.getSubdirectories(file);
-            for (File dir: subDirs) {
-                buildSoundFileList(dir);
-            }
-
-            // Recourse Through Files
-            List<File> files = FileManager.getDirectoryFiles(file);
-            for (File f: files) {
-                buildSoundFileList(f);
-            }
-        }
-    }
-
-    private String getRecursiveIndentation(int depth) {
-        StringBuilder indentation = new StringBuilder();
-        for (int x = 0; x < depth; x++) {
-            indentation.append("\t");;
-        }
-        return indentation.toString();
     }
 
     private void replaceTag(String sourcePath, String replacementPath) {

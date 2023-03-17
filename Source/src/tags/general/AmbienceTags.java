@@ -1,4 +1,6 @@
-package tags;
+package tags.general;
+
+import tags.TagGroup;
 
 public class AmbienceTags extends TagGroup {
 
@@ -8,12 +10,6 @@ public class AmbienceTags extends TagGroup {
 
                 // General
                 "/sound_remastered/ambience/device_machines",
-        };
-
-        preservePaths = new String[] {
-
-                // Cairo Station Tech
-                "ss_"
         };
 
         replacePaths = new String[] {

@@ -178,11 +178,12 @@
             restored shield charging station track 2 (mechanical layer)
             restored computer sounds
           Cairo Station (preserved all ambient except following)
-            restored welder sound
             restored muffled fighting beyond bulkhead
             deleted boarding craft approach sound
-            restored distant explosion & impact sounds
+            restored docking sounds
+            restored distant explosion & docking sounds
             restored mac cannon fire & reload sounds
+            restored warning alarm (???)
           Delta Halo
             preserved new tags for bridge extension
 
@@ -204,8 +205,8 @@
         --------------------|--------------------------|-------------------|-------|
         00a_introduction    |                          | The Heretic       | Done  |
         01a_tutorial        |                          | The Armory        | Done  |
-        01b_spacestation    | ss                       | Cairo Station     | ?     |
-        03a_oldmombasa      |                          | Outskirts         |       |
+        01b_spacestation    | ss                       | Cairo Station     | Done  |
+        03a_oldmombasa      |                          | Outskirts         | Done  |
         03b_newmombasa      | earthcity                | Metropolis        |       |
         04a_gasgiant        | alphagasgiant            | The Arbiter
         04b_floodlab        |

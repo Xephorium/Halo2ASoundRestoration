@@ -1,4 +1,6 @@
-package tags;
+package tags.levels;
+
+import tags.TagGroup;
 
 public class TheArmoryTags extends TagGroup {
 

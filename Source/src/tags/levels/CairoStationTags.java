@@ -1,4 +1,6 @@
-package tags;
+package tags.levels;
+
+import tags.TagGroup;
 
 public class CairoStationTags extends TagGroup {
 
@@ -6,7 +8,12 @@ public class CairoStationTags extends TagGroup {
 
         recursePaths = new String[] {
 
+                // Ambience
                 "/sound_remastered/ambience/spacestation",
+
+                // Mac Gun
+                "/sound_remastered/ambience/macgun",
+                "/sound_remastered/ambience/device_machines/ss_gun_loader2"
         };
 
         preservePaths = new String[] {

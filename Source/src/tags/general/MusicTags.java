@@ -1,4 +1,6 @@
-package tags;
+package tags.general;
+
+import tags.TagGroup;
 
 public class MusicTags extends TagGroup {
 
