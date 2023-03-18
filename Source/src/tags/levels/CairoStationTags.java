@@ -15,7 +15,14 @@ public class CairoStationTags extends TagGroup {
                 "/sound_remastered/ambience/macgun",
                 "/sound_remastered/ambience/device_machines/ss_gun_loader2",
 
-                // Warning Alarm
+                /* Warning Alarm
+                 *
+                 * I've been mulling over whether to replace this sound since the project
+                 * started. The remastered sound is *much* louder than the classic. But
+                 * having played the remastered level a few times, I feel it adds to the
+                 * urgency and sense that the station is in imminent danger. Gonna leave
+                 * the path commented out so I can live in indecision forever.
+                 */
                 //"/sound_remastered/ambience/sound_scenery/klaxon"
         };
 

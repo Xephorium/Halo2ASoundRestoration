@@ -10,12 +10,31 @@ public class RegretTags extends TagGroup {
 
                 // Gondola
                 "/sound_remastered/ambience/device_machines/gondola",
+
+                // Quad Wing Birdie bOi
+                "/sound_remastered/ambience/deltatemple/delta_quadwing",
+
+                // Underwater Creaks
+                "/sound_remastered/ambience/deltatemple/deltatemple_underwater/details",
         };
 
         preservePaths = new String[] {
 
                 // Gondola Water Spray
-                "water_spray\\loop.sound"
+                "water_spray\\loop.sound",
+
+                /* Gondola High Pass
+                 *
+                 * This is one of the few sound effects that just sounds bad in classic.
+                 * Based on the name, I wonder if someone at Bungie felt the same. Regardless,
+                 * it can't actually be completely removed. The classic gondola launch sound
+                 * has some of this mixed in and, although it's obnoxious, it's still better
+                 * than the remaster sound's distorted tesla coil nonsense.
+                 */
+                "gondola_loop\\hi_shit",
+
+                // Whale Calls
+                "details\\distant_whalecall"
         };
 
         replacePaths = new String[] {

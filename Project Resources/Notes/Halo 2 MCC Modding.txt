@@ -215,14 +215,14 @@
         | 03a_oldmombasa      |                          | Outskirts         | Done  |
         | 03b_newmombasa      | earthcity, nm            | Metropolis        | Done  |
         | 04a_gasgiant        | alphagasgiant            | The Arbiter       | Done  |
-        | 04b_floodlab        |                          | The Oracle        |       |
+        | 04b_floodlab        |                          | The Oracle        | Done  |
         | 05a_deltaapproach   | delta                    | Delta Halo        | Done  |
-        | 05b_deltatowers     |                          | Regret            |       |
-        | 06a_sentinelwalls   | shq                      | Sacred Icon       |       |
+        | 05b_deltatowers     |                          | Regret            | Done  |
+        | 06a_sentinelwalls   | shq, SentHeadQuar        | Sacred Icon       |       |
         | 06b_floodzone       |                          | Quarantine Zone   |       |
         | 07a_highcharity     | high                     | Gravemind         |       |
-        | 07b_forerunnership  |                          | Uprising          |       |
         | 08a_deltacliffs     |                          | High Charity      |       |
+        | 07b_forerunnership  |                          | Uprising          |       |
         | 08b_deltacontrol    |                          | The Great Journey |       |
         '----------------------------------------------------------------------------'
 

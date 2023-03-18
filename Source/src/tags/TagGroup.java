@@ -11,15 +11,16 @@ public class TagGroup {
      */
     public String[] recursePaths = {};
 
-    /* A list of associated files to be preserved during the above directory walk(s).
+    /* A list of substrings used to identify remastered sounds that
+     * shouldn't be replaced during the above directory walk(s).
      */
     public String[] preservePaths = {};
 
-    /* A list of associated files to be replaced after the above directory walk(s).
+    /* A list of file path *pairs* used to replace specific sounds during the
+     * above directory walk(s). First of two is replacement, second is source.
      */
     public String[] replacePaths = {};
 
-    /* A list of associated files to be deleted after the above directory walk(s).
-     */
+    // A list of file paths to be deleted after the above directory walk(s).
     public String[] deletePaths = {};
 }
