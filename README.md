@@ -21,7 +21,7 @@ This project aims to break the cycle. With one click, it generates anniversary m
   - Add `bin` folder to `PATH` environment variable
 - Install Halo 2 Editing Kit
   - Find & install Halo 2 Editing Kit via Steam
-  - Run `H2EK (Extract).bat` to extract tags
+  - Navigate to the H2EK installation directory and run `H2EK (Extract).bat` to extract tags
 - Setup project config file
   - Create `Config.txt` at `<repository>/Source/input/Config.txt`
   - Add `TAGS_DIRECTORY=<dir>` to file, where `<dir>` is the tags folder you extracted in the previous step.
