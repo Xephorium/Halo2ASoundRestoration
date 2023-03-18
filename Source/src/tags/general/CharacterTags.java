@@ -8,8 +8,10 @@ public class CharacterTags extends TagGroup {
 
         recursePaths = new String[] {
 
+                // All Sentinel Character/Beam Sounds
                 "/sound_remastered/characters/sentinel",
 
+                // Jackal Shield Pop
                 "/sound_remastered/characters/jackal"
         };
 
