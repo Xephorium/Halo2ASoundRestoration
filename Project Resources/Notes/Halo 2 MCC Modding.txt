@@ -166,6 +166,8 @@
             sound_remastered\weapons\magnum\magnum_fire.sound - min dist 2, max dist 75
           SMG
             sound_remastered\weapons\smg\fire.sound - min dist 2, max dist 75
+          Shotgun
+            sound_remastered\weapons\shotgun\fire.sound - min dist 2, max dist 75
           Plasma Turret
             sound_remastered\weapons\plasma_turret\fire.sound - base gain -16
 
