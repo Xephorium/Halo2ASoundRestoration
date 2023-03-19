@@ -6,6 +6,8 @@ public class VehicleTags extends TagGroup {
 
     public VehicleTags() {
 
+        groupName = "Vehicles";
+
         recursePaths = new String[] {
 
                 "/sound_remastered/vehicles"

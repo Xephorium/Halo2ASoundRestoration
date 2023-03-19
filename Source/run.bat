@@ -8,8 +8,8 @@ call clean.bat
 javac -d build -cp src\dependencies\apacheio.jar src\*.java src\io\*.java src\io\utility\*.java src\tags\*.java src\tags\general\*.java src\tags\levels\*.java
 
 :: Print Update
-echo Project compiled.
-echo Project running.
+:: echo Project compiled.
+:: echo Project running.
 
 :: Run Project (Binaries Read from "build" Directory)
 java -cp build;src\dependencies\apacheio.jar Main

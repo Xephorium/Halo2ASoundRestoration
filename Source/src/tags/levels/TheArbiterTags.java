@@ -6,6 +6,8 @@ public class TheArbiterTags extends TagGroup {
 
     public TheArbiterTags() {
 
+        groupName = "The Arbiter";
+
         recursePaths = new String[] {
 
                 // Doors

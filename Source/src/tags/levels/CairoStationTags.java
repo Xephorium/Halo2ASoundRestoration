@@ -6,6 +6,8 @@ public class CairoStationTags extends TagGroup {
 
     public CairoStationTags() {
 
+        groupName = "Cairo Station";
+
         recursePaths = new String[] {
 
                 // Ambience

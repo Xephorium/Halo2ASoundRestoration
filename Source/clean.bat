@@ -6,4 +6,4 @@ rmdir build /s /q
 mkdir build
 
 :: Print Update
-echo Project cleaned.
+:: echo Project cleaned.

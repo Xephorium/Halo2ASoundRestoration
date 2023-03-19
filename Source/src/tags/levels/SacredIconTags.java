@@ -6,6 +6,8 @@ public class SacredIconTags extends TagGroup {
 
     public SacredIconTags() {
 
+        groupName = "Sacred Icon";
+
         recursePaths = new String[] {
 
                 // Ambience

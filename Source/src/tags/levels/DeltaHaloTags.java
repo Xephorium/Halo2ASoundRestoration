@@ -6,6 +6,8 @@ public class DeltaHaloTags extends TagGroup {
 
     public DeltaHaloTags() {
 
+        groupName = "Delta Halo";
+
         recursePaths = new String[] {
 
                 // Forerunner Bridge

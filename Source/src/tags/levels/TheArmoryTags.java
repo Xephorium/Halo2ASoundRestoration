@@ -6,6 +6,8 @@ public class TheArmoryTags extends TagGroup {
 
     public TheArmoryTags() {
 
+        groupName = "The Armory";
+
         recursePaths = new String[] {
 
                 // Computer Terminals

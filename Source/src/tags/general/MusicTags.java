@@ -6,6 +6,8 @@ public class MusicTags extends TagGroup {
 
     public MusicTags() {
 
+        groupName = "Music";
+
         recursePaths = new String[] {
                 "/sound_remastered/music"
         };

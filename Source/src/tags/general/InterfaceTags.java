@@ -6,6 +6,8 @@ public class InterfaceTags extends TagGroup {
 
     public InterfaceTags() {
 
+        groupName = "Interface";
+
         recursePaths = new String[] {
 
                 "/sound_remastered/ui"

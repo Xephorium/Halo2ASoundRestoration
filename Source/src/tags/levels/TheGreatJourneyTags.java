@@ -6,6 +6,8 @@ public class TheGreatJourneyTags extends TagGroup {
 
     public TheGreatJourneyTags() {
 
+        groupName = "The Great Journey";
+
         recursePaths = new String[] {
 
                 // Control Room Grav Lift

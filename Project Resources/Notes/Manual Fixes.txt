@@ -1,0 +1,93 @@
+
+
+//////////////////
+// Manual Fixes //
+//////////////////
+
+
+After running the audio restoration script, the following tags will need to
+have their audible distance and volume adjusted manually. This is cumbersome,
+but a far cry better than manually updating all 800 tags, *then* making these
+adjustments. To make the changes, complete the following steps:
+
+
+1. Open Guerilla with the correct tag directory set.
+
+    Via Command Line:
+        start guerilla -tags_dir "<H2EK installation directory>\tags"
+
+2. Navigate to each tag below in the panel on the left. Double click to open and set
+   the specified values for each tag. Either ctrl+s or click yes on the save dialog
+   before closing each tag.
+
+    Weapons
+      Sentinel Beam
+        sound_remastered\characters\sentinel\sentinel_gun\sent_gun\*
+            min dist = 5
+            max dist = 100
+      Plasma Pistol
+        sound_remastered\weapons\plasma_pistol\fire.sound
+            min dist = 3
+            max dist = 75
+        sound_remastered\weapons\plasma_pistol\chargefire.sound
+            min dist = 3
+            max dist = 75
+        sound_remastered\weapons\plasma_pistol\startcharge.sound
+            min dist = 3
+            max dist = 75
+      Plasma Rifle
+        sound_remastered\weapons\plasma_rifle\plasma_rifle_fire.sound
+            min dist = 3
+            max dist = 75
+      Needler
+        sound_remastered\weapons\needler\fire.sound
+            min dist = 3
+            max dist = 75
+      Covenant Carbine
+        sound_remastered\weapons\covenant_carbine\fire.sound
+            min dist = 4
+            max dist = 100
+      Beam Rifle
+        sound_remastered\weapons\beam_rifle\fire_burst.sound
+            min dist = 5
+            max dist = 300
+      Fuel Rod Gun
+        sound_remastered\weapons\flak_cannon\flak_fire.sound
+            min dist = 4
+            max dist = 100
+      Magnum
+        sound_remastered\weapons\magnum\magnum_fire.sound
+            min dist = 3
+            max dist = 75
+      SMG
+        sound_remastered\weapons\smg\fire.sound
+            min dist = 3
+            max dist = 75
+      Shotgun
+        sound_remastered\weapons\shotgun\fire.sound
+            min dist = 3
+            max dist = 75
+      Human Turret
+        sound_remastered\weapons\chain_gun\fire.sound
+            min dist = 3
+            max dist = 75
+      Plasma Turret
+        sound_remastered\weapons\plasma_turret\fire.sound
+            gain base = -25
+
+    Vehicles
+      Scarab
+        sound_remastered\ambience\device_machines\scarab\cov_damage_large_scarab.sound
+            gain base = -30
+
+    Characters
+      Sentinel Enforcer
+        sound_remastered\characters\sentinel\sentinel_enforcer_laser.sound
+            min dist = 25
+            max dist = 75
+            "play only in legacy mode" = unticked
+      Hunter
+        sound_remastered\characters\hunter\... land_hard.sound, land_soft.sound, posing_var*.sound, shortmove.sound
+            gain base = -30
+        sound_remastered\characters\bodyfalls\hunter_bodyfalls.sound
+            gain base = -15

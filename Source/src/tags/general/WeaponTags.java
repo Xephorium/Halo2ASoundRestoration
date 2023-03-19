@@ -6,6 +6,8 @@ public class WeaponTags extends TagGroup {
 
     public WeaponTags() {
 
+        groupName = "Weapons";
+
         recursePaths = new String[] {
 
                 // General Weapon Sounds

@@ -6,6 +6,8 @@ public class MetropolisTags extends TagGroup {
 
     public MetropolisTags() {
 
+        groupName = "Metropolis";
+
         recursePaths = new String[] {
 
                 // Scarab

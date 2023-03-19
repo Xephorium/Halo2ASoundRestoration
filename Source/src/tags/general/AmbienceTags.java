@@ -9,6 +9,8 @@ public class AmbienceTags extends TagGroup {
 
     public AmbienceTags() {
 
+        groupName = "Ambience";
+
         recursePaths = new String[] {
 
                 // Conduit

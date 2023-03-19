@@ -5,6 +5,8 @@ public class TagGroup {
 
     /*--- Base Class Variables ---*/
 
+    public String groupName = "";
+
     /* A list of directories to be recursively walked during restoration
      * of this group of tags. This list represents the first and core step
      * of audio restoration, with the lists below handling edge cases.

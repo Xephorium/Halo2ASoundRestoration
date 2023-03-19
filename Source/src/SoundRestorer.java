@@ -89,6 +89,7 @@ public class SoundRestorer {
     private int totalTagsReplaced = 0;
     private int totalTagsDeleted = 0;
     private int totalTagsPreserved = 0;
+    private int totalProblems = 0;
 
 
 
@@ -104,19 +105,15 @@ public class SoundRestorer {
     }
 
     public void restoreSound() {
+        printStartMessage();
 
-        // Restore Classic Audio
-        for (TagGroup tagGroup : TAG_GROUPS) {
-            restoreAudioTags(tagGroup);
+        // Restore Each Tag Group
+        for (int x = 0; x < TAG_GROUPS.length; x++) {
+            restoreAudioTags(TAG_GROUPS[x]);
+            if (x == 5) System.out.println("  ---");
         }
 
-        // Print Statistics
-        printStatistics();
-
-//        System.out.println(createTagSubdir( "/test"));
-//        System.out.println(createTagSubdir( escapeSlashes("/test")));
-
-        //checkDirectoryForClassicTags(createTagSubdir( "/sound_remastered/ambience/device_machines"), 0);
+        printReport();
     }
 
 
@@ -174,6 +171,8 @@ public class SoundRestorer {
     /*--- Tag Restoration Methods ---*/
 
     private void restoreAudioTags(TagGroup tagGroup) {
+
+        System.out.printf("  %s%n", tagGroup.groupName);
 
         // Walk Tag Group Directories
         for (String subdir : tagGroup.recursePaths) {
@@ -349,7 +348,8 @@ public class SoundRestorer {
             totalTagsModified++;
             totalTagsReplaced++;
         } else {
-            System.out.printf("Error replacing '%s'%n", sourcePath);
+            System.out.printf("    Error replacing '%s'%n", sourcePath);
+            totalProblems++;
         }
     }
 
@@ -360,7 +360,8 @@ public class SoundRestorer {
             totalTagsModified++;
             totalTagsDeleted++;
         } else {
-            System.out.printf("Error deleting '%s'%n", tag);
+            System.out.printf("    Error deleting '%s'%n", tag);
+            totalProblems++;
         }
     }
 
@@ -378,18 +379,44 @@ public class SoundRestorer {
 
 
 
-    /*--- Statistic Methods ---*/
+    /*--- Output Methods ---*/
 
-    private void printStatistics() {
+    private void printStartMessage() {
+        System.out.println("/////////////////////////////////");
+        System.out.println("// H2A Total Audio Restoration //");
+        System.out.println("/////////////////////////////////");
+        System.out.println("\nRestoring Tags:");
+    }
+
+    private void printReport() {
         totalTagsPreserved += allSoundFiles.size();
 
-        System.out.println("\nClassic Audio Restored");
-        System.out.println("----------------------");
-        System.out.printf("Updated%s%d\n", getPadding(15, totalTagsModified), totalTagsModified);
-        System.out.printf("Replaced%s%d\n", getPadding(14, totalTagsReplaced), totalTagsReplaced);
-        System.out.printf("Deleted%s%d\n", getPadding(15, totalTagsDeleted), totalTagsDeleted);
-        System.out.printf("Preserved%s%d\n", getPadding(13, totalTagsPreserved), totalTagsPreserved);
-        System.out.println("----------------------");
+        System.out.printf("\nClassic Audio Restored!%n");
+        System.out.printf("  .------------------------.%n");
+        System.out.printf("  | Updated%s%d |\n", getPadding(15, totalTagsModified), totalTagsModified);
+        System.out.printf("  | Replaced%s%d |\n", getPadding(14, totalTagsReplaced), totalTagsReplaced);
+        System.out.printf("  | Deleted%s%d |\n", getPadding(15, totalTagsDeleted), totalTagsDeleted);
+        System.out.printf("  | Preserved%s%d |\n", getPadding(13, totalTagsPreserved), totalTagsPreserved);
+        System.out.printf("  |------------------------|%n");
+        System.out.printf("  | Problems%s%d |\n", getPadding(14, totalProblems), totalProblems);
+        System.out.printf("  '------------------------'%n");
+
+        System.out.printf("%nFinal Steps");
+        if (totalProblems == 0) {
+            System.out.printf("%n  1. Follow the directions outlined in '\\Project Resources\\Notes\\Manual Fixes.txt'.");
+            System.out.printf("%n  2. Copy '\\Source\\utility\\BuildMaps.bat' to your H2EK installation folder");
+            System.out.printf("%n     and run to generate the final map files. This will take a few minutes.");
+            System.out.printf("%n  3. Copy generated maps to the following folder and you're ready to boot up MCC!%n");
+            System.out.printf("%n     '<MCC installation>\\halo2\\h2_maps_win64_dx11'%n");
+
+        } else {
+            System.out.printf("%n  Looks like there were some issues restoring audio.");
+            System.out.printf("%n  Either the tags directory wasn't freshly extracted");
+            System.out.printf("%n  or MCC has been updated. If you've extracted the tags");
+            System.out.printf("%n  again and are still seeing this issue, 343i renamed");
+            System.out.printf("%n  or moved a tag file and this script will need an update.%n");
+        }
+
     }
 
     private String getPadding(int fullLine, int number) {

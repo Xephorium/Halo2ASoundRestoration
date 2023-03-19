@@ -6,6 +6,8 @@ public class CharacterTags extends TagGroup {
 
     public CharacterTags() {
 
+        groupName = "Characters";
+
         recursePaths = new String[] {
 
                 // All Sentinel Character/Beam Sounds

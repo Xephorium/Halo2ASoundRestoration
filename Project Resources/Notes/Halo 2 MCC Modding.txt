@@ -61,7 +61,7 @@
 /*--- The Process ---*/
 
     1. Start by replacing the all tags in the "sound_remaster" folder with their corresponding tags in
-       the "sound" folder. This works for ~80% of in-game audio. The many exceptions are chronicled below.
+       the "sound" folder. This works for ~80% of in game audio. The many exceptions are chronicled below.
 
     2. Special Cases (Scripted)
 
@@ -130,58 +130,10 @@
             Note: The remastered primary fire actually sounds pretty good as a Enforcer rocket fire
                   and helps broadcast the incoming salvo... Might make it optional later.
 
-        Levels
-          Regret
-            Gondala launch sound is very wrong
-            Water hall ambient noise is annoying bell toll
-
-        Visual Effects
-          preserved new tag for InAmberClad flyby, faithful & sick as hell
-          renamed tag for InAmberClad slipspace rupture, less faithful & less cool
-
-    3. Manual Fixes (Manual)
-
-        Note: Min and max distance for Halo sounds correspond to the distance at which
-              their volume begins and completes fading out. Therefore, a larger min
-              distance actually leads to a louder sound at greater distances.
-
-        Weapons
-          Sentinel Beam
-            sound_remastered\characters\sentinel\sentinel_gun\sent_gun\* - min dist 5, max dist 100
-          Plasma Pistol
-            sound_remastered\weapons\plasma_pistol\fire.sound - min dist 3, max dist 75
-            sound_remastered\weapons\plasma_pistol\chargefire.sound - min dist 3, max dist 75
-            sound_remastered\weapons\plasma_pistol\startcharge.sound - min dist 3, max dist 75
-          Plasma Rifle
-            sound_remastered\weapons\plasma_rifle\plasma_rifle_fire.sound - min dist 3, max dist 75
-          Needler
-            sound_remastered\weapons\needler\fire.sound - min dist 3, max dist 75
-          Covenant Carbine
-            sound_remastered\weapons\covenant_carbine\fire.sound - min dist 4, max dist 100
-          Beam Rifle
-            sound_remastered\weapons\beam_rifle\fire_burst.sound - min dist 5, max dist 300
-          Fuel Rod Gun
-            sound_remastered\weapons\flak_cannon\flak_fire.sound - min dist 4, max dist 100
-          Magnum
-            sound_remastered\weapons\magnum\magnum_fire.sound - min dist 3, max dist 75
-          SMG
-            sound_remastered\weapons\smg\fire.sound - min dist 3, max dist 75
-          Shotgun
-            sound_remastered\weapons\shotgun\fire.sound - min dist 3, max dist 75
-          Human Turret
-            sound_remastered\weapons\chain_gun\fire.sound - min dist 3, max dist 75
-          Plasma Turret
-            sound_remastered\weapons\plasma_turret\fire.sound - base gain -16
-
-        Vehicles
-          Scarab
-
-
-        Characters
-          Sentinel Enforcer
-            characters\sentinel\sentinel_enforcer_laser.sound - min dist = 25, max dist = 75, "play only in legacy mode" = unticked
-
         Levels (preserved all new ambient except following)
+          Regret
+            restored gondola sounds
+            restored water hall music
           The Armory
             restored shield charging station track 2 (mechanical layer)
             restored computer sounds
@@ -196,6 +148,15 @@
             restored scarab tags except new walk and piston stop tags
           Delta Halo
             preserved new tags for bridge extension
+
+        Visual Effects
+          preserved new tag for InAmberClad flyby, faithful & sick as hell
+          renamed tag for InAmberClad slipspace rupture, less faithful & less cool
+
+    3. Manual Fixes (Manual)
+
+        Follow the directions in 'Manual Fixes.txt'.
+
 
 
 /*--- Hard Earned Knowledge ---*/
@@ -230,6 +191,12 @@
         | 08b_deltacontrol    |                          | The Great Journey | Done  |
         '----------------------------------------------------------------------------'
 
+    Tag Editing Notes
+
+        Min and max distance for Halo sounds correspond to the distance at which
+        their volume begins and completes fading out. Therefore, a larger min
+        distance actually leads to a louder sound at greater distances.
+
     Noteworthy 'Tool' Errors
 
         // Removing this tag broke the map build. A tag with this name *must* exist.
@@ -245,63 +212,6 @@
 
         Other Noteworthy
             tags/sound/ambience/device_machines/insertion_pods/resupply_pod_impact.sound
-
-
-
-/*--- Recursive Walk Refactor Stats ---*/
-
-    Before
-
-        Classic Audio Restored
-        ----------------------
-        Updated            640
-        Replaced           571
-        Deleted            69
-        Preserved          84
-        ----------------------
-
-    After (Discretionary Preservation on)
-
-        Classic Audio Restored
-        ----------------------
-        Updated            640
-        Replaced           571
-        Deleted            69
-        Preserved          183
-        ----------------------
-
-    After (Discretionary Preservation off)
-
-        Classic Audio Restored
-        ----------------------
-        Updated            734
-        Replaced           578
-        Deleted            156
-        Preserved          73
-        ----------------------
-
-
-/*--- Path Refactor Stats ---*/
-
-    Before
-
-        Classic Audio Restored
-        ----------------------
-        Updated            846
-        Replaced           775
-        Deleted            71
-        Preserved          278
-        ----------------------
-
-    After
-
-        Classic Audio Restored
-        ----------------------
-        Updated            846
-        Replaced           775
-        Deleted            71
-        Preserved          278
-        ----------------------
 
 
     [01b_spacestation_mission line 649] this is not a reference to a sound tag.: sound_remastered\ambience\spacestation\docking_clangs\dockingcov_incoming none 1)

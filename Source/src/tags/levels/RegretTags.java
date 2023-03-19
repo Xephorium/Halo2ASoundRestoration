@@ -6,6 +6,8 @@ public class RegretTags extends TagGroup {
 
     public RegretTags() {
 
+        groupName = "Regret";
+
         recursePaths = new String[] {
 
                 // Gondola

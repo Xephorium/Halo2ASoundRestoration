@@ -6,6 +6,8 @@ public class TheOracleTags extends TagGroup {
 
     public TheOracleTags() {
 
+        groupName = "The Oracle";
+
         recursePaths = new String[] {
 
                 // Silo Arm

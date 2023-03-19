@@ -6,6 +6,8 @@ public class GravemindTags extends TagGroup {
 
     public GravemindTags() {
 
+        groupName = "Gravemind";
+
         recursePaths = new String[] {
 
                 // Machinery

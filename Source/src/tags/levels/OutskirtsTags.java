@@ -6,6 +6,8 @@ public class OutskirtsTags extends TagGroup {
 
     public OutskirtsTags() {
 
+        groupName = "Outskirts";
+
         recursePaths = new String[] {
 
                 // Elite Drop Pods
