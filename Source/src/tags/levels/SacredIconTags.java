@@ -11,6 +11,9 @@ public class SacredIconTags extends TagGroup {
                 // Ambience
                 "/sound_remastered/ambience/sentinelhq/insidehq/details",
 
+                // Background Hum (New track good, but too quiet - makes spaces feel dead)
+                "/sound_remastered/ambience/sentinelhq/insidehq/track1",
+
                 // Machinery
                 "/sound_remastered/ambience/device_machines/shq__key",
                 "/sound_remastered/ambience/device_machines/shq_conduit_light",
