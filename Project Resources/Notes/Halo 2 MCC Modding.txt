@@ -163,11 +163,13 @@
           Fuel Rod Gun
             sound_remastered\weapons\flak_cannon\flak_fire.sound - min dist 4, max dist 100
           Magnum
-            sound_remastered\weapons\magnum\magnum_fire.sound - min dist 2, max dist 75
+            sound_remastered\weapons\magnum\magnum_fire.sound - min dist 3, max dist 75
           SMG
-            sound_remastered\weapons\smg\fire.sound - min dist 2, max dist 75
+            sound_remastered\weapons\smg\fire.sound - min dist 3, max dist 75
           Shotgun
-            sound_remastered\weapons\shotgun\fire.sound - min dist 2, max dist 75
+            sound_remastered\weapons\shotgun\fire.sound - min dist 3, max dist 75
+          Human Turret
+            sound_remastered\weapons\chain_gun\fire.sound - min dist 3, max dist 75
           Plasma Turret
             sound_remastered\weapons\plasma_turret\fire.sound - base gain -16
 
@@ -221,7 +223,7 @@
         | 05a_deltaapproach   | delta                    | Delta Halo        | Done  |
         | 05b_deltatowers     |                          | Regret            | Done  |
         | 06a_sentinelwalls   | shq, SentHeadQuar        | Sacred Icon       | Done  |
-        | 06b_floodzone       |                          | Quarantine Zone   |       |
+        | 06b_floodzone       |                          | Quarantine Zone   | Done  |
         | 07a_highcharity     | high                     | Gravemind         |       |
         | 08a_deltacliffs     |                          | High Charity      |       |
         | 07b_forerunnership  |                          | Uprising          |       |

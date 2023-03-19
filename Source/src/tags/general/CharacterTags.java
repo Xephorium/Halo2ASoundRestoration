@@ -17,6 +17,16 @@ public class CharacterTags extends TagGroup {
 
         replacePaths = new String[] {
 
+                /* Sentinel Rocket Fire
+                 *
+                 * Enforcers are incredibly disorienting and frustrating to fight
+                 * without a rocket fire sound. I've chosen to use the subtle, but
+                 * audible remastered needle fire sound for this. It's the one
+                 * addition the mod makes and I stand by its necessity.
+                 */
+                "/sound_remastered/characters/sentinel/sentinel_enforcer_laser.sound",
+                "/sound_remastered/characters/sentinel/sentinel_rocket_launcher/sentinel_rocket/in.sound",
+
                 // Sentinel Enforcer Needles
                 "/sound/characters/sentinel/needler_fire_sentinel_enforcer.sound",
                 "/sound_remastered/characters/sentinel/sentinel_enforcer_laser.sound",
@@ -37,8 +47,8 @@ public class CharacterTags extends TagGroup {
 
         deletePaths = new String[] {
 
-                // Sentinel Enforcer Rocket Fire
-                "/sound_remastered/characters/sentinel/sentinel_rocket_launcher/sentinel_rocket/in.sound"
+                // Sentinel Enforcer Rocket Fire (If not replacing above)
+                //"/sound_remastered/characters/sentinel/sentinel_rocket_launcher/sentinel_rocket/in.sound"
         };
     }
 }
