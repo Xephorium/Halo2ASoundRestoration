@@ -225,9 +225,9 @@
         | 06a_sentinelwalls   | shq, SentHeadQuar        | Sacred Icon       | Done  |
         | 06b_floodzone       |                          | Quarantine Zone   | Done  |
         | 07a_highcharity     | high                     | Gravemind         | Done  |
-        | 08a_deltacliffs     |                          | Uprising          |       |
-        | 07b_forerunnership  |                          | High Charity      |       |
-        | 08b_deltacontrol    |                          | The Great Journey |       |
+        | 08a_deltacliffs     |                          | Uprising          | Done  |
+        | 07b_forerunnership  |                          | High Charity      | Done  |
+        | 08b_deltacontrol    |                          | The Great Journey | Done  |
         '----------------------------------------------------------------------------'
 
     Noteworthy 'Tool' Errors

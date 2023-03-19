@@ -70,7 +70,10 @@ public class SoundRestorer {
             new DeltaHaloTags(),
             new RegretTags(),
             new SacredIconTags(),
-            new GravemindTags()
+            new GravemindTags(),
+            // Uprising Fine
+            // High Charity Fine
+            new TheGreatJourneyTags()
     };
 
 
@@ -340,20 +343,24 @@ public class SoundRestorer {
     private void replaceTag(String sourcePath, String replacementPath) {
         File sourceTag = createTagSubdir( sourcePath);
         File replacementTag = createTagSubdir( replacementPath);
-        if (FileManager.isValidFile(sourceTag)) FileManager.deleteFile(sourceTag);
-        if (FileManager.isValidFile(replacementTag)) {
+        if (FileManager.isValidFile(sourceTag) && FileManager.isValidFile(replacementTag)) {
+            FileManager.deleteFile(sourceTag);
             FileManager.copyFile(replacementTag, sourceTag);
             totalTagsModified++;
             totalTagsReplaced++;
+        } else {
+            System.out.printf("Error replacing '%s'%n", sourcePath);
         }
     }
 
     private void deleteTag(String tagPath) {
-        File tag = createTagSubdir( tagPath);
+        File tag = createTagSubdir(tagPath);
         if (FileManager.isValidFile(tag)) {
             FileManager.deleteFile(tag);
             totalTagsModified++;
             totalTagsDeleted++;
+        } else {
+            System.out.printf("Error deleting '%s'%n", tag);
         }
     }
 

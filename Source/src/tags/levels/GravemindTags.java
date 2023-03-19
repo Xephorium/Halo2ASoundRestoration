@@ -48,9 +48,13 @@ public class GravemindTags extends TagGroup {
                 "/sound/ambience/device_machines/high_sanctum_lift_stop/high_sanctum_lift_stop.sound",
                 "/sound_remastered/ambience/device_machines/high_sanctum_lift_stop/sanctum_lift_stop.sound",
 
-                // Restore Classic In Amber Clad Slipspace Rupture
+                // In Amber Clad Slipspace Rupture
                 "/sound/visual_effects/inamberclad_flyby/slipspace.sound",
                 "/sound_remastered/visual_effects/inamberclad_flyby/slipspace/highcharity_slipspace.sound",
+
+                // In Amber Clad Flyby
+                "/sound/visual_effects/inamberclad_flyby/inamberclad_flyby.sound",
+                "/sound_remastered/visual_effects/inamberclad_flyby/flyby/inamberclad_flyby.sound",
 
                 // Cortana Appear
                 "/sound/visual_effects/cortana_appear.sound",

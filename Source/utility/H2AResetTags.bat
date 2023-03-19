@@ -18,8 +18,8 @@ robocopy "D:\Games\Installed - Steam\steamapps\common\H2EK\tags_bak\sound_remast
 
 :: Sentinel Tags
 echo Reverting Characters...
-rmdir /q /s "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\characters\sentinel"
-robocopy "D:\Games\Installed - Steam\steamapps\common\H2EK\tags_bak\sound_remastered\characters\sentinel" "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\characters\sentinel" /E /NFL /NDL /NJH /NJS /nc /ns /np > NUL
+rmdir /q /s "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\characters"
+robocopy "D:\Games\Installed - Steam\steamapps\common\H2EK\tags_bak\sound_remastered\characters" "D:\Games\Installed - Steam\steamapps\common\H2EK\tags\sound_remastered\characters" /E /NFL /NDL /NJH /NJS /nc /ns /np > NUL
 
 :: UI Tags
 echo Reverting UI...

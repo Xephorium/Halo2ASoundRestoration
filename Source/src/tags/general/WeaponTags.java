@@ -78,7 +78,7 @@ public class WeaponTags extends TagGroup {
                 "/sound_remastered/weapons/chain_gun/chaingun_spin.sound",
 
                 // Scarab Gun Extra Fire
-                "sound_remastered/ambience/device_machines/scarab/scarab_fire_swtnr/out.sound"
+                "/sound_remastered/ambience/device_machines/scarab/scarab_fire_swtnr/out.sound"
         };
     }
 }

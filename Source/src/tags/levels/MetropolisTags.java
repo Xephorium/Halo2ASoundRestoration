@@ -27,7 +27,7 @@ public class MetropolisTags extends TagGroup {
         deletePaths = new String[] {
 
                 // Scarab Engine Extra
-                "sound_remastered/ambience/device_machines/scarab/scarab_engine_loop_swtnr/loop.sound"
+                "/sound_remastered/ambience/device_machines/scarab/scarab_engine_loop_swtnr/loop.sound"
         };
     }
 }
