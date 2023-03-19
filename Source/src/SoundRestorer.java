@@ -70,6 +70,7 @@ public class SoundRestorer {
             new DeltaHaloTags(),
             new RegretTags(),
             new SacredIconTags(),
+            new HighCharityTags()
     };
 
 
