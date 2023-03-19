@@ -32,5 +32,5 @@ This project aims to break the cycle. With one click, it generates anniversary m
     ```
   
  #### Run the Project
-- Once project is setup, execute `run.bat` to restore classic audio tags
-- The final step is to use the command line utility `tool` to package these tags into a `.map` file that can be played in the Master Chief Collection (script to do this automatically for all campaign levels coming soon)
+- Once project is setup, execute `run.bat` via command line to restore classic audio
+- Then, follow the directions the program provides to generate the final map files
