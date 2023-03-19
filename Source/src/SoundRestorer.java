@@ -68,7 +68,8 @@ public class SoundRestorer {
             new TheArbiterTags(),
             new TheOracleTags(),
             new DeltaHaloTags(),
-            new RegretTags()
+            new RegretTags(),
+            new SacredIconTags(),
     };
 
 
