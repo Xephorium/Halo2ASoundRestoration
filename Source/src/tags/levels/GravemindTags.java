@@ -2,9 +2,9 @@ package tags.levels;
 
 import tags.TagGroup;
 
-public class HighCharityTags extends TagGroup {
+public class GravemindTags extends TagGroup {
 
-    public HighCharityTags() {
+    public GravemindTags() {
 
         recursePaths = new String[] {
 
@@ -51,6 +51,10 @@ public class HighCharityTags extends TagGroup {
                 // Restore Classic In Amber Clad Slipspace Rupture
                 "/sound/visual_effects/inamberclad_flyby/slipspace.sound",
                 "/sound_remastered/visual_effects/inamberclad_flyby/slipspace/highcharity_slipspace.sound",
+
+                // Cortana Appear
+                "/sound/visual_effects/cortana_appear.sound",
+                "/sound_remastered/visual_effects/cortana_appear.sound",
         };
     }
 }
