@@ -4,6 +4,7 @@ import io.utility.OperatingSystemUtility;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -68,6 +69,16 @@ public class FileManager {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public static byte[] readBinaryFileContents(File file) {
+        if (file.exists() && file.isFile()) {
+            try {
+                return Files.readAllBytes(file.toPath());
+            } catch (IOException e) { /* Do Nothing */ }
+        }
+
+        return null;
     }
 
 

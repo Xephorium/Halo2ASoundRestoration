@@ -1,4 +1,5 @@
 
+import io.TagEditor;
 import io.FileManager;
 
 import java.io.File;
@@ -110,6 +111,12 @@ public class SoundRestorer {
         }
 
         printReport();
+
+//        File testFile = FileManager.createSubdirectoryFile(
+//                rootTagDirectory,
+//                "\\/sound_remastered\\/scenarios\\/solo\\/01b_spacestation\\/01b_music\\/01b_01.sound_looping"
+//        );
+//        TagEditor.printTagContents(testFile);
     }
 
 
