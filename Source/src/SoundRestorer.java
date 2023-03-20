@@ -15,7 +15,7 @@ import tags.levels.*;
  * SoundRestorer is the primary driver class of the Halo 2A Sound
  * Restoration project.
  *
- * This file restores the campaign's classic audio in 3 steps:
+ * This file restores the campaign's classic audio in 2 steps:
  *
  *   1. Read the user-specified tag directory from the project's
  *      configuration file.
@@ -23,10 +23,6 @@ import tags.levels.*;
  *   2. Iterate through that directory's `sound` folder, replacing
  *      and deleting tags as necessary to restore the campaign's
  *      original audio.
- *
- *   3. Use the abysmally named command line utility `tool` to
- *      package the updated tags into .map files that can finally
- *      be played in the Master Chief Collection.
  *
  * For more info: `Project Resources/Notes/Halo 2 MCC Modding.txt`.
  */
@@ -99,7 +95,7 @@ public class SoundRestorer {
         checkForConfigFile();
 
         initializeRootTagDirectory();
-        initializePreservationPreference();
+        //initializePreservationPreference();
 
         initializeSoundFileList();
     }
@@ -405,9 +401,10 @@ public class SoundRestorer {
         if (totalProblems == 0) {
             System.out.printf("%n  1. Follow the directions outlined in '\\Project Resources\\Notes\\Manual Fixes.txt'.");
             System.out.printf("%n  2. Copy '\\Source\\utility\\BuildMaps.bat' to your H2EK installation folder");
-            System.out.printf("%n     and run to generate the final map files. This will take a few minutes.");
-            System.out.printf("%n  3. Copy generated maps to the following folder and you're ready to boot up MCC!%n");
-            System.out.printf("%n     '<MCC installation>\\halo2\\h2_maps_win64_dx11'%n");
+            System.out.printf("%n     and run it to generate the final map files. This will take about 10 minutes.");
+            System.out.printf("%n  3. Copy the generated maps to their MCC folder and you're ready to play!");
+            System.out.printf("%n     Generated Maps: '<H2EK installation>\\h2_maps_win64_dx11'");
+            System.out.printf("%n     MCC Folder: '<MCC installation>\\halo2\\h2_maps_win64_dx11'%n");
 
         } else {
             System.out.printf("%n  Looks like there were some issues restoring audio.");

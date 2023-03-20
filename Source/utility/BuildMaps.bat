@@ -14,3 +14,8 @@ tool build-cache-file scenarios\solo\07a_highcharity\07a_highcharity dx11_64 rem
 tool build-cache-file scenarios\solo\08a_deltacliffs\08a_deltacliffs dx11_64 remastered_support
 tool build-cache-file scenarios\solo\07b_forerunnership\07b_forerunnership dx11_64 remastered_support
 tool build-cache-file scenarios\solo\08b_deltacontrol\08b_deltacontrol dx11_64 remastered_support
+
+echo
+echo ////////////////////
+echo // Maps Generated //
+echo ////////////////////

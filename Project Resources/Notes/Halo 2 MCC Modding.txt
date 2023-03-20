@@ -157,6 +157,15 @@
 
         Follow the directions in 'Manual Fixes.txt'.
 
+    4. Use 'tool' to build a map file from the new tags.
+
+        tool build-cache-file scenarios\solo\01b_spacestation\01b_spacestation dx11_64 remastered_support
+
+    5. Move the generated map file to the appropriate MCC installation folder.
+
+        H2EK Generated Maps: '<H2EK installation>\h2_maps_win64_dx11'
+        MCC Folder: '<MCC installation>\halo2\h2_maps_win64_dx11'
+
 
 
 /*--- Hard Earned Knowledge ---*/
