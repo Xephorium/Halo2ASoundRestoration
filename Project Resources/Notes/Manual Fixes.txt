@@ -78,7 +78,7 @@ adjustments. To make the changes, complete the following steps:
     Vehicles
       Scarab
         sound_remastered\ambience\device_machines\scarab\cov_damage_large_scarab.sound
-            gain base = -30
+            gain base = -20
 
     Characters
       Sentinel Enforcer
