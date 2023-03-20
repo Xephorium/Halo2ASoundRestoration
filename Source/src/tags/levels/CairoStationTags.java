@@ -17,6 +17,9 @@ public class CairoStationTags extends TagGroup {
                 "/sound_remastered/ambience/macgun",
                 "/sound_remastered/ambience/device_machines/ss_gun_loader2",
 
+                // Glass Break
+                "/sound_remastered/materials/brittle/glass",
+
                 /* Warning Alarm
                  *
                  * I've been mulling over whether to replace this sound since the project

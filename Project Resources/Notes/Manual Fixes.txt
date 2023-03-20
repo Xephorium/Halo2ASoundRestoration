@@ -59,11 +59,12 @@ adjustments. To make the changes, complete the following steps:
         sound_remastered\weapons\battle_rifle\fire_burst.sound
             min dist = 3
             max dist = 75
-            gain base = -6
+            gain base = -5 [-1]
       Magnum
         sound_remastered\weapons\magnum\magnum_fire.sound
             min dist = 3
             max dist = 75
+            gain base = -4 [-1]
       SMG
         sound_remastered\weapons\smg\fire.sound
             min dist = 3
@@ -78,12 +79,17 @@ adjustments. To make the changes, complete the following steps:
             max dist = 75
       Plasma Turret
         sound_remastered\weapons\plasma_turret\fire.sound
-            gain base = -25
+            gain base = -12 [+4]
 
     Vehicles
       Scarab
         sound_remastered\ambience\device_machines\scarab\cov_damage_large_scarab.sound
             gain base = -12
+      Phantom
+        sound_remastered\vehicles\phantom\phantom_turret_fire.sound
+            gain base = -10 [-5]
+        sound_remastered\vehicles\phantom\phantom_turret_fire_turret.sound
+            gain base = -10 [-5]
 
     Characters
       Sentinel Enforcer
@@ -98,14 +104,21 @@ adjustments. To make the changes, complete the following steps:
             gain base = -15
 
     Cairo Station
+        Ambience
+            sound_remastered\ambience\spacestation\spacestation_bigroom\spacestation_bigroom.sound
+                gain = 0 [+2]
+            sound_remastered\ambience\spacestation\spacestation_smallroom\spacestation_smallroom.sound
+                gain = -6 [+2]
         klaxon
-            sound_remastered/ambience/sound_scenery/klaxon/klaxon.sound_looping
-                gain base = 9
+            sound_remastered\ambience\sound_scenery\klaxon\klaxon.sound_looping
+                gain base = 10 [+14]
         Music
             01b_01
-                gain -= 7
+                gain = -10 [-7]
             01b_02
-                gain -= 1
+                gain = -4 [-1]
             01b_03
-                gain -= 1
+                gain = -4 [-1]
+            01b_04
+                gain = -4 [-1]
 
