@@ -48,13 +48,18 @@ adjustments. To make the changes, complete the following steps:
             min dist = 4
             max dist = 100
       Beam Rifle
-        sound_remastered\weapons\beam_rifle\fire_burst.sound
+        sound_remastered\weapons\beam_rifle\fire.sound
             min dist = 5
             max dist = 300
       Fuel Rod Gun
         sound_remastered\weapons\flak_cannon\flak_fire.sound
             min dist = 4
             max dist = 100
+      Battle Rifle
+        sound_remastered\weapons\battle_rifle\fire_burst.sound
+            min dist = 3
+            max dist = 75
+            gain base = -6
       Magnum
         sound_remastered\weapons\magnum\magnum_fire.sound
             min dist = 3
@@ -78,7 +83,7 @@ adjustments. To make the changes, complete the following steps:
     Vehicles
       Scarab
         sound_remastered\ambience\device_machines\scarab\cov_damage_large_scarab.sound
-            gain base = -20
+            gain base = -12
 
     Characters
       Sentinel Enforcer
@@ -91,3 +96,16 @@ adjustments. To make the changes, complete the following steps:
             gain base = -30
         sound_remastered\characters\bodyfalls\hunter_bodyfalls.sound
             gain base = -15
+
+    Cairo Station
+        klaxon
+            sound_remastered/ambience/sound_scenery/klaxon/klaxon.sound_looping
+                gain base = 9
+        Music
+            01b_01
+                gain -= 7
+            01b_02
+                gain -= 1
+            01b_03
+                gain -= 1
+
