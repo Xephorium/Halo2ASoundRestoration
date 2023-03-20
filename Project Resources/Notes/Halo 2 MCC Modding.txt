@@ -224,3 +224,15 @@
 
 
     [01b_spacestation_mission line 649] this is not a reference to a sound tag.: sound_remastered\ambience\spacestation\docking_clangs\dockingcov_incoming none 1)
+
+
+/*--- Final Report ---*/
+
+  .------------------------.
+  | Updated            808 |
+  | Replaced           734 |
+  | Deleted             74 |
+  | Preserved         1401 |
+  |------------------------|
+  | Problems             0 |
+  '------------------------'
