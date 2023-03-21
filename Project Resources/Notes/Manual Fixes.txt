@@ -80,7 +80,7 @@ themselves here:
             max dist = 75
       Plasma Turret
         sound_remastered\weapons\plasma_turret\fire.sound
-            gain base = -12 [+4]
+            gain base = -12 [-7]
 
     Vehicles
       Scarab
