@@ -1,6 +1,9 @@
 package tags.general;
 
 import tags.TagGroup;
+import tags.TagModification;
+
+import static tags.TagModification.NO_CHANGE;
 
 public class CharacterTags extends TagGroup {
 
@@ -51,6 +54,18 @@ public class CharacterTags extends TagGroup {
 
                 // Sentinel Enforcer Rocket Fire (If not replacing above)
                 //"/sound_remastered/characters/sentinel/sentinel_rocket_launcher/sentinel_rocket/in.sound"
+        };
+
+        tagModifications = new TagModification[] {
+
+                // Sentinel Enforcer
+                new TagModification(
+                        "/sound_remastered/characters/sentinel/sentinel_enforcer_laser.sound",
+                        NO_CHANGE,
+                        25, // Min dist +20 from default
+                        75, // Max dist +10 from default,
+                        0   // Classic only false
+                )
         };
     }
 }

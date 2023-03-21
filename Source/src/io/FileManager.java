@@ -84,6 +84,15 @@ public class FileManager {
 
     /*--- Write Methods ---*/
 
+    public static boolean writeToBinaryFile(File file, byte[] bytes) {
+        try {
+            FileUtils.writeByteArrayToFile(file, bytes);
+            return true;
+        } catch (IOException e) { /* Do Nothing */}
+
+        return false;
+    }
+
     public static boolean renameFileOrDirectory(File oldDir, File newDir) {
         try {
             return oldDir.renameTo(newDir);

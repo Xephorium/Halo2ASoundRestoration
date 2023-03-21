@@ -25,4 +25,7 @@ public class TagGroup {
 
     // A list of file paths to be deleted after the above directory walk(s).
     public String[] deletePaths = {};
+
+    // A list of tags that need to be edited and the edits to be performed.
+    public TagModification[] tagModifications = {};
 }

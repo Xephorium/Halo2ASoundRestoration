@@ -1,5 +1,5 @@
 
-import io.TagEditor;
+import io.TagModifier;
 import io.FileManager;
 
 import java.io.File;
@@ -111,12 +111,6 @@ public class SoundRestorer {
         }
 
         printReport();
-
-//        File testFile = FileManager.createSubdirectoryFile(
-//                rootTagDirectory,
-//                "\\/sound_remastered\\/scenarios\\/solo\\/01b_spacestation\\/01b_music\\/01b_01.sound_looping"
-//        );
-//        TagEditor.printTagContents(testFile);
     }
 
 
@@ -192,6 +186,11 @@ public class SoundRestorer {
         // Delete Tag Group Files
         for (String deletePath : tagGroup.deletePaths) {
             deleteTag(deletePath);
+        }
+
+        // Modify Tag Group Files
+        for (TagModification tagModification : tagGroup.tagModifications) {
+            TagModifier.modifyTag(createTagSubdir(tagModification.path), tagModification);
         }
     }
 
