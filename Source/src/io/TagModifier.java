@@ -45,6 +45,7 @@ public class TagModifier {
         NUMERIC_HEX_VALUES.add(new Pair<>(-25, "c8c1"));
         NUMERIC_HEX_VALUES.add(new Pair<>(-20, "a0c1"));
         NUMERIC_HEX_VALUES.add(new Pair<>(-15, "70c1"));
+        NUMERIC_HEX_VALUES.add(new Pair<>(-12, "40c1"));
         NUMERIC_HEX_VALUES.add(new Pair<>(-10, "20c1"));
         NUMERIC_HEX_VALUES.add(new Pair<>(-7,  "e0c0"));
         NUMERIC_HEX_VALUES.add(new Pair<>(-5,  "a0c0"));
@@ -63,6 +64,9 @@ public class TagModifier {
         NUMERIC_HEX_VALUES.add(new Pair<>(10,  "2041"));
         NUMERIC_HEX_VALUES.add(new Pair<>(25,  "c841"));
         NUMERIC_HEX_VALUES.add(new Pair<>(75,  "9642"));
+        NUMERIC_HEX_VALUES.add(new Pair<>(100, "c842"));
+        NUMERIC_HEX_VALUES.add(new Pair<>(150, "1643"));
+        NUMERIC_HEX_VALUES.add(new Pair<>(300, "9643"));
     }
 
 

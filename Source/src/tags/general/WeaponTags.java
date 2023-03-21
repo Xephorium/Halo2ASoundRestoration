@@ -3,6 +3,8 @@ package tags.general;
 import tags.TagGroup;
 import tags.TagModification;
 
+import static tags.TagModification.NO_CHANGE;
+
 public class WeaponTags extends TagGroup {
 
     public WeaponTags() {
@@ -86,8 +88,59 @@ public class WeaponTags extends TagGroup {
 
         tagModifications = new TagModification[] {
 
+                // Human Weapons (Min/max distance adjustment except where expanded)
+                new TagModification(
+                        "/sound_remastered/weapons/battle_rifle/fire_burst.sound",
+                        -5, // Gain -1 from default
+                        3,
+                        75,
+                        NO_CHANGE
+                ),
+                new TagModification("/sound_remastered/weapons/smg/fire.sound", 3, 75),
+                new TagModification("/sound_remastered/weapons/shotgun/fire.sound", 3, 75),
+                new TagModification(
+                        "/sound_remastered/weapons/magnum/magnum_fire.sound",
+                        -4, // Gain -1 from default
+                        3,
+                        75,
+                        NO_CHANGE
+                ),
+                new TagModification("/sound_remastered/weapons/chain_gun/fire.sound", 3, 75),
+
+                // Covenant Weapons (Min/max distance adjustment)
+                new TagModification("/sound_remastered/weapons/beam_rifle/beam_rifle_fire.sound", 5, 300),
+                new TagModification("/sound_remastered/weapons/covenant_carbine/fire.sound", 4, 100),
+                new TagModification("/sound_remastered/weapons/plasma_rifle/plasma_rifle_fire.sound", 3, 75),
+                new TagModification("/sound_remastered/weapons/needler/fire.sound", 3, 75),
+                new TagModification("/sound_remastered/weapons/plasma_pistol/fire.sound", 3, 75),
+                new TagModification("/sound_remastered/weapons/plasma_pistol/chargefire.sound", 3, 75),
+                new TagModification("/sound_remastered/weapons/plasma_pistol/startcharge.sound", 3, 75),
+                new TagModification("/sound_remastered/weapons/flak_cannon/flak_fire.sound", 4, 100),
+                new TagModification(
+                        "/sound_remastered/weapons/plasma_turret/fire.sound",
+                        -12, // Gain -7 from default
+                        3,
+                        75,
+                        NO_CHANGE
+                ),
+
+                // Sentinel Gun (Min/max distance adjustment)
+                new TagModification("/sound_remastered/characters/sentinel/sentinel_gun/sent_gun/in.sound", 5, 100),
+                new TagModification("/sound_remastered/characters/sentinel/sentinel_gun/sent_gun/loop.sound", 5, 100),
+                new TagModification("/sound_remastered/characters/sentinel/sentinel_gun/sent_gun/out.sound", 5, 100),
+
                 // Scarab Explosion (Gain -18 from default)
                 new TagModification("/sound_remastered/ambience/device_machines/scarab/cov_damage_large_scarab.sound", -30),
         };
     }
 }
+
+
+
+
+
+
+
+
+
+
