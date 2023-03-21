@@ -1,6 +1,7 @@
 package tags.levels;
 
 import tags.TagGroup;
+import tags.TagModification;
 
 public class MetropolisTags extends TagGroup {
 
@@ -30,6 +31,27 @@ public class MetropolisTags extends TagGroup {
 
                 // Scarab Engine Extra
                 "/sound_remastered/ambience/device_machines/scarab/scarab_engine_loop_swtnr/loop.sound"
+        };
+
+        tagModifications = new TagModification[] {
+
+                // Music
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_01.sound_looping",
+                        -4 // Gain -1 from default
+                ),
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_02.sound_looping",
+                        -6 // Gain -1 from default
+                ),
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_03.sound_looping",
+                        -4 // Gain -1 from default
+                ),
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_04.sound_looping",
+                        -6 // Gain -1 from default
+                ),
         };
     }
 }
