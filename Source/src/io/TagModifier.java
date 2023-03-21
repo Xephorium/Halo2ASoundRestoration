@@ -45,11 +45,17 @@ public class TagModifier {
         NUMERIC_HEX_VALUES.add(new Pair<>(-25, "c8c1"));
         NUMERIC_HEX_VALUES.add(new Pair<>(-20, "a0c1"));
         NUMERIC_HEX_VALUES.add(new Pair<>(-15, "70c1"));
+        NUMERIC_HEX_VALUES.add(new Pair<>(-13, "50c1"));
         NUMERIC_HEX_VALUES.add(new Pair<>(-12, "40c1"));
         NUMERIC_HEX_VALUES.add(new Pair<>(-10, "20c1"));
+        NUMERIC_HEX_VALUES.add(new Pair<>(-9,  "10c1"));
+        NUMERIC_HEX_VALUES.add(new Pair<>(-8,  "00c1"));
         NUMERIC_HEX_VALUES.add(new Pair<>(-7,  "e0c0"));
+        NUMERIC_HEX_VALUES.add(new Pair<>(-6,  "c0c0"));
         NUMERIC_HEX_VALUES.add(new Pair<>(-5,  "a0c0"));
         NUMERIC_HEX_VALUES.add(new Pair<>(-4,  "80c0"));
+        NUMERIC_HEX_VALUES.add(new Pair<>(-3,  "40c0"));
+        NUMERIC_HEX_VALUES.add(new Pair<>(-2,  "00c0"));
         NUMERIC_HEX_VALUES.add(new Pair<>(-1,  "80bf"));
         NUMERIC_HEX_VALUES.add(new Pair<>(0,   "0000"));
         NUMERIC_HEX_VALUES.add(new Pair<>(1,   "803f"));

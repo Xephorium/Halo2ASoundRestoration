@@ -90,6 +90,13 @@ public class WeaponTags extends TagGroup {
 
                 // Human Weapons (Min/max distance adjustment except where expanded)
                 new TagModification(
+                        "/sound_remastered/weapons/sniper_rifle/fire.sound",
+                        -5, // Gain +1 from default
+                        3,
+                        75,
+                        NO_CHANGE
+                ),
+                new TagModification(
                         "/sound_remastered/weapons/battle_rifle/fire_burst.sound",
                         -5, // Gain -1 from default
                         3,
@@ -105,7 +112,13 @@ public class WeaponTags extends TagGroup {
                         75,
                         NO_CHANGE
                 ),
-                new TagModification("/sound_remastered/weapons/chain_gun/fire.sound", 3, 75),
+                new TagModification(
+                        "/sound_remastered/weapons/chain_gun/fire.sound",
+                        -3, // Gain -2 from default
+                        3,
+                        75,
+                        NO_CHANGE
+                ),
 
                 // Covenant Weapons (Min/max distance adjustment)
                 new TagModification("/sound_remastered/weapons/beam_rifle/beam_rifle_fire.sound", 5, 300),

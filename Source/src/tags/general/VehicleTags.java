@@ -78,9 +78,13 @@ public class VehicleTags extends TagGroup {
 
         tagModifications = new TagModification[] {
 
-                // Phantom Turrets (Gain -10 from default)
-                new TagModification("/sound_remastered/vehicles/phantom/phantom_turret_fire.sound", -20),
-                new TagModification("/sound_remastered/vehicles/phantom/phantom_turret_fire_turret.sound", -20),
+                // Phantom Turrets (Gain -2 from default)
+                new TagModification("/sound_remastered/vehicles/phantom/phantom_turret_fire.sound", -12),
+                new TagModification("/sound_remastered/vehicles/phantom/phantom_turret_fire_turret.sound", -12),
+                new TagModification("/sound_remastered/vehicles/phantom/phantom_bolt_impact.sound", -9),
+
+                // Ghost Fire (Gain -1 from default)
+                new TagModification("/sound_remastered/vehicles/ghost/ghost_fire/fire.sound", -7),
         };
     }
 }
