@@ -1,6 +1,7 @@
 package tags.general;
 
 import tags.TagGroup;
+import tags.TagModification;
 
 public class WeaponTags extends TagGroup {
 
@@ -81,6 +82,12 @@ public class WeaponTags extends TagGroup {
 
                 // Scarab Gun Extra Fire
                 "/sound_remastered/ambience/device_machines/scarab/scarab_fire_swtnr/out.sound"
+        };
+
+        tagModifications = new TagModification[] {
+
+                // Scarab Explosion (Gain -18 from default)
+                new TagModification("/sound_remastered/ambience/device_machines/scarab/cov_damage_large_scarab.sound", -30),
         };
     }
 }

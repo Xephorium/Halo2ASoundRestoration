@@ -5,10 +5,11 @@
 //////////////////
 
 
-After running the audio restoration script, the following tags will need to
-have their audible distance and volume adjusted manually. This is cumbersome,
-but a far cry better than manually updating all 800 tags, *then* making these
-adjustments. To make the changes, complete the following steps:
+Before the audio restoration script was updated to modify tag files,
+a few manual changes were needed after automatic replacement was
+complete. This process should no longer be necessary. But just in
+case, I've retained my guide on the process and many of the changes
+themselves here:
 
 
 1. Open Guerilla with the correct tag directory set.

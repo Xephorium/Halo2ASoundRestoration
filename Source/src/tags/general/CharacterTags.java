@@ -65,7 +65,19 @@ public class CharacterTags extends TagGroup {
                         25, // Min dist +20 from default
                         75, // Max dist +10 from default,
                         0   // Classic only false
-                )
+                ),
+
+                // Hunter Movement (Gain -22 from default)
+                new TagModification("/sound_remastered/characters/hunter/land_hard.sound", -25),
+                new TagModification("/sound_remastered/characters/hunter/land_soft.sound", -25),
+                new TagModification("/sound_remastered/characters/hunter/posing_var1.sound", -25),
+                new TagModification("/sound_remastered/characters/hunter/posing_var2.sound", -25),
+                new TagModification("/sound_remastered/characters/hunter/posing_var3.sound", -25),
+                new TagModification("/sound_remastered/characters/hunter/posing_var4.sound", -25),
+                new TagModification("/sound_remastered/characters/hunter/shortmove.sound", -25),
+
+                // Hunter Fall (Gain -13 from default)
+                new TagModification("/sound_remastered/characters/bodyfalls/hunter_bodyfalls.sound", -15),
         };
     }
 }

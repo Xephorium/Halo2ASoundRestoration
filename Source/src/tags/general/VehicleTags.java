@@ -1,6 +1,7 @@
 package tags.general;
 
 import tags.TagGroup;
+import tags.TagModification;
 
 public class VehicleTags extends TagGroup {
 
@@ -73,6 +74,13 @@ public class VehicleTags extends TagGroup {
 
                 // Regret Extra Sounds
                 "/sound_remastered/vehicles/gravity_throne/regret_teleport_reflection.sound",
+        };
+
+        tagModifications = new TagModification[] {
+
+                // Phantom Turrets (Gain -10 from default)
+                new TagModification("/sound_remastered/vehicles/phantom/phantom_turret_fire.sound", -20),
+                new TagModification("/sound_remastered/vehicles/phantom/phantom_turret_fire_turret.sound", -20),
         };
     }
 }
