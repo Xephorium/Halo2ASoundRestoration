@@ -9,7 +9,7 @@ A script for restoring classic audio to the entire Halo 2 Anniversary campaign.
 
 Even with official mod tools, reverting every piece of audio in Halo 2's Anniversary campaign requires updating 800+ files. Completing this process once is agonizing. Doing it again each time an official update touches the campaign and breaks the previous mod is prohibitively frustrating. This is why, even years after launch, the game is without an up-to-date, comprehensive audio restoration mod.
 
-This project aims to break the cycle. With one click, it restores 98% of campaign audio to its classic counterpart, leaving only a dozen files that need manual volume adjustment.
+This project aims to break the cycle. With two clicks, it generates anniversary maps from fresh tag files with all classic audio restored, ready to play in MCC.
 
 </br>
 
@@ -33,4 +33,6 @@ This project aims to break the cycle. With one click, it restores 98% of campaig
   
  #### Audio Restoration
 - Once project is setup, simply execute `run.bat` via command line to restore classic audio
-- Then, follow the directions the script provides to perform manual fixes and generate new map files
+- Then, follow the directions the script provides to package the final map files and move them to MCC
+- That's it! You're ready to play 🎮
+
