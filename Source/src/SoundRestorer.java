@@ -429,20 +429,19 @@ public class SoundRestorer {
         totalTagsPreserved += allSoundFiles.size();
 
         System.out.printf("\nClassic Audio Restored!%n");
-        System.out.printf("  .--------------------------.%n");
-        System.out.printf("  | Total Tags Changed%s%d |\n", getPadding(6, totalTagsUpdated), totalTagsUpdated);
-        System.out.printf("  | Replaced%s%d |\n", getPadding(16, totalTagsReplaced), totalTagsReplaced);
-        System.out.printf("  | Deleted%s%d |\n", getPadding(17, totalTagsDeleted), totalTagsDeleted);
-        System.out.printf("  | Modified%s%d |\n", getPadding(16, totalTagsModified), totalTagsModified);
-        System.out.printf("  | Preserved%s%d |\n", getPadding(15, totalTagsPreserved), totalTagsPreserved);
-        System.out.printf("  |--------------------------|%n");
-        System.out.printf("  | Problems%s%d |\n", getPadding(16, totalProblems), totalProblems);
-        System.out.printf("  '--------------------------'%n");
+        System.out.printf("  .---------------------------.%n");
+        System.out.printf("  | Total Tags Changed%s%d |\n", getPadding(7, totalTagsUpdated), totalTagsUpdated);
+        System.out.printf("  | > Replaced%s%d |\n", getPadding(15, totalTagsReplaced), totalTagsReplaced);
+        System.out.printf("  | > Deleted%s%d |\n", getPadding(16, totalTagsDeleted), totalTagsDeleted);
+        System.out.printf("  | > Modified%s%d |\n", getPadding(15, totalTagsModified), totalTagsModified);
+        System.out.printf("  | > Preserved%s%d |\n", getPadding(14, totalTagsPreserved), totalTagsPreserved);
+        System.out.printf("  |---------------------------|%n");
+        System.out.printf("  | Problems%s%d |\n", getPadding(17, totalProblems), totalProblems);
+        System.out.printf("  '---------------------------'%n");
 
         System.out.printf("%nFinal Steps");
         if (totalProblems == 0) {
-            System.out.printf("%n  1. Follow the directions outlined in '\\Project Resources\\Notes\\Manual Fixes.txt'.");
-            System.out.printf("%n  2. Copy '\\Source\\utility\\BuildMaps.bat' to your H2EK installation folder");
+            System.out.printf("%n  1. Copy '\\Source\\utility\\BuildMaps.bat' to your H2EK installation folder");
             System.out.printf("%n     and run it to generate the final map files. This will take about 10 minutes.");
             System.out.printf("%n  3. Copy the generated maps to their MCC folder and you're ready to play!");
             System.out.printf("%n     Generated Maps: '<H2EK installation>\\h2_maps_win64_dx11'");
@@ -453,7 +452,8 @@ public class SoundRestorer {
             System.out.printf("%n  Either the tags directory wasn't freshly extracted");
             System.out.printf("%n  or MCC has been updated. If you've extracted the tags");
             System.out.printf("%n  again and are still seeing this issue, 343i renamed");
-            System.out.printf("%n  or moved a tag file and this script will need an update.%n");
+            System.out.printf("%n  or moved a file and this script will need an update.%n");
+            System.out.printf("%n  The errors above should help track down the change.%n");
         }
 
     }
