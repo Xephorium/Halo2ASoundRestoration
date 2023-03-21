@@ -77,11 +77,19 @@ public class CairoStationTags extends TagGroup {
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_03.sound_looping",
-                        -4 // Gain -1 from default
+                        -5 // Gain -2 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_04.sound_looping",
                         -4 // Gain -1 from default
+                ),
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_07.sound_looping",
+                        -7 // Gain -1 from default
+                ),
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_08.sound_looping",
+                        -5 // Gain -1 from default
                 )
         };
     }
