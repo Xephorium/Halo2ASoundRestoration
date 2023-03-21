@@ -82,9 +82,10 @@ public class SoundRestorer {
 
     private List<File> allSoundFiles;
 
-    private int totalTagsModified = 0;
+    private int totalTagsUpdated = 0;
     private int totalTagsReplaced = 0;
     private int totalTagsDeleted = 0;
+    private int totalTagsModified = 0;
     private int totalTagsPreserved = 0;
     private int totalProblems = 0;
 
@@ -190,7 +191,7 @@ public class SoundRestorer {
 
         // Modify Tag Group Files
         for (TagModification tagModification : tagGroup.tagModifications) {
-            TagModifier.modifyTag(createTagSubdir(tagModification.path), tagModification);
+            modifyTag(tagModification);
         }
     }
 
@@ -234,7 +235,7 @@ public class SoundRestorer {
                 // Replace Tag w/ Classic
                 FileManager.deleteFile(remasteredTag);
                 FileManager.copyFile(classicTag, remasteredTag);
-                totalTagsModified++;
+                totalTagsUpdated++;
                 totalTagsReplaced++;
                 allSoundFiles.remove(remasteredTag);
 
@@ -249,7 +250,7 @@ public class SoundRestorer {
 
                     // Delete Tag
                     FileManager.deleteFile(remasteredTag);
-                    totalTagsModified++;
+                    totalTagsUpdated++;
                     totalTagsDeleted++;
                     allSoundFiles.remove(remasteredTag);
                 }
@@ -259,6 +260,66 @@ public class SoundRestorer {
             // Preserve Tag
             totalTagsPreserved++;
             allSoundFiles.remove(remasteredTag);
+        }
+    }
+
+    private void replaceTag(String sourcePath, String replacementPath) {
+        File sourceTag = createTagSubdir( sourcePath);
+        File replacementTag = createTagSubdir( replacementPath);
+        if (FileManager.isValidFile(sourceTag) && FileManager.isValidFile(replacementTag)) {
+            FileManager.deleteFile(sourceTag);
+            FileManager.copyFile(replacementTag, sourceTag);
+            totalTagsUpdated++;
+            totalTagsReplaced++;
+            allSoundFiles.remove(replacementTag);
+        } else {
+            System.out.printf("    Error replacing '%s'%n", sourcePath);
+            totalProblems++;
+        }
+    }
+
+    private void deleteTag(String tagPath) {
+        File tag = createTagSubdir(tagPath);
+        if (FileManager.isValidFile(tag)) {
+            FileManager.deleteFile(tag);
+            totalTagsUpdated++;
+            totalTagsDeleted++;
+            allSoundFiles.remove(tag);
+        } else {
+            System.out.printf("    Error deleting '%s'%n", tag);
+            totalProblems++;
+        }
+    }
+
+    private void modifyTag(TagModification tagMod) {
+        File tagFile = createTagSubdir(tagMod.path);
+
+        // Read Tag as Binary File
+        byte[] byteArray = FileManager.readBinaryFileContents(tagFile);
+
+        // Modify Tag Contents
+        if (byteArray != null) {
+            byteArray = TagModifier.modifyTag(tagFile, tagMod, byteArray);
+        }
+
+        if (byteArray != null) {
+
+            // Write Changes to File
+            FileManager.deleteFile(tagFile);
+            FileManager.writeToBinaryFile(tagFile, byteArray);
+            totalTagsModified++;
+
+            // Update Statistics
+            if (allSoundFiles.contains(tagFile)) {
+                totalTagsUpdated++;
+                allSoundFiles.remove(tagFile);
+            }
+
+        } else {
+
+            // Print Error & Update Statistics
+            System.out.printf("    Error modifying '%s'%n", tagFile);
+            totalProblems++;
         }
     }
 
@@ -341,32 +402,6 @@ public class SoundRestorer {
 
     }
 
-    private void replaceTag(String sourcePath, String replacementPath) {
-        File sourceTag = createTagSubdir( sourcePath);
-        File replacementTag = createTagSubdir( replacementPath);
-        if (FileManager.isValidFile(sourceTag) && FileManager.isValidFile(replacementTag)) {
-            FileManager.deleteFile(sourceTag);
-            FileManager.copyFile(replacementTag, sourceTag);
-            totalTagsModified++;
-            totalTagsReplaced++;
-        } else {
-            System.out.printf("    Error replacing '%s'%n", sourcePath);
-            totalProblems++;
-        }
-    }
-
-    private void deleteTag(String tagPath) {
-        File tag = createTagSubdir(tagPath);
-        if (FileManager.isValidFile(tag)) {
-            FileManager.deleteFile(tag);
-            totalTagsModified++;
-            totalTagsDeleted++;
-        } else {
-            System.out.printf("    Error deleting '%s'%n", tag);
-            totalProblems++;
-        }
-    }
-
     private File getClassicFile(File file) {
         return new File(file.getPath().replace("sound_remastered", "sound"));
     }
@@ -394,14 +429,15 @@ public class SoundRestorer {
         totalTagsPreserved += allSoundFiles.size();
 
         System.out.printf("\nClassic Audio Restored!%n");
-        System.out.printf("  .------------------------.%n");
-        System.out.printf("  | Updated%s%d |\n", getPadding(15, totalTagsModified), totalTagsModified);
-        System.out.printf("  | Replaced%s%d |\n", getPadding(14, totalTagsReplaced), totalTagsReplaced);
-        System.out.printf("  | Deleted%s%d |\n", getPadding(15, totalTagsDeleted), totalTagsDeleted);
-        System.out.printf("  | Preserved%s%d |\n", getPadding(13, totalTagsPreserved), totalTagsPreserved);
-        System.out.printf("  |------------------------|%n");
-        System.out.printf("  | Problems%s%d |\n", getPadding(14, totalProblems), totalProblems);
-        System.out.printf("  '------------------------'%n");
+        System.out.printf("  .--------------------------.%n");
+        System.out.printf("  | Total Tags Changed%s%d |\n", getPadding(6, totalTagsUpdated), totalTagsUpdated);
+        System.out.printf("  | Replaced%s%d |\n", getPadding(16, totalTagsReplaced), totalTagsReplaced);
+        System.out.printf("  | Deleted%s%d |\n", getPadding(17, totalTagsDeleted), totalTagsDeleted);
+        System.out.printf("  | Modified%s%d |\n", getPadding(16, totalTagsModified), totalTagsModified);
+        System.out.printf("  | Preserved%s%d |\n", getPadding(15, totalTagsPreserved), totalTagsPreserved);
+        System.out.printf("  |--------------------------|%n");
+        System.out.printf("  | Problems%s%d |\n", getPadding(16, totalProblems), totalProblems);
+        System.out.printf("  '--------------------------'%n");
 
         System.out.printf("%nFinal Steps");
         if (totalProblems == 0) {

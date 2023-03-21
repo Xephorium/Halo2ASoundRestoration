@@ -63,63 +63,58 @@ public class TagModifier {
 
     /*--- Public Methods ---*/
 
-    public static void modifyTag(File tagFile, TagModification tagModification) {
-        byte[] array = FileManager.readBinaryFileContents(tagFile);
-        if (array != null) {
+    public static byte[] modifyTag(File tagFile, TagModification tagModification, byte[] byteArray) {
 
-            // Identify File Type
-            boolean isLoopFile = FileManager.getFileOrDirectoryName(tagFile).contains(".sound_looping");
+        // Identify File Type
+        boolean isLoopFile = FileManager.getFileOrDirectoryName(tagFile).contains(".sound_looping");
 
-            // Update Gain
-            if (tagModification.gain != TagModification.NO_CHANGE) {
-                int gainIndex = GAIN_INDEX_SOUND;
-                if (isLoopFile) gainIndex = GAIN_INDEX_SOUND_LOOPING;
-                byte[] newGainBytes = getTagBytesFromInteger(tagModification.gain);
-                if (newGainBytes != null) {
-                    array[gainIndex] = newGainBytes[0];
-                    array[gainIndex + 1] = newGainBytes[1];
-                } else {
-                    System.out.printf("    Error updating gain for '%s'%n", tagModification.path);
-                }
+        // Update Gain
+        if (tagModification.gain != TagModification.NO_CHANGE) {
+            int gainIndex = GAIN_INDEX_SOUND;
+            if (isLoopFile) gainIndex = GAIN_INDEX_SOUND_LOOPING;
+            byte[] newBytes = getTagBytesFromInteger(tagModification.gain);
+            if (newBytes != null) {
+                byteArray[gainIndex] = newBytes[0];
+                byteArray[gainIndex + 1] = newBytes[1];
+            } else {
+                System.out.printf("    Error updating gain for '%s'%n", tagFile);
+                return null;
             }
-
-            // Update Min Distance
-            if (tagModification.minDist != TagModification.NO_CHANGE) {
-                byte[] newDistBytes = getTagBytesFromInteger(tagModification.minDist);
-                if (newDistBytes != null) {
-                    array[MIN_DIST_INDEX_SOUND] = newDistBytes[0];
-                    array[MIN_DIST_INDEX_SOUND + 1] = newDistBytes[1];
-                } else {
-                    System.out.printf("    Error updating min distance for '%s'%n", tagModification.path);
-                }
-            }
-
-            // Update Max Distance
-            if (tagModification.maxDist != TagModification.NO_CHANGE) {
-                byte[] newDistBytes = getTagBytesFromInteger(tagModification.maxDist);
-                if (newDistBytes != null) {
-                    array[MAX_DIST_INDEX_SOUND] = newDistBytes[0];
-                    array[MAX_DIST_INDEX_SOUND + 1] = newDistBytes[1];
-                } else {
-                    System.out.printf("    Error updating max distance for '%s'%n", tagModification.path);
-                }
-            }
-
-            // Update Classic Only Flag
-            if (tagModification.classicOnly != TagModification.NO_CHANGE) {
-                String newFlagValue = FALSE_HEX_VALUE;
-                if (tagModification.classicOnly == 1) newFlagValue = TRUE_HEX_VALUE;
-                byte newFlagByte = getBytesFromHexString(newFlagValue)[0];
-                array[CLASSIC_ONLY_INDEX] = newFlagByte;
-            }
-
-            // Write Changes to File
-            FileManager.deleteFile(tagFile);
-            FileManager.writeToBinaryFile(tagFile, array);
-
-        } else {
-            System.out.printf("    Error performing edits to \\'%s\\'%n", tagModification.path);
         }
+
+        // Update Min Distance
+        if (byteArray != null && tagModification.minDist != TagModification.NO_CHANGE) {
+            byte[] newBytes = getTagBytesFromInteger(tagModification.minDist);
+            if (newBytes != null) {
+                byteArray[MIN_DIST_INDEX_SOUND] = newBytes[0];
+                byteArray[MIN_DIST_INDEX_SOUND + 1] = newBytes[1];
+            } else {
+                System.out.printf("    Error updating min distance for '%s'%n", tagFile);
+                return null;
+            }
+        }
+
+        // Update Max Distance
+        if (byteArray != null && tagModification.maxDist != TagModification.NO_CHANGE) {
+            byte[] newBytes = getTagBytesFromInteger(tagModification.maxDist);
+            if (newBytes != null) {
+                byteArray[MAX_DIST_INDEX_SOUND] = newBytes[0];
+                byteArray[MAX_DIST_INDEX_SOUND + 1] = newBytes[1];
+            } else {
+                System.out.printf("    Error updating max distance for '%s'%n", tagFile);
+                return null;
+            }
+        }
+
+        // Update Classic Only Flag
+        if (byteArray != null && tagModification.classicOnly != TagModification.NO_CHANGE) {
+            String newFlagValue = FALSE_HEX_VALUE;
+            if (tagModification.classicOnly == 1) newFlagValue = TRUE_HEX_VALUE;
+            byte newByte = getBytesFromHexString(newFlagValue)[0];
+            byteArray[CLASSIC_ONLY_INDEX] = newByte;
+        }
+
+        return byteArray;
     }
 
     public static void printTagContents(File file) {
@@ -132,7 +127,7 @@ public class TagModifier {
 
     /*--- Byte Utility Methods ---*/
 
-    public static void printByteArray(byte[] array) {
+    private static void printByteArray(byte[] array) {
         String byteValuesInHex = TagModifier.getHexStringFromBytes(array);
         for (int x = 0; x < byteValuesInHex.length(); x += 2) {
             if (x != 0 && x % 32 == 0) System.out.println();
@@ -141,7 +136,7 @@ public class TagModifier {
         }
     }
 
-    public static byte[] getTagBytesFromInteger(int integer) {
+    private static byte[] getTagBytesFromInteger(int integer) {
         String hexValue = getTagHexStringFromInteger(integer);
         if (hexValue != null) {
             return getBytesFromHexString(hexValue);
