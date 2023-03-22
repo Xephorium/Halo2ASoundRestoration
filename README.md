@@ -19,7 +19,7 @@ Everyone who grew up with Halo 2 has strong feelings about its soundscape. I've 
 
   | Restoration Option      | Description       | Valid&nbsp;Input |
   | ------------- | --------------- | :---------: |
-  | `MUSIC_VOLUME_MODIFIER`   | Decibel integer added to the volume of every music track in the campaign. | `[-10, 10]` |
+  | `MUSIC_VOLUME_MODIFIER`   | Decibel integer added to the volume of all campaign music tracks. | `[-10, 10]` |
 
 </br>
 
