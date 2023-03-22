@@ -18,9 +18,9 @@ This project breaks the cycle. With two clicks, it generates anniversary maps fr
 
 Everyone who grew up with Halo 2 has strong feelings about its soundscape. I've tuned the default restoration settings to match classic Halo 2 as closely as possible. But to accommodate differing perspectives, the project includes a `config.txt` file that gives you control over some of the more contentious details. The options are below.
 
-  | Restoration Option      | Description       | Valid&nbsp;Input |
-  | ------------- | --------------- | :---------: |
-  | `MUSIC_VOLUME_MODIFIER`   | Decibel integer added to the volume of all campaign music tracks. | `[-10, 10]` |
+  | Restoration Option | Description       | Valid&nbsp;Input |
+--------------------| ------------- | --------------- | :---------: |
+  | `MUSIC_VOLUME` | Controls music volume. Decibel integer added to the gain of all music campaign tracks. | `[-10, 10]` |
 
 </br>
 
@@ -42,7 +42,7 @@ Everyone who grew up with Halo 2 has strong feelings about its soundscape. I've 
   ```kotlin
   TAGS_DIRECTORY=D:\My Games\Steam\steamapps\common\H2EK\tags
   
-  MUSIC_VOLUME_MODIFIER=0
+  MUSIC_VOLUME=0
   ```
 - Edit restoration preferences to your liking.
   

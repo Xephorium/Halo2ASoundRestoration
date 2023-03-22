@@ -40,7 +40,7 @@ public class SoundRestorer {
     private final String CONFIG_FILE_PATH = "input\\/Config.txt";
     private final String CONFIG_DIR_PREFIX = "TAGS_DIRECTORY";
     private final String CONFIG_PRES_PREFIX = "DISCRETIONARY_PRESERVATION";
-    private final String CONFIG_MUSIC_VOLUME_PREFIX = "MUSIC_VOLUME_MODIFIER";
+    private final String CONFIG_MUSIC_VOLUME_PREFIX = "MUSIC_VOLUME";
     private final String CONFIG_DELIMITER = "=";
 
 
@@ -59,7 +59,7 @@ public class SoundRestorer {
 
     private File rootTagDirectory = null;
     private boolean discretionaryPreservation = true;
-    private int musicGainModifier = 0;
+    private int musicVolumeModifier = 0;
 
     private List<File> allSoundFiles;
 
@@ -126,7 +126,7 @@ public class SoundRestorer {
 
     private void initializeMusicGainModifier() {
         String modifierValue = readValueFromConfig(CONFIG_MUSIC_VOLUME_PREFIX).toLowerCase();
-        musicGainModifier = Integer.parseInt(modifierValue);
+        musicVolumeModifier = Integer.parseInt(modifierValue);
     }
 
     private String readValueFromConfig(String key) {
@@ -148,7 +148,7 @@ public class SoundRestorer {
     }
 
     private void initializeTagGroups() {
-        RestorationPreferences prefs = new RestorationPreferences(musicGainModifier);
+        RestorationPreferences prefs = new RestorationPreferences(musicVolumeModifier);
 
         TAG_GROUPS = new TagGroup[] {
 
