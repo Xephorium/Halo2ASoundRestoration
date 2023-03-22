@@ -461,7 +461,7 @@ public class SoundRestorer {
         if (totalProblems == 0) {
             System.out.printf("%n  1. Copy '\\Source\\utility\\BuildMaps.bat' to your H2EK installation folder");
             System.out.printf("%n     and run it to generate the final map files. This will take about 10 minutes.");
-            System.out.printf("%n  3. Copy the generated maps to their MCC folder and you're ready to play!");
+            System.out.printf("%n  2. Copy the generated maps to their MCC folder and you're ready to play!");
             System.out.printf("%n     Generated Maps: '<H2EK installation>\\h2_maps_win64_dx11'");
             System.out.printf("%n     MCC Folder: '<MCC installation>\\halo2\\h2_maps_win64_dx11'%n");
 
