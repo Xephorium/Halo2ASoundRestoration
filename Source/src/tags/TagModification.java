@@ -1,5 +1,13 @@
 package tags;
 
+/* Halo 2A Sound Restoration                         Chris Cruzen
+ * TagModification                                     03.20.2023
+ *
+ * TagModification is a container class that represents a single
+ * Halo 2 sound tag and all information needed to modify that tag
+ * at runtime.
+ */
+
 public class TagModification {
 
 
