@@ -1,5 +1,6 @@
 package tags.general;
 
+import prefs.RestorationPreferences;
 import tags.TagGroup;
 
 /* Ambient noises I've found that don't clearly belong
@@ -7,7 +8,7 @@ import tags.TagGroup;
  */
 public class AmbienceTags extends TagGroup {
 
-    public AmbienceTags() {
+    public AmbienceTags(RestorationPreferences prefs) {
 
         groupName = "Ambience";
 

@@ -1,10 +1,11 @@
 package tags.levels;
 
+import prefs.RestorationPreferences;
 import tags.TagGroup;
 
 public class TheGreatJourneyTags extends TagGroup {
 
-    public TheGreatJourneyTags() {
+    public TheGreatJourneyTags(RestorationPreferences prefs) {
 
         groupName = "The Great Journey";
 

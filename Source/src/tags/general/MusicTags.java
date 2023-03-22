@@ -1,10 +1,11 @@
 package tags.general;
 
+import prefs.RestorationPreferences;
 import tags.TagGroup;
 
 public class MusicTags extends TagGroup {
 
-    public MusicTags() {
+    public MusicTags(RestorationPreferences prefs) {
 
         groupName = "Music";
 

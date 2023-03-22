@@ -1,10 +1,11 @@
 package tags.levels;
 
+import prefs.RestorationPreferences;
 import tags.TagGroup;
 
 public class GravemindTags extends TagGroup {
 
-    public GravemindTags() {
+    public GravemindTags(RestorationPreferences prefs) {
 
         groupName = "Gravemind";
 

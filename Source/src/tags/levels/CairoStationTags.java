@@ -1,5 +1,6 @@
 package tags.levels;
 
+import prefs.RestorationPreferences;
 import tags.TagModification;
 import tags.TagGroup;
 
@@ -7,7 +8,7 @@ import static tags.TagModification.NO_CHANGE;
 
 public class CairoStationTags extends TagGroup {
 
-    public CairoStationTags() {
+    public CairoStationTags(RestorationPreferences prefs) {
 
         groupName = "Cairo Station";
 
@@ -69,27 +70,35 @@ public class CairoStationTags extends TagGroup {
                 // Music
                 new TagModification(
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_01.sound_looping",
-                        -10 // Gain -7 from default
+                        prefs.getMusicGain() + -10 // Gain -7 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_02.sound_looping",
-                        -4 // Gain -1 from default
+                        prefs.getMusicGain() + -4 // Gain -1 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_03.sound_looping",
-                        -5 // Gain -2 from default
+                        prefs.getMusicGain() + -5 // Gain -2 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_04.sound_looping",
-                        -4 // Gain -1 from default
+                        prefs.getMusicGain() + -4 // Gain -1 from default
+                ),
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_05.sound_looping",
+                        prefs.getMusicGain() + -3 // Gain is default
+                ),
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_06.sound_looping",
+                        prefs.getMusicGain() + 0 // Gain is default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_07.sound_looping",
-                        -7 // Gain -1 from default
+                        prefs.getMusicGain() + -7 // Gain -1 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_08.sound_looping",
-                        -5 // Gain -1 from default
+                        prefs.getMusicGain() + -5 // Gain -1 from default
                 )
         };
     }

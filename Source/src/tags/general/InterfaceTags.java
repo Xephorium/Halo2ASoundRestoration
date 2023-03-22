@@ -1,10 +1,11 @@
 package tags.general;
 
+import prefs.RestorationPreferences;
 import tags.TagGroup;
 
 public class InterfaceTags extends TagGroup {
 
-    public InterfaceTags() {
+    public InterfaceTags(RestorationPreferences prefs) {
 
         groupName = "Interface";
 

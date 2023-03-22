@@ -6,6 +6,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import prefs.RestorationPreferences;
 import tags.*;
 import tags.general.*;
 import tags.levels.*;
@@ -18,14 +20,15 @@ import tags.levels.*;
  *
  * This file restores the campaign's classic audio in 2 steps:
  *
- *   1. Read the user-specified tag directory from the project's
- *      configuration file.
+ *   1. Read the user-specified tag directory and other relevant
+ *      restoration options from the project's config file.
  *
- *   2. Iterate through that directory's `sound` folder, replacing
- *      and deleting tags as necessary to restore the campaign's
- *      original audio.
- *
- * For more info: `Project Resources/Notes/Halo 2 MCC Modding.txt`.
+ *   2. Iterate through the root tag directory's `sound_remastered`
+ *      folder, replacing, deleting, and modifying tags as necessary
+ *      to restore the campaign's original audio. For more details on
+ *      which tags replaced/deleted/modified and why, see the file
+ *      `Halo 2 MCC Modding.txt`, where I recorded my findings
+ *      throughout the process of building this script.
  */
 
 public class SoundRestorer {
@@ -37,6 +40,7 @@ public class SoundRestorer {
     private final String CONFIG_FILE_PATH = "input\\/Config.txt";
     private final String CONFIG_DIR_PREFIX = "TAGS_DIRECTORY";
     private final String CONFIG_PRES_PREFIX = "DISCRETIONARY_PRESERVATION";
+    private final String CONFIG_MUSIC_VOLUME_PREFIX = "MUSIC_VOLUME_MODIFIER";
     private final String CONFIG_DELIMITER = "=";
 
 
@@ -47,31 +51,7 @@ public class SoundRestorer {
 
     private final String[] TAG_DELETE_SUBSTRINGS = {"swtnr", "lfe", "lod.", "_lod"};
     private final String[] TAG_IGNORE_SUBSTRINGS = {"sound_looping"};
-    private final TagGroup[] TAG_GROUPS = {
-
-            // Universal Campaign Sounds
-            new AmbienceTags(),
-            new CharacterTags(),
-            new InterfaceTags(),
-            new MusicTags(),
-            new VehicleTags(),
-            new WeaponTags(),
-
-            // Specific Levels
-            new TheArmoryTags(),
-            new CairoStationTags(),
-            new OutskirtsTags(),
-            new MetropolisTags(),
-            new TheArbiterTags(),
-            new TheOracleTags(),
-            new DeltaHaloTags(),
-            new RegretTags(),
-            new SacredIconTags(),
-            new GravemindTags(),
-            // Uprising Fine
-            // High Charity Fine
-            new TheGreatJourneyTags()
-    };
+    private TagGroup[] TAG_GROUPS;
 
 
 
@@ -79,6 +59,7 @@ public class SoundRestorer {
 
     private File rootTagDirectory = null;
     private boolean discretionaryPreservation = true;
+    private int musicGainModifier = 0;
 
     private List<File> allSoundFiles;
 
@@ -95,9 +76,11 @@ public class SoundRestorer {
 
     public SoundRestorer() {
         checkForConfigFile();
-
         initializeRootTagDirectory();
         //initializePreservationPreference();
+        initializeMusicGainModifier();
+
+        initializeTagGroups();
 
         initializeSoundFileList();
     }
@@ -141,6 +124,11 @@ public class SoundRestorer {
         discretionaryPreservation = preservationValue.equals("true");
     }
 
+    private void initializeMusicGainModifier() {
+        String modifierValue = readValueFromConfig(CONFIG_MUSIC_VOLUME_PREFIX).toLowerCase();
+        musicGainModifier = Integer.parseInt(modifierValue);
+    }
+
     private String readValueFromConfig(String key) {
         List<String> dirFileContents = FileManager.readFileContents(new File(CONFIG_FILE_PATH));
 
@@ -157,6 +145,36 @@ public class SoundRestorer {
         System.out.printf("CONFIG ERROR: variable '%s' not found in config file.%n", key);
         System.exit(1);
         return "";
+    }
+
+    private void initializeTagGroups() {
+        RestorationPreferences prefs = new RestorationPreferences(musicGainModifier);
+
+        TAG_GROUPS = new TagGroup[] {
+
+                // Universal Campaign Sounds
+                new AmbienceTags(prefs),
+                new CharacterTags(prefs),
+                new InterfaceTags(prefs),
+                new MusicTags(prefs),
+                new VehicleTags(prefs),
+                new WeaponTags(prefs),
+
+                // Specific Levels
+                new TheArmoryTags(prefs),
+                new CairoStationTags(prefs),
+                new OutskirtsTags(prefs),
+                new MetropolisTags(prefs),
+                new TheArbiterTags(prefs),
+                new TheOracleTags(prefs),
+                new DeltaHaloTags(prefs),
+                new RegretTags(prefs),
+                new SacredIconTags(prefs),
+                new GravemindTags(prefs),
+                // Uprising Fine
+                // High Charity Fine
+                new TheGreatJourneyTags(prefs)
+        };
     }
 
     private void initializeSoundFileList() {
@@ -452,7 +470,7 @@ public class SoundRestorer {
             System.out.printf("%n  Either the tags directory wasn't freshly extracted");
             System.out.printf("%n  or MCC has been updated. If you've extracted the tags");
             System.out.printf("%n  again and are still seeing this issue, 343i renamed");
-            System.out.printf("%n  or moved a file and this script will need an update.%n");
+            System.out.printf("%n  or moved a file and this script will need an update.");
             System.out.printf("%n  The errors above should help track down the change.%n");
         }
 

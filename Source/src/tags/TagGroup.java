@@ -1,10 +1,13 @@
 package tags;
 
+import prefs.RestorationPreferences;
+
 public class TagGroup {
 
 
     /*--- Base Class Variables ---*/
 
+    // The logging name of the current group of tags.
     public String groupName = "";
 
     /* A list of directories to be recursively walked during restoration

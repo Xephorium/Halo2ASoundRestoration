@@ -1,10 +1,11 @@
 package tags.levels;
 
+import prefs.RestorationPreferences;
 import tags.TagGroup;
 
 public class TheArbiterTags extends TagGroup {
 
-    public TheArbiterTags() {
+    public TheArbiterTags(RestorationPreferences prefs) {
 
         groupName = "The Arbiter";
 

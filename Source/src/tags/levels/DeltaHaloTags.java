@@ -1,10 +1,11 @@
 package tags.levels;
 
+import prefs.RestorationPreferences;
 import tags.TagGroup;
 
 public class DeltaHaloTags extends TagGroup {
 
-    public DeltaHaloTags() {
+    public DeltaHaloTags(RestorationPreferences prefs) {
 
         groupName = "Delta Halo";
 

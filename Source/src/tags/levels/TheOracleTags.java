@@ -1,10 +1,11 @@
 package tags.levels;
 
+import prefs.RestorationPreferences;
 import tags.TagGroup;
 
 public class TheOracleTags extends TagGroup {
 
-    public TheOracleTags() {
+    public TheOracleTags(RestorationPreferences prefs) {
 
         groupName = "The Oracle";
 

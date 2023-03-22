@@ -1,10 +1,11 @@
 package tags.levels;
 
+import prefs.RestorationPreferences;
 import tags.TagGroup;
 
 public class TheArmoryTags extends TagGroup {
 
-    public TheArmoryTags() {
+    public TheArmoryTags(RestorationPreferences prefs) {
 
         groupName = "The Armory";
 

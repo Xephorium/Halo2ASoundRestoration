@@ -1,5 +1,6 @@
 package tags.general;
 
+import prefs.RestorationPreferences;
 import tags.TagGroup;
 import tags.TagModification;
 
@@ -7,7 +8,7 @@ import static tags.TagModification.NO_CHANGE;
 
 public class WeaponTags extends TagGroup {
 
-    public WeaponTags() {
+    public WeaponTags(RestorationPreferences prefs) {
 
         groupName = "Weapons";
 

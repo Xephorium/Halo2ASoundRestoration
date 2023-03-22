@@ -1,11 +1,12 @@
 package tags.levels;
 
+import prefs.RestorationPreferences;
 import tags.TagGroup;
 import tags.TagModification;
 
 public class MetropolisTags extends TagGroup {
 
-    public MetropolisTags() {
+    public MetropolisTags(RestorationPreferences prefs) {
 
         groupName = "Metropolis";
 
@@ -38,19 +39,19 @@ public class MetropolisTags extends TagGroup {
                 // Music
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_01.sound_looping",
-                        -2 // Gain +1 from default
+                        prefs.getMusicGain() + -2 // Gain +1 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_02.sound_looping",
-                        -4 // Gain +1 from default
+                        prefs.getMusicGain() + -4 // Gain +1 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_03.sound_looping",
-                        -4 // Gain -1 from default
+                        prefs.getMusicGain() + -4 // Gain -1 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_04.sound_looping",
-                        -5 // Gain 0 from default
+                        prefs.getMusicGain() + -5 // Gain 0 from default
                 ),
 
                 // Scarab Movement (Gain -2 from default)

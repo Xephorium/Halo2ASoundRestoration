@@ -1,11 +1,12 @@
 package tags.general;
 
+import prefs.RestorationPreferences;
 import tags.TagGroup;
 import tags.TagModification;
 
 public class VehicleTags extends TagGroup {
 
-    public VehicleTags() {
+    public VehicleTags(RestorationPreferences prefs) {
 
         groupName = "Vehicles";
 

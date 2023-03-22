@@ -1,10 +1,11 @@
 package tags.levels;
 
+import prefs.RestorationPreferences;
 import tags.TagGroup;
 
 public class RegretTags extends TagGroup {
 
-    public RegretTags() {
+    public RegretTags(RestorationPreferences prefs) {
 
         groupName = "Regret";
 

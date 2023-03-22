@@ -1,10 +1,11 @@
 package tags.levels;
 
+import prefs.RestorationPreferences;
 import tags.TagGroup;
 
 public class SacredIconTags extends TagGroup {
 
-    public SacredIconTags() {
+    public SacredIconTags(RestorationPreferences prefs) {
 
         groupName = "Sacred Icon";
 
