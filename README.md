@@ -17,7 +17,7 @@ This project breaks the cycle. With two clicks, it generates anniversary maps fr
 
 Everyone who grew up with Halo 2 has strong feelings about its soundscape. I've tuned the default restoration settings to match classic Halo 2 as closely as possible. But to accommodate differing perspectives, the project includes a `config.txt` file that gives you control over some of the more contentious details. The options are below.
 
-  | Restoration Option      | Description       |   &nbsp;&nbsp;&nbsp;&nbsp;Valid&nbsp;Input&nbsp;&nbsp;&nbsp;&nbsp;  |
+  | Restoration Option      | Description       | &nbsp;&nbsp;&nbsp;Valid&nbsp;Input&nbsp;&nbsp;&nbsp; |
   | ------------- | --------------- | :---------: |
   | `MUSIC_VOLUME_MODIFIER`   | Decibel integer added to the volume of every music track in the campaign. | `[-10, 10]` |
 
