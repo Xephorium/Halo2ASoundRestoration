@@ -1,13 +1,9 @@
 package io;
 
 import io.utility.TagTypeConverter;
-import javafx.util.Pair;
 import tags.TagModification;
 
 import java.io.File;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 
 /* Halo 2A Sound Restoration                       Chris Cruzen
  * TagEditor                                         03.20.2023
@@ -46,52 +42,31 @@ public class TagModifier {
 
     /*--- Modify Method ---*/
 
-    public static byte[] modifyTag(File tagFile, TagModification tagModification, byte[] byteArray) {
+    public static byte[] modifyTag(File tagFile, TagModification tagMod, byte[] byteArray) {
 
         // Identify File Type
         boolean isLoopFile = FileManager.getFileOrDirectoryName(tagFile).contains(".sound_looping");
 
         // Update Gain
-        if (tagModification.gain != TagModification.NO_CHANGE) {
+        if (tagMod.gain != TagModification.NO_CHANGE) {
             int gainIndex = GAIN_INDEX_SOUND;
             if (isLoopFile) gainIndex = GAIN_INDEX_SOUND_LOOPING;
-            byte[] newBytes = TagTypeConverter.intToBytes(tagModification.gain);
-            if (newBytes != null) {
-                byteArray[gainIndex] = newBytes[0];
-                byteArray[gainIndex + 1] = newBytes[1];
-            } else {
-                System.out.printf("    Error updating gain for '%s'%n", tagFile);
-                return null;
-            }
+            byteArray = updateInteger(byteArray, gainIndex, tagMod.gain, "gain", tagFile);
         }
 
         // Update Min Distance
-        if (byteArray != null && tagModification.minDist != TagModification.NO_CHANGE) {
-            byte[] newBytes = TagTypeConverter.intToBytes(tagModification.minDist);
-            if (newBytes != null) {
-                byteArray[MIN_DIST_INDEX_SOUND] = newBytes[0];
-                byteArray[MIN_DIST_INDEX_SOUND + 1] = newBytes[1];
-            } else {
-                System.out.printf("    Error updating min distance for '%s'%n", tagFile);
-                return null;
-            }
+        if (byteArray != null && tagMod.minDist != TagModification.NO_CHANGE) {
+            byteArray = updateInteger(byteArray, MIN_DIST_INDEX_SOUND, tagMod.minDist, "min distance", tagFile);
         }
 
         // Update Max Distance
-        if (byteArray != null && tagModification.maxDist != TagModification.NO_CHANGE) {
-            byte[] newBytes = TagTypeConverter.intToBytes(tagModification.maxDist);
-            if (newBytes != null) {
-                byteArray[MAX_DIST_INDEX_SOUND] = newBytes[0];
-                byteArray[MAX_DIST_INDEX_SOUND + 1] = newBytes[1];
-            } else {
-                System.out.printf("    Error updating max distance for '%s'%n", tagFile);
-                return null;
-            }
+        if (byteArray != null && tagMod.maxDist != TagModification.NO_CHANGE) {
+            byteArray = updateInteger(byteArray, MAX_DIST_INDEX_SOUND, tagMod.maxDist, "max distance", tagFile);
         }
 
         // Update Classic Only Flag
-        if (byteArray != null && tagModification.classicOnly != TagModification.NO_CHANGE) {
-            byteArray[CLASSIC_ONLY_INDEX] = TagTypeConverter.boolToByte(tagModification.classicOnly == 1);
+        if (byteArray != null && tagMod.classicOnly != TagModification.NO_CHANGE) {
+            byteArray = updateBoolean(byteArray, CLASSIC_ONLY_INDEX, tagMod.classicOnly == 1);
         }
 
         return byteArray;
@@ -99,6 +74,23 @@ public class TagModifier {
 
 
     /*--- Utility Methods ---*/
+
+    private static byte[] updateInteger(byte[] bytes, int index, int value, String variableName, File tagFile) {
+        byte[] newBytes = TagTypeConverter.intToBytes(value);
+        if (newBytes != null) {
+            bytes[index] = newBytes[0];
+            bytes[index + 1] = newBytes[1];
+            return bytes;
+        } else {
+            System.out.printf("    Error updating %s for '%s'%n", variableName, tagFile);
+            return null;
+        }
+    }
+
+    private static byte[] updateBoolean(byte[] bytes, int index, boolean value) {
+        bytes[index] = TagTypeConverter.booleanToByte(value);
+        return bytes;
+    }
 
     public static void printTagContents(File file) {
         byte[] array = FileManager.readBinaryFileContents(file);

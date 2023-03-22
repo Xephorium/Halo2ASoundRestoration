@@ -83,7 +83,7 @@ public class TagTypeConverter {
         return null;
     }
 
-    public static byte boolToByte(boolean value) {
+    public static byte booleanToByte(boolean value) {
         String hexValue = FALSE_HEX_VALUE;
         if (value) hexValue = TRUE_HEX_VALUE;
         return hexToBytes(hexValue)[0];
