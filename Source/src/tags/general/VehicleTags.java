@@ -86,6 +86,9 @@ public class VehicleTags extends TagGroup {
 
                 // Ghost Fire (Gain -1 from default)
                 new TagModification("/sound_remastered/vehicles/ghost/ghost_fire/fire.sound", -7),
+
+                // Ghost Explosion (Gain -2 from default)
+                new TagModification("/sound_remastered/vehicles/ghost/ghost_initial_destroyed.sound", -5)
         };
     }
 }

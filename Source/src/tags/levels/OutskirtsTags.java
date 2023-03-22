@@ -25,11 +25,11 @@ public class OutskirtsTags extends TagGroup {
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03a_oldmombasa/03a_music/03a_02.sound_looping",
-                        prefs.getMusicGain() + -7 // Gain -4 from default
+                        prefs.getMusicGain() + -6 // Gain -3 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03a_oldmombasa/03a_music/03a_03.sound_looping",
-                        prefs.getMusicGain() + -7 // Gain -4 from default
+                        prefs.getMusicGain() + -6 // Gain -3 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03a_oldmombasa/03a_music/03a_04.sound_looping",
@@ -37,7 +37,7 @@ public class OutskirtsTags extends TagGroup {
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03a_oldmombasa/03a_music/03a_05.sound_looping",
-                        prefs.getMusicGain() + -8 // Gain -2 from default
+                        prefs.getMusicGain() + -6 // Gain 0 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03a_oldmombasa/03a_music/03a_06.sound_looping",
@@ -45,7 +45,7 @@ public class OutskirtsTags extends TagGroup {
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03a_oldmombasa/03a_music/03a_065.sound_looping",
-                        prefs.getMusicGain() + -8 // Gain -2 from default
+                        prefs.getMusicGain() + -6 // Gain 0 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03a_oldmombasa/03a_music/03a_066.sound_looping",
@@ -53,7 +53,7 @@ public class OutskirtsTags extends TagGroup {
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03a_oldmombasa/03a_music/03a_067.sound_looping",
-                        prefs.getMusicGain() + -7 // Gain -2 from default
+                        prefs.getMusicGain() + -5 // Gain 0 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03a_oldmombasa/03a_music/03a_07.sound_looping",
