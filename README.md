@@ -1,7 +1,8 @@
-<img align="left" width="120" src="Project Resources/Icon/Halo2AIconNew.png" alt="Halo 2A Sound Restoration Icon">
+<img align="left" width="135" src="Project Resources/Icon/Halo2AIconNew.png" alt="Halo 2A Sound Restoration Icon">
 
 # Halo 2A Sound Restoration
 A script for restoring classic audio to the entire Halo 2 Anniversary campaign.
+
 
 </br>
 
