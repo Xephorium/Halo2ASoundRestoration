@@ -142,8 +142,8 @@ public class WeaponTags extends TagGroup {
                 new TagModification("/sound_remastered/characters/sentinel/sentinel_gun/sent_gun/loop.sound", 5, 100),
                 new TagModification("/sound_remastered/characters/sentinel/sentinel_gun/sent_gun/out.sound", 5, 100),
 
-                // Scarab Explosion (Gain -18 from default)
-                new TagModification("/sound_remastered/ambience/device_machines/scarab/cov_damage_large_scarab.sound", -30),
+                // Scarab Explosion (Gain -8 from default)
+                new TagModification("/sound_remastered/ambience/device_machines/scarab/cov_damage_large_scarab.sound", -20),
         };
     }
 }

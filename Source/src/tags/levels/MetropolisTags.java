@@ -38,11 +38,11 @@ public class MetropolisTags extends TagGroup {
                 // Music
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_01.sound_looping",
-                        -4 // Gain -1 from default
+                        -2 // Gain +1 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_02.sound_looping",
-                        -6 // Gain -1 from default
+                        -4 // Gain +1 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_03.sound_looping",
@@ -50,8 +50,13 @@ public class MetropolisTags extends TagGroup {
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_04.sound_looping",
-                        -6 // Gain -1 from default
+                        -5 // Gain 0 from default
                 ),
+
+                // Scarab Movement (Gain -2 from default)
+                new TagModification("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move.sound", -5),
+                new TagModification("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move_long.sound", -5),
+                new TagModification("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move_short.sound", -5),
         };
     }
 }
