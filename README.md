@@ -13,13 +13,13 @@ This project breaks the cycle. With two clicks, it generates anniversary maps fr
 
 </br>
 
-### *Your* Restoration
+### Restoration Options
 
-Included in the project is a configuration file that gives you control of a few more contentious restoration details. The options are below.
+Everyone that grew up with Halo 2 has strong feelings about its soundscape. I've tuned the experience to match classic Halo 2 as closely as possible. But to accommodate differing perspectives, the project includes a `config.txt` file that gives you control over some of the more contentious restoration details. The options are below.
 
   | Restoration Option      | Description       | Valid Input  |
   | ------------- | --------------- | :-----: |
-  | MUSIC_VOLUME_MODIFIER   | Decibel integer added to the volume of every music track in the campaign. | [-10, 10] |
+  | `MUSIC_VOLUME_MODIFIER`   | Decibel integer added to the volume of every music track in the campaign. | [-10, 10] |
 
 </br>
 
