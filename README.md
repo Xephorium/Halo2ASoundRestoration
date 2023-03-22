@@ -15,7 +15,7 @@ This project breaks the cycle. With two clicks, it generates anniversary maps fr
 
 ### Restoration Options
 
-Everyone who grew up with Halo 2 has strong feelings about its soundscape. I've tuned the experience to match classic Halo 2 as closely as possible. But to accommodate differing perspectives, the project includes a `config.txt` file that gives you control over some of the more contentious restoration details. The options are below.
+Everyone who grew up with Halo 2 has strong feelings about its soundscape. I've tuned the default restoration settings to match classic Halo 2 as closely as possible. But to accommodate differing perspectives, the project includes a `config.txt` file that gives you control over some of the more contentious details. The options are below.
 
   | Restoration Option      | Description       | Valid Input  |
   | ------------- | --------------- | :-----: |
