@@ -1,6 +1,6 @@
 package io;
 
-import io.utility.TagTypeConverter;
+import io.utility.BinaryTypeConverter;
 import tags.TagModification;
 
 import java.io.File;
@@ -31,21 +31,21 @@ public class TagModifier {
      */
 
     // Exist in `*.sound` and `*.sound_looping` files
-    private static final int GAIN_INDEX_SOUND = 122;         // 2 bytes - Row 8, column 6
-    private static final int GAIN_INDEX_SOUND_LOOPING = 182; // 2 bytes - Row 12, column 4
+    private static final int GAIN_INDEX_SOUND = 120;         // 4 byte float - Row 8, column 5
+    private static final int GAIN_INDEX_SOUND_LOOPING = 180; // 4 byte float - Row 12, column 3
 
     // Exist only in `*.sound` files
-    private static final int MIN_DIST_INDEX_SOUND = 106;     // 2 bytes - Row 7, column 6
-    private static final int MAX_DIST_INDEX_SOUND = 110;     // 2 bytes - Row 7, column 8
-    private static final int CLASSIC_ONLY_INDEX = 97;        // 1 byte - Row 7, column 1.5
+    private static final int MIN_DIST_INDEX_SOUND = 104;     // 4 byte float - Row 7, column 5
+    private static final int MAX_DIST_INDEX_SOUND = 108;     // 4 byte float - Row 7, column 7
+    private static final int CLASSIC_ONLY_INDEX = 97;        // 1 byte bool  - Row 7, column 1.5
 
 
     /*--- Modify Method ---*/
 
     public static boolean modifyTag(File tagFile, TagModification tagMod) {
-        byte[] byteArray = null;
 
         // Read File Contents
+        byte[] byteArray;
         if (FileManager.isValidFile(tagFile)) {
             byteArray = FileManager.readBinaryFileContents(tagFile);
             if (byteArray == null) return false;
@@ -58,22 +58,17 @@ public class TagModifier {
 
         // Update Gain
         if (tagMod.gain != TagModification.NO_CHANGE) {
-            int gainIndex = GAIN_INDEX_SOUND;
-            if (isLoopFile) gainIndex = GAIN_INDEX_SOUND_LOOPING;
-            byteArray = updateInteger(byteArray, gainIndex, tagMod.gain, "gain", tagFile);
-            if (byteArray == null) return false;
+            updateFloat(byteArray, isLoopFile ? GAIN_INDEX_SOUND : GAIN_INDEX_SOUND_LOOPING, tagMod.gain);
         }
 
         // Update Min Distance
         if (tagMod.minDist != TagModification.NO_CHANGE) {
-            byteArray = updateInteger(byteArray, MIN_DIST_INDEX_SOUND, tagMod.minDist, "min distance", tagFile);
-            if (byteArray == null) return false;
+            updateFloat(byteArray, MIN_DIST_INDEX_SOUND, tagMod.minDist);
         }
 
         // Update Max Distance
         if (tagMod.maxDist != TagModification.NO_CHANGE) {
-            byteArray = updateInteger(byteArray, MAX_DIST_INDEX_SOUND, tagMod.maxDist, "max distance", tagFile);
-            if (byteArray == null) return false;
+            updateFloat(byteArray, MAX_DIST_INDEX_SOUND, tagMod.maxDist);
         }
 
         // Update Classic Only Flag
@@ -87,24 +82,7 @@ public class TagModifier {
     }
 
 
-    /*--- Utility Methods ---*/
-
-    private static byte[] updateInteger(byte[] bytes, int index, int value, String variableName, File tagFile) {
-        byte[] newBytes = TagTypeConverter.intToBytes(value);
-        if (newBytes != null) {
-            bytes[index] = newBytes[0];
-            bytes[index + 1] = newBytes[1];
-            return bytes;
-        } else {
-            System.out.printf("    Error updating %s for '%s'%n", variableName, tagFile);
-            return null;
-        }
-    }
-
-    private static byte[] updateBoolean(byte[] bytes, int index, boolean value) {
-        bytes[index] = TagTypeConverter.booleanToByte(value);
-        return bytes;
-    }
+    /*--- Public Accessor Methods ---*/
 
     public static void printTagContents(File file) {
         byte[] array = FileManager.readBinaryFileContents(file);
@@ -113,8 +91,43 @@ public class TagModifier {
         }
     }
 
+    public static Float getTagGain(File file) {
+        byte[] array = FileManager.readBinaryFileContents(file);
+        if (array != null) {
+            boolean isLoopFile = FileManager.getFileOrDirectoryName(file).contains(".sound_looping");
+            return readFloat(array, isLoopFile ? GAIN_INDEX_SOUND_LOOPING : GAIN_INDEX_SOUND);
+        } else {
+            return null;
+        }
+    }
+
+
+    /*--- Private Methods ---*/
+
+    private static void updateFloat(byte[] bytes, int index, int value) {
+        byte[] newBytes = BinaryTypeConverter.floatToBytes(value);
+
+        // Replace 4 Bytes Containing Float
+        bytes[index] = newBytes[0];
+        bytes[index + 1] = newBytes[1];
+        bytes[index + 2] = newBytes[2];
+        bytes[index + 3] = newBytes[3];
+    }
+
+    private static void updateBoolean(byte[] bytes, int index, boolean value) {
+        byte[] newBytes = BinaryTypeConverter.booleanToBytes(value);
+
+        // Replace 1 Byte Containing Boolean
+        bytes[index] = newBytes[0];
+    }
+
+    private static float readFloat(byte[] bytes, int index) {
+        byte[] newArray = { bytes[index], bytes[index + 1], bytes[index + 2], bytes[index + 3] };
+        return BinaryTypeConverter.bytesToFloat(newArray);
+    }
+
     private static void printByteArray(byte[] array) {
-        String hexValue = TagTypeConverter.bytesToHex(array);
+        String hexValue = BinaryTypeConverter.bytesToHex(array);
         for (int x = 0; x < hexValue.length(); x += 2) {
             if (x != 0 && x % 32 == 0) System.out.println();
             if (x % 4 == 0) System.out.print(" ");

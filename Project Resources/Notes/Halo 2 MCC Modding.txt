@@ -210,6 +210,8 @@
 
         // Removing this tag broke the map build. A tag with this name *must* exist.
         [<map>_mission line ###] this is not a reference to a sound tag.: <path to tag> none 1)
+        // Example of above
+        [01b_spacestation_mission line 649] this is not a reference to a sound tag.: sound_remastered\ambience\spacestation\docking_clangs\dockingcov_incoming none 1)
 
     Campaign Sound File Locations
 
@@ -222,8 +224,15 @@
         Other Noteworthy
             tags/sound/ambience/device_machines/insertion_pods/resupply_pod_impact.sound
 
+    Tag Binary File Format
 
-    [01b_spacestation_mission line 649] this is not a reference to a sound tag.: sound_remastered\ambience\spacestation\docking_clangs\dockingcov_incoming none 1)
+        Numeric tag file values are stored as 4-byte floats in Big Endian (most significant
+        bytes first). This means most conversion tools spit out hex representations in inverted
+        byte order, which caused some headache while investigating the format.
+
+        Boolean tag values are stored in a single byte with the following equivalent hex
+        values: true = '0c', false = '08'
+
 
 
 /*--- Final Report ---*/
