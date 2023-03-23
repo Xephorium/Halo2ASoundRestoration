@@ -31,7 +31,7 @@ public class TheOracleTags extends TagGroup {
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/04b_floodlab/04b_music/04b_02.sound_looping",
-                        prefs.getMusicGain() + -3 // Gain 0 from default
+                        prefs.getMusicGain() + -5 // Gain -2 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/04b_floodlab/04b_music/04b_04.sound_looping",
