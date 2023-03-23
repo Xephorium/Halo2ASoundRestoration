@@ -10,7 +10,11 @@ import java.nio.charset.StandardCharsets;
  * types to and from byte arrays. This allows for direct read
  * and write operations to each binary tag file.
  *
- * Some Tag Format Details:
+ * Some Tag Binary Format Details:
+ *
+ *   Float   - 4 bytes on disk, stored in Big Endian.
+ *   Boolean - 1 byte on disk, stored as byte equivalent
+ *             of hex values t='0c' and f='08'.
  *
  *
  */
