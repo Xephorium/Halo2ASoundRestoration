@@ -41,19 +41,19 @@ public class TheArbiterTags extends TagGroup {
                 // Music
                 new TagModification(
                         "/sound_remastered/scenarios/solo/04a_gasgiant/04a_music/04a_01.sound_looping",
-                        prefs.getMusicGain() + -2 // Gain -1 from default
+                        prefs.getMusicGain() + -3 // Gain 0 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/04a_gasgiant/04a_music/04a_02.sound_looping",
-                        prefs.getMusicGain() + -2 // Gain -1 from default
+                        prefs.getMusicGain() + -4 // Gain +1 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/04a_gasgiant/04a_music/04a_03.sound_looping",
-                        prefs.getMusicGain() + -4 // Gain -3 from default
+                        prefs.getMusicGain() + -5 // Gain -1 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/04a_gasgiant/04a_music/04a_04.sound_looping",
-                        prefs.getMusicGain() + -3 // Gain -2 from default
+                        prefs.getMusicGain() + -5 // Gain -2 from default
                 ),
         };
     }
