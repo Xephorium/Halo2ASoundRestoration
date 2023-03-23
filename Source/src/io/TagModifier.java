@@ -58,7 +58,7 @@ public class TagModifier {
 
         // Update Gain
         if (tagMod.gain != TagModification.NO_CHANGE) {
-            updateFloat(byteArray, isLoopFile ? GAIN_INDEX_SOUND : GAIN_INDEX_SOUND_LOOPING, tagMod.gain);
+            updateFloat(byteArray, isLoopFile ? GAIN_INDEX_SOUND_LOOPING : GAIN_INDEX_SOUND, tagMod.gain);
         }
 
         // Update Min Distance
