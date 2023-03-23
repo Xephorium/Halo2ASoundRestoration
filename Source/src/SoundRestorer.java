@@ -61,7 +61,9 @@ public class SoundRestorer {
     private boolean discretionaryPreservation = true;
     private int musicVolumeModifier = 0;
 
-    private List<File> allSoundFiles;
+    private List<File> allSoundTagsNotUpdated;
+    private List<File> allSoundTagsNotModified;
+
 
     private int totalTagsUpdated = 0;
     private int totalTagsReplaced = 0;
@@ -82,7 +84,7 @@ public class SoundRestorer {
 
         initializeTagGroups();
 
-        initializeSoundFileList();
+        initializeSoundFileLists();
     }
 
     public void restoreSound() {
@@ -177,9 +179,11 @@ public class SoundRestorer {
         };
     }
 
-    private void initializeSoundFileList() {
-        allSoundFiles = new ArrayList<>();
-        buildSoundFileList(createTagSubdir(REMASTERED_SOUND_PATH));
+    private void initializeSoundFileLists() {
+        allSoundTagsNotUpdated = new ArrayList<>();
+        allSoundTagsNotModified = new ArrayList<>();
+        buildSoundFileList(createTagSubdir(REMASTERED_SOUND_PATH), allSoundTagsNotUpdated);
+        buildSoundFileList(createTagSubdir(REMASTERED_SOUND_PATH), allSoundTagsNotModified);
     }
 
 
@@ -255,14 +259,14 @@ public class SoundRestorer {
                 FileManager.copyFile(classicTag, remasteredTag);
                 totalTagsUpdated++;
                 totalTagsReplaced++;
-                allSoundFiles.remove(remasteredTag);
+                allSoundTagsNotUpdated.remove(remasteredTag);
 
             } else {
                 if (discretionaryPreservation && !shouldBeDeleted) {
 
                     // Preserve Tag
                     totalTagsPreserved++;
-                    allSoundFiles.remove(remasteredTag);
+                    allSoundTagsNotUpdated.remove(remasteredTag);
 
                 } else {
 
@@ -270,14 +274,14 @@ public class SoundRestorer {
                     FileManager.deleteFile(remasteredTag);
                     totalTagsUpdated++;
                     totalTagsDeleted++;
-                    allSoundFiles.remove(remasteredTag);
+                    allSoundTagsNotUpdated.remove(remasteredTag);
                 }
             }
         } else {
 
             // Preserve Tag
             totalTagsPreserved++;
-            allSoundFiles.remove(remasteredTag);
+            allSoundTagsNotUpdated.remove(remasteredTag);
         }
     }
 
@@ -289,7 +293,7 @@ public class SoundRestorer {
             FileManager.copyFile(replacementTag, sourceTag);
             totalTagsUpdated++;
             totalTagsReplaced++;
-            allSoundFiles.remove(replacementTag);
+            allSoundTagsNotUpdated.remove(replacementTag);
         } else {
             System.out.printf("    Error replacing '%s'%n", sourcePath);
             totalProblems++;
@@ -302,7 +306,7 @@ public class SoundRestorer {
             FileManager.deleteFile(tag);
             totalTagsUpdated++;
             totalTagsDeleted++;
-            allSoundFiles.remove(tag);
+            allSoundTagsNotUpdated.remove(tag);
         } else {
             System.out.printf("    Error deleting '%s'%n", tag);
             totalProblems++;
@@ -312,25 +316,19 @@ public class SoundRestorer {
     private void modifyTag(TagModification tagMod) {
         File tagFile = createTagSubdir(tagMod.path);
 
-        // Read Tag as Binary File
-        byte[] byteArray = FileManager.readBinaryFileContents(tagFile);
+        // Modify Tag Values
+        if (TagModifier.modifyTag(tagFile, tagMod)) {
 
-        // Modify Tag Contents
-        if (byteArray != null) {
-            byteArray = TagModifier.modifyTag(tagFile, tagMod, byteArray);
-        }
+            // Log Modification Statistics
+            if (allSoundTagsNotModified.contains(tagFile)) {
+                totalTagsModified++;
+                allSoundTagsNotModified.remove(tagFile);
+            }
 
-        if (byteArray != null) {
-
-            // Write Changes to File
-            FileManager.deleteFile(tagFile);
-            FileManager.writeToBinaryFile(tagFile, byteArray);
-            totalTagsModified++;
-
-            // Update Statistics
-            if (allSoundFiles.contains(tagFile)) {
+            // Log Update Statistics
+            if (allSoundTagsNotUpdated.contains(tagFile)) {
                 totalTagsUpdated++;
-                allSoundFiles.remove(tagFile);
+                allSoundTagsNotUpdated.remove(tagFile);
             }
 
         } else {
@@ -338,6 +336,7 @@ public class SoundRestorer {
             // Print Error & Update Statistics
             System.out.printf("    Error modifying '%s'%n", tagFile);
             totalProblems++;
+
         }
     }
 
@@ -348,25 +347,25 @@ public class SoundRestorer {
     /* Recursively walks `sound_remastered` directory, building a list of
      * all sound tags to be referenced later when generating statistics.
      */
-    private void buildSoundFileList(File file) {
+    private void buildSoundFileList(File file, List<File> list) {
 
         if (FileManager.isValidFile(file)) {
 
             // Print Tag Status
-            allSoundFiles.add(file);
+            list.add(file);
 
         } else if(FileManager.isValidDirectory(file)) {
 
             // Recourse Through Subdirectories
             List<File> subDirs = FileManager.getSubdirectories(file);
             for (File dir: subDirs) {
-                buildSoundFileList(dir);
+                buildSoundFileList(dir, list);
             }
 
             // Recourse Through Files
             List<File> files = FileManager.getDirectoryFiles(file);
             for (File f: files) {
-                buildSoundFileList(f);
+                buildSoundFileList(f, list);
             }
         }
     }
@@ -444,7 +443,7 @@ public class SoundRestorer {
     }
 
     private void printReport() {
-        totalTagsPreserved += allSoundFiles.size();
+        totalTagsPreserved += allSoundTagsNotUpdated.size();
 
         System.out.printf("\nClassic Audio Restored!%n");
         System.out.printf("  .---------------------------.%n");

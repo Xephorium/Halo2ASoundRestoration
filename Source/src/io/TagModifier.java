@@ -42,7 +42,16 @@ public class TagModifier {
 
     /*--- Modify Method ---*/
 
-    public static byte[] modifyTag(File tagFile, TagModification tagMod, byte[] byteArray) {
+    public static boolean modifyTag(File tagFile, TagModification tagMod) {
+        byte[] byteArray = null;
+
+        // Read File Contents
+        if (FileManager.isValidFile(tagFile)) {
+            byteArray = FileManager.readBinaryFileContents(tagFile);
+            if (byteArray == null) return false;
+        } else {
+            return false;
+        }
 
         // Identify File Type
         boolean isLoopFile = FileManager.getFileOrDirectoryName(tagFile).contains(".sound_looping");
@@ -52,24 +61,29 @@ public class TagModifier {
             int gainIndex = GAIN_INDEX_SOUND;
             if (isLoopFile) gainIndex = GAIN_INDEX_SOUND_LOOPING;
             byteArray = updateInteger(byteArray, gainIndex, tagMod.gain, "gain", tagFile);
+            if (byteArray == null) return false;
         }
 
         // Update Min Distance
-        if (byteArray != null && tagMod.minDist != TagModification.NO_CHANGE) {
+        if (tagMod.minDist != TagModification.NO_CHANGE) {
             byteArray = updateInteger(byteArray, MIN_DIST_INDEX_SOUND, tagMod.minDist, "min distance", tagFile);
+            if (byteArray == null) return false;
         }
 
         // Update Max Distance
-        if (byteArray != null && tagMod.maxDist != TagModification.NO_CHANGE) {
+        if (tagMod.maxDist != TagModification.NO_CHANGE) {
             byteArray = updateInteger(byteArray, MAX_DIST_INDEX_SOUND, tagMod.maxDist, "max distance", tagFile);
+            if (byteArray == null) return false;
         }
 
         // Update Classic Only Flag
-        if (byteArray != null && tagMod.classicOnly != TagModification.NO_CHANGE) {
-            byteArray = updateBoolean(byteArray, CLASSIC_ONLY_INDEX, tagMod.classicOnly == 1);
+        if (tagMod.classicOnly != TagModification.NO_CHANGE) {
+            updateBoolean(byteArray, CLASSIC_ONLY_INDEX, tagMod.classicOnly == 1);
         }
 
-        return byteArray;
+        // Write Changes to File
+        return FileManager.deleteFile(tagFile) && FileManager.writeToBinaryFile(tagFile, byteArray);
+
     }
 
 
