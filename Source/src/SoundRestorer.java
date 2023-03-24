@@ -489,8 +489,8 @@ public class SoundRestorer {
         System.out.printf("  .---------------------------.%n");
         System.out.printf("  | Total Tags Changed%s%d |\n", getPadding(7, totalTagsUpdated), totalTagsUpdated);
         System.out.printf("  | > Replaced%s%d |\n", getPadding(15, totalTagsReplaced), totalTagsReplaced);
-        System.out.printf("  | > Deleted%s%d |\n", getPadding(16, totalTagsDeleted), totalTagsDeleted);
         System.out.printf("  | > Modified%s%d |\n", getPadding(15, totalTagsModified), totalTagsModified);
+        System.out.printf("  | > Deleted%s%d |\n", getPadding(16, totalTagsDeleted), totalTagsDeleted);
         System.out.printf("  | > Preserved%s%d |\n", getPadding(14, totalTagsPreserved), totalTagsPreserved);
         System.out.printf("  |---------------------------|%n");
         System.out.printf("  | Problems%s%d |\n", getPadding(17, totalProblems), totalProblems);
