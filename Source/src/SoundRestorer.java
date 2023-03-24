@@ -157,6 +157,7 @@ public class SoundRestorer {
                 // Universal Campaign Sounds
                 new AmbienceTags(prefs),
                 new CharacterTags(prefs),
+                new DialogTags(prefs),
                 new InterfaceTags(prefs),
                 new MusicTags(prefs),
                 new VehicleTags(prefs),
@@ -212,8 +213,11 @@ public class SoundRestorer {
         }
 
         // Modify Tag Group Files
-        for (TagModification tagModification : tagGroup.tagModifications) {
-            modifyTag(tagModification);
+        for (TagModification tagMod : tagGroup.tagModifications) {
+            if (!tagMod.isDirectory)
+                modifyTag(tagMod);
+            else
+                modifyAllTags(tagMod);
         }
     }
 
@@ -337,6 +341,42 @@ public class SoundRestorer {
             System.out.printf("    Error modifying '%s'%n", tagFile);
             totalProblems++;
 
+        }
+    }
+
+    private void modifyAllTags(TagModification tagMod) {
+        File file = createTagSubdir(tagMod.path);
+
+        // Modify Tag Values
+        if (FileManager.isValidFile(file)) {
+
+            // Modify Sound Tag
+            if (tagMod.path.contains(".sound") && !tagMod.path.contains(".sound_looping"))
+                modifyTag(tagMod);
+
+        } else if(FileManager.isValidDirectory(file)) {
+
+            // Recourse Through Subdirectories
+            List<File> subDirs = FileManager.getSubdirectories(file);
+            List<TagModification> subDirMods = new ArrayList<>();
+            for (File subDir : subDirs) {
+                String relativePath = subDir.getPath().replace(rootTagDirectory.getPath(), "");
+                subDirMods.add(new TagModification(relativePath, tagMod.gain, tagMod.isDirectory));
+            }
+            for (TagModification mod: subDirMods) {
+                modifyAllTags(mod);
+            }
+
+            // Recourse Through Files
+            List<File> subFiles = FileManager.getDirectoryFiles(file);
+            List<TagModification> subFileMods = new ArrayList<>();
+            for (File subFile : subFiles) {
+                String relativePath = subFile.getPath().replace(rootTagDirectory.getPath(), "");
+                subFileMods.add(new TagModification(relativePath, tagMod.gain, tagMod.isDirectory));
+            }
+            for (TagModification mod: subFileMods) {
+                modifyAllTags(mod);
+            }
         }
     }
 

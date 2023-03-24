@@ -58,7 +58,8 @@ public class TagModifier {
 
         // Update Gain
         if (tagMod.gain != TagModification.NO_CHANGE) {
-            updateFloat(byteArray, isLoopFile ? GAIN_INDEX_SOUND_LOOPING : GAIN_INDEX_SOUND, tagMod.gain);
+            float currentGain = tagMod.shouldReplaceGain ? 0 : getTagGain(byteArray, isLoopFile);
+            updateFloat(byteArray, isLoopFile ? GAIN_INDEX_SOUND_LOOPING : GAIN_INDEX_SOUND, currentGain + tagMod.gain);
         }
 
         // Update Min Distance
@@ -91,20 +92,14 @@ public class TagModifier {
         }
     }
 
-    public static Float getTagGain(File file) {
-        byte[] array = FileManager.readBinaryFileContents(file);
-        if (array != null) {
-            boolean isLoopFile = FileManager.getFileOrDirectoryName(file).contains(".sound_looping");
-            return readFloat(array, isLoopFile ? GAIN_INDEX_SOUND_LOOPING : GAIN_INDEX_SOUND);
-        } else {
-            return null;
-        }
+    public static float getTagGain(byte[] array, boolean isLoopFile) {
+        return readFloat(array, isLoopFile ? GAIN_INDEX_SOUND_LOOPING : GAIN_INDEX_SOUND);
     }
 
 
     /*--- Private Methods ---*/
 
-    private static void updateFloat(byte[] bytes, int index, int value) {
+    private static void updateFloat(byte[] bytes, int index, float value) {
         byte[] newBytes = BinaryTypeConverter.floatToBytes(value);
 
         // Replace 4 Bytes Containing Float
