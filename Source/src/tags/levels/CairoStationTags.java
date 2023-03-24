@@ -67,6 +67,15 @@ public class CairoStationTags extends TagGroup {
                         -7 // Gain +1 from default
                 ),
 
+                // Mac Reload Volume (Gain -2 from default)
+                new TagModification("/sound_remastered/ambience/device_machines/ss_gun_loader2/portclose/portclose.sound", -8),
+                new TagModification("/sound_remastered/ambience/device_machines/ss_gun_loader2/portopen/portopen.sound", -8),
+                new TagModification("/sound_remastered/ambience/device_machines/ss_gun_loader2/slugload/slugload.sound", -5),
+                new TagModification("/sound_remastered/ambience/device_machines/ss_gun_loader2/start_go.sound", -8),
+                new TagModification("/sound_remastered/ambience/device_machines/ss_gun_loader2/start_go2.sound", -8),
+                new TagModification("/sound_remastered/ambience/device_machines/ss_gun_loader2/stop.sound", -8),
+                new TagModification("/sound_remastered/ambience/device_machines/ss_gun_loader2/unlatch.sound", -8),
+
                 // Music
                 new TagModification(
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_01.sound_looping",
@@ -74,7 +83,7 @@ public class CairoStationTags extends TagGroup {
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_02.sound_looping",
-                        prefs.getMusicGain() + -4 // Gain -1 from default
+                        prefs.getMusicGain() + -3 // Gain 0 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_03.sound_looping",
@@ -90,7 +99,7 @@ public class CairoStationTags extends TagGroup {
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_06.sound_looping",
-                        prefs.getMusicGain() + 0 // Gain 0 from default
+                        prefs.getMusicGain() + 2 // Gain +2 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_07.sound_looping",

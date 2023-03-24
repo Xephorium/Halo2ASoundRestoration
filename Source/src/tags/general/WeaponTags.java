@@ -104,7 +104,13 @@ public class WeaponTags extends TagGroup {
                         75,
                         NO_CHANGE
                 ),
-                new TagModification("/sound_remastered/weapons/smg/fire.sound", 3, 75),
+                new TagModification(
+                        "/sound_remastered/weapons/smg/fire.sound",
+                        -4, // Gain -1 from default
+                        3,
+                        75,
+                        NO_CHANGE
+                ),
                 new TagModification("/sound_remastered/weapons/shotgun/fire.sound", 3, 75),
                 new TagModification(
                         "/sound_remastered/weapons/magnum/magnum_fire.sound",
@@ -115,7 +121,7 @@ public class WeaponTags extends TagGroup {
                 ),
                 new TagModification(
                         "/sound_remastered/weapons/chain_gun/fire.sound",
-                        -3, // Gain -2 from default
+                        -6, // Gain -5 from default
                         3,
                         75,
                         NO_CHANGE
