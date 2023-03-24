@@ -146,6 +146,11 @@ public class WeaponTags extends TagGroup {
                 // Sentinel Gun Fire (Gain -2 from default)
                 new TagModification("/sound_remastered/characters/sentinel/sentinel_gun/sentinel_gun.sound_looping", -5),
 
+                // Regret Throne Cannon (Gain -2 from default)
+                new TagModification("/sound_remastered/vehicles/gravity_throne/weapon_fire/in.sound", -3),
+                new TagModification("/sound_remastered/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_prophet/loop.sound", -3),
+                new TagModification("/sound_remastered/vehicles/gravity_throne/weapon_fire/out.sound", -3),
+
                 // Scarab Explosion (Gain -5 from default)
                 new TagModification("/sound_remastered/ambience/device_machines/scarab/cov_damage_large_scarab.sound", -15),
         };

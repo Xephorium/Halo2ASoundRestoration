@@ -2,6 +2,7 @@ package tags.levels;
 
 import prefs.RestorationPreferences;
 import tags.TagGroup;
+import tags.TagModification;
 
 public class RegretTags extends TagGroup {
 
@@ -48,5 +49,56 @@ public class RegretTags extends TagGroup {
                 "/sound/ambience/device_machines/delta_sub/sub_door/sub_door_open.sound",
                 "/sound_remastered/ambience/device_machines/delta_sub/sub_door/open/delta_sub_elevator_door_open.sound"
         };
+
+        tagModifications = new TagModification[]{
+
+                // Music
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/05b_deltatowers/05b_music/05b_01.sound_looping",
+                        prefs.getMusicGain() + -8 // Gain -2 from default
+                ),
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/05b_deltatowers/05b_music/05b_02.sound_looping",
+                        prefs.getMusicGain() + -6 // Gain 0 from default
+                ),
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/05b_deltatowers/05b_music/05b_03.sound_looping",
+                        prefs.getMusicGain() + -6 // Gain 0 from default
+                ),
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/05b_deltatowers/05b_music/05b_04.sound_looping",
+                        prefs.getMusicGain() + -6 // Gain 0 from default
+                ),
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/05b_deltatowers/05b_music/05b_05.sound_looping",
+                        prefs.getMusicGain() + -6 // Gain 0 from default
+                ),
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/05b_deltatowers/05b_music/05b_06.sound_looping",
+                        prefs.getMusicGain() + -5 // Gain -2 from default
+                ),
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/05b_deltatowers/05b_music/05b_07.sound_looping",
+                        prefs.getMusicGain() + -5 // Gain -2 from default
+                ),
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/05b_deltatowers/05b_music/05b_08.sound_looping",
+                        prefs.getMusicGain() + -6 // Gain 0 from default
+                ),
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/05b_deltatowers/05b_music/05b_09.sound_looping",
+                        prefs.getMusicGain() + -7 // Gain 0 from default
+                ),
+                new TagModification(
+                        "/sound_remastered/scenarios/solo/05b_deltatowers/05b_music/05b_10.sound_looping",
+                        prefs.getMusicGain() + -3 // Gain 0 from default
+                ),
+        };
     }
 }
+
+
+
+
+
+
