@@ -99,7 +99,7 @@ public class WeaponTags extends TagGroup {
                 ),
                 new TagModification(
                         "/sound_remastered/weapons/battle_rifle/fire_burst.sound",
-                        -5, // Gain -1 from default
+                        -6, // Gain -2 from default
                         3,
                         75,
                         NO_CHANGE
@@ -114,18 +114,23 @@ public class WeaponTags extends TagGroup {
                 new TagModification("/sound_remastered/weapons/shotgun/fire.sound", 3, 75),
                 new TagModification(
                         "/sound_remastered/weapons/magnum/magnum_fire.sound",
-                        -4, // Gain -1 from default
+                        -5, // Gain -2 from default
                         3,
                         75,
                         NO_CHANGE
                 ),
                 new TagModification(
                         "/sound_remastered/weapons/chain_gun/fire.sound",
-                        -6, // Gain -5 from default
+                        -8, // Gain -7 from default
                         3,
                         75,
                         NO_CHANGE
                 ),
+
+                // Human Weapon Shells (Gain -2 from default for entire directory)
+                // Concrete Defaults: 308=-18, 50cal=-18, browning=-23, shotgun=-12
+                // Dirt Defaults: 308=-22, 50cal=-9, browning=-9, shotgun=-18
+                new TagModification("sound_remastered/materials/particles/shell_casings", -2, true),
 
                 // Covenant Weapons (Min/max distance adjustment)
                 new TagModification("/sound_remastered/weapons/beam_rifle/beam_rifle_fire.sound", 5, 300),
