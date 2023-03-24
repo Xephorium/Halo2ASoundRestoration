@@ -4,6 +4,8 @@ import prefs.RestorationPreferences;
 import tags.TagGroup;
 import tags.TagModification;
 
+import static tags.TagModification.NO_CHANGE;
+
 public class VehicleTags extends TagGroup {
 
     public VehicleTags(RestorationPreferences prefs) {
@@ -79,9 +81,9 @@ public class VehicleTags extends TagGroup {
 
         tagModifications = new TagModification[] {
 
-                // Phantom Turrets (Gain -2 from default)
-                new TagModification("/sound_remastered/vehicles/phantom/phantom_turret_fire.sound", -12),
-                new TagModification("/sound_remastered/vehicles/phantom/phantom_turret_fire_turret.sound", -12),
+                // Phantom Turrets (Gain -1 from default)
+                new TagModification("/sound_remastered/vehicles/phantom/phantom_turret_fire.sound", -11, 10, 75, NO_CHANGE),
+                new TagModification("/sound_remastered/vehicles/phantom/phantom_turret_fire_turret.sound", -11, 10, 75, NO_CHANGE),
                 new TagModification("/sound_remastered/vehicles/phantom/phantom_bolt_impact.sound", -9),
 
                 // Ghost Fire (Gain -1 from default)
