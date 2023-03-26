@@ -2,7 +2,7 @@ package tags.levels;
 
 import prefs.RestorationPreferences;
 import tags.TagGroup;
-import tags.TagModification;
+import tags.TagMod;
 
 public class MetropolisTags extends TagGroup {
 
@@ -34,30 +34,30 @@ public class MetropolisTags extends TagGroup {
                 "/sound_remastered/ambience/device_machines/scarab/scarab_engine_loop_swtnr/loop.sound"
         };
 
-        tagModifications = new TagModification[] {
+        tagMods = new TagMod[] {
 
                 // Music
-                new TagModification(
+                new TagMod(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_01.sound_looping",
                         prefs.getMusicGain() + -2 // Gain +1 from default
                 ),
-                new TagModification(
+                new TagMod(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_02.sound_looping",
                         prefs.getMusicGain() + -3 // Gain +2 from default
                 ),
-                new TagModification(
+                new TagMod(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_03.sound_looping",
                         prefs.getMusicGain() + -4 // Gain -1 from default
                 ),
-                new TagModification(
+                new TagMod(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_04.sound_looping",
                         prefs.getMusicGain() + -4 // Gain +1 from default
                 ),
 
                 // Scarab Movement (Gain -2 from default)
-                new TagModification("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move.sound", -5),
-                new TagModification("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move_long.sound", -5),
-                new TagModification("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move_short.sound", -5),
+                new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move.sound", -5),
+                new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move_long.sound", -5),
+                new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move_short.sound", -5),
         };
     }
 }

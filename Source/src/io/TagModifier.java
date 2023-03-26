@@ -1,7 +1,8 @@
 package io;
 
 import io.utility.BinaryTypeConverter;
-import tags.TagModification;
+import tags.RecursiveTagMod;
+import tags.TagMod;
 
 import java.io.File;
 
@@ -42,7 +43,7 @@ public class TagModifier {
 
     /*--- Modify Method ---*/
 
-    public static boolean modifyTag(File tagFile, TagModification tagMod) {
+    public static boolean modifyTag(File tagFile, TagMod tagMod) {
 
         // Read File Contents
         byte[] byteArray;
@@ -56,24 +57,36 @@ public class TagModifier {
         // Identify File Type
         boolean isLoopFile = FileManager.getFileOrDirectoryName(tagFile).contains(".sound_looping");
 
+        // Identify Modification Options
+        boolean shouldReplaceGain = true;
+        boolean shouldModifySoundFile = true;
+        boolean shouldModifyLoopFile = true;
+        if (tagMod.getClass() == RecursiveTagMod.class) {
+            shouldReplaceGain = false;
+            shouldModifySoundFile = ((RecursiveTagMod) tagMod).shouldModifySoundFiles;
+            shouldModifyLoopFile = ((RecursiveTagMod) tagMod).shouldModifyLoopFiles;
+        }
+
+
         // Update Gain
-        if (tagMod.gain != TagModification.NO_CHANGE) {
-            float currentGain = tagMod.shouldReplaceGain ? 0 : getTagGain(byteArray, isLoopFile);
+        if (tagMod.gain != TagMod.NO_CHANGE &&
+                ((isLoopFile && shouldModifyLoopFile) || (!isLoopFile && shouldModifySoundFile)) ) {
+            float currentGain = shouldReplaceGain ? 0 : getTagGain(byteArray, isLoopFile);
             updateFloat(byteArray, isLoopFile ? GAIN_INDEX_SOUND_LOOPING : GAIN_INDEX_SOUND, currentGain + tagMod.gain);
         }
 
         // Update Min Distance
-        if (tagMod.minDist != TagModification.NO_CHANGE) {
+        if (tagMod.minDist != TagMod.NO_CHANGE) {
             updateFloat(byteArray, MIN_DIST_INDEX_SOUND, tagMod.minDist);
         }
 
         // Update Max Distance
-        if (tagMod.maxDist != TagModification.NO_CHANGE) {
+        if (tagMod.maxDist != TagMod.NO_CHANGE) {
             updateFloat(byteArray, MAX_DIST_INDEX_SOUND, tagMod.maxDist);
         }
 
         // Update Classic Only Flag
-        if (tagMod.classicOnly != TagModification.NO_CHANGE) {
+        if (tagMod.classicOnly != TagMod.NO_CHANGE) {
             updateBoolean(byteArray, CLASSIC_ONLY_INDEX, tagMod.classicOnly == 1);
         }
 

@@ -1,14 +1,14 @@
 package tags;
 
-/* Halo 2A Sound Restoration                         Chris Cruzen
- * TagModification                                     03.20.2023
+/* Halo 2A Sound Restoration                      Chris Cruzen
+ * TagMod                                           03.20.2023
  *
- * TagModification is a container class that represents a single
- * Halo 2 sound tag and all information needed to modify that tag
- * at runtime.
+ * TagMod is a container class that represents a single Halo 2
+ * sound tag and all information needed to modify that tag at
+ * runtime.
  */
 
-public class TagModification {
+public class TagMod {
 
 
     /*--- Constants ---*/
@@ -23,22 +23,10 @@ public class TagModification {
      */
     public String path = "";
 
-    /* Whether this tag modification should be applied to all sound
-     * files within the path directory or a single tag file.
-     * Values: true (whole directory) or false (single tag file)
-     */
-    public boolean isDirectory = false;
-
     /* Base volume of sound
      * Values: NO_CHANGE or <any int>
      */
     public float gain = NO_CHANGE;
-
-    /* Whether gain field represents a value to be added to the tag's
-     * current gain or a simple replacement value.
-     * Values: true (replacement) or false (additive)
-     */
-    public boolean shouldReplaceGain = true;
 
     /* Distance at which sound begins to fade
      * Values: NO_CHANGE or <any int>
@@ -58,7 +46,7 @@ public class TagModification {
 
     /*--- Constructors ---*/
 
-    public TagModification(String tagPath, float tagGain, float tagMinDist, float tagMaxDist, int classic) {
+    public TagMod(String tagPath, float tagGain, float tagMinDist, float tagMaxDist, int classic) {
         path = tagPath;
         gain = tagGain;
         minDist = tagMinDist;
@@ -66,17 +54,11 @@ public class TagModification {
         classicOnly = classic;
     }
 
-    public TagModification(String tagPath, float tagMinDist, float tagMaxDist) {
+    public TagMod(String tagPath, float tagMinDist, float tagMaxDist) {
         this(tagPath, NO_CHANGE, tagMinDist, tagMaxDist, NO_CHANGE);
     }
 
-    public TagModification(String tagPath, float tagGain) {
+    public TagMod(String tagPath, float tagGain) {
         this(tagPath, tagGain, NO_CHANGE, NO_CHANGE, NO_CHANGE);
-    }
-
-    public TagModification(String tagPath, float tagGain, boolean directory) {
-        this(tagPath, tagGain, NO_CHANGE, NO_CHANGE, NO_CHANGE);
-        this.isDirectory = directory;
-        this.shouldReplaceGain = false;
     }
 }

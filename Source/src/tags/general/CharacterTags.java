@@ -2,9 +2,9 @@ package tags.general;
 
 import prefs.RestorationPreferences;
 import tags.TagGroup;
-import tags.TagModification;
+import tags.TagMod;
 
-import static tags.TagModification.NO_CHANGE;
+import static tags.TagMod.NO_CHANGE;
 
 public class CharacterTags extends TagGroup {
 
@@ -57,10 +57,10 @@ public class CharacterTags extends TagGroup {
                 //"/sound_remastered/characters/sentinel/sentinel_rocket_launcher/sentinel_rocket/in.sound"
         };
 
-        tagModifications = new TagModification[] {
+        tagMods = new TagMod[] {
 
                 // Sentinel Enforcer
-                new TagModification(
+                new TagMod(
                         "/sound_remastered/characters/sentinel/sentinel_enforcer_laser.sound",
                         NO_CHANGE,
                         25, // Min dist +20 from default
@@ -69,16 +69,16 @@ public class CharacterTags extends TagGroup {
                 ),
 
                 // Hunter Movement (Gain -22 from default)
-                new TagModification("/sound_remastered/characters/hunter/land_hard.sound", -25),
-                new TagModification("/sound_remastered/characters/hunter/land_soft.sound", -25),
-                new TagModification("/sound_remastered/characters/hunter/posing_var1.sound", -25),
-                new TagModification("/sound_remastered/characters/hunter/posing_var2.sound", -25),
-                new TagModification("/sound_remastered/characters/hunter/posing_var3.sound", -25),
-                new TagModification("/sound_remastered/characters/hunter/posing_var4.sound", -25),
-                new TagModification("/sound_remastered/characters/hunter/shortmove.sound", -25),
+                new TagMod("/sound_remastered/characters/hunter/land_hard.sound", -25),
+                new TagMod("/sound_remastered/characters/hunter/land_soft.sound", -25),
+                new TagMod("/sound_remastered/characters/hunter/posing_var1.sound", -25),
+                new TagMod("/sound_remastered/characters/hunter/posing_var2.sound", -25),
+                new TagMod("/sound_remastered/characters/hunter/posing_var3.sound", -25),
+                new TagMod("/sound_remastered/characters/hunter/posing_var4.sound", -25),
+                new TagMod("/sound_remastered/characters/hunter/shortmove.sound", -25),
 
                 // Hunter Fall (Gain -13 from default)
-                new TagModification("/sound_remastered/characters/bodyfalls/hunter_bodyfalls.sound", -15),
+                new TagMod("/sound_remastered/characters/bodyfalls/hunter_bodyfalls.sound", -15),
         };
     }
 }

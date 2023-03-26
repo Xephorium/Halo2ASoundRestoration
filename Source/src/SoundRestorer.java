@@ -213,11 +213,11 @@ public class SoundRestorer {
         }
 
         // Modify Tag Group Files
-        for (TagModification tagMod : tagGroup.tagModifications) {
-            if (!tagMod.isDirectory)
+        for (TagMod tagMod : tagGroup.tagMods) {
+            if (tagMod.getClass() != RecursiveTagMod.class)
                 modifyTag(tagMod);
             else
-                modifyAllTags(tagMod);
+                modifyAllTags((RecursiveTagMod) tagMod);
         }
     }
 
@@ -322,7 +322,7 @@ public class SoundRestorer {
         }
     }
 
-    private void modifyTag(TagModification tagMod) {
+    private void modifyTag(TagMod tagMod) {
         File tagFile = createTagSubdir(tagMod.path);
 
         // Modify Tag Values
@@ -349,37 +349,36 @@ public class SoundRestorer {
         }
     }
 
-    private void modifyAllTags(TagModification tagMod) {
-        File file = createTagSubdir(tagMod.path);
+    private void modifyAllTags(RecursiveTagMod recursiveTagMod) {
+        File file = createTagSubdir(recursiveTagMod.path);
 
         // Modify Tag Values
         if (FileManager.isValidFile(file)) {
 
             // Modify Sound Tag
-            if (tagMod.path.contains(".sound") && !tagMod.path.contains(".sound_looping"))
-                modifyTag(tagMod);
+            modifyTag(recursiveTagMod);
 
         } else if(FileManager.isValidDirectory(file)) {
 
             // Recourse Through Subdirectories
-            List<File> subDirs = FileManager.getSubdirectories(file);
-            List<TagModification> subDirMods = new ArrayList<>();
-            for (File subDir : subDirs) {
-                String relativePath = subDir.getPath().replace(rootTagDirectory.getPath(), "");
-                subDirMods.add(new TagModification(relativePath, tagMod.gain, tagMod.isDirectory));
+            List<File> innerDirs = FileManager.getSubdirectories(file);
+            List<RecursiveTagMod> innerDirMods = new ArrayList<>();
+            for (File innerDir : innerDirs) {
+                String relativePath = innerDir.getPath().replace(rootTagDirectory.getPath(), "");
+                innerDirMods.add(recursiveTagMod.cloneWithPath(relativePath));
             }
-            for (TagModification mod: subDirMods) {
+            for (RecursiveTagMod mod: innerDirMods) {
                 modifyAllTags(mod);
             }
 
             // Recourse Through Files
-            List<File> subFiles = FileManager.getDirectoryFiles(file);
-            List<TagModification> subFileMods = new ArrayList<>();
-            for (File subFile : subFiles) {
-                String relativePath = subFile.getPath().replace(rootTagDirectory.getPath(), "");
-                subFileMods.add(new TagModification(relativePath, tagMod.gain, tagMod.isDirectory));
+            List<File> innerFiles = FileManager.getDirectoryFiles(file);
+            List<RecursiveTagMod> innerFileMods = new ArrayList<>();
+            for (File innerFile : innerFiles) {
+                String relativePath = innerFile.getPath().replace(rootTagDirectory.getPath(), "");
+                innerFileMods.add(recursiveTagMod.cloneWithPath(relativePath));
             }
-            for (TagModification mod: subFileMods) {
+            for (RecursiveTagMod mod: innerFileMods) {
                 modifyAllTags(mod);
             }
         } else {

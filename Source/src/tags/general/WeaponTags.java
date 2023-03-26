@@ -1,10 +1,11 @@
 package tags.general;
 
 import prefs.RestorationPreferences;
+import tags.RecursiveTagMod;
 import tags.TagGroup;
-import tags.TagModification;
+import tags.TagMod;
 
-import static tags.TagModification.NO_CHANGE;
+import static tags.TagMod.NO_CHANGE;
 
 public class WeaponTags extends TagGroup {
 
@@ -87,65 +88,65 @@ public class WeaponTags extends TagGroup {
                 "/sound_remastered/ambience/device_machines/scarab/scarab_fire_swtnr/out.sound"
         };
 
-        tagModifications = new TagModification[] {
+        tagMods = new TagMod[] {
 
                 // Sniper Rifle
-                new TagModification("/sound_remastered/weapons/sniper_rifle/fire.sound", -5, 2, 60, NO_CHANGE), // Gain +1 from default
-                new TagModification("/sound_remastered/weapons/sniper_rifle/sniper_ready.sound", -2), // Gain +1 from default
-                new TagModification("/sound_remastered/weapons/sniper_rifle/sniper_reload.sound", -3), // Gain 0 from default
+                new TagMod("/sound_remastered/weapons/sniper_rifle/fire.sound", -5, 2, 60, NO_CHANGE), // Gain +1 from default
+                new TagMod("/sound_remastered/weapons/sniper_rifle/sniper_ready.sound", -2), // Gain +1 from default
+                new TagMod("/sound_remastered/weapons/sniper_rifle/sniper_reload.sound", -3), // Gain 0 from default
 
                 // Battle Rifle
-                new TagModification("/sound_remastered/weapons/battle_rifle/fire_burst.sound", -6f, 2, 60, NO_CHANGE), // Gain -2 from default
-                new TagModification("/sound_remastered/weapons/battle_rifle/battle_rifle_ready.sound", -7), // Gain +2 from default
-                new TagModification("/sound_remastered/weapons/battle_rifle/battle_rifle_reload.sound", -1.5f), // Gain +1 from default
-                new TagModification("/sound_remastered/weapons/battle_rifle/battle_rifle_reload_half.sound", 0), // Gain +1 from default
+                new TagMod("/sound_remastered/weapons/battle_rifle/fire_burst.sound", -6f, 2, 60, NO_CHANGE), // Gain -2 from default
+                new TagMod("/sound_remastered/weapons/battle_rifle/battle_rifle_ready.sound", -7), // Gain +2 from default
+                new TagMod("/sound_remastered/weapons/battle_rifle/battle_rifle_reload.sound", -1.5f), // Gain +1 from default
+                new TagMod("/sound_remastered/weapons/battle_rifle/battle_rifle_reload_half.sound", 0), // Gain +1 from default
 
                 // SMG
-                new TagModification("/sound_remastered/weapons/smg/fire.sound", -4, 2, 60, NO_CHANGE), // Gain -1 from default
-                new TagModification("/sound/weapons/smg/smg_ready.sound", -10), // Gain -1 from default
-                new TagModification("/sound/weapons/smg/smg_dual_ready.sound", -10), // Gain -1 from default
-                new TagModification("/sound/weapons/smg/smg_reload.sound", -5), // Gain -2 from default
-                new TagModification("/sound/weapons/smg/smg_reload_full.sound", -5), // Gain -2 from default
-                new TagModification("/sound/weapons/smg/smg_dual_reload_left.sound", -5), // Gain -2 from default
-                new TagModification("/sound/weapons/smg/smg_dual_reload_right.sound", -5), // Gain -3 from default
-                new TagModification("/sound/weapons/smg/smg_ammo.sound", -4), // Gain -4 from default
+                new TagMod("/sound_remastered/weapons/smg/fire.sound", -4, 2, 60, NO_CHANGE), // Gain -1 from default
+                new TagMod("/sound/weapons/smg/smg_ready.sound", -10), // Gain -1 from default
+                new TagMod("/sound/weapons/smg/smg_dual_ready.sound", -10), // Gain -1 from default
+                new TagMod("/sound/weapons/smg/smg_reload.sound", -5), // Gain -2 from default
+                new TagMod("/sound/weapons/smg/smg_reload_full.sound", -5), // Gain -2 from default
+                new TagMod("/sound/weapons/smg/smg_dual_reload_left.sound", -5), // Gain -2 from default
+                new TagMod("/sound/weapons/smg/smg_dual_reload_right.sound", -5), // Gain -3 from default
+                new TagMod("/sound/weapons/smg/smg_ammo.sound", -4), // Gain -4 from default
 
                 // Magnum
-                new TagModification("/sound_remastered/weapons/magnum/magnum_fire.sound", -6.5f, 2, 60, NO_CHANGE), // Gain -3.5 from default
-                new TagModification("/sound_remastered/weapons/magnum/magnum_ready.sound", -4 ), // Gain -1 from default
+                new TagMod("/sound_remastered/weapons/magnum/magnum_fire.sound", -6.5f, 2, 60, NO_CHANGE), // Gain -3.5 from default
+                new TagMod("/sound_remastered/weapons/magnum/magnum_ready.sound", -4 ), // Gain -1 from default
 
                 // Chain Gun
-                new TagModification("/sound_remastered/weapons/chain_gun/fire.sound", -2, 2, 60, NO_CHANGE), // Gain -1 from default
-                new TagModification("/sound_remastered/weapons/chain_gun/turret_fire.sound", -2, 3, 75, NO_CHANGE), // Gain -1 from default
-                new TagModification("/sound_remastered/weapons/chain_gun/turret_fire_mono.sound", -2, 3, 75, NO_CHANGE), // Gain -1 from default
-                new TagModification("/sound_remastered/weapons/chain_gun/scorpion_gun_fire.sound", -6, 3, 75, NO_CHANGE), // Gain -3 from default
-                new TagModification("/sound_remastered/weapons/chain_gun/warthog_gun.sound", -3f, 3, 75, NO_CHANGE), // Gain -3 from default
+                new TagMod("/sound_remastered/weapons/chain_gun/fire.sound", -2, 2, 60, NO_CHANGE), // Gain -1 from default
+                new TagMod("/sound_remastered/weapons/chain_gun/turret_fire.sound", -2, 3, 75, NO_CHANGE), // Gain -1 from default
+                new TagMod("/sound_remastered/weapons/chain_gun/turret_fire_mono.sound", -2, 3, 75, NO_CHANGE), // Gain -1 from default
+                new TagMod("/sound_remastered/weapons/chain_gun/scorpion_gun_fire.sound", -6, 3, 75, NO_CHANGE), // Gain -3 from default
+                new TagMod("/sound_remastered/weapons/chain_gun/warthog_gun.sound", -3f, 3, 75, NO_CHANGE), // Gain -3 from default
 
                 // Shotgun
-                new TagModification("/sound_remastered/weapons/shotgun/fire.sound", -3.5f, 2, 60, NO_CHANGE), // Gain -0.5 from default
-                new TagModification("/sound_remastered/weapons/shotgun/shotgun_reload_loop.sound", -3.5f), // Gain +1.5 from default
+                new TagMod("/sound_remastered/weapons/shotgun/fire.sound", -3.5f, 2, 60, NO_CHANGE), // Gain -0.5 from default
+                new TagMod("/sound_remastered/weapons/shotgun/shotgun_reload_loop.sound", -3.5f), // Gain +1.5 from default
 
                 // Rocket Launcher
-                new TagModification("/sound_remastered/weapons/rocket_launcher/rocket_reload.sound", -1), // Gain +2 from default
+                new TagMod("/sound_remastered/weapons/rocket_launcher/rocket_reload.sound", -1), // Gain +2 from default
 
                 // Human Weapon Shells (Gain -4 from default for entire directory)
                 // Concrete Defaults: 308=-18, 50cal=-18, browning=-23, shotgun=-12
                 // Dirt Defaults: 308=-22, 50cal=-9, browning=-9, shotgun=-18
-                new TagModification("/sound_remastered/materials/particles/shell_casings", -4, true),
+                new RecursiveTagMod("/sound_remastered/materials/particles/shell_casings", -4),
 
                 // Covenant Weapons (Min/max distance adjustment)
-                new TagModification("/sound_remastered/weapons/beam_rifle/beam_rifle_fire.sound", 5, 300),
-                new TagModification("/sound_remastered/weapons/covenant_carbine/fire.sound", -4.5f, 4, 100, NO_CHANGE), // Gain -0.5 from default
-                new TagModification("/sound_remastered/weapons/plasma_rifle/plasma_rifle_fire.sound", 3, 75),
-                new TagModification("/sound_remastered/weapons/needler/fire.sound", -3, 3, 75, NO_CHANGE), // Gain -3 from default
-                new TagModification("/sound_remastered/weapons/needler/needler_reload.sound", 0), // Gain +3 from default
-                new TagModification("/sound_remastered/weapons/needler/needler_dual_reload_l.sound", 0), // Gain +3 from default
-                new TagModification("/sound_remastered/weapons/needler/needler_dual_reload_r.sound", 0), // Gain +3 from default
-                new TagModification("/sound_remastered/weapons/plasma_pistol/fire.sound", 3, 75),
-                new TagModification("/sound_remastered/weapons/plasma_pistol/chargefire.sound", 3, 75),
-                new TagModification("/sound_remastered/weapons/plasma_pistol/startcharge.sound", 3, 75),
-                new TagModification("/sound_remastered/weapons/flak_cannon/flak_fire.sound", 4, 100),
-                new TagModification(
+                new TagMod("/sound_remastered/weapons/beam_rifle/beam_rifle_fire.sound", 5, 300),
+                new TagMod("/sound_remastered/weapons/covenant_carbine/fire.sound", -4.5f, 4, 100, NO_CHANGE), // Gain -0.5 from default
+                new TagMod("/sound_remastered/weapons/plasma_rifle/plasma_rifle_fire.sound", 3, 75),
+                new TagMod("/sound_remastered/weapons/needler/fire.sound", -3, 3, 75, NO_CHANGE), // Gain -3 from default
+                new TagMod("/sound_remastered/weapons/needler/needler_reload.sound", 0), // Gain +3 from default
+                new TagMod("/sound_remastered/weapons/needler/needler_dual_reload_l.sound", 0), // Gain +3 from default
+                new TagMod("/sound_remastered/weapons/needler/needler_dual_reload_r.sound", 0), // Gain +3 from default
+                new TagMod("/sound_remastered/weapons/plasma_pistol/fire.sound", 3, 75),
+                new TagMod("/sound_remastered/weapons/plasma_pistol/chargefire.sound", 3, 75),
+                new TagMod("/sound_remastered/weapons/plasma_pistol/startcharge.sound", 3, 75),
+                new TagMod("/sound_remastered/weapons/flak_cannon/flak_fire.sound", 4, 100),
+                new TagMod(
                         "/sound_remastered/weapons/plasma_turret/fire.sound",
                         -12, // Gain -7 from default
                         3,
@@ -154,20 +155,20 @@ public class WeaponTags extends TagGroup {
                 ),
 
                 // Sentinel Gun (Min/max distance adjustment)
-                new TagModification("/sound_remastered/characters/sentinel/sentinel_gun/sent_gun/in.sound", 5, 100),
-                new TagModification("/sound_remastered/characters/sentinel/sentinel_gun/sent_gun/loop.sound", 5, 100),
-                new TagModification("/sound_remastered/characters/sentinel/sentinel_gun/sent_gun/out.sound", 5, 100),
+                new TagMod("/sound_remastered/characters/sentinel/sentinel_gun/sent_gun/in.sound", 5, 100),
+                new TagMod("/sound_remastered/characters/sentinel/sentinel_gun/sent_gun/loop.sound", 5, 100),
+                new TagMod("/sound_remastered/characters/sentinel/sentinel_gun/sent_gun/out.sound", 5, 100),
 
                 // Sentinel Gun Fire (Gain -2 from default)
-                new TagModification("/sound_remastered/characters/sentinel/sentinel_gun/sentinel_gun.sound_looping", -5),
+                new TagMod("/sound_remastered/characters/sentinel/sentinel_gun/sentinel_gun.sound_looping", -5),
 
                 // Regret Throne Cannon (Gain -2 from default)
-                new TagModification("/sound_remastered/vehicles/gravity_throne/weapon_fire/in.sound", -3),
-                new TagModification("/sound_remastered/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_prophet/loop.sound", -3),
-                new TagModification("/sound_remastered/vehicles/gravity_throne/weapon_fire/out.sound", -3),
+                new TagMod("/sound_remastered/vehicles/gravity_throne/weapon_fire/in.sound", -3),
+                new TagMod("/sound_remastered/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_prophet/loop.sound", -3),
+                new TagMod("/sound_remastered/vehicles/gravity_throne/weapon_fire/out.sound", -3),
 
                 // Scarab Explosion (Gain -5 from default)
-                new TagModification("/sound_remastered/ambience/device_machines/scarab/cov_damage_large_scarab.sound", -15),
+                new TagMod("/sound_remastered/ambience/device_machines/scarab/cov_damage_large_scarab.sound", -15),
         };
     }
 }

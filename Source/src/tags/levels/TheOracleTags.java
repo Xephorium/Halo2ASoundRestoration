@@ -2,7 +2,7 @@ package tags.levels;
 
 import prefs.RestorationPreferences;
 import tags.TagGroup;
-import tags.TagModification;
+import tags.TagMod;
 
 public class TheOracleTags extends TagGroup {
 
@@ -22,34 +22,34 @@ public class TheOracleTags extends TagGroup {
                 "/sound_remastered/ambience/device_machines/control_lift",
         };
 
-        tagModifications = new TagModification[]{
+        tagMods = new TagMod[]{
 
                 // Music
-                new TagModification(
+                new TagMod(
                         "/sound_remastered/scenarios/solo/04b_floodlab/04b_music/04b_01.sound_looping",
                         prefs.getMusicGain() + -5 // Gain 0 from default
                 ),
-                new TagModification(
+                new TagMod(
                         "/sound_remastered/scenarios/solo/04b_floodlab/04b_music/04b_02.sound_looping",
                         prefs.getMusicGain() + -5 // Gain -2 from default
                 ),
-                new TagModification(
+                new TagMod(
                         "/sound_remastered/scenarios/solo/04b_floodlab/04b_music/04b_04.sound_looping",
                         prefs.getMusicGain() + -6 // Gain 0 from default
                 ),
-                new TagModification(
+                new TagMod(
                         "/sound_remastered/scenarios/solo/04b_floodlab/04b_music/04b_05.sound_looping",
                         prefs.getMusicGain() + -9 // Gain 0 from default
                 ),
-                new TagModification(
+                new TagMod(
                         "/sound_remastered/scenarios/solo/04b_floodlab/04b_music/04b_06.sound_looping",
                         prefs.getMusicGain() + -5 // Gain 0 from default
                 ),
-                new TagModification(
+                new TagMod(
                         "/sound_remastered/scenarios/solo/04b_floodlab/04b_music/04b_07.sound_looping",
                         prefs.getMusicGain() + 0 // Gain 0 from default
                 ),
-                new TagModification(
+                new TagMod(
                         "/sound_remastered/scenarios/solo/04b_floodlab/04b_music/04b_08.sound_looping",
                         prefs.getMusicGain() + -5 // Gain 0 from default
                 ),

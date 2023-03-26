@@ -2,7 +2,7 @@ package tags.general;
 
 import prefs.RestorationPreferences;
 import tags.TagGroup;
-import tags.TagModification;
+import tags.TagMod;
 
 public class DialogTags extends TagGroup {
 
@@ -10,7 +10,7 @@ public class DialogTags extends TagGroup {
 
         groupName = "Dialog";
 
-        tagModifications = new TagModification[] {
+        tagMods = new TagMod[] {
 
                 /* Note: While boosting the gain of level dialog works as expected,
                  *       the changes seem to have no effect on combat dialog.

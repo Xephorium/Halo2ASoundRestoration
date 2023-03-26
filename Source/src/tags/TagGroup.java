@@ -1,7 +1,5 @@
 package tags;
 
-import prefs.RestorationPreferences;
-
 public class TagGroup {
 
 
@@ -30,5 +28,5 @@ public class TagGroup {
     public String[] deletePaths = {};
 
     // A list of tags that need to be edited and the edits to be performed.
-    public TagModification[] tagModifications = {};
+    public TagMod[] tagMods = {};
 }

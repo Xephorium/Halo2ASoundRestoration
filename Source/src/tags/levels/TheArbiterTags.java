@@ -2,7 +2,7 @@ package tags.levels;
 
 import prefs.RestorationPreferences;
 import tags.TagGroup;
-import tags.TagModification;
+import tags.TagMod;
 
 public class TheArbiterTags extends TagGroup {
 
@@ -36,22 +36,22 @@ public class TheArbiterTags extends TagGroup {
                 "/sound_remastered/ambience/device_machines/alphagas_generator_plates",
         };
 
-        tagModifications = new TagModification[]{
+        tagMods = new TagMod[]{
 
                 // Music
-                new TagModification(
+                new TagMod(
                         "/sound_remastered/scenarios/solo/04a_gasgiant/04a_music/04a_01.sound_looping",
                         prefs.getMusicGain() + -3 // Gain 0 from default
                 ),
-                new TagModification(
+                new TagMod(
                         "/sound_remastered/scenarios/solo/04a_gasgiant/04a_music/04a_02.sound_looping",
                         prefs.getMusicGain() + -3 // Gain +2 from default
                 ),
-                new TagModification(
+                new TagMod(
                         "/sound_remastered/scenarios/solo/04a_gasgiant/04a_music/04a_03.sound_looping",
                         prefs.getMusicGain() + -5 // Gain -1 from default
                 ),
-                new TagModification(
+                new TagMod(
                         "/sound_remastered/scenarios/solo/04a_gasgiant/04a_music/04a_04.sound_looping",
                         prefs.getMusicGain() + -5 // Gain -2 from default
                 ),

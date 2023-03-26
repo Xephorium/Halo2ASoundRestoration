@@ -1,10 +1,11 @@
 package tags.general;
 
 import prefs.RestorationPreferences;
+import tags.RecursiveTagMod;
 import tags.TagGroup;
-import tags.TagModification;
+import tags.TagMod;
 
-import static tags.TagModification.NO_CHANGE;
+import static tags.TagMod.NO_CHANGE;
 
 public class VehicleTags extends TagGroup {
 
@@ -79,31 +80,31 @@ public class VehicleTags extends TagGroup {
                 "/sound_remastered/vehicles/gravity_throne/regret_teleport_reflection.sound",
         };
 
-        tagModifications = new TagModification[] {
+        tagMods = new TagMod[] {
 
                 // Phantom Turrets (Gain 0 from default)
-                new TagModification("/sound_remastered/vehicles/phantom/phantom_turret_fire.sound", -10, 10, 75, NO_CHANGE),
-                new TagModification("/sound_remastered/vehicles/phantom/phantom_turret_fire_turret.sound", -10, 10, 75, NO_CHANGE),
-                new TagModification("/sound_remastered/vehicles/phantom/phantom_bolt_impact.sound", -9), // Gain -2 from default
+                new TagMod("/sound_remastered/vehicles/phantom/phantom_turret_fire.sound", -10, 10, 75, NO_CHANGE),
+                new TagMod("/sound_remastered/vehicles/phantom/phantom_turret_fire_turret.sound", -10, 10, 75, NO_CHANGE),
+                new TagMod("/sound_remastered/vehicles/phantom/phantom_bolt_impact.sound", -9), // Gain -2 from default
 
                 // Ghost Fire (Gain -1 from default)
-                new TagModification("/sound_remastered/vehicles/ghost/ghost_fire/fire.sound", -7),
+                new TagMod("/sound_remastered/vehicles/ghost/ghost_fire/fire.sound", -7),
 
                 // Ghost Explosion (Gain -2 from default)
-                new TagModification("/sound_remastered/vehicles/ghost/ghost_initial_destroyed.sound", -5),
+                new TagMod("/sound_remastered/vehicles/ghost/ghost_initial_destroyed.sound", -5),
 
                 // Warthog Horn (Gain -2 from default [0])
-                new TagModification("/sound_remastered/vehicles/warthog/warthog_horn/warthog_horn.sound_looping", -2),
+                new TagMod("/sound_remastered/vehicles/warthog/warthog_horn/warthog_horn.sound_looping", -2),
 
                 // Warthog Hubcaps (Gain -1 from default [-3])
-                new TagModification("/sound/materials/havok/hubcap_hit.sound", -4),
-                new TagModification("/sound/materials/havok/hubcap_looping/hubcap_looping.sound_looping", -4),
+                new TagMod("/sound/materials/havok/hubcap_hit.sound", -4),
+                new TagMod("/sound/materials/havok/hubcap_looping/hubcap_looping.sound_looping", -4),
 
-                // All Scorpion Sounds
-                //new TagModification("/sound_remastered/vehicles/scorpion", -2, true), // Gain -2 from default
+                // All Scorpion Sounds (Gain -2 from default for all)
+                new RecursiveTagMod("/sound_remastered/vehicles/scorpion", -2),
 
-                // Vehicle Damage Effects
-                //new TagModification("/sound_remastered/vehicles/damage_effects", -2, true), // Gain -2 from default
+                // Vehicle Damage Effects (Gain -2 from default for all)
+                new RecursiveTagMod("/sound_remastered/vehicles/damage_effects", -2),
         };
     }
 }
