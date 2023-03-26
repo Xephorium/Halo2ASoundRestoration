@@ -47,14 +47,15 @@ public class MetropolisTags extends TagGroup {
                 ),
                 new TagMod(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_03.sound_looping",
-                        prefs.getMusicGain() + -4 // Gain -1 from default
+                        prefs.getMusicGain() + -4.5f // Gain -1.5 from default
                 ),
                 new TagMod(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_04.sound_looping",
-                        prefs.getMusicGain() + -4 // Gain +1 from default
+                        prefs.getMusicGain() + -4.5f // Gain +0.5 from default
                 ),
 
                 // Scarab Movement (Gain -2 from default)
+                new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_engine_loop/scarab_engine_loop/loop.sound", -2),
                 new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move.sound", -5),
                 new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move_long.sound", -5),
                 new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move_short.sound", -5),

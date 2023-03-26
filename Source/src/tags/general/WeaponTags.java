@@ -115,6 +115,13 @@ public class WeaponTags extends TagGroup {
                 new TagMod("/sound_remastered/weapons/magnum/magnum_fire.sound", -6.5f, 2, 60, NO_CHANGE), // Gain -3.5 from default
                 new TagMod("/sound_remastered/weapons/magnum/magnum_ready.sound", -4 ), // Gain -1 from default
 
+                // Shotgun
+                new TagMod("/sound_remastered/weapons/shotgun/fire.sound", -3.5f, 2, 60, NO_CHANGE), // Gain -0.5 from default
+                new TagMod("/sound_remastered/weapons/shotgun/shotgun_reload_loop.sound", -3.5f), // Gain +1.5 from default
+
+                // Rocket Launcher
+                new TagMod("/sound_remastered/weapons/rocket_launcher/rocket_reload.sound", -1), // Gain +2 from default
+
                 // Chain Gun
                 new TagMod("/sound_remastered/weapons/chain_gun/fire.sound", -2, 2, 60, NO_CHANGE), // Gain -1 from default
                 new TagMod("/sound_remastered/weapons/chain_gun/turret_fire.sound", -2, 3, 75, NO_CHANGE), // Gain -1 from default
@@ -122,12 +129,8 @@ public class WeaponTags extends TagGroup {
                 new TagMod("/sound_remastered/weapons/chain_gun/scorpion_gun_fire.sound", -6, 3, 75, NO_CHANGE), // Gain -3 from default
                 new TagMod("/sound_remastered/weapons/chain_gun/warthog_gun.sound", -3f, 3, 75, NO_CHANGE), // Gain -3 from default
 
-                // Shotgun
-                new TagMod("/sound_remastered/weapons/shotgun/fire.sound", -3.5f, 2, 60, NO_CHANGE), // Gain -0.5 from default
-                new TagMod("/sound_remastered/weapons/shotgun/shotgun_reload_loop.sound", -3.5f), // Gain +1.5 from default
-
-                // Rocket Launcher
-                new TagMod("/sound_remastered/weapons/rocket_launcher/rocket_reload.sound", -1), // Gain +2 from default
+                // Gauss Rifle (Gain -2 from default [-3])
+                new TagMod("/sound_remastered/weapons/gauss_rifle/fire.sound", -5),
 
                 // Human Weapon Shells (Gain -4 from default for entire directory)
                 // Concrete Defaults: 308=-18, 50cal=-18, browning=-23, shotgun=-12

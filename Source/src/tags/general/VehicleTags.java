@@ -93,8 +93,15 @@ public class VehicleTags extends TagGroup {
                 // Ghost Explosion (Gain -3 from default)
                 new TagMod("/sound_remastered/vehicles/ghost/ghost_initial_destroyed.sound", -6),
 
-                // Warthog Horn (Gain -2 from default [0])
-                new TagMod("/sound_remastered/vehicles/warthog/warthog_horn/warthog_horn.sound_looping", -2),
+                /* All Warthog Sounds (Gain -2 from default for all)
+                 *
+                 * For reasons I can't discern, directly adjusting gain on the warthog '.sound' files
+                 * breaks them. I've discovered that making the same change in Guerilla rewrites the
+                 * files almost entirely. There must be something more going on here. But as a
+                 * workaround, the code simply adjusts the loop files instead.
+                 */
+                new RecursiveTagMod("/sound_remastered/vehicles/warthog", -2, false, true),
+                new TagMod("/sound_remastered/vehicles/warthog/warthog_suspension.sound", -2),
 
                 // Warthog Hubcaps (Gain -1 from default [-3])
                 new TagMod("/sound/materials/havok/hubcap_hit.sound", -4),
@@ -103,9 +110,12 @@ public class VehicleTags extends TagGroup {
                 // All Scorpion Sounds (Gain -2 from default for all)
                 new RecursiveTagMod("/sound_remastered/vehicles/scorpion", -2),
 
-                // Vehicle Damage Effects (Gain -2 from default for all)
-                new RecursiveTagMod("/sound_remastered/vehicles/damage_effects", -2),
-                new RecursiveTagMod("/sound/vehicles/damage_effects", -2),
+                // All Wraith Sounds (Gain -2 from default for all)
+                new RecursiveTagMod("/sound_remastered/vehicles/wraith", -2),
+
+                // Vehicle Damage Effects (Gain -3 from default for all)
+                new RecursiveTagMod("/sound_remastered/vehicles/damage_effects", -3),
+                new RecursiveTagMod("/sound/vehicles/damage_effects", -3),
         };
     }
 }
