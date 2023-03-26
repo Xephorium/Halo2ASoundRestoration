@@ -67,6 +67,9 @@ public class CairoStationTags extends TagGroup {
                         -7 // Gain +1 from default
                 ),
 
+                // Muffled Boarding Action
+                new TagModification("/sound_remastered/ambience/spacestation/behind_bulkhead/loop.sound", 1), // Gain +1 from default [0]
+
                 // Small Doors (Gain -1 from default [-7] for entire directory)
                 new TagModification("/sound_remastered/ambience/device_machines/ss_door_int_mech_small", -1, true),
 
@@ -86,23 +89,23 @@ public class CairoStationTags extends TagGroup {
                 ),
                 new TagModification( // (drumline after door breach)
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_02.sound_looping",
-                        prefs.getMusicGain() + -3 // Gain 0 from default
+                        prefs.getMusicGain() + -2.5f // Gain +0.5 from default
                 ),
                 new TagModification( // (melody after malta destroyed)
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_03.sound_looping",
-                        prefs.getMusicGain() + -5 // Gain -2 from default
+                        prefs.getMusicGain() + -5.5f // Gain -2.5 from default
                 ),
                 new TagModification( // (athens stinger)
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_04.sound_looping",
                         prefs.getMusicGain() + -5 // Gain -2 from default
                 ),
-                new TagModification( // glue/f_full
+                new TagModification( // (after gunny death)
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_05.sound_looping",
-                        prefs.getMusicGain() + -1 // Gain +2 from default
+                        prefs.getMusicGain() + -1.5f // Gain +1.5 from default [-3]
                 ),
                 new TagModification( // (spacewalk)
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_06.sound_looping",
-                        prefs.getMusicGain() + 2 // Gain +2 from default
+                        prefs.getMusicGain() + 3 // Gain +3 from default
                 ),
                 new TagModification( // (bugger stinger)
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_07.sound_looping",

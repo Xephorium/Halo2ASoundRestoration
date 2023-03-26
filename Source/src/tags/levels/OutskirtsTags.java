@@ -67,6 +67,9 @@ public class OutskirtsTags extends TagGroup {
                         prefs.getMusicGain() + -6 // Gain -1 from default
                 ),
 
+                // Cortana Wakeup Dialog (Gain -1 from default [-3])
+                new TagModification("/sound/dialog/levels/03_earthcity/mission/l03_9030_cor.sound", -4),
+
                 // Cortana Tunnel Dialog (Gain +1/2 from default [all 0])
                 new TagModification("/sound/dialog/levels/03_earthcity/mission/l03_0580_cor.sound", 1),
                 new TagModification("/sound/dialog/levels/03_earthcity/mission/l03_0070_cor.sound", 2),

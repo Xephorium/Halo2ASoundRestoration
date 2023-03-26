@@ -39,7 +39,7 @@ public class MetropolisTags extends TagGroup {
                 // Music
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_01.sound_looping",
-                        prefs.getMusicGain() + -1 // Gain +2 from default
+                        prefs.getMusicGain() + -2 // Gain +1 from default
                 ),
                 new TagModification(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_02.sound_looping",

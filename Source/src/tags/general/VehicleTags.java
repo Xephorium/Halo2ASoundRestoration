@@ -92,12 +92,18 @@ public class VehicleTags extends TagGroup {
                 // Ghost Explosion (Gain -2 from default)
                 new TagModification("/sound_remastered/vehicles/ghost/ghost_initial_destroyed.sound", -5),
 
-                // Warthog Horn (Gain -1 from default [0])
-                new TagModification("/sound_remastered/vehicles/warthog/warthog_horn/warthog_horn.sound_looping", -1),
+                // Warthog Horn (Gain -2 from default [0])
+                new TagModification("/sound_remastered/vehicles/warthog/warthog_horn/warthog_horn.sound_looping", -2),
 
-                // Warthog Hubcaps (Gain -2 from default [-3])
-                new TagModification("/sound/materials/havok/hubcap_hit.sound", -5),
-                new TagModification("/sound/materials/havok/hubcap_looping/hubcap_looping.sound_looping", -5)
+                // Warthog Hubcaps (Gain -1 from default [-3])
+                new TagModification("/sound/materials/havok/hubcap_hit.sound", -4),
+                new TagModification("/sound/materials/havok/hubcap_looping/hubcap_looping.sound_looping", -4),
+
+                // All Scorpion Sounds
+                //new TagModification("/sound_remastered/vehicles/scorpion", -2, true), // Gain -2 from default
+
+                // Vehicle Damage Effects
+                //new TagModification("/sound_remastered/vehicles/damage_effects", -2, true), // Gain -2 from default
         };
     }
 }

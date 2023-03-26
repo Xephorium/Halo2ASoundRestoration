@@ -93,7 +93,7 @@ public class SoundRestorer {
         // Restore Each Tag Group
         for (int x = 0; x < TAG_GROUPS.length; x++) {
             restoreAudioTags(TAG_GROUPS[x]);
-            if (x == 5) System.out.println("  ---");
+            if (x == 6) System.out.println("  ---");
         }
 
         printReport();
@@ -240,6 +240,11 @@ public class SoundRestorer {
             // Iterate Through Tags
             List<File> files = FileManager.getDirectoryFiles(remasteredFile);
             for (File file: files) walkTagDirectory(file, preservePaths);
+        } else {
+
+            // Print Error & Update Statistics
+            System.out.printf("    Error finding path '%s'%n", remasteredFile);
+            totalProblems++;
         }
     }
 
@@ -377,6 +382,11 @@ public class SoundRestorer {
             for (TagModification mod: subFileMods) {
                 modifyAllTags(mod);
             }
+        } else {
+
+            // Print Error & Update Statistics
+            System.out.printf("    Error finding path '%s'%n", file);
+            totalProblems++;
         }
     }
 
