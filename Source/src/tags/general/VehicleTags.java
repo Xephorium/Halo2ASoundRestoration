@@ -90,8 +90,8 @@ public class VehicleTags extends TagGroup {
                 // Ghost Fire (Gain -1 from default)
                 new TagMod("/sound_remastered/vehicles/ghost/ghost_fire/fire.sound", -7),
 
-                // Ghost Explosion (Gain -2 from default)
-                new TagMod("/sound_remastered/vehicles/ghost/ghost_initial_destroyed.sound", -5),
+                // Ghost Explosion (Gain -3 from default)
+                new TagMod("/sound_remastered/vehicles/ghost/ghost_initial_destroyed.sound", -6),
 
                 // Warthog Horn (Gain -2 from default [0])
                 new TagMod("/sound_remastered/vehicles/warthog/warthog_horn/warthog_horn.sound_looping", -2),
@@ -105,6 +105,7 @@ public class VehicleTags extends TagGroup {
 
                 // Vehicle Damage Effects (Gain -2 from default for all)
                 new RecursiveTagMod("/sound_remastered/vehicles/damage_effects", -2),
+                new RecursiveTagMod("/sound/vehicles/damage_effects", -2),
         };
     }
 }
