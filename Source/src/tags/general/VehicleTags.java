@@ -97,9 +97,9 @@ public class VehicleTags extends TagGroup {
 
         tagMods = new TagMod[] {
 
-                // Phantom Turrets (Gain 0 from default)
-                new TagMod("/sound_remastered/vehicles/phantom/phantom_turret_fire.sound", -10, 10, 75, NO_CHANGE),
-                new TagMod("/sound_remastered/vehicles/phantom/phantom_turret_fire_turret.sound", -10, 10, 75, NO_CHANGE),
+                // Phantom Turrets
+                new TagMod("/sound_remastered/vehicles/phantom/phantom_turret_fire.sound", -9, 10, 75, NO_CHANGE), // Gain +1 from default
+                new TagMod("/sound_remastered/vehicles/phantom/phantom_turret_fire_turret.sound", -9, 10, 75, NO_CHANGE), // Gain +1 from default
                 new TagMod("/sound_remastered/vehicles/phantom/phantom_bolt_impact.sound", -9), // Gain -2 from default
 
                 // Ghost Fire (Gain -1 from default)
@@ -124,6 +124,9 @@ public class VehicleTags extends TagGroup {
 
                 // All Scorpion Sounds (Gain -2 from default for all)
                 new RecursiveTagMod("/sound_remastered/vehicles/scorpion", -2),
+
+                // Scorpion Drop Sounds (Gain -1 additional)
+                new RecursiveTagMod("/sound_remastered/vehicles/scorpion/scorpion_drop", -1),
 
                 // All Wraith Sounds (Gain -2 from default for all)
                 new RecursiveTagMod("/sound_remastered/vehicles/wraith", -2),

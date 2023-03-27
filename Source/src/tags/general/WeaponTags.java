@@ -139,15 +139,15 @@ public class WeaponTags extends TagGroup {
 
                 // Covenant Weapons (Min/max distance adjustment)
                 new TagMod("/sound_remastered/weapons/beam_rifle/beam_rifle_fire.sound", 5, 300),
-                new TagMod("/sound_remastered/weapons/covenant_carbine/fire.sound", -4.5f, 4, 100, NO_CHANGE), // Gain -0.5 from default
-                new TagMod("/sound_remastered/weapons/plasma_rifle/plasma_rifle_fire.sound", 3, 75),
+                new TagMod("/sound_remastered/weapons/covenant_carbine/fire.sound", -4.5f, 3, 75, NO_CHANGE), // Gain -0.5 from default
+                new TagMod("/sound_remastered/weapons/plasma_rifle/plasma_rifle_fire.sound", 1, 3, 75, NO_CHANGE), // Gain +1 from default
                 new TagMod("/sound_remastered/weapons/needler/fire.sound", -3, 3, 75, NO_CHANGE), // Gain -3 from default
                 new TagMod("/sound_remastered/weapons/needler/needler_reload.sound", 0), // Gain +3 from default
                 new TagMod("/sound_remastered/weapons/needler/needler_dual_reload_l.sound", 0), // Gain +3 from default
                 new TagMod("/sound_remastered/weapons/needler/needler_dual_reload_r.sound", 0), // Gain +3 from default
-                new TagMod("/sound_remastered/weapons/plasma_pistol/fire.sound", 3, 75),
-                new TagMod("/sound_remastered/weapons/plasma_pistol/chargefire.sound", 3, 75),
-                new TagMod("/sound_remastered/weapons/plasma_pistol/startcharge.sound", 3, 75),
+                new TagMod("/sound_remastered/weapons/plasma_pistol/fire.sound", -8, 3, 75, NO_CHANGE), // Gain +1 from default
+                new TagMod("/sound_remastered/weapons/plasma_pistol/chargefire.sound", -8, 3, 75, NO_CHANGE), // Gain +1 from default
+                new TagMod("/sound_remastered/weapons/plasma_pistol/startcharge.sound", -8, 3, 75, NO_CHANGE), // Gain +1 from default
                 new TagMod("/sound_remastered/weapons/flak_cannon/flak_fire.sound", 4, 100),
                 new TagMod(
                         "/sound_remastered/weapons/plasma_turret/fire.sound",
