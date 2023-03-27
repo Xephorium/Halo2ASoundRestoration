@@ -25,8 +25,9 @@ public class AmbienceTags extends TagGroup {
 
         tagMods = new TagMod[] {
 
-                // Covenant Portable Shield
-                new TagMod("/sound_remastered/visual_effects/jail_shield_death/jail_shield_death.sound", -3.5f), // Gain -0.5 from default [-3]
+                // Covenant Portable Shield (Gain -1 from default)
+                new TagMod("/sound_remastered/visual_effects/cov_portable_shield_recharge/cov_portable_shield_rech.sound", -3),
+                new TagMod("/sound_remastered/visual_effects/jail_shield_death/jail_shield_death.sound", -4),
 
                 // Concrete Barriers (Gain -2 from default [-1])
                 new TagMod("/sound_remastered/materials/hard/concrete_barriers.sound", -3),

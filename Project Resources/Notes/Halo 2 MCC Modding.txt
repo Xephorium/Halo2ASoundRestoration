@@ -183,21 +183,21 @@
         .---------------------------------------------------------------------------------.
         | Map Name            | Other Internal Names     | Level Name        | State      |
         |---------------------|--------------------------|-------------------|------------|
-        | 00a_introduction    |                          | The Heretic       | Rebalanced |
+        | 00a_introduction    |                          | The Heretic       | Done       |
         | 01a_tutorial        |                          | The Armory        | Done       |
-        | 01b_spacestation    | ss                       | Cairo Station     | Rebalanced |
+        | 01b_spacestation    | ss                       | Cairo Station     | Done       |
         | 03a_oldmombasa      |                          | Outskirts         | Rebalanced |
-        | 03b_newmombasa      | earthcity, nm            | Metropolis        | Polished   |
-        | 04a_gasgiant        | alphagasgiant            | The Arbiter       | Done       |
-        | 04b_floodlab        |                          | The Oracle        | Done       |
-        | 05a_deltaapproach   | delta                    | Delta Halo        | Done       |
+        | 03b_newmombasa      | earthcity, nm            | Metropolis        | Done       |
+        | 04a_gasgiant        | alphagasgiant            | The Arbiter       | Restored   |
+        | 04b_floodlab        |                          | The Oracle        | Restored   |
+        | 05a_deltaapproach   | delta                    | Delta Halo        | Restored   |
         | 05b_deltatowers     |                          | Regret            | Rebalanced |
-        | 06a_sentinelwalls   | shq, SentHeadQuar        | Sacred Icon       | Done       |
-        | 06b_floodzone       |                          | Quarantine Zone   | Done       |
-        | 07a_highcharity     | high                     | Gravemind         | Done       |
-        | 08a_deltacliffs     |                          | Uprising          | Done       |
-        | 07b_forerunnership  |                          | High Charity      | Done       |
-        | 08b_deltacontrol    |                          | The Great Journey | Done       |
+        | 06a_sentinelwalls   | shq, SentHeadQuar        | Sacred Icon       | Restored   |
+        | 06b_floodzone       |                          | Quarantine Zone   | Restored   |
+        | 07a_highcharity     | high                     | Gravemind         | Restored   |
+        | 08a_deltacliffs     |                          | Uprising          | Restored   |
+        | 07b_forerunnership  |                          | High Charity      | Restored   |
+        | 08b_deltacontrol    |                          | The Great Journey | Restored   |
         '---------------------------------------------------------------------------------'
 
     Tag Editing Notes
