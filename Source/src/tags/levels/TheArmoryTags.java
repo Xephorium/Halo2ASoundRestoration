@@ -35,14 +35,14 @@ public class TheArmoryTags extends TagGroup {
 
         tagMods = new TagMod[] {
 
-                // Johnson Dialog (Gain +0.5 from default)
-                new TagMod("/sound/dialog/levels/01_spacestation/mission/l01_0010_jon.sound", -2.5f),
-                new TagMod("/sound/dialog/levels/01_spacestation/mission/l01_0020_jon.sound", -2.5f),
-                new TagMod("/sound/dialog/levels/01_spacestation/mission/l01_0030_jon.sound", -2.5f),
-                new TagMod("/sound/dialog/levels/01_spacestation/mission/l01_0040_jon.sound", -2.5f),
-                new TagMod("/sound/dialog/levels/01_spacestation/mission/l01_0050_jon.sound", -2.5f),
-                new TagMod("/sound/dialog/levels/01_spacestation/mission/l01_0051_jon.sound", -2.5f),
-                new TagMod("/sound/dialog/levels/01_spacestation/mission/l01_1810_jon.sound", -2.5f),
+                // Johnson Dialog (Gain +1 from default)
+                new TagMod("/sound/dialog/levels/01_spacestation/mission/l01_0010_jon.sound", -2),
+                new TagMod("/sound/dialog/levels/01_spacestation/mission/l01_0020_jon.sound", -2),
+                new TagMod("/sound/dialog/levels/01_spacestation/mission/l01_0030_jon.sound", -2),
+                new TagMod("/sound/dialog/levels/01_spacestation/mission/l01_0040_jon.sound", -2),
+                new TagMod("/sound/dialog/levels/01_spacestation/mission/l01_0050_jon.sound", -2),
+                new TagMod("/sound/dialog/levels/01_spacestation/mission/l01_0051_jon.sound", -2),
+                new TagMod("/sound/dialog/levels/01_spacestation/mission/l01_1810_jon.sound", -2),
 
                 // Tram Sounds (Gain -1 from default)
                 new RecursiveTagMod("/sound_remastered/ambience/device_machines/ss_door_tram", -1),
