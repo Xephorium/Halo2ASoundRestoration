@@ -129,8 +129,8 @@ public class WeaponTags extends TagGroup {
                 new TagMod("/sound_remastered/weapons/chain_gun/scorpion_gun_fire.sound", -6, 3, 75, NO_CHANGE), // Gain -3 from default
                 new TagMod("/sound_remastered/weapons/chain_gun/warthog_gun.sound", -3f, 3, 75, NO_CHANGE), // Gain -3 from default
 
-                // Gauss Rifle (Gain -2 from default [-3])
-                new TagMod("/sound_remastered/weapons/gauss_rifle/fire.sound", -5),
+                // Gauss Rifle (Gain -1 from default [-3])
+                new TagMod("/sound_remastered/weapons/gauss_rifle/fire.sound", -4),
 
                 // Human Weapon Shells (Gain -4 from default for entire directory)
                 // Concrete Defaults: 308=-18, 50cal=-18, browning=-23, shotgun=-12
@@ -169,9 +169,6 @@ public class WeaponTags extends TagGroup {
                 new TagMod("/sound_remastered/vehicles/gravity_throne/weapon_fire/in.sound", -3),
                 new TagMod("/sound_remastered/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_prophet/loop.sound", -3),
                 new TagMod("/sound_remastered/vehicles/gravity_throne/weapon_fire/out.sound", -3),
-
-                // Scarab Explosion (Gain -5 from default)
-                new TagMod("/sound_remastered/ambience/device_machines/scarab/cov_damage_large_scarab.sound", -15),
         };
     }
 }

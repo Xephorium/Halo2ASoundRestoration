@@ -4,34 +4,24 @@ import prefs.RestorationPreferences;
 import tags.TagGroup;
 import tags.TagMod;
 
+import static tags.TagMod.NO_CHANGE;
+
 public class MetropolisTags extends TagGroup {
 
     public MetropolisTags(RestorationPreferences prefs) {
 
         groupName = "Metropolis";
 
-        recursePaths = new String[] {
+        replacePaths = new String[] {
 
-                // Scarab
-                "/sound_remastered/ambience/device_machines/scarab"
-        };
-
-        preservePaths = new String[] {
-
-                // Scarab Sounds to Definitely Preserve
-                "scarab\\piston_stop.sound",
-                "scarab\\scarab_steps.sound",
-
-                // Scarab Maybe Preserve (Classic steps sound a bit weak w/o, gotta test)
-                "scarab\\scarab_steps_lfe.sound",
-                "scarab\\scarab_steps_swtnr.sound",
-
-        };
-
-        deletePaths = new String[] {
-
-                // Scarab Engine Extra
-                "/sound_remastered/ambience/device_machines/scarab/scarab_engine_loop_swtnr/loop.sound"
+                /* Bridge Overhead Light Explosions
+                 *
+                 * The remaster adds an explosion sound to the lights you can blow up along
+                 * the bridge, but it doesn't sound quite right to me (regardless of volume).
+                 * So, I'm replacing it with the classic turret explosion sound.
+                 */
+                "/sound/vehicles/damage_effects/h_turret_explosion.sound",
+                "/sound_remastered/visual_effects/bridge_light_destroyed.sound"
         };
 
         tagMods = new TagMod[] {
@@ -39,11 +29,11 @@ public class MetropolisTags extends TagGroup {
                 // Music
                 new TagMod(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_01.sound_looping",
-                        prefs.getMusicGain() + -2 // Gain +1 from default
+                        prefs.getMusicGain() + -2.5f // Gain +0.5 from default
                 ),
                 new TagMod(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_02.sound_looping",
-                        prefs.getMusicGain() + -3 // Gain +2 from default
+                        prefs.getMusicGain() + -3.5f // Gain +1.5 from default
                 ),
                 new TagMod(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_03.sound_looping",
@@ -51,14 +41,11 @@ public class MetropolisTags extends TagGroup {
                 ),
                 new TagMod(
                         "/sound_remastered/scenarios/solo/03b_newmombasa/03b_music/03b_04.sound_looping",
-                        prefs.getMusicGain() + -4.5f // Gain +0.5 from default
+                        prefs.getMusicGain() + -5.5f // Gain -0.5 from default
                 ),
 
-                // Scarab Movement (Gain -2 from default)
-                new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_engine_loop/scarab_engine_loop/loop.sound", -2),
-                new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move.sound", -5),
-                new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move_long.sound", -5),
-                new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move_short.sound", -5),
+                // Bridge Overhead Light Explosions (Gain -2 from default)
+                new TagMod("/sound_remastered/visual_effects/bridge_light_destroyed.sound", -8, 2, 20, NO_CHANGE),
         };
     }
 }

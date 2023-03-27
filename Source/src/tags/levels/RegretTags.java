@@ -50,6 +50,12 @@ public class RegretTags extends TagGroup {
                 "/sound_remastered/ambience/device_machines/delta_sub/sub_door/open/delta_sub_elevator_door_open.sound"
         };
 
+        deletePaths = new String[] {
+
+                // Regret Extra Sounds
+                "/sound_remastered/vehicles/gravity_throne/regret_teleport_reflection.sound",
+        };
+
         tagMods = new TagMod[]{
 
                 // Music

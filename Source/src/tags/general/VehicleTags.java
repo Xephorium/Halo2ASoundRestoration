@@ -15,7 +15,22 @@ public class VehicleTags extends TagGroup {
 
         recursePaths = new String[] {
 
-                "/sound_remastered/vehicles"
+                // Most Vehicles
+                "/sound_remastered/vehicles",
+
+                // Scarab
+                "/sound_remastered/ambience/device_machines/scarab"
+        };
+
+        preservePaths = new String[] {
+
+                // Scarab Sounds to Definitely Preserve
+                "scarab\\piston_stop.sound",
+                "scarab\\scarab_steps.sound",
+
+                // Scarab Maybe Preserve (Classic steps sound a bit weak w/o, gotta test)
+                "scarab\\scarab_steps_lfe.sound",
+                "scarab\\scarab_steps_swtnr.sound",
         };
 
         replacePaths = new String[] {
@@ -76,8 +91,8 @@ public class VehicleTags extends TagGroup {
                 "/sound_remastered/vehicles/phantom/phantom_turret_anims/lower.sound",
                 "/sound_remastered/vehicles/phantom/phantom_turret_anims/raise.sound",
 
-                // Regret Extra Sounds
-                "/sound_remastered/vehicles/gravity_throne/regret_teleport_reflection.sound",
+                // Scarab Engine Extra
+                "/sound_remastered/ambience/device_machines/scarab/scarab_engine_loop_swtnr/loop.sound"
         };
 
         tagMods = new TagMod[] {
@@ -116,6 +131,17 @@ public class VehicleTags extends TagGroup {
                 // Vehicle Damage Effects (Gain -3 from default for all)
                 new RecursiveTagMod("/sound_remastered/vehicles/damage_effects", -3),
                 new RecursiveTagMod("/sound/vehicles/damage_effects", -3),
+
+                // Scarab Movement (Gain -2 from default)
+                new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_engine_loop/scarab_engine_loop/loop.sound", -2),
+                new TagMod("/sound_remastered/ambience/device_machines/scarab/piston_stop.sound", -5),
+                new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_steps_swtnr.sound", -1), // Gain -1 from default
+                new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move.sound", -5),
+                new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move_long.sound", -5),
+                new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_walk_move_short.sound", -5),
+
+                // Scarab Explosion (Gain -3 from default)
+                new TagMod("/sound_remastered/ambience/device_machines/scarab/cov_damage_large_scarab.sound", -13),
         };
     }
 }
