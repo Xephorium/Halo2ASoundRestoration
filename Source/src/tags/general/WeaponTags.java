@@ -103,13 +103,14 @@ public class WeaponTags extends TagGroup {
 
                 // SMG
                 new TagMod("/sound_remastered/weapons/smg/fire.sound", -4, 2, 60, NO_CHANGE), // Gain -1 from default
-                new TagMod("/sound/weapons/smg/smg_ready.sound", -10), // Gain -1 from default
-                new TagMod("/sound/weapons/smg/smg_dual_ready.sound", -10), // Gain -1 from default
-                new TagMod("/sound/weapons/smg/smg_reload.sound", -5), // Gain -2 from default
-                new TagMod("/sound/weapons/smg/smg_reload_full.sound", -5), // Gain -2 from default
-                new TagMod("/sound/weapons/smg/smg_dual_reload_left.sound", -5), // Gain -2 from default
-                new TagMod("/sound/weapons/smg/smg_dual_reload_right.sound", -5), // Gain -3 from default
+                new TagMod("/sound_remastered/weapons/smg/smg_ready.sound", -10), // Gain -1 from default
+                new TagMod("/sound_remastered/weapons/smg/smg_dual_ready.sound", -10), // Gain -1 from default
+                new TagMod("/sound_remastered/weapons/smg/smg_reload.sound", -4), // Gain -1 from default
+                new TagMod("/sound_remastered/weapons/smg/smg_reload_full.sound", -4), // Gain -1 from default
+                new TagMod("/sound_remastered/weapons/smg/smg_dual_reload_left.sound", -4), // Gain -1 from default
+                new TagMod("/sound_remastered/weapons/smg/smg_dual_reload_right.sound", -4), // Gain -1 from default
                 new TagMod("/sound/weapons/smg/smg_ammo.sound", -4), // Gain -4 from default
+                new TagMod("/sound_remastered/weapons/smg/smg_drop.sound", -4), // Gain -1 from default
 
                 // Magnum
                 new TagMod("/sound_remastered/weapons/magnum/magnum_fire.sound", -6.5f, 2, 60, NO_CHANGE), // Gain -3.5 from default
