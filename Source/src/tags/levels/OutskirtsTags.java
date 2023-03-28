@@ -19,12 +19,12 @@ public class OutskirtsTags extends TagGroup {
 
         tagMods = new TagMod[] {
 
-                // Distant Battle (Gain -2 from default [-6 all but mono_battle_details, which -5] for directory)
-                new RecursiveTagMod("/sound_remastered/ambience/earthcity/old_mombasa_quiet/details", -2),
+                // Distant Battle (Gain -2.5f from default [-6 all but mono_battle_details, which -5] for directory)
+                new RecursiveTagMod("/sound_remastered/ambience/earthcity/old_mombasa_quiet/details", -3),
 
-                // Other Distant Battle (Gain -2 from default [-3])
-                new TagMod("/sound_remastered/ambience/earthcity/old_mombasa_quiet/no_details_front.sound", -5),
-                new TagMod("/sound_remastered/ambience/earthcity/old_mombasa_quiet/no_details_rear.sound", -5),
+                // Other Distant Battle (Gain -2.5f from default [-3])
+                new TagMod("/sound_remastered/ambience/earthcity/old_mombasa_quiet/no_details_front.sound", -5.5f),
+                new TagMod("/sound_remastered/ambience/earthcity/old_mombasa_quiet/no_details_rear.sound", -5.5f),
 
                 // Music
                 new TagMod( // (phantom arrival strings)

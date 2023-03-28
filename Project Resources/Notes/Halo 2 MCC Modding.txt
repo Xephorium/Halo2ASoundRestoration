@@ -186,7 +186,7 @@
         | 00a_introduction    |                          | The Heretic       | Done       |
         | 01a_tutorial        |                          | The Armory        | Done       |
         | 01b_spacestation    | ss                       | Cairo Station     | Done       |
-        | 03a_oldmombasa      |                          | Outskirts         | Rebalanced |
+        | 03a_oldmombasa      |                          | Outskirts         | Done       |
         | 03b_newmombasa      | earthcity, nm            | Metropolis        | Done       |
         | 04a_gasgiant        | alphagasgiant            | The Arbiter       | Restored   |
         | 04b_floodlab        |                          | The Oracle        | Restored   |
