@@ -115,18 +115,16 @@ public class VehicleTags extends TagGroup {
                  * files almost entirely. There must be something more going on here. But as a
                  * workaround, the code simply adjusts the loop files instead.
                  */
-                new RecursiveTagMod("/sound_remastered/vehicles/warthog", -2, false, true),
-                new TagMod("/sound_remastered/vehicles/warthog/warthog_suspension.sound", -2),
+                new RecursiveTagMod("/sound_remastered/vehicles/warthog", -1.5f, false, true),
+                new TagMod("/sound_remastered/vehicles/warthog/warthog_suspension.sound", -1.5f),
 
                 // Warthog Hubcaps (Gain -1 from default [-3])
                 new TagMod("/sound/materials/havok/hubcap_hit.sound", -4),
                 new TagMod("/sound/materials/havok/hubcap_looping/hubcap_looping.sound_looping", -4),
 
-                // All Scorpion Sounds (Gain -2 from default for all)
-                new RecursiveTagMod("/sound_remastered/vehicles/scorpion", -2),
-
-                // Scorpion Drop Sounds (Gain -1 additional)
-                new RecursiveTagMod("/sound_remastered/vehicles/scorpion/scorpion_drop", -1),
+                // All Scorpion Sounds
+                new RecursiveTagMod("/sound_remastered/vehicles/scorpion", -2), // Gain -2 from default
+                new RecursiveTagMod("/sound_remastered/vehicles/scorpion/scorpion_drop", -1), // Gain -1 from default
 
                 // All Wraith Sounds (Gain -2 from default for all)
                 new RecursiveTagMod("/sound_remastered/vehicles/wraith", -2),
@@ -134,6 +132,11 @@ public class VehicleTags extends TagGroup {
                 // Vehicle Damage Effects (Gain -3 from default for all)
                 new RecursiveTagMod("/sound_remastered/vehicles/damage_effects", -3),
                 new RecursiveTagMod("/sound/vehicles/damage_effects", -3),
+
+                // Vehicle Crash Boost
+                new RecursiveTagMod("/sound_remastered/vehicles/damage_effects/hum_crashes_separate", 0.5f),
+                new TagMod("/sound_remastered/vehicles/damage_effects/cov_crashes.sound", 0.5f),
+                new TagMod("/sound_remastered/vehicles/damage_effects/hum_crashes.sound", 0.5f),
 
                 // Scarab Movement (Gain -2 from default)
                 new TagMod("/sound_remastered/ambience/device_machines/scarab/scarab_engine_loop/scarab_engine_loop/loop.sound", -2),

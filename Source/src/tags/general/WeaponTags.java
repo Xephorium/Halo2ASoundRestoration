@@ -122,6 +122,8 @@ public class WeaponTags extends TagGroup {
 
                 // Rocket Launcher
                 new TagMod("/sound_remastered/weapons/rocket_launcher/rocket_reload.sound", -1), // Gain +2 from default
+                new RecursiveTagMod("/sound_remastered/weapons/rocket_launcher/tracking_locked", -1), // Gain -1 from default
+                new RecursiveTagMod("/sound_remastered/weapons/rocket_launcher/tracking_locking", -1), // Gain -1 from default
 
                 // Chain Gun
                 new TagMod("/sound_remastered/weapons/chain_gun/fire.sound", -2, 2, 60, NO_CHANGE), // Gain -1 from default

@@ -1,6 +1,7 @@
 package tags.general;
 
 import prefs.RestorationPreferences;
+import tags.RecursiveTagMod;
 import tags.TagGroup;
 import tags.TagMod;
 
@@ -59,6 +60,10 @@ public class CharacterTags extends TagGroup {
 
         tagMods = new TagMod[] {
 
+                // Master Chief Footsteps & Foley
+                new RecursiveTagMod("/sound_remastered/characters/footsteps/chief", -1), // Gain -1 from default
+                new RecursiveTagMod("/sound_remastered/characters/masterchief/mc_movement_foley", -2), // Gain -2 from default
+
                 // Sentinel Enforcer
                 new TagMod(
                         "/sound_remastered/characters/sentinel/sentinel_enforcer_laser.sound",
@@ -79,6 +84,9 @@ public class CharacterTags extends TagGroup {
 
                 // Hunter Fall (Gain -13 from default)
                 new TagMod("/sound_remastered/characters/bodyfalls/hunter_bodyfalls.sound", -15),
+
+                // Bugger Fall (Gain -3 from default)
+                new RecursiveTagMod("/sound_remastered/characters/bodyfalls/bugger_bodyfalls", -3),
         };
     }
 }
