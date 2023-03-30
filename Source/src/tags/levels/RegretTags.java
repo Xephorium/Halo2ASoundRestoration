@@ -59,11 +59,11 @@ public class RegretTags extends TagGroup {
         tagMods = new TagMod[]{
 
                 // Music
-                new TagMod(
+                new TagMod( // (opening bop)
                         "/sound_remastered/scenarios/solo/05b_deltatowers/05b_music/05b_01.sound_looping",
-                        prefs.getMusicGain() + -8 // Gain -2 from default
+                        prefs.getMusicGain() + -8.25f // Gain -2.25 from default
                 ),
-                new TagMod(
+                new TagMod( // (pelican arrives)
                         "/sound_remastered/scenarios/solo/05b_deltatowers/05b_music/05b_02.sound_looping",
                         prefs.getMusicGain() + -6 // Gain 0 from default
                 ),

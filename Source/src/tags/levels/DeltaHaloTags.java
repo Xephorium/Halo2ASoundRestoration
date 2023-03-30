@@ -36,7 +36,7 @@ public class DeltaHaloTags extends TagGroup {
         tagMods = new TagMod[] {
 
                 // Ambience
-                new RecursiveTagMod("/sound_remastered/ambience/deltatemple/light_mountain_exterior", +35, false, true), // Gain + 30 from default
+                new RecursiveTagMod("/sound_remastered/ambience/deltatemple/light_mountain_exterior", +37.5f, false, true), // Gain + 30 from default
 
                 // Waterfalls & Rivers (Gain -2/-2.5 from default)
                 new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/delta_approach_waterfall_close", -2.5f),
@@ -46,12 +46,12 @@ public class DeltaHaloTags extends TagGroup {
                 new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/delta_waterfall_close_copy", -2.5f),
                 new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/delta_waterfall_temple", -2.5f),
 
-                // Gusty Wind (Gain +3 from default)
-                new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/gusty_wind", 2),
-                new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/monogusty_wind", 2),
+                // Gusty Wind (Gain +1 from default)
+                new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/gusty_wind", 1),
+                new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/monogusty_wind", 1),
 
                 // Bird Calls (Gain +7/+0.5 from default)
-                new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/stereo_leaves_details", 7),
+                new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/stereo_leaves_details", 7.5f),
                 new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/outdoor_birds", 0.5f),
 
                 // Cortana Dialog
@@ -61,7 +61,7 @@ public class DeltaHaloTags extends TagGroup {
                 // Music
                 new TagMod( // peril (clearing the first temple)
                         "/sound_remastered/scenarios/solo/05a_deltaapproach/05a_music/05a_01.sound_looping",
-                        prefs.getMusicGain() + -7.5f // Gain -1.5 from default
+                        prefs.getMusicGain() + -7.25f // Gain -1.25 from default
                 ),
                 new TagMod( // (warthog mount up drumline)
                         "/sound_remastered/scenarios/solo/05a_deltaapproach/05a_music/05a_02.sound_looping",
@@ -81,7 +81,7 @@ public class DeltaHaloTags extends TagGroup {
                 ),
                 new TagMod( // (delta tower view strings)
                         "/sound_remastered/scenarios/solo/05a_deltaapproach/05a_music/05a_06.sound_looping",
-                        prefs.getMusicGain() + -8f // Gain -2 from default
+                        prefs.getMusicGain() + -9f // Gain -3 from default
                 ),
 
                 // Bridge (Gain -8 from default)
