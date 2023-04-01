@@ -143,6 +143,7 @@ public class WeaponTags extends TagGroup {
                 // Covenant Weapons (Min/max distance adjustment)
                 new TagMod("/sound_remastered/weapons/beam_rifle/beam_rifle_fire.sound", 5, 300),
                 new TagMod("/sound_remastered/weapons/covenant_carbine/fire.sound", -4.5f, 3, 75, NO_CHANGE), // Gain -0.5 from default
+                new TagMod("/sound_remastered/weapons/covenant_carbine/ready.sound", -11.5f), // Gain +0.5 from default
                 new TagMod("/sound_remastered/weapons/plasma_rifle/plasma_rifle_fire.sound", 1, 3, 75, NO_CHANGE), // Gain +1 from default
                 new TagMod("/sound_remastered/weapons/needler/fire.sound", -3, 3, 75, NO_CHANGE), // Gain -3 from default
                 new TagMod("/sound_remastered/weapons/needler/needler_reload.sound", 0), // Gain +3 from default
@@ -168,10 +169,8 @@ public class WeaponTags extends TagGroup {
                 // Sentinel Gun Fire (Gain -2 from default)
                 new TagMod("/sound_remastered/characters/sentinel/sentinel_gun/sentinel_gun.sound_looping", -5),
 
-                // Regret Throne Cannon (Gain -2 from default)
-                new TagMod("/sound_remastered/vehicles/gravity_throne/weapon_fire/in.sound", -3),
-                new TagMod("/sound_remastered/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_prophet/loop.sound", -3),
-                new TagMod("/sound_remastered/vehicles/gravity_throne/weapon_fire/out.sound", -3),
+                // Regret Throne Cannon (Gain -1.5 from default)
+                new TagMod("/sound_remastered/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_loop_gravitythrone.sound_looping", -4.5f),
         };
     }
 }

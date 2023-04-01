@@ -19,7 +19,10 @@ public class CharacterTags extends TagGroup {
                 "/sound_remastered/characters/sentinel",
 
                 // Jackal Shield Pop
-                "/sound_remastered/characters/jackal"
+                "/sound_remastered/characters/jackal",
+
+                // Bugger Body Falls
+                "/sound_remastered/characters/bodyfalls/bugger_bodyfalls"
         };
 
         replacePaths = new String[] {
@@ -84,9 +87,6 @@ public class CharacterTags extends TagGroup {
 
                 // Hunter Fall (Gain -13 from default)
                 new TagMod("/sound_remastered/characters/bodyfalls/hunter_bodyfalls.sound", -15),
-
-                // Bugger Fall (Gain -3 from default)
-                new RecursiveTagMod("/sound_remastered/characters/bodyfalls/bugger_bodyfalls", -3),
         };
     }
 }

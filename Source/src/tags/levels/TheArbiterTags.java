@@ -1,6 +1,7 @@
 package tags.levels;
 
 import prefs.RestorationPreferences;
+import tags.RecursiveTagMod;
 import tags.TagGroup;
 import tags.TagMod;
 
@@ -37,6 +38,9 @@ public class TheArbiterTags extends TagGroup {
         };
 
         tagMods = new TagMod[]{
+
+                // Holographic Button (Gain +2 from default)
+                new RecursiveTagMod("/sound_remastered/ambience/device_machines/holo_button_push", 2f),
 
                 // Music
                 new TagMod(

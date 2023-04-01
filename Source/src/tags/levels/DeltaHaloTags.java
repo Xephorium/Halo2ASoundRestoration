@@ -46,9 +46,9 @@ public class DeltaHaloTags extends TagGroup {
                 new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/delta_waterfall_close_copy", -2.5f),
                 new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/delta_waterfall_temple", -2.5f),
 
-                // Gusty Wind (Gain +1 from default)
-                new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/gusty_wind", 1),
-                new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/monogusty_wind", 1),
+                // Gusty Wind (Gain +1.25 from default)
+                new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/gusty_wind", 1.25f),
+                new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/monogusty_wind", 1.25f),
 
                 // Bird Calls (Gain +7/+0.5 from default)
                 new RecursiveTagMod("/sound_remastered/ambience/sound_scenery/stereo_leaves_details", 7.5f),
