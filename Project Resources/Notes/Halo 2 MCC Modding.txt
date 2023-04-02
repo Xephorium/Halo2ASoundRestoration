@@ -188,7 +188,7 @@
         | 01b_spacestation    | ss                       | Cairo Station     | Done       |
         | 03a_oldmombasa      |                          | Outskirts         | Done       |
         | 03b_newmombasa      | earthcity, nm            | Metropolis        | Done       |
-        | 04a_gasgiant        | alphagasgiant            | The Arbiter       | Restored   |
+        | 04a_gasgiant        | alphagasgiant            | The Arbiter       | Done       |
         | 04b_floodlab        |                          | The Oracle        | Restored   |
         | 05a_deltaapproach   | delta                    | Delta Halo        | Done       |
         | 05b_deltatowers     |                          | Regret            | Done       |
@@ -199,6 +199,7 @@
         | 07b_forerunnership  |                          | High Charity      | Restored   |
         | 08b_deltacontrol    |                          | The Great Journey | Restored   |
         '---------------------------------------------------------------------------------'
+        Progress: Restored -> Rebalanced -> Done
 
     Tag Editing Notes
 

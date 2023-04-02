@@ -63,8 +63,10 @@ public class CharacterTags extends TagGroup {
 
         tagMods = new TagMod[] {
 
-                // Master Chief Footsteps & Foley
-                new RecursiveTagMod("/sound_remastered/characters/footsteps/chief", -1), // Gain -1 from default
+                // Character Footsteps
+                new RecursiveTagMod("/sound_remastered/characters/footsteps", -1), // Gain -1 from default
+
+                // Chief Foley
                 new RecursiveTagMod("/sound_remastered/characters/masterchief/mc_movement_foley", -2), // Gain -2 from default
 
                 // Sentinel Enforcer
@@ -75,6 +77,12 @@ public class CharacterTags extends TagGroup {
                         75, // Max dist +10 from default,
                         0   // Classic only false
                 ),
+
+                // Sentinel Movement
+                new RecursiveTagMod("/sound_remastered/characters/sentinel/sentinel_death.sound", -1),
+                new RecursiveTagMod("/sound_remastered/characters/sentinel/sentinel_death_initial.sound", -1),
+                new RecursiveTagMod("/sound_remastered/characters/sentinel/sentinel_engine", -0.5f),
+                new RecursiveTagMod("/sound_remastered/characters/sentinel/sentinel_engine_constructor", -0.5f),
 
                 // Hunter Movement (Gain -22 from default)
                 new TagMod("/sound_remastered/characters/hunter/land_hard.sound", -25),

@@ -108,6 +108,11 @@ public class VehicleTags extends TagGroup {
                 // Ghost Explosion (Gain -3 from default)
                 new TagMod("/sound_remastered/vehicles/ghost/ghost_initial_destroyed.sound", -6),
 
+                // Banshee
+                new TagMod("/sound_remastered/vehicles/banshee/banshee_cannon_expl.sound", -3.5f), // Gain -0.5 from default
+                new TagMod("/sound_remastered/vehicles/banshee/banshee_cannon_fire.sound", -4), // Gain -1 from default
+                new TagMod("/sound_remastered/vehicles/banshee/banshee_windup.sound", -5), // Gain -2 from default
+
                 /* All Warthog Sounds (Gain -2 from default for all)
                  *
                  * For reasons I can't discern, directly adjusting gain on the warthog '.sound' files

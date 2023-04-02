@@ -1,6 +1,7 @@
 package tags.general;
 
 import prefs.RestorationPreferences;
+import tags.RecursiveTagMod;
 import tags.TagGroup;
 import tags.TagMod;
 
@@ -24,6 +25,9 @@ public class AmbienceTags extends TagGroup {
         };
 
         tagMods = new TagMod[] {
+
+                // Holographic Button (Gain +2 from default)
+                new RecursiveTagMod("/sound_remastered/ambience/device_machines/holo_button_push", 2f),
 
                 // Covenant Portable Shield (Gain -1 from default)
                 new TagMod("/sound_remastered/visual_effects/cov_portable_shield_recharge/cov_portable_shield_rech.sound", -3),
