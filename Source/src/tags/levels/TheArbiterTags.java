@@ -37,9 +37,6 @@ public class TheArbiterTags extends TagGroup {
                 // Ambient Conveyor Rooms
                 "/sound_remastered/ambience/alphagasgiant/alphagas_conveyrooms",
 
-                // Ambient Core Proximity Sounds
-                "/sound_remastered/ambience/sound_scenery/alphagas_closetocore",
-
                 // Other Ambient
                 "/sound_remastered/ambience/sound_scenery/alphagas_closetocore",
                 "/sound_remastered/ambience/sound_scenery/alphagas_core",
@@ -50,21 +47,17 @@ public class TheArbiterTags extends TagGroup {
 
                 // Ambience
                 new RecursiveTagMod("/sound_remastered/ambience/alphagasgiant/alpha_storm/details", -1),
-                new RecursiveTagMod("/sound_remastered/ambience/alphagasgiant/alpha_storm/storm", -1),
+                new RecursiveTagMod("/sound_remastered/ambience/alphagasgiant/alpha_storm/storm", -0.5f),
                 new RecursiveTagMod("/sound_remastered/ambience/alphagasgiant/alphagas_bigmachineroom", -0.5f),
-                new RecursiveTagMod("/sound_remastered/ambience/alphagasgiant/alphagas_exterior", -1f),
-                new RecursiveTagMod("/sound_remastered/ambience/alphagasgiant/alphagas_exterior/details/alphagas_exterior_windwhistle.sound", -1),
-                new RecursiveTagMod("/sound_remastered/ambience/alphagasgiant/alphagas_falling_exterior", -1f),
+                new RecursiveTagMod("/sound_remastered/ambience/alphagasgiant/alphagas_exterior", -0.5f),
+                new RecursiveTagMod("/sound_remastered/ambience/alphagasgiant/alphagas_exterior/details/alphagas_exterior_windwhistle.sound", -1f),
                 new RecursiveTagMod("/sound_remastered/ambience/alphagasgiant/alphagas_inside/details", -0.5f),
                 new TagMod("/sound_remastered/ambience/alphagasgiant/alphagas_inside/details/alphagas_inside_details.sound", -7f), // Gain -1 from default
-                new RecursiveTagMod("/sound_remastered/ambience/alphagasgiant/alphagas_interior_implode", -0.5f),
-                new RecursiveTagMod("/sound_remastered/ambience/alphagasgiant/cable_snaps", -0.5f),
-                new RecursiveTagMod("/sound_remastered/ambience/alphagasgiant/energyroom", -0.5f),
 
                 // Doors
-                new RecursiveTagMod("/sound_remastered/ambience/device_machines/door_tron_lg", -0.5f),
-                new RecursiveTagMod("/sound_remastered/ambience/device_machines/door_tron_lg_containment_shield", -0.5f),
-                new RecursiveTagMod("/sound_remastered/ambience/device_machines/door_tron_sm", -0.5f),
+                new RecursiveTagMod("/sound_remastered/ambience/device_machines/door_tron_lg", -1),
+                new RecursiveTagMod("/sound_remastered/ambience/device_machines/door_tron_lg_containment_shield", -1f),
+                new RecursiveTagMod("/sound_remastered/ambience/device_machines/door_tron_sm", -1f),
 
                 // Music
                 new TagMod( // (spooky hangar music)

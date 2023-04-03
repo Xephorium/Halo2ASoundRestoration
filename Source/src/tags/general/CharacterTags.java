@@ -95,6 +95,9 @@ public class CharacterTags extends TagGroup {
 
                 // Hunter Fall (Gain -13 from default)
                 new TagMod("/sound_remastered/characters/bodyfalls/hunter_bodyfalls.sound", -15),
+
+                // Flood Sounds
+                new RecursiveTagMod("/sound_remastered/characters/flood", -1),
         };
     }
 }
