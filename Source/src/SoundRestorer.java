@@ -174,6 +174,7 @@ public class SoundRestorer {
                 new DeltaHaloTags(prefs),
                 new RegretTags(prefs),
                 new SacredIconTags(prefs),
+                new QuarantineZoneTags(prefs),
                 new GravemindTags(prefs),
                 // Uprising Fine
                 // High Charity Fine
