@@ -3,6 +3,7 @@ import io.TagModifier;
 import io.FileManager;
 
 import java.io.File;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -521,6 +522,7 @@ public class SoundRestorer {
             System.out.printf("%n  or moved a file and this script will need an update.");
             System.out.printf("%n  The errors above should help track down the change.%n");
         }
+        System.out.printf("%n%s%n", getFormattedTime());
 
     }
 
@@ -532,5 +534,11 @@ public class SoundRestorer {
         }
 
         return padding.toString();
+    }
+
+    private String getFormattedTime() {
+        LocalDateTime now = LocalDateTime.now();
+        int hour = now.getHour() > 12 ? now.getHour() - 12 : now.getHour();
+        return String.format("%02d:%02d:%02d", hour, now.getMinute(), now.getSecond());
     }
 }

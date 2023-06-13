@@ -192,7 +192,7 @@
         | 04b_floodlab        |                          | The Oracle        | Done       |
         | 05a_deltaapproach   | delta                    | Delta Halo        | Done       |
         | 05b_deltatowers     |                          | Regret            | Done       |
-        | 06a_sentinelwalls   | shq, SentHeadQuar        | Sacred Icon       | Restored   |
+        | 06a_sentinelwalls   | shq, SentHeadQuar        | Sacred Icon       | Done       |
         | 06b_floodzone       |                          | Quarantine Zone   | Restored   |
         | 07a_highcharity     | high                     | Gravemind         | Restored   |
         | 08a_deltacliffs     |                          | Uprising          | Restored   |

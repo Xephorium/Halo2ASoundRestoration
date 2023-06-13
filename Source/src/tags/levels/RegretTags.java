@@ -57,7 +57,7 @@ public class RegretTags extends TagGroup {
                 "/sound_remastered/vehicles/gravity_throne/regret_teleport_reflection.sound",
         };
 
-        tagMods = new TagMod[]{
+        tagMods = new TagMod[] {
 
                 // Ambience
                 //new RecursiveTagMod("/sound_remastered/ambience/deltatemple/deltatemple_ext1", +60, false, true), // Gain +15 from default

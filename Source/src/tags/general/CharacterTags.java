@@ -77,12 +77,16 @@ public class CharacterTags extends TagGroup {
                         75, // Max dist +10 from default,
                         0   // Classic only false
                 ),
+                new TagMod("/sound/visual_effects/explosion_medium_metal_bits.sound", -4f), // Gain -1.5 from default
 
                 // Sentinel Movement
-                new RecursiveTagMod("/sound_remastered/characters/sentinel/sentinel_death.sound", -1),
-                new RecursiveTagMod("/sound_remastered/characters/sentinel/sentinel_death_initial.sound", -1),
+                new RecursiveTagMod("/sound_remastered/characters/sentinel/sentinel_death.sound", -1.5f),
+                new RecursiveTagMod("/sound_remastered/characters/sentinel/sentinel_death_initial.sound", -1.5f),
                 new RecursiveTagMod("/sound_remastered/characters/sentinel/sentinel_engine", -0.5f),
                 new RecursiveTagMod("/sound_remastered/characters/sentinel/sentinel_engine_constructor", -0.5f),
+
+                // Sentinel Welder (Gain -2 from default)
+                new TagMod("/sound_remastered/characters/sentinel/sentinel_welder_impact.sound", -5f),
 
                 // Hunter Movement (Gain -22 from default)
                 new TagMod("/sound_remastered/characters/hunter/land_hard.sound", -25),
