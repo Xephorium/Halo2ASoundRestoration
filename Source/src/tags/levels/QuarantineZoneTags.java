@@ -25,25 +25,23 @@ public class QuarantineZoneTags extends TagGroup {
                 ),
                 new TagMod( // (tank tunnel drumline)
                         "/sound_remastered/scenarios/solo/06b_floodzone/06b_music/06b_02.sound_looping",
-                        prefs.getMusicGain() + -7f // Gain -1 from default
+                        prefs.getMusicGain() + -7.5f // Gain -1.5 from default
                 ),
                 new TagMod( // (flood ruins strings)
                         "/sound_remastered/scenarios/solo/06b_floodzone/06b_music/06b_03.sound_looping",
                         prefs.getMusicGain() + -5f // Gain 0 from default
                 ),
-                // (tank chasm soothing air)
-                // INCORRECT IN REMASTER - Alt needs to be manually changed to "sound\music\sadstrings_nl\notaloop\loop.sound_loop"
-                // with loop cleared
-                // ---
-                // DAMMIT, they did it again! Removed 06b_04, moved the song references to 06b_05, and
-                // then consolidated both. I don't understand and hate this. 06b_05 plays before the
-                // tram cinematic and then through the whole ride, so I have no choice but to use the
-                // proper track. RIP beautiful chasm melody.
-                // ---
-                // Trying to directly restore 06b_04 with the chasm melody. Pray for me...
-                // ---
-                // Nope. sadstrings is dead. :'(
-                new TagMod(
+                /* RIP Sadstrings
+                 *
+                 * 06b_04, or "sound\music\sadstrings_nl\notaloop\loop.sound" is the track that *should* play
+                 * when the player passes through a tunnel near the end of the mission to arrive at a wide
+                 * chasm. It's where the shipmaster is dropped off again with a new spectre and provides a
+                 * tonal reprieve as the mission approaches its end. However, Saber removed this track and
+                 * consolidated the gameplay hook with 06b_05, the track that plays when the Arbiter arrives
+                 * at the forerunner tram. Given that 06b_05 plays through a significant portion of the end
+                 * of the mission, I need to leave it alone. You will be missed, chasm sadstrings. <3
+                 */
+                new TagMod( // (tram ethereal melody)
                         "/sound_remastered/scenarios/solo/06b_floodzone/06b_music/06b_05.sound_looping",
                         prefs.getMusicGain() + -3f // Gain +1 from default
                 ),

@@ -77,7 +77,9 @@ public class CharacterTags extends TagGroup {
                         75, // Max dist +10 from default,
                         0   // Classic only false
                 ),
+                new TagMod("/sound_remastered/characters/sentinel/enforcer_rocket_explode.sound", -5f), // Gain -2 from default
                 new TagMod("/sound/visual_effects/explosion_medium_metal_bits.sound", -4f), // Gain -1.5 from default
+                new TagMod("/sound_remastered/characters/sentinel/sentinel_rocket_launcher/sentinel_rocket/in.sound", -9), // Gain -1 from default
 
                 // Sentinel Movement
                 new RecursiveTagMod("/sound_remastered/characters/sentinel/sentinel_death.sound", -1.5f),
