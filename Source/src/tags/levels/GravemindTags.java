@@ -1,7 +1,9 @@
 package tags.levels;
 
 import prefs.RestorationPreferences;
+import tags.RecursiveTagMod;
 import tags.TagGroup;
+import tags.TagMod;
 
 public class GravemindTags extends TagGroup {
 
@@ -62,6 +64,52 @@ public class GravemindTags extends TagGroup {
                 // Cortana Appear
                 "/sound/visual_effects/cortana_appear.sound",
                 "/sound_remastered/visual_effects/cortana_appear.sound",
+        };
+
+        tagMods = new TagMod[]{
+
+                // Dialog
+                // "The demon has infiltrated the council chamber!"
+                new RecursiveTagMod("/sound/dialog/levels/07_highcharity/mission/l07_1000_bth.sound", -1f),
+                // "Protect the hierarchs! Seal the exits!"
+                new RecursiveTagMod("/sound/dialog/levels/07_highcharity/mission/l07_1010_bth.sound", -1f),
+                // "Reinforce all approaches to the holding pens!"
+                new RecursiveTagMod("/sound/dialog/levels/07_highcharity/mission/l07_1020_bth.sound", -1f),
+                // "Slay the demon on sight."
+                new RecursiveTagMod("/sound/dialog/levels/07_highcharity/mission/l07_1030_bth.sound", -1f),
+
+                new TagMod( // (first room bassy groove)
+                        "/sound_remastered/scenarios/solo/07a_highcharity/07a_music/07a_01.sound_looping",
+                        prefs.getMusicGain() + -7f // Gain -2 from default
+                ),
+                new TagMod( // (outside light chorus)
+                        "/sound_remastered/scenarios/solo/07a_highcharity/07a_music/07a_02.sound_looping",
+                        prefs.getMusicGain() + -6f // Gain -1 from default
+                ),
+                new TagMod( // (freeing marines low pulse)
+                        "/sound_remastered/scenarios/solo/07a_highcharity/07a_music/07a_03.sound_looping",
+                        prefs.getMusicGain() + -5.5f // Gain -0.5 from default
+                ),
+                new TagMod( // (peril)
+                        "/sound_remastered/scenarios/solo/07a_highcharity/07a_music/07a_04.sound_looping",
+                        prefs.getMusicGain() + -4.5f // Gain -0.5 from default
+                ),
+                new TagMod( // (?)
+                        "/sound_remastered/scenarios/solo/07a_highcharity/07a_music/07a_05.sound_looping",
+                        prefs.getMusicGain() + -4f // Gain 0 from default
+                ),
+                new TagMod( // (?)
+                        "/sound_remastered/scenarios/solo/07a_highcharity/07a_music/07a_06.sound_looping",
+                        prefs.getMusicGain() + -3f // Gain 0 from default
+                ),
+                new TagMod( // (?)
+                        "/sound_remastered/scenarios/solo/07a_highcharity/07a_music/07a_07.sound_looping",
+                        prefs.getMusicGain() + -11f // Gain 0 from default
+                ),
+                new TagMod( // (?)
+                        "/sound_remastered/scenarios/solo/07a_highcharity/07a_music/07a_08.sound_looping",
+                        prefs.getMusicGain() + -5f // Gain 0 from default
+                )
         };
     }
 }

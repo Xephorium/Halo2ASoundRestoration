@@ -10,12 +10,6 @@ public class QuarantineZoneTags extends TagGroup {
 
         groupName = "Quarantine Zone";
 
-        recursePaths = new String[] {};
-
-        preservePaths = new String[] {};
-
-        deletePaths = new String[] {};
-
         tagMods = new TagMod[] {
 
                 // Music
