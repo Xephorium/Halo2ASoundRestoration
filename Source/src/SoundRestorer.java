@@ -49,6 +49,7 @@ public class SoundRestorer {
     /*--- General Constants ---*/
 
     private final String REMASTERED_SOUND_PATH = "/sound_remastered";
+    private final String CLASSIC_SOUND_PATH = "/sound";
 
     private final String[] TAG_DELETE_SUBSTRINGS = {"swtnr", "lfe", "lod.", "_lod"};
     private final String[] TAG_IGNORE_SUBSTRINGS = {"sound_looping"};
@@ -186,7 +187,9 @@ public class SoundRestorer {
         allSoundTagsNotUpdated = new ArrayList<>();
         allSoundTagsNotModified = new ArrayList<>();
         buildSoundFileList(createTagSubdir(REMASTERED_SOUND_PATH), allSoundTagsNotUpdated);
+        buildSoundFileList(createTagSubdir(CLASSIC_SOUND_PATH), allSoundTagsNotUpdated);
         buildSoundFileList(createTagSubdir(REMASTERED_SOUND_PATH), allSoundTagsNotModified);
+        buildSoundFileList(createTagSubdir(CLASSIC_SOUND_PATH), allSoundTagsNotModified);
     }
 
 
@@ -358,7 +361,11 @@ public class SoundRestorer {
         if (FileManager.isValidFile(file)) {
 
             // Modify Sound Tag
-            modifyTag(recursiveTagMod);
+            if (recursiveTagMod.onlyWithSubstring.isEmpty()) {
+                modifyTag(recursiveTagMod);
+            } else if (file.toPath().toString().contains(recursiveTagMod.onlyWithSubstring)) {
+                modifyTag(recursiveTagMod);
+            }
 
         } else if(FileManager.isValidDirectory(file)) {
 

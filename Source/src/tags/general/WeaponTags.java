@@ -139,6 +139,7 @@ public class WeaponTags extends TagGroup {
                 // Concrete Defaults: 308=-18, 50cal=-18, browning=-23, shotgun=-12
                 // Dirt Defaults: 308=-22, 50cal=-9, browning=-9, shotgun=-18
                 new RecursiveTagMod("/sound_remastered/materials/particles/shell_casings", -4),
+                new RecursiveTagMod("/sound_remastered/materials/particles/shell_casings/concrete/308.sound", -1.0f),
 
                 // Covenant Weapons (Min/max distance adjustment)
                 new TagMod("/sound_remastered/weapons/beam_rifle/beam_rifle_fire.sound", 5, 300),

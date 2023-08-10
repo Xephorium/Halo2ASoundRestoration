@@ -194,7 +194,7 @@
         | 05b_deltatowers     |                          | Regret            | Done       |
         | 06a_sentinelwalls   | shq, SentHeadQuar        | Sacred Icon       | Done       |
         | 06b_floodzone       |                          | Quarantine Zone   | Done       |
-        | 07a_highcharity     | high                     | Gravemind         | Restored   |
+        | 07a_highcharity     | high                     | Gravemind         | Done       |
         | 08a_deltacliffs     |                          | Uprising          | Restored   |
         | 07b_forerunnership  |                          | High Charity      | Restored   |
         | 08b_deltacontrol    |                          | The Great Journey | Restored   |
@@ -246,3 +246,19 @@
   |------------------------|
   | Problems             0 |
   '------------------------'
+
+
+/*--- 06.16.2023 Report ---*/
+
+  .---------------------------.
+  | Total Tags Changed   1511 |
+  | > Replaced            750 |
+  | > Modified            890 |
+  | > Deleted              74 |
+  | > Preserved          9421 |
+  |---------------------------|
+  | Problems                0 |
+  '---------------------------'
+
+
+
