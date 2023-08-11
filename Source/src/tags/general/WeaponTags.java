@@ -96,7 +96,7 @@ public class WeaponTags extends TagGroup {
                 new TagMod("/sound_remastered/weapons/sniper_rifle/sniper_reload.sound", -3), // Gain 0 from default
 
                 // Battle Rifle
-                new TagMod("/sound_remastered/weapons/battle_rifle/fire_burst.sound", -6f, 2, 60, NO_CHANGE), // Gain -2 from default
+                new TagMod("/sound_remastered/weapons/battle_rifle/fire_burst.sound", -5.5f, 2, 60, NO_CHANGE), // Gain -1.5 from default
                 new TagMod("/sound_remastered/weapons/battle_rifle/battle_rifle_ready.sound", -7), // Gain +2 from default
                 new TagMod("/sound_remastered/weapons/battle_rifle/battle_rifle_reload.sound", -1.5f), // Gain +1 from default
                 new TagMod("/sound_remastered/weapons/battle_rifle/battle_rifle_reload_half.sound", 0), // Gain +1 from default

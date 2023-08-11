@@ -178,7 +178,7 @@ public class SoundRestorer {
                 new QuarantineZoneTags(prefs),
                 new GravemindTags(prefs),
                 new UprisingTags(prefs),
-                // High Charity Fine
+                new HighCharityTags(prefs),
                 new TheGreatJourneyTags(prefs)
         };
     }

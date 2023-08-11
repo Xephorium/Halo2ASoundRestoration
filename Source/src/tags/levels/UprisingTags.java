@@ -21,13 +21,13 @@ public class UprisingTags extends TagGroup {
 
         tagMods = new TagMod[] {
 
-                // Dialog
-                // "By the prophets, what have these brutes done?"
-                new RecursiveTagMod("/sound/dialog/levels/08_controlroom/mission/l08_0300_dog.sound", 8.0f),
-                // "They have shed our brothers' blood and for that, they must die."
-                new RecursiveTagMod("/sound/dialog/levels/08_controlroom/mission/l08_0310_dog.sound", 8.0f),
-                // "A Zealot? So much for a stealthy advance."
-                new RecursiveTagMod("/sound/dialog/levels/08_controlroom/mission/l08_0310_dog.sound", 9.0f),
+                // Dialog (None of these changes work? ☹)
+//                // "By the prophets, what have these brutes done?"
+//                new RecursiveTagMod("/sound/dialog/levels/08_controlroom/mission/l08_0300_dog.sound", 1.5f),
+//                // "They have shed our brothers' blood and for that, they must die."
+//                new RecursiveTagMod("/sound/dialog/levels/08_controlroom/mission/l08_0310_dog.sound", 1.5f),
+//                // "A Zealot? So much for a stealthy advance."
+//                new RecursiveTagMod("/sound/dialog/levels/08_controlroom/mission/l08_0310_dog.sound", 2.0f),
 
                 // Music
                 // There are some weird music transitions in the beginning of this mission that seem to have

@@ -196,7 +196,7 @@
         | 06b_floodzone       |                          | Quarantine Zone   | Done       |
         | 07a_highcharity     | high                     | Gravemind         | Done       |
         | 08a_deltacliffs     |                          | Uprising          | Done       |
-        | 07b_forerunnership  |                          | High Charity      | Restored   |
+        | 07b_forerunnership  |                          | High Charity      | Done       |
         | 08b_deltacontrol    |                          | The Great Journey | Restored   |
         '---------------------------------------------------------------------------------'
         Progress: Restored -> Rebalanced -> Done
@@ -236,7 +236,7 @@
 
 
 
-/*--- Final Report ---*/
+/*--- "Final" Report ---*/
 
   .------------------------.
   | Updated            808 |
