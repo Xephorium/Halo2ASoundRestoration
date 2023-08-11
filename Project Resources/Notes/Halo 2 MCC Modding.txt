@@ -195,7 +195,7 @@
         | 06a_sentinelwalls   | shq, SentHeadQuar        | Sacred Icon       | Done       |
         | 06b_floodzone       |                          | Quarantine Zone   | Done       |
         | 07a_highcharity     | high                     | Gravemind         | Done       |
-        | 08a_deltacliffs     |                          | Uprising          | Restored   |
+        | 08a_deltacliffs     |                          | Uprising          | Done       |
         | 07b_forerunnership  |                          | High Charity      | Restored   |
         | 08b_deltacontrol    |                          | The Great Journey | Restored   |
         '---------------------------------------------------------------------------------'

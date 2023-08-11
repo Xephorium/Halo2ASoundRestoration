@@ -66,7 +66,7 @@ public class GravemindTags extends TagGroup {
                 "/sound_remastered/visual_effects/cortana_appear.sound",
         };
 
-        tagMods = new TagMod[]{
+        tagMods = new TagMod[] {
 
                 // All Cortana Dialog
                 new RecursiveTagMod("/sound/dialog/levels/07_highcharity/mission", 3.0f, "_cor"),

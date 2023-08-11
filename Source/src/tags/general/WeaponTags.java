@@ -170,6 +170,10 @@ public class WeaponTags extends TagGroup {
                 // Sentinel Gun Fire (Gain -4 from default)
                 new TagMod("/sound_remastered/characters/sentinel/sentinel_gun/sentinel_gun.sound_looping", -7f),
 
+                // Brute Shot
+                new TagMod("/sound_remastered/weapons/brute_shot/brute_round_explode.sound", -4.5f), // Gain -1.5 from default
+                //new TagMod("/sound_remastered/weapons/brute_shot/brute_shot_fire.sound", -3.5f), // Gain -1.0 from default
+
                 // Regret Throne Cannon (Gain -1.5 from default)
                 new TagMod("/sound_remastered/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_loop_gravitythrone.sound_looping", -4.5f),
         };

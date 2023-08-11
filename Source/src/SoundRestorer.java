@@ -177,7 +177,7 @@ public class SoundRestorer {
                 new SacredIconTags(prefs),
                 new QuarantineZoneTags(prefs),
                 new GravemindTags(prefs),
-                // Uprising Fine
+                new UprisingTags(prefs),
                 // High Charity Fine
                 new TheGreatJourneyTags(prefs)
         };
