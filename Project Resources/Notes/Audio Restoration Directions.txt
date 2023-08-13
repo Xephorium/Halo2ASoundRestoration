@@ -1,0 +1,42 @@
+
+//////////////////////////////////////////
+// Halo 2A Sound Restoration Directions //
+//////////////////////////////////////////
+
+
+/// Overview
+
+    Upon each new release of the Master Chief Collection, I'll need to generate a new
+    version of this mod with restored anniversary campaign audio. To save myself a little
+    headache each time, the entire process is outlined below.
+
+
+/// Directions
+
+    1. Extract fresh vanilla tags.
+
+        a. Update Halo 2 Mod Tools in Steam.
+
+        b. Navigate to '<steam games>\steamapps\common\H2EK'. Delete the 'tags' and 'tags_bak' folders.
+
+        c. Double click 'H2EK (Extract).bat' to extract the new tags to the 'tags' folder.
+
+        d. Copy 'tags' to a new folder called 'tags_bak'. (This allows us to quickly reset the tags if something breaks while running the restoration script.)
+
+    2. Restore classic audio to Anniversary campaign.
+
+        a. Command Line - Run 'H2AResetTags' to ensure all files in 'tags' folder match 'tags_bak' folder.
+
+        b. IntelliJ - Open 'Halo 2A Sound Restoration' project. Execute 'run.bat' or click 'Run Project' (upper right) to begin restoration.
+
+        c. Check output report for any issues. If no problems, proceed to build maps.
+
+    3. Build new map files.
+
+        a. Command Line - Run 'H2ABuildMaps'. This will take ~15mins to build new map files in '<steam games>\steamapps\common\H2EK\h2_maps_win64_dx11'.
+
+        b. Backup vanilla campaign map files in '<steam games>\steamapps\common\Halo The Master Chief Collection\halo2\h2_maps_win64_dx11'.
+
+        c. Copy generated map files to the above MCC directory, replacing all.
+
+        d. The H2A campaign is now updated locally and ready to play in MCC!
