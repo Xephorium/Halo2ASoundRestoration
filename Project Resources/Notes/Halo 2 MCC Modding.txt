@@ -197,7 +197,7 @@
         | 07a_highcharity     | high                     | Gravemind         | Done       |
         | 08a_deltacliffs     |                          | Uprising          | Done       |
         | 07b_forerunnership  |                          | High Charity      | Done       |
-        | 08b_deltacontrol    |                          | The Great Journey | Restored   |
+        | 08b_deltacontrol    |                          | The Great Journey | Done       |
         '---------------------------------------------------------------------------------'
         Progress: Restored -> Rebalanced -> Done
 
@@ -261,4 +261,15 @@
   '---------------------------'
 
 
+/*--- Actual Final Report (08.12.2023) ---*/
+
+  .---------------------------.
+  | Total Tags Changed   1729 |
+  | > Replaced            752 |
+  | > Modified           1110 |
+  | > Deleted              73 |
+  | > Preserved          9242 |
+  |---------------------------|
+  | Problems                0 |
+  '---------------------------'
 

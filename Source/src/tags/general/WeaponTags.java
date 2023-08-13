@@ -142,7 +142,7 @@ public class WeaponTags extends TagGroup {
                 new RecursiveTagMod("/sound_remastered/materials/particles/shell_casings/concrete/308.sound", -1.0f),
 
                 // Covenant Weapons (Min/max distance adjustment)
-                new TagMod("/sound_remastered/weapons/beam_rifle/beam_rifle_fire.sound", 5, 300),
+                new TagMod("/sound_remastered/weapons/beam_rifle/beam_rifle_fire.sound", 1, 300),
                 new TagMod("/sound_remastered/weapons/covenant_carbine/fire.sound", -4.5f, 3, 75, NO_CHANGE), // Gain -0.5 from default
                 new TagMod("/sound_remastered/weapons/covenant_carbine/ready.sound", -11.5f), // Gain +0.5 from default
                 new TagMod("/sound_remastered/weapons/plasma_rifle/plasma_rifle_fire.sound", 1, 3, 75, NO_CHANGE), // Gain +1 from default
