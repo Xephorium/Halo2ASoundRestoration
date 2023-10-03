@@ -15,7 +15,7 @@ public class QuarantineZoneTags extends TagGroup {
                 // Music
                 new TagMod( // (insane guitar shredding)
                         "/sound_remastered/scenarios/solo/06b_floodzone/06b_music/06b_01.sound_looping",
-                        prefs.getMusicGain() + -7f // Gain 0 from default
+                        prefs.getMusicGain() + -6.5f // Gain +0.5 from default
                 ),
                 new TagMod( // (tank tunnel drumline)
                         "/sound_remastered/scenarios/solo/06b_floodzone/06b_music/06b_02.sound_looping",
@@ -23,7 +23,7 @@ public class QuarantineZoneTags extends TagGroup {
                 ),
                 new TagMod( // (flood ruins strings)
                         "/sound_remastered/scenarios/solo/06b_floodzone/06b_music/06b_03.sound_looping",
-                        prefs.getMusicGain() + -5f // Gain 0 from default
+                        prefs.getMusicGain() + -4.5f // Gain +0.5 from default
                 ),
                 /* RIP Sadstrings
                  *
@@ -45,7 +45,7 @@ public class QuarantineZoneTags extends TagGroup {
                 ),
                 new TagMod( // (icon room choir)
                         "/sound_remastered/scenarios/solo/06b_floodzone/06b_music/06b_07.sound_looping",
-                        prefs.getMusicGain() + -3f // Gain 0 from default
+                        prefs.getMusicGain() + -2.5f // Gain +0.5 from default
                 ),
         };
     }

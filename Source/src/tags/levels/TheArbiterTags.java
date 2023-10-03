@@ -70,11 +70,11 @@ public class TheArbiterTags extends TagGroup {
                 ),
                 new TagMod( // (heretic hops in a banshee)
                         "/sound_remastered/scenarios/solo/04a_gasgiant/04a_music/04a_03.sound_looping",
-                        prefs.getMusicGain() + -5 // Gain -1 from default
+                        prefs.getMusicGain() + -4.5f // Gain -0.5 from default
                 ),
                 new TagMod( // (banshee battle)
                         "/sound_remastered/scenarios/solo/04a_gasgiant/04a_music/04a_04.sound_looping",
-                        prefs.getMusicGain() + -6f // Gain -3 from default
+                        prefs.getMusicGain() + -5.5f // Gain -2.5 from default
                 ),
         };
     }

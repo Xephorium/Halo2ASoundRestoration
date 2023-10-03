@@ -181,7 +181,7 @@ public class GravemindTags extends TagGroup {
                 ),
                 new TagMod( // (peril)
                         "/sound_remastered/scenarios/solo/07a_highcharity/07a_music/07a_04.sound_looping",
-                        prefs.getMusicGain() + -4.5f // Gain -0.5 from default
+                        prefs.getMusicGain() + -4f // Gain 0 from default
                 ),
                 new TagMod( // (In Amber Clad arrival strings)
                         "/sound_remastered/scenarios/solo/07a_highcharity/07a_music/07a_05.sound_looping",

@@ -25,11 +25,11 @@ public class HighCharityTags extends TagGroup {
 
                 // Dialog
                 // "Flood controlled dropships are touching down all over the city!"
-                new RecursiveTagMod("/sound/dialog/levels/07_highcharity/mission/l07_2680_cor.sound", 3.5f),
+                new RecursiveTagMod("/sound/dialog/levels/07_highcharity/mission/l07_2680_cor.sound", 3f),
                 // "That creature beneath the library, that Gravemind? Used us. You were just a diversion - In Amber Clad was always its intended vector."
-                new RecursiveTagMod("/sound/dialog/levels/07_highcharity/mission/l07_2690_cor.sound", 3.5f),
+                new RecursiveTagMod("/sound/dialog/levels/07_highcharity/mission/l07_2690_cor.sound", 3f),
                 // "There's a conduit connecting this tower to the ship - head back inside, I'll lead you to it."
-                new RecursiveTagMod("/sound/dialog/levels/07_highcharity/mission/l07_2710_cor.sound", 3.5f),
+                new RecursiveTagMod("/sound/dialog/levels/07_highcharity/mission/l07_2710_cor.sound", 3f),
                 // "I'll disable this lift once you reach the top - that'll slow them down, I hope."
                 new RecursiveTagMod("/sound/dialog/levels/07_highcharity/mission/l07_2720_cor.sound", 3.5f),
                 // "Shall we let the flood consume our holy city? ..."
@@ -95,7 +95,7 @@ public class HighCharityTags extends TagGroup {
                 ),
                 new TagMod( // (opening groovy techno beat)
                         "/sound_remastered/scenarios/solo/07b_forerunnership/07b_music/07b_02.sound_looping",
-                        prefs.getMusicGain() + -5.5f // Gain -1.5 from default
+                        prefs.getMusicGain() + -4.5f // Gain -0.5 from default
                 ),
                 new TagMod( // (spooky low moans)
                         "/sound_remastered/scenarios/solo/07b_forerunnership/07b_music/07b_03.sound_looping",

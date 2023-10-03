@@ -122,7 +122,7 @@ public class TheGreatJourneyTags extends TagGroup {
                 ),
                 new TagMod( // (landing - delusions & grandeur)
                         "/sound_remastered/scenarios/solo/08b_deltacontrol/08b_music/08b_08.sound_looping",
-                        prefs.getMusicGain() + -3f // Gain 0 from default
+                        prefs.getMusicGain() + -2.5f // Gain +0.5 from default
                 ),
                 new TagMod( // (ominous chamber entrance fight music)
                         "/sound_remastered/scenarios/solo/08b_deltacontrol/08b_music/08b_09.sound_looping",
@@ -138,11 +138,11 @@ public class TheGreatJourneyTags extends TagGroup {
                 ),
                 new TagMod( // (tartarus fight - spooky women's choir after jump)
                         "/sound_remastered/scenarios/solo/08b_deltacontrol/08b_music/08b_12.sound_looping",
-                        prefs.getMusicGain() + -8f // Gain -1 from default
+                        prefs.getMusicGain() + -7.5f // Gain -0.5 from default
                 ),
                 new TagMod( // (tartarus fight - low pulse)
                         "/sound_remastered/scenarios/solo/08b_deltacontrol/08b_music/08b_13.sound_looping",
-                        prefs.getMusicGain() + -5.5f // Gain -1.5 from default
+                        prefs.getMusicGain() + -5f // Gain -1 from default
                 ),
         };
     }

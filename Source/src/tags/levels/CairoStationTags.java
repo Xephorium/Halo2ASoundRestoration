@@ -106,7 +106,7 @@ public class CairoStationTags extends TagGroup {
                 ),
                 new TagMod( // (spacewalk)
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_06.sound_looping",
-                        prefs.getMusicGain() + 3 // Gain +3 from default
+                        prefs.getMusicGain() + 3.5f // Gain +3.5 from default
                 ),
                 new TagMod( // (bugger stinger)
                         "/sound_remastered/scenarios/solo/01b_spacestation/01b_music/01b_07.sound_looping",

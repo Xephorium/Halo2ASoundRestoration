@@ -98,7 +98,7 @@ public class SacredIconTags extends TagGroup {
                 ),
                 new TagMod( // (strings w/ view of quarantine zone)
                         "/sound_remastered/scenarios/solo/06a_sentinelwalls/06a_music/06a_10.sound_looping",
-                        prefs.getMusicGain() + -4f // Gain 0 from default
+                        prefs.getMusicGain() + -3.5f // Gain +0.5 from default
                 ),
         };
     }

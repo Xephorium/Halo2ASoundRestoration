@@ -107,7 +107,7 @@ public class TheOracleTags extends TagGroup {
                 ),
                 new TagMod( // (final hallway run)
                         "/sound_remastered/scenarios/solo/04b_floodlab/04b_music/04b_08.sound_looping",
-                        prefs.getMusicGain() + -5.5f // Gain -0.5 from default
+                        prefs.getMusicGain() + -5f // Gain 0 from default
                 ),
                 new RecursiveTagMod("/sound_remastered/music/19_rhythmshad/19rshd/alt_loop.sound", -0.5f),
                 new RecursiveTagMod("/sound_remastered/music/19_rhythmshad/19rshd/alt_out.sound", -0.5f),

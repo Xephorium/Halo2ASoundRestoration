@@ -77,7 +77,7 @@ public class DeltaHaloTags extends TagGroup {
                 ),
                 new TagMod( // (waterfall groove)
                         "/sound_remastered/scenarios/solo/05a_deltaapproach/05a_music/05a_05.sound_looping",
-                        prefs.getMusicGain() + -7 // Gain -1 from default
+                        prefs.getMusicGain() + -6.5f // Gain -0.5 from default
                 ),
                 new TagMod( // (delta tower view strings)
                         "/sound_remastered/scenarios/solo/05a_deltaapproach/05a_music/05a_06.sound_looping",
