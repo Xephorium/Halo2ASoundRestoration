@@ -8,3 +8,7 @@ Source/input/
 
 # Build Files
 Source/build/
+
+# GIMP Source Files
+Project Resources/Banner/Source
+Project Resources/Icon/Source
