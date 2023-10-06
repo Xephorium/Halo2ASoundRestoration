@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import io.utility.BinaryTypeConverter;
 import prefs.RestorationPreferences;
 import tags.*;
 import tags.general.*;
@@ -50,6 +51,7 @@ public class SoundRestorer {
 
     private final String REMASTERED_SOUND_PATH = "/sound_remastered";
     private final String CLASSIC_SOUND_PATH = "/sound";
+    private final String CLASSIC_MUSIC_PATH = "/scenarios/solo";
 
     private final String[] TAG_DELETE_SUBSTRINGS = {"swtnr", "lfe", "lod.", "_lod"};
     private final String[] TAG_IGNORE_SUBSTRINGS = {"sound_looping"};
@@ -90,6 +92,11 @@ public class SoundRestorer {
     }
 
     public void restoreSound() {
+
+//        System.out.println(BinaryTypeConverter.byteToBits(BinaryTypeConverter.hexToBytes("90")[0]));
+//        System.out.println(BinaryTypeConverter.hexToBits("90"));
+//        System.out.println(BinaryTypeConverter.byteToBits(BinaryTypeConverter.hexToBytes("9c")[0]));
+//        System.out.println(BinaryTypeConverter.hexToBits("909c"));
         printStartMessage();
 
         // Restore Each Tag Group
@@ -188,8 +195,10 @@ public class SoundRestorer {
         allSoundTagsNotModified = new ArrayList<>();
         buildSoundFileList(createTagSubdir(REMASTERED_SOUND_PATH), allSoundTagsNotUpdated);
         buildSoundFileList(createTagSubdir(CLASSIC_SOUND_PATH), allSoundTagsNotUpdated);
+        buildSoundFileList(createTagSubdir(CLASSIC_MUSIC_PATH), allSoundTagsNotUpdated);
         buildSoundFileList(createTagSubdir(REMASTERED_SOUND_PATH), allSoundTagsNotModified);
         buildSoundFileList(createTagSubdir(CLASSIC_SOUND_PATH), allSoundTagsNotModified);
+        buildSoundFileList(createTagSubdir(CLASSIC_MUSIC_PATH), allSoundTagsNotModified);
     }
 
 

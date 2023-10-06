@@ -117,5 +117,7 @@ public class CairoStationTags extends TagGroup {
                         prefs.getMusicGain() + -5.5f // Gain -1.5 from default
                 )
         };
+
+        generateClassicMusicTagMods();
     }
 }

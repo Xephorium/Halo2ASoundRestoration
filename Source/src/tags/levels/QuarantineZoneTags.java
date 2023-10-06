@@ -48,5 +48,7 @@ public class QuarantineZoneTags extends TagGroup {
                         prefs.getMusicGain() + -2.5f // Gain +0.5 from default
                 ),
         };
+
+        generateClassicMusicTagMods();
     }
 }

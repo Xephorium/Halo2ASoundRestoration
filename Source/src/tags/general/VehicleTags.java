@@ -122,6 +122,7 @@ public class VehicleTags extends TagGroup {
                  */
                 new RecursiveTagMod("/sound_remastered/vehicles/warthog", -1.5f, false, true),
                 new TagMod("/sound_remastered/vehicles/warthog/warthog_suspension.sound", -1.5f),
+                new TagMod("/sound_remastered/vehicles/warthog/warthog_horn/warthog_horn.sound_looping", -3.5f),
 
                 // Warthog Hubcaps (Gain -1 from default [-3])
                 new TagMod("/sound/materials/havok/hubcap_hit.sound", -4),
@@ -154,5 +155,18 @@ public class VehicleTags extends TagGroup {
                 // Scarab Explosion (Gain -3 from default)
                 new TagMod("/sound_remastered/ambience/device_machines/scarab/cov_damage_large_scarab.sound", -13),
         };
+
+        // Rebalance Classic Vehicle Audio
+        generateClassicTagMods("vehicles/", new String[] {
+                "scorpion_drop",
+                "phantom_turret_fire_turret",
+                "ghost_fire",
+                "warthog_suspension"
+        });
+        addClassicTagMods(new TagMod[] {
+                new TagMod("/sound/vehicles/phantom/phantom_turret_fire_c_ap.sound", -9, 10, 75, NO_CHANGE),
+                new TagMod("/sound/vehicles/ghost/ghost_fire.sound", -7),
+        });
+        generateClassicTagMods("ambience/", new String[] { "_swtnr" });
     }
 }

@@ -145,5 +145,7 @@ public class TheGreatJourneyTags extends TagGroup {
                         prefs.getMusicGain() + -5f // Gain -1 from default
                 ),
         };
+
+        generateClassicMusicTagMods();
     }
 }

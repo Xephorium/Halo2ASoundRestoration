@@ -47,5 +47,7 @@ public class MetropolisTags extends TagGroup {
                 // Bridge Overhead Light Explosions (Gain -2 from default)
                 new TagMod("/sound_remastered/visual_effects/bridge_light_destroyed.sound", -8, 2, 20, NO_CHANGE),
         };
+
+        generateClassicMusicTagMods();
     }
 }

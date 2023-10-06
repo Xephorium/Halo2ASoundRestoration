@@ -113,5 +113,7 @@ public class TheOracleTags extends TagGroup {
                 new RecursiveTagMod("/sound_remastered/music/19_rhythmshad/19rshd/alt_out.sound", -0.5f),
                 new RecursiveTagMod("/sound_remastered/music/19_rhythmshad/19rshd/alt_trans_in.sound", -0.5f),
         };
+
+        generateClassicMusicTagMods();
     }
 }

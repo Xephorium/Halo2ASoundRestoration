@@ -54,6 +54,16 @@ public class RecursiveTagMod extends TagMod {
         this.shouldModifyLoopFiles = modLoopFiles;
     }
 
+    public RecursiveTagMod(RecursiveTagMod recursiveTagMod) {
+        super(recursiveTagMod.path, recursiveTagMod.gain);
+        minDist = recursiveTagMod.minDist;
+        maxDist = recursiveTagMod.maxDist;
+        classicOnly = recursiveTagMod.classicOnly;
+        shouldModifySoundFiles = recursiveTagMod.shouldModifySoundFiles;
+        shouldModifyLoopFiles = recursiveTagMod.shouldModifyLoopFiles;
+        onlyWithSubstring = recursiveTagMod.onlyWithSubstring;
+    }
+
 
     /*--- Public Methods ---*/
 

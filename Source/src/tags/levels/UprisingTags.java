@@ -1,11 +1,8 @@
 package tags.levels;
 
 import prefs.RestorationPreferences;
-import tags.RecursiveTagMod;
 import tags.TagGroup;
 import tags.TagMod;
-
-import java.util.List;
 
 public class UprisingTags extends TagGroup {
 
@@ -56,5 +53,7 @@ public class UprisingTags extends TagGroup {
                         prefs.getMusicGain() + -3f // Gain 0 from default
                 ),
         };
+
+        generateClassicMusicTagMods();
     }
 }

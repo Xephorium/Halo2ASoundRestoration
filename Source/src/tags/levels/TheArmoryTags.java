@@ -53,5 +53,7 @@ public class TheArmoryTags extends TagGroup {
                 // Music (Gain +0.5 from default)
                 new TagMod("/sound_remastered/scenarios/solo/01a_tutorial/01a_music/01a_01.sound_looping", -2.5f)
         };
+
+        generateClassicMusicTagMods();
     }
 }

@@ -77,5 +77,7 @@ public class TheArbiterTags extends TagGroup {
                         prefs.getMusicGain() + -5.5f // Gain -2.5 from default
                 ),
         };
+
+        generateClassicMusicTagMods();
     }
 }

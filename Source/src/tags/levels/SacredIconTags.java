@@ -101,5 +101,7 @@ public class SacredIconTags extends TagGroup {
                         prefs.getMusicGain() + -3.5f // Gain +0.5 from default
                 ),
         };
+
+        generateClassicMusicTagMods();
     }
 }

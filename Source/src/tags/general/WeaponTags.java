@@ -177,6 +177,13 @@ public class WeaponTags extends TagGroup {
                 // Regret Throne Cannon (Gain -1.5 from default)
                 new TagMod("/sound_remastered/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_loop_gravitythrone.sound_looping", -4.5f),
         };
+
+        // Rebalance Classic Weapon Audio
+        generateClassicTagMods("weapons/", new String[] { "turret_fire_mono", "loop_gravitythrone"});
+        generateClassicTagMods("characters/");
+        addClassicTagMods(new TagMod[] {
+                new TagMod("/sound/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_gravitythrone_loop.sound_looping", -4.5f),
+        });
     }
 }
 

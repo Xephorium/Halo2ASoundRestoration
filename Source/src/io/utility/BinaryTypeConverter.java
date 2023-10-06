@@ -74,4 +74,20 @@ public class BinaryTypeConverter {
         }
         return new String(hexChars, StandardCharsets.UTF_8);
     }
+
+    public static String hexToBits(String hexString) {
+        StringBuilder builder = new StringBuilder();
+        for (int x = 0; x < hexString.length(); x += 2) {
+            String bits = byteToBits(hexToBytes(hexString.substring(x, x + 2))[0]);
+            builder.append(bits);
+            if (x % 4 == 0) {
+                builder.append(" ");
+            }
+        }
+        return builder.toString();
+    }
+
+    public static String byteToBits(byte b) {
+        return String.format("%8s", Integer.toBinaryString(b & 0xFF)).replace(' ', '0');
+    }
 }

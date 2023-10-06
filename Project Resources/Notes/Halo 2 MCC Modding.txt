@@ -234,6 +234,13 @@
         Boolean tag values are stored in a single byte with the following equivalent hex
         values: true = '0c', false = '08'
 
+        For .sound_looping files, the gain byte always begins 11 bytes after one of the following
+        byte patterns:
+          01 00 00 00 01 00 00 00 90.
+          01 00 00 00 02 00 00 00 90.
+          01 00 00 00 01 00 00 00 9c.
+
+
 
 
 /*--- "Final" Report ---*/
@@ -269,6 +276,18 @@
   | > Modified           1110 |
   | > Deleted              73 |
   | > Preserved          9242 |
+  |---------------------------|
+  | Problems                0 |
+  '---------------------------'
+
+/*--- Classic Music Restoration Report (10.03.2023) ---*/
+
+  .---------------------------.
+  | Total Tags Changed   1827 |
+  | > Replaced            752 |
+  | > Modified           1208 |
+  | > Deleted              73 |
+  | > Preserved          9726 |
   |---------------------------|
   | Problems                0 |
   '---------------------------'

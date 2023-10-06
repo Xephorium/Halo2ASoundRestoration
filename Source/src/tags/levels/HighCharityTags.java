@@ -115,5 +115,6 @@ public class HighCharityTags extends TagGroup {
                 ),
         };
 
+        generateClassicMusicTagMods();
     }
 }

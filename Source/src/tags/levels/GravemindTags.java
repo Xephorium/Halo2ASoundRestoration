@@ -200,5 +200,7 @@ public class GravemindTags extends TagGroup {
                         prefs.getMusicGain() + -6f // Gain -1.0 from default
                 )
         };
+
+        generateClassicMusicTagMods();
     }
 }

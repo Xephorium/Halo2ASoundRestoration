@@ -61,4 +61,8 @@ public class TagMod {
     public TagMod(String tagPath, float tagGain) {
         this(tagPath, tagGain, NO_CHANGE, NO_CHANGE, NO_CHANGE);
     }
+
+    public TagMod(TagMod tagMod) {
+        this(tagMod.path, tagMod.gain, tagMod.minDist, tagMod.maxDist, tagMod.classicOnly);
+    }
 }

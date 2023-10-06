@@ -114,6 +114,8 @@ public class RegretTags extends TagGroup {
                         prefs.getMusicGain() + -3 // Gain 0 from default
                 ),
         };
+
+        generateClassicMusicTagMods();
     }
 }
 

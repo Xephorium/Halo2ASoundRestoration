@@ -100,5 +100,7 @@ public class DeltaHaloTags extends TagGroup {
                 // Bridge Button (Gain +4 from default [-3])
                 new TagMod("/sound_remastered/ambience/device_machines/da_bridge/stopped.sound", 1),
         };
+
+        generateClassicMusicTagMods();
     }
 }

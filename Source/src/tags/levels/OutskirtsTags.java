@@ -77,5 +77,7 @@ public class OutskirtsTags extends TagGroup {
                 new TagMod("/sound/dialog/levels/03_earthcity/mission/l03_0080_cor.sound", 2),
                 new TagMod("/sound/dialog/levels/03_earthcity/mission/l03_0590_cor.sound", 2),
         };
+
+        generateClassicMusicTagMods();
     }
 }

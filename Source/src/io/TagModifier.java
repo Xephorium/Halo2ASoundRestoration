@@ -31,14 +31,36 @@ public class TagModifier {
      * be reproduced with the printTagContents() method below.
      */
 
-    // Exist in `*.sound` and `*.sound_looping` files
-    private static final int GAIN_INDEX_SOUND = 120;         // 4 byte float - Row 8, column 5
-    private static final int GAIN_INDEX_SOUND_LOOPING = 180; // 4 byte float - Row 12, column 3
+    // `*.sound` File Attributes
+    private static final int GAIN_INDEX_SOUND = 120;     // 4 byte float - Row 8, column 5
+    private static final int MIN_DIST_INDEX_SOUND = 104; // 4 byte float - Row 7, column 5
+    private static final int MAX_DIST_INDEX_SOUND = 108; // 4 byte float - Row 7, column 7
+    private static final int CLASSIC_ONLY_INDEX = 97;    // 1 byte bool  - Row 7, column 1.5
 
-    // Exist only in `*.sound` files
-    private static final int MIN_DIST_INDEX_SOUND = 104;     // 4 byte float - Row 7, column 5
-    private static final int MAX_DIST_INDEX_SOUND = 108;     // 4 byte float - Row 7, column 7
-    private static final int CLASSIC_ONLY_INDEX = 97;        // 1 byte bool  - Row 7, column 1.5
+    // `*.sound_looping` File Attributes
+    private static final byte[] SOUND_LOOPING_BYTE_PATTERN = {
+            BinaryTypeConverter.hexToBytes("01")[0],
+            BinaryTypeConverter.hexToBytes("00")[0],
+            BinaryTypeConverter.hexToBytes("00")[0],
+            BinaryTypeConverter.hexToBytes("00")[0],
+            BinaryTypeConverter.hexToBytes("01")[0],
+            BinaryTypeConverter.hexToBytes("00")[0],
+            BinaryTypeConverter.hexToBytes("00")[0],
+            BinaryTypeConverter.hexToBytes("00")[0],
+            BinaryTypeConverter.hexToBytes("90")[0],
+    };
+    private static final int GAIN_INDEX_SOUND_LOOPING = 11; // 11 bytes after above byte sequence
+
+    /* Halo 2 Classic Music Volume
+     *
+     * For some reason, all of Halo 2 Classic's music tracks
+     * seem to play slightly quieter than the actual decibel
+     * value they're set to. Or maybe Anniversary's music
+     * tracks are boosted from what they should be? Either way,
+     * the following constant is used to increase Classic music
+     * volume to match the levels I've tuned for Anniversary.
+     */
+    public static final float CLASSIC_MUSIC_BOOST = 4f;
 
 
     /*--- Modify Method ---*/
@@ -67,12 +89,16 @@ public class TagModifier {
             shouldModifyLoopFile = ((RecursiveTagMod) tagMod).shouldModifyLoopFiles;
         }
 
-
         // Update Gain
         if (tagMod.gain != TagMod.NO_CHANGE &&
                 ((isLoopFile && shouldModifyLoopFile) || (!isLoopFile && shouldModifySoundFile)) ) {
-            float currentGain = shouldReplaceGain ? 0 : getTagGain(byteArray, isLoopFile);
-            updateFloat(byteArray, isLoopFile ? GAIN_INDEX_SOUND_LOOPING : GAIN_INDEX_SOUND, currentGain + tagMod.gain);
+            float currentGain = shouldReplaceGain ? 0 : getTagGain(byteArray, tagFile);
+            int gainIndex = getGainByteIndex(tagFile, byteArray);
+            if (gainIndex != 0) {
+                updateFloat(byteArray, gainIndex, currentGain + tagMod.gain);
+            } else {
+                return false;
+            }
         }
 
         // Update Min Distance
@@ -105,8 +131,8 @@ public class TagModifier {
         }
     }
 
-    public static float getTagGain(byte[] array, boolean isLoopFile) {
-        return readFloat(array, isLoopFile ? GAIN_INDEX_SOUND_LOOPING : GAIN_INDEX_SOUND);
+    public static float getTagGain(byte[] array, File tagFile) {
+        return readFloat(array, getGainByteIndex(tagFile, array));
     }
 
 
@@ -132,6 +158,70 @@ public class TagModifier {
     private static float readFloat(byte[] bytes, int index) {
         byte[] newArray = { bytes[index], bytes[index + 1], bytes[index + 2], bytes[index + 3] };
         return BinaryTypeConverter.bytesToFloat(newArray);
+    }
+
+    private static int getGainByteIndex(File tagFile, byte[] bytes) {
+        boolean isLoopFile = FileManager.getFileOrDirectoryName(tagFile).contains(".sound_looping");
+        if (!isLoopFile) {
+            return GAIN_INDEX_SOUND;
+        } else {
+            int index = getIndexAfterBytePatternInSoundLoopingFile(bytes);
+            if (index == 0) {
+                System.out.println("    Error finding byte index to modify below tag.");
+                return index;
+            } else {
+                return index + GAIN_INDEX_SOUND_LOOPING;
+            }
+        }
+    }
+
+    /* Okay, this is a fun one.
+     *
+     * Initially, to edit *.sound_looping files, I just modified a specific
+     * two bytes in each file that seemed to correspond to gain. However, as
+     * I interacted with more *.sound_looping files, I realized the bytes
+     * that need to change aren't always in the same place. Between anniversary
+     * and classic files, the position changes. And even among classic files,
+     * whether they're for music or other effects changes the position further.
+     *
+     * Eventually, I found a more reliable method. Some variation of the following
+     * byte sequence is consistently 11 bytes before the two gain bytes in every
+     * *sound_looping file.
+     *
+     *   01 00 00 00 01 00 00 00 90
+     *               or
+     *   01 00 00 00 02 00 00 00 90
+     *               or
+     *   01 00 00 00 01 00 00 00 0c
+     *
+     * The below method searches each byte array it's passed for a match of
+     * the above byte sequence. If found, the method returns the index immediately
+     * after the sequence. Otherwise, it just returns 0. This allows the program
+     * to reliably locate the bytes that need to be changed to update a file's gain.
+     */
+    private static int getIndexAfterBytePatternInSoundLoopingFile(byte[] bytes) {
+        for (int x = 0; x < bytes.length - SOUND_LOOPING_BYTE_PATTERN.length; x++) {
+            boolean match = true;
+            int issues = 0;
+            for (int y = 0; y < SOUND_LOOPING_BYTE_PATTERN.length; y++) {
+                if (bytes[x + y] != SOUND_LOOPING_BYTE_PATTERN[y]) {
+                    if (y == 4 || y == 8) {
+                        issues++;
+
+                        if (issues >= 2) {
+                            match = false;
+                        }
+                    } else {
+                        match = false;
+                        break;
+                    }
+                }
+            }
+            if (match) {
+                return x + SOUND_LOOPING_BYTE_PATTERN.length;
+            }
+        }
+        return 0;
     }
 
     private static void printByteArray(byte[] array) {

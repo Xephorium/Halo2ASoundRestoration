@@ -1,5 +1,11 @@
 package tags;
 
+import io.TagModifier;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class TagGroup {
 
 
@@ -29,4 +35,74 @@ public class TagGroup {
 
     // A list of tags that need to be edited and the edits to be performed.
     public TagMod[] tagMods = {};
+
+
+    /*--- Protected Class Methods ---*/
+
+    protected void generateClassicMusicTagMods() {
+
+        // Generate Classic Music TagMod List
+        List<TagMod> classicMusicTagMods = new ArrayList<TagMod>();
+        for (TagMod tagMod : tagMods) {
+            if (tagMod.path.contains("sound_remastered") && tagMod.path.contains("_music")) {
+                TagMod classicMod = new TagMod(tagMod);
+                classicMod.path = tagMod.path.replace("sound_remastered/", "");
+                classicMod.gain += TagModifier.CLASSIC_MUSIC_BOOST;
+                classicMusicTagMods.add(classicMod);
+            }
+        }
+
+        // Combine Array & List
+        TagMod[] result = Arrays.copyOf(tagMods, tagMods.length + classicMusicTagMods.size());
+        System.arraycopy(classicMusicTagMods.toArray(new TagMod[0]), 0, result, tagMods.length, classicMusicTagMods.size());
+
+        // Assign to TagMods
+        tagMods = result;
+    }
+
+    protected void generateClassicTagMods(String filterString) {
+        generateClassicTagMods(filterString, new String[] {});
+    }
+
+    protected void generateClassicTagMods(String filterString, String[] excludeStrings) {
+
+        // Generate Classic Weapon TagMod List
+        List<TagMod> classicWeaponTagMods = new ArrayList<TagMod>();
+        for (TagMod tagMod : tagMods) {
+            boolean containsExcludeString = Arrays.stream(excludeStrings).anyMatch(tagMod.path::contains);
+            if (tagMod.path.contains("sound_remastered") && tagMod.path.contains(filterString) && !containsExcludeString) {
+                TagMod classicMod;
+                if (tagMod instanceof RecursiveTagMod) classicMod = new RecursiveTagMod((RecursiveTagMod) tagMod);
+                else classicMod = new TagMod(tagMod);
+                classicMod.path = tagMod.path.replace("sound_remastered/", "sound/");
+                classicWeaponTagMods.add(classicMod);
+            }
+        }
+
+        // Combine Array & List
+        TagMod[] result = Arrays.copyOf(tagMods, tagMods.length + classicWeaponTagMods.size());
+        System.arraycopy(classicWeaponTagMods.toArray(new TagMod[0]), 0, result, tagMods.length, classicWeaponTagMods.size());
+
+        // Assign to TagMods
+        tagMods = result;
+    }
+
+    protected void addClassicTagMods(TagMod[] tagMods) {
+
+        // Convert To ArrayList
+        List<TagMod> classicTagMods = new ArrayList<>();
+        for (TagMod tagMod : tagMods) {
+            TagMod classicMod;
+            if (tagMod instanceof RecursiveTagMod) classicMod = new RecursiveTagMod((RecursiveTagMod) tagMod);
+            else classicMod = new TagMod(tagMod);
+            classicTagMods.add(classicMod);
+        }
+
+        // Combine Array & List
+        TagMod[] combined = Arrays.copyOf(tagMods, tagMods.length + classicTagMods.size());
+        System.arraycopy(classicTagMods.toArray(new TagMod[0]), 0, combined, tagMods.length, classicTagMods.size());
+
+        // Assign to TagMods
+        tagMods = combined;
+    }
 }
