@@ -92,11 +92,6 @@ public class SoundRestorer {
     }
 
     public void restoreSound() {
-
-//        System.out.println(BinaryTypeConverter.byteToBits(BinaryTypeConverter.hexToBytes("90")[0]));
-//        System.out.println(BinaryTypeConverter.hexToBits("90"));
-//        System.out.println(BinaryTypeConverter.byteToBits(BinaryTypeConverter.hexToBytes("9c")[0]));
-//        System.out.println(BinaryTypeConverter.hexToBits("909c"));
         printStartMessage();
 
         // Restore Each Tag Group
