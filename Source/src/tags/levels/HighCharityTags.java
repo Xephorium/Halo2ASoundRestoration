@@ -30,6 +30,7 @@ public class HighCharityTags extends TagGroup {
                 new RecursiveTagMod("/sound/dialog/levels/07_highcharity/mission/l07_2690_cor.sound", 3f),
                 // "There's a conduit connecting this tower to the ship - head back inside, I'll lead you to it."
                 new RecursiveTagMod("/sound/dialog/levels/07_highcharity/mission/l07_2710_cor.sound", 3f),
+                // TODO - "We don't have time for this Chief! Truth's phantom is nearing the Forerunner ship!"
                 // "I'll disable this lift once you reach the top - that'll slow them down, I hope."
                 new RecursiveTagMod("/sound/dialog/levels/07_highcharity/mission/l07_2720_cor.sound", 3.5f),
                 // "Shall we let the flood consume our holy city? ..."
