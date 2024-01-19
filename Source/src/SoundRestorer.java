@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import io.utility.BinaryTypeConverter;
 import prefs.RestorationPreferences;
 import tags.*;
 import tags.general.*;
@@ -154,7 +153,7 @@ public class SoundRestorer {
     }
 
     private void initializeTagGroups() {
-        RestorationPreferences prefs = new RestorationPreferences(musicVolumeModifier);
+        RestorationPreferences prefs = new RestorationPreferences(musicVolumeModifier, false);
 
         TAG_GROUPS = new TagGroup[] {
 

@@ -116,6 +116,8 @@ public class RegretTags extends TagGroup {
         };
 
         generateClassicMusicTagMods();
+
+        if (prefs.isMusicOnly()) clearAllButMusicChanges();
     }
 }
 

@@ -102,5 +102,7 @@ public class DeltaHaloTags extends TagGroup {
         };
 
         generateClassicMusicTagMods();
+
+        if (prefs.isMusicOnly()) clearAllButMusicChanges();
     }
 }

@@ -50,5 +50,7 @@ public class QuarantineZoneTags extends TagGroup {
         };
 
         generateClassicMusicTagMods();
+
+        if (prefs.isMusicOnly()) clearAllButMusicChanges();
     }
 }

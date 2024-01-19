@@ -292,3 +292,14 @@
   | Problems                0 |
   '---------------------------'
 
+/*--- Music Restoration Only Refactor Report (01.19.2024) ---*/
+
+  .---------------------------.
+  | Total Tags Changed   1938 |
+  | > Replaced            752 |
+  | > Modified           1327 |
+  | > Deleted              73 |
+  | > Preserved          9615 |
+  |---------------------------|
+  | Problems                0 |
+  '---------------------------'

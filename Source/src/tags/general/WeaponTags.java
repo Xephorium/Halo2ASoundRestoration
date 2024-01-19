@@ -184,6 +184,8 @@ public class WeaponTags extends TagGroup {
         addClassicTagMods(new TagMod[] {
                 new TagMod("/sound/weapons/hunter_cannon/hunter_cannon_loop/hunter_cannon_gravitythrone_loop.sound_looping", -4.5f),
         });
+
+        if (prefs.isMusicOnly()) clearAllButMusicChanges();
     }
 }
 

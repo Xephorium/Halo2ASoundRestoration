@@ -36,5 +36,7 @@ public class AmbienceTags extends TagGroup {
                 // Concrete Barriers (Gain -2 from default [-1])
                 new TagMod("/sound_remastered/materials/hard/concrete_barriers.sound", -3),
         };
+
+        if (prefs.isMusicOnly()) clearAllButMusicChanges();
     }
 }

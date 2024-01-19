@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static prefs.RestorationPreferences.MUSIC_ONLY_GAIN_BOOST;
+
 public class TagGroup {
 
 
@@ -104,5 +106,36 @@ public class TagGroup {
 
         // Assign to TagMods
         tagMods = combined;
+    }
+
+    protected void clearAllButMusicChanges() {
+        recursePaths = new String[] {};
+        preservePaths = new String[] {};
+        replacePaths = new String[] {};
+        deletePaths = new String[] {};
+
+        // Generate List of Only Music Tag Mods
+        List<TagMod> musicTagModList = new ArrayList<TagMod>();
+        for (TagMod tagMod : tagMods) {
+            if (tagMod.path.contains("_music")) {
+
+                if (tagMod.path.contains("sound_remastered")) {
+
+                    // Boost Remastered Music Gain to Complete With Loud Soundscape
+                    TagMod mod = tagMod;
+                    mod.gain += MUSIC_ONLY_GAIN_BOOST;
+                    musicTagModList.add(mod);
+
+                } else {
+                    musicTagModList.add(tagMod);
+                }
+            }
+        }
+
+        // Convert Music TagMod List to Array
+        TagMod[] musicTagModArray = new TagMod[musicTagModList.size()];
+        musicTagModList.toArray(musicTagModArray);
+
+        tagMods = musicTagModArray;
     }
 }

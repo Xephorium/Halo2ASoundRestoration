@@ -105,5 +105,7 @@ public class CharacterTags extends TagGroup {
                 // Flood Sounds
                 new RecursiveTagMod("/sound_remastered/characters/flood", -1),
         };
+
+        if (prefs.isMusicOnly()) clearAllButMusicChanges();
     }
 }

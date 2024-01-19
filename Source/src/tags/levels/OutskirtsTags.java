@@ -79,5 +79,7 @@ public class OutskirtsTags extends TagGroup {
         };
 
         generateClassicMusicTagMods();
+
+        if (prefs.isMusicOnly()) clearAllButMusicChanges();
     }
 }

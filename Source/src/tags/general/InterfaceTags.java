@@ -19,5 +19,7 @@ public class InterfaceTags extends TagGroup {
                 // Shield Pop
                 "/sound_remastered/ui/shield_pop.sound"
         };
+
+        if (prefs.isMusicOnly()) clearAllButMusicChanges();
     }
 }

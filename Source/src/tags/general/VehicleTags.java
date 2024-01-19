@@ -168,5 +168,7 @@ public class VehicleTags extends TagGroup {
                 new TagMod("/sound/vehicles/ghost/ghost_fire.sound", -7),
         });
         generateClassicTagMods("ambience/", new String[] { "_swtnr" });
+
+        if (prefs.isMusicOnly()) clearAllButMusicChanges();
     }
 }

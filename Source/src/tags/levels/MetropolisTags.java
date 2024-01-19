@@ -49,5 +49,7 @@ public class MetropolisTags extends TagGroup {
         };
 
         generateClassicMusicTagMods();
+
+        if (prefs.isMusicOnly()) clearAllButMusicChanges();
     }
 }
